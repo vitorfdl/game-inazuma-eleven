@@ -1,10 +1,14 @@
 import playersJson from "@/assets/data/players.json?raw";
-import { computePower, type BaseStats, type PowerStats } from "@/lib/inazuma-math";
 import { normalizeStat, sanitizeAttribute } from "@/lib/data-helpers";
 import type { ElementType, TeamPosition } from "@/lib/icon-picker";
+import {
+	type BaseStats,
+	computePower,
+	type PowerStats,
+} from "@/lib/inazuma-math";
 
 export type RawPlayerRecord = {
-	"Nº": number;
+	Nº: number;
 	Image: string;
 	Name: string;
 	Nickname: string;
@@ -41,12 +45,24 @@ export type PlayerRecord = {
 	power: PowerStats;
 };
 
+type PlayerBaseStatKey = Exclude<keyof BaseStats, "total">;
+
+const playerBaseStatKeys: PlayerBaseStatKey[] = [
+	"kick",
+	"control",
+	"technique",
+	"pressure",
+	"physical",
+	"agility",
+	"intelligence",
+];
+
 const rawPlayers = JSON.parse(playersJson).filter(
 	(record: RawPlayerRecord) => record.Name !== "???",
 ) as RawPlayerRecord[];
 
 export const playersDataset: PlayerRecord[] = rawPlayers.map((player) => {
-	const stats: BaseStats = {
+	const baseStats: Record<PlayerBaseStatKey, number> = {
 		kick: normalizeStat(player.Kick),
 		control: normalizeStat(player.Control),
 		technique: normalizeStat(player.Technique),
@@ -54,7 +70,10 @@ export const playersDataset: PlayerRecord[] = rawPlayers.map((player) => {
 		physical: normalizeStat(player.Physical),
 		agility: normalizeStat(player.Agility),
 		intelligence: normalizeStat(player.Intelligence),
-		total: normalizeStat(player.Total),
+	};
+	const stats: BaseStats = {
+		...baseStats,
+		total: playerBaseStatKeys.reduce((sum, key) => sum + baseStats[key], 0),
 	};
 
 	return {
@@ -104,5 +123,3 @@ export function mapToTeamPosition(position: string): TeamPosition {
 	};
 	return map[normalized] ?? "MD";
 }
-
-
