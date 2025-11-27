@@ -198,7 +198,6 @@ export function PlayerAssignmentModal({
 									<PlayerOptionCard
 										key={`favorite-${player.id}`}
 										player={player}
-										isFavorite
 										alreadyAssigned={assignedIds.has(player.id)}
 										onSelect={() => onSelectPlayer(player.id)}
 									/>
@@ -308,7 +307,6 @@ type PlayerOptionCardProps = {
 
 function PlayerOptionCard({
 	player,
-	isFavorite = false,
 	alreadyAssigned,
 	onSelect,
 }: PlayerOptionCardProps) {

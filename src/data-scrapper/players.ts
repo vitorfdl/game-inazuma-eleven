@@ -5,7 +5,7 @@
 //   npx tsx src/data-scrapper/players.ts
 import fs from "node:fs";
 import path from "node:path";
-import { type Cheerio, type CheerioAPI, type Element, load } from "cheerio";
+import { type Cheerio, type CheerioAPI, load } from "cheerio";
 
 const BASE_URL = "https://zukan.inazuma.jp";
 
@@ -30,7 +30,7 @@ type PlayerRecord = {
 	Nickname: string;
 	Game: string;
 	Position: string;
-	Element: string;
+	any: string;
 	Kick: number;
 	Control: number;
 	Technique: number;
@@ -59,7 +59,7 @@ function cleanText(value: string): string {
 	return value.replace(/\s+/g, " ").trim();
 }
 
-function cleanRubyText($el: Cheerio<Element>): string {
+function cleanRubyText($el: Cheerio<any>): string {
 	if ($el.length === 0) return "";
 	const cloned = $el.clone();
 	cloned.find("rt").remove();
@@ -75,7 +75,7 @@ function parseNumeric(value: string): number {
 	return Number.isFinite(numeric) ? numeric : 0;
 }
 
-function extractDescription($description: Cheerio<Element>): string {
+function extractDescription($description: Cheerio<any>): string {
 	if ($description.length === 0) return "";
 	const html = $description.html();
 	if (!html) return cleanText($description.text());
@@ -93,7 +93,7 @@ function extractDescription($description: Cheerio<Element>): string {
 
 function extractBasicInfo(
 	$: CheerioAPI,
-	$item: Cheerio<Element>,
+	$item: Cheerio<any>,
 ): Record<string, string> {
 	const info: Record<string, string> = {};
 	$item.find("li").each((_, li) => {
@@ -107,7 +107,7 @@ function extractBasicInfo(
 
 function extractStats(
 	$: CheerioAPI,
-	$player: Cheerio<Element>,
+	$player: Cheerio<any>,
 ): Record<StatKey, number> {
 	const stats: Record<StatKey, number> = Object.fromEntries(
 		STAT_KEYS.map((key) => [key, 0]),
@@ -129,7 +129,7 @@ function extractPlayers(html: string): PlayerRecordWithoutIndex[] {
 	const $ = load(html);
 	const players: PlayerRecordWithoutIndex[] = [];
 
-	$("ul.charaListBox > li").each((index, node) => {
+	$("ul.charaListBox > li").each((_index, node) => {
 		const $player = $(node);
 		const name = cleanRubyText($player.find(".nameBox span.name").first());
 
@@ -154,7 +154,7 @@ function extractPlayers(html: string): PlayerRecordWithoutIndex[] {
 				.find("dd")
 				.text(),
 		);
-		const elementType = cleanText(
+		const anyType = cleanText(
 			$player.find("ul.param > li").first().find("dl.box dd").first().text(),
 		);
 		const stats = extractStats($, $player);
@@ -173,7 +173,7 @@ function extractPlayers(html: string): PlayerRecordWithoutIndex[] {
 			Nickname: nickname,
 			Game: game,
 			Position: position,
-			Element: elementType,
+			any: anyType,
 			Kick: stats.Kick,
 			Control: stats.Control,
 			Technique: stats.Technique,
