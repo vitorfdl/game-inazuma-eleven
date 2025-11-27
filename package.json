@@ -20,7 +20,6 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tooltip": "^1.2.8",
     "@vitejs/plugin-react": "^5.0.2",
-    "cheerio": "^1.1.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "jotai": "^2.13.1",
@@ -33,6 +32,7 @@
     "vaul": "^1.1.2"
   },
   "devDependencies": {
+    "cheerio": "^1.1.2",
     "@biomejs/biome": "^2.2.3",
     "@eslint/js": "^9.33.0",
     "@tailwindcss/vite": "^4.1.12",
