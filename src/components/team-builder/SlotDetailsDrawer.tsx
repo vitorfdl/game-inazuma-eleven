@@ -7,12 +7,20 @@ import {
 	Swords,
 	Target,
 } from "lucide-react";
-import { type KeyboardEvent, useMemo, useState } from "react";
+import { type KeyboardEvent, useEffect, useMemo, useState } from "react";
 
 import { ElementChip, PositionChip } from "@/components/team-builder/Chips";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogFooter,
+	DialogHeader,
+	DialogTitle,
+} from "@/components/ui/dialog";
 import {
 	Select,
 	SelectContent,
@@ -149,6 +157,7 @@ function SlotDetailsPanel({
 	onClearSlot,
 	onUpdateSlotConfig,
 }: SlotDetailsPanelProps) {
+	const [clearDialogOpen, setClearDialogOpen] = useState(false);
 	const player = assignment?.player ?? null;
 	const rarity = assignment?.config.rarity ?? "normal";
 	const rarityDefinition = getSlotRarityDefinition(rarity);
@@ -156,6 +165,12 @@ function SlotDetailsPanel({
 	const currentEquipments =
 		assignment?.config.equipments ?? createEmptySlotEquipments();
 	const currentBeans = assignment?.config.beans ?? createEmptySlotBeans();
+
+	useEffect(() => {
+		if (!player || !slot) {
+			setClearDialogOpen(false);
+		}
+	}, [player, slot]);
 
 	const handleRarityChange = (value: SlotRarity) => {
 		if (!slot) return;
@@ -237,7 +252,7 @@ function SlotDetailsPanel({
 								</Button>
 								<Button
 									variant="destructive"
-									onClick={() => onClearSlot(slot.id)}
+									onClick={() => setClearDialogOpen(true)}
 									className="flex-1 min-w-[140px]"
 								>
 									Remove from slot
@@ -289,6 +304,34 @@ function SlotDetailsPanel({
 					</div>
 				)}
 			</div>
+
+			<Dialog open={clearDialogOpen} onOpenChange={setClearDialogOpen}>
+				<DialogContent>
+					<DialogHeader>
+						<DialogTitle>Remove player from slot?</DialogTitle>
+						<DialogDescription>
+							This will clear the assignment and reset custom settings for this
+							slot.
+						</DialogDescription>
+					</DialogHeader>
+					<DialogFooter>
+						<Button variant="outline" onClick={() => setClearDialogOpen(false)}>
+							Keep player
+						</Button>
+						<Button
+							variant="destructive"
+							onClick={() => {
+								if (slot) {
+									onClearSlot(slot.id);
+								}
+								setClearDialogOpen(false);
+							}}
+						>
+							Remove anyway
+						</Button>
+					</DialogFooter>
+				</DialogContent>
+			</Dialog>
 		</section>
 	);
 }

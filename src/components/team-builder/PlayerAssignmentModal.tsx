@@ -76,8 +76,7 @@ export function PlayerAssignmentModal({
 	const header = (
 		<div className="space-y-1">
 			<p className="text-xs text-muted-foreground">
-				Search or filter players. Assigning someone already on the pitch will
-				move them here.
+				Search or filter players. 
 			</p>
 		</div>
 	);

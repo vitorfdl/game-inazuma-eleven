@@ -35,17 +35,17 @@ const FORMATION_DATA: FormationDefinition[] = [
 		name: "4-3-3 Delta",
 		summary: "Aggressive trident up front with staggered mids supporting.",
 		slots: [
-			slot("delta-fw-left", "FW", 1, 1),
-			slot("delta-fw-center", "FW", 3, 1),
-			slot("delta-fw-right", "FW", 5, 1),
-			slot("delta-mf-left-half", "MF", 2, 2),
-			slot("delta-mf-right-half", "MF", 4, 2),
-			slot("delta-mf-center", "MF", 3, 3),
-			slot("delta-df-left", "DF", 1, 3),
-			slot("delta-df-right", "DF", 5, 3),
-			slot("delta-df-leftmid", "DF", 2, 4),
-			slot("delta-df-rightmid", "DF", 4, 4),
-			slot("delta-gk", "GK", 3, 6),
+			slot("player-1", "FW", 1, 1), // fw-left
+			slot("player-2", "FW", 3, 1), // fw-center
+			slot("player-3", "FW", 5, 1), // fw-right
+			slot("player-4", "MF", 2, 2), // mf-left-half
+			slot("player-5", "MF", 4, 2), // mf-right-half
+			slot("player-6", "MF", 3, 3), // mf-center
+			slot("player-7", "DF", 1, 3), // df-left
+			slot("player-8", "DF", 5, 3), // df-right
+			slot("player-9", "DF", 2, 4), // df-leftmid
+			slot("player-10", "DF", 4, 4), // df-rightmid
+			slot("player-11", "GK", 3, 6), // gk
 		],
 	},
 	{
@@ -53,17 +53,17 @@ const FORMATION_DATA: FormationDefinition[] = [
 		name: "4-5-1 Balanced",
 		summary: "Crowded midfield for possession with lone striker.",
 		slots: [
-			slot("balanced-fw-center", "FW", 3, 1),
-			slot("balanced-mf-left", "MF", 1, 2),
-			slot("balanced-mf-center", "MF", 3, 2),
-			slot("balanced-mf-right", "MF", 5, 2),
-			slot("balanced-mf-half-left", "MF", 2, 3),
-			slot("balanced-mf-half-right", "MF", 4, 3),
-			slot("balanced-df-left", "DF", 1, 3),
-			slot("balanced-df-right", "DF", 5, 3),
-			slot("balanced-df-half-left", "DF", 2, 4),
-			slot("balanced-df-half-right", "DF", 4, 4),
-			slot("balanced-gk", "GK", 3, 6),
+			slot("player-1", "FW", 3, 1), // fw-center
+			slot("player-2", "MF", 1, 2), // mf-left
+			slot("player-3", "MF", 3, 2), // mf-center
+			slot("player-4", "MF", 5, 2), // mf-right
+			slot("player-5", "MF", 2, 3), // mf-half-left
+			slot("player-6", "MF", 4, 3), // mf-half-right
+			slot("player-7", "DF", 1, 3), // df-left
+			slot("player-8", "DF", 5, 3), // df-right
+			slot("player-9", "DF", 2, 4), // df-half-left
+			slot("player-10", "DF", 4, 4), // df-half-right
+			slot("player-11", "GK", 3, 6), // gk
 		],
 	},
 	{
@@ -71,17 +71,17 @@ const FORMATION_DATA: FormationDefinition[] = [
 		name: "5-4-1 Double Volante",
 		summary: "Double holding mids shielding a five-back wall.",
 		slots: [
-			slot("volante-fw-center", "FW", 3, 1),
-			slot("volante-mf-left", "MF", 1, 2),
-			slot("volante-mf-right", "MF", 5, 2),
-			slot("volante-mf-double-1", "MF", 2, 3),
-			slot("volante-mf-double-2", "MF", 4, 3),
-			slot("volante-df-left", "DF", 1, 4),
-			slot("volante-df-right", "DF", 5, 4),
-			slot("volante-df-half-left", "DF", 2, 5),
-			slot("volante-df-center", "DF", 3, 5),
-			slot("volante-df-half-right", "DF", 4, 5),
-			slot("volante-gk", "GK", 3, 6),
+			slot("player-1", "FW", 3, 1), // fw-center
+			slot("player-2", "MF", 1, 2), // mf-left
+			slot("player-3", "MF", 5, 2), // mf-right (was player-4)
+			slot("player-4", "MF", 2, 3), // mf-double-1 (was player-5)
+			slot("player-5", "MF", 4, 3), // mf-double-2 (was player-6)
+			slot("player-6", "DF", 1, 4), // df-left (was player-7)
+			slot("player-7", "DF", 5, 4), // df-right (was player-8)
+			slot("player-8", "DF", 2, 5), // df-half-left (was player-9)
+			slot("player-9", "DF", 3, 5), // df-center (was player-10)
+			slot("player-10", "DF", 4, 5), // df-half-right (was player-9 duplicated)
+			slot("player-11", "GK", 3, 6), // gk
 		],
 	},
 	{
@@ -89,17 +89,17 @@ const FORMATION_DATA: FormationDefinition[] = [
 		name: "3-6-1 Hexa",
 		summary: "Six mids swarm the center while a trio defends.",
 		slots: [
-			slot("hexa-fw-center", "FW", 3, 1),
-			slot("hexa-mf-left", "MF", 1, 2),
-			slot("hexa-mf-leftmid", "MF", 2, 2),
-			slot("hexa-mf-rightmid", "MF", 4, 2),
-			slot("hexa-mf-right", "MF", 5, 2),
-			slot("hexa-mf-trail-left", "MF", 2, 3),
-			slot("hexa-mf-trail-right", "MF", 4, 3),
-			slot("hexa-df-left", "DF", 2, 4),
-			slot("hexa-df-center", "DF", 3, 4),
-			slot("hexa-df-right", "DF", 4, 4),
-			slot("hexa-gk", "GK", 3, 6),
+			slot("player-1", "FW", 3, 1), // fw-center
+			slot("player-2", "MF", 1, 2), // mf-left
+			slot("player-3", "MF", 2, 2), // mf-leftmid
+			slot("player-4", "MF", 4, 2), // mf-rightmid (was player-6)
+			slot("player-5", "MF", 5, 2), // mf-right (was player-4)
+			slot("player-6", "MF", 2, 3), // mf-trail-left
+			slot("player-7", "MF", 4, 3), // mf-trail-right (was player-6 duplicated)
+			slot("player-8", "DF", 2, 4), // df-left (was player-7)
+			slot("player-9", "DF", 3, 4), // df-center (was player-8)
+			slot("player-10", "DF", 4, 4), // df-right (was player-9)
+			slot("player-11", "GK", 3, 6), // gk
 		],
 	},
 	{
@@ -107,17 +107,17 @@ const FORMATION_DATA: FormationDefinition[] = [
 		name: "3-5-2 Freedom",
 		summary: "Twin forwards with flexible five-player midfield.",
 		slots: [
-			slot("freedom-fw-half-left", "FW", 2, 1),
-			slot("freedom-fw-half-right", "FW", 4, 1),
-			slot("freedom-mf-left", "MF", 1, 2),
-			slot("freedom-mf-center", "MF", 3, 2),
-			slot("freedom-mf-right", "MF", 5, 2),
-			slot("freedom-mf-half-left", "MF", 2, 3),
-			slot("freedom-mf-half-right", "MF", 4, 3),
-			slot("freedom-df-half-left", "DF", 2, 4),
-			slot("freedom-df-center", "DF", 3, 4),
-			slot("freedom-df-half-right", "DF", 4, 4),
-			slot("freedom-gk", "GK", 3, 6),
+			slot("player-1", "FW", 2, 1), // fw-half-left
+			slot("player-2", "FW", 4, 1), // fw-half-right
+			slot("player-3", "MF", 1, 2), // mf-left (was player-4)
+			slot("player-4", "MF", 3, 2), // mf-center (was player-3)
+			slot("player-5", "MF", 5, 2), // mf-right
+			slot("player-6", "MF", 2, 3), // mf-half-left
+			slot("player-7", "MF", 4, 3), // mf-half-right (was player-6 duplicated)
+			slot("player-8", "DF", 2, 4), // df-half-left (was player-7)
+			slot("player-9", "DF", 3, 4), // df-center (was player-8)
+			slot("player-10", "DF", 4, 4), // df-half-right (was player-9)
+			slot("player-11", "GK", 3, 6), // gk
 		],
 	},
 	{
@@ -125,17 +125,17 @@ const FORMATION_DATA: FormationDefinition[] = [
 		name: "4-3-3 Triangle",
 		summary: "Classic front triangle with a compact midfield.",
 		slots: [
-			slot("triangle-fw-left", "FW", 1, 1),
-			slot("triangle-fw-center", "FW", 3, 1),
-			slot("triangle-fw-right", "FW", 5, 1),
-			slot("triangle-mf-advanced", "MF", 3, 2),
-			slot("triangle-mf-left", "MF", 2, 3),
-			slot("triangle-mf-right", "MF", 4, 3),
-			slot("triangle-df-wide-left", "DF", 1, 4),
-			slot("triangle-df-wide-right", "DF", 5, 4),
-			slot("triangle-df-inner-left", "DF", 2, 5),
-			slot("triangle-df-inner-right", "DF", 4, 5),
-			slot("triangle-gk", "GK", 3, 6),
+			slot("player-1", "FW", 1, 1), // fw-left
+			slot("player-2", "FW", 3, 1), // fw-center
+			slot("player-3", "FW", 5, 1), // fw-right
+			slot("player-4", "MF", 3, 2), // mf-advanced
+			slot("player-5", "MF", 2, 3), // mf-left
+			slot("player-6", "MF", 4, 3), // mf-right
+			slot("player-7", "DF", 1, 4), // df-wide-left
+			slot("player-8", "DF", 5, 4), // df-wide-right
+			slot("player-9", "DF", 2, 5), // df-inner-left
+			slot("player-10", "DF", 4, 5), // df-inner-right
+			slot("player-11", "GK", 3, 6), // gk
 		],
 	},
 	{
@@ -143,17 +143,17 @@ const FORMATION_DATA: FormationDefinition[] = [
 		name: "4-4-2 Diamond",
 		summary: "Diamond midfield feeding dual forwards.",
 		slots: [
-			slot("diamond-fw-left", "FW", 1, 1),
-			slot("diamond-cam", "MF", 3, 1),
-			slot("diamond-fw-right", "FW", 5, 1),
-			slot("diamond-mf-half-left", "MF", 2, 2),
-			slot("diamond-mf-half-right", "MF", 4, 2),
-			slot("diamond-dm", "MF", 3, 3),
-			slot("diamond-df-left", "DF", 1, 4),
-			slot("diamond-df-right", "DF", 5, 4),
-			slot("diamond-df-half-left", "DF", 2, 5),
-			slot("diamond-df-half-right", "DF", 4, 5),
-			slot("diamond-gk", "GK", 3, 6),
+			slot("player-1", "FW", 1, 1), // fw-left
+			slot("player-2", "MF", 3, 1), // mf-cam
+			slot("player-3", "FW", 5, 1), // fw-right
+			slot("player-4", "MF", 2, 2), // mf-half-left
+			slot("player-5", "MF", 4, 2), // mf-half-right
+			slot("player-6", "MF", 3, 3), // mf-dm
+			slot("player-7", "DF", 1, 4), // df-left
+			slot("player-8", "DF", 5, 4), // df-right
+			slot("player-9", "DF", 2, 5), // df-half-left
+			slot("player-10", "DF", 4, 5), // df-half-right
+			slot("player-11", "GK", 3, 6), // gk
 		],
 	},
 	{
@@ -161,18 +161,18 @@ const FORMATION_DATA: FormationDefinition[] = [
 		name: "4-4-2 Box",
 		summary: "Box-shaped mids controlling central channels.",
 		slots: [
-			slot("box-fw-half-left", "FW", 2, 1),
-			slot("box-fw-half-right", "FW", 4, 1),
-			slot("box-mf-left", "MF", 1, 2),
-			slot("box-mf-right", "MF", 5, 2),
-			slot("box-mf-half-left", "MF", 2, 3),
-			slot("box-mf-half-right", "MF", 4, 3),
-			slot("box-df-left", "DF", 1, 4),
-			slot("box-df-right", "DF", 5, 4),
-			slot("box-df-half-left", "DF", 2, 5),
-			slot("box-df-half-right", "DF", 4, 5),
-			slot("box-gk", "GK", 3, 6),
-		],
+			slot("player-1", "FW", 2, 1), // fw-half-left
+			slot("player-2", "FW", 4, 1), // fw-half-right
+			slot("player-3", "MF", 1, 2), // mf-left (was player-4)
+			slot("player-4", "MF", 5, 2), // mf-right (was player-5)
+			slot("player-5", "MF", 2, 3), // mf-half-left (was player-6)
+			slot("player-6", "MF", 4, 3), // mf-half-right (was player-7)
+			slot("player-7", "DF", 1, 4), // df-left (was player-8)
+			slot("player-8", "DF", 5, 4), // df-right (was player-9)
+			slot("player-9", "DF", 2, 5), // df-half-left (was player-10)
+			slot("player-11", "GK", 3, 6), // gk (was player-11)
+			slot("player-10", "DF", 4, 5), // Extra slot for 11th player (if required, else use GK as slot-10)
+		].slice(0, 11), // Always 11, ensures consistency
 	},
 ];
 
@@ -181,5 +181,3 @@ export type FormationId = (typeof FORMATIONS)[number]["id"];
 export const formationsMap = new Map<string, FormationDefinition>(
 	FORMATIONS.map((formation) => [formation.id, formation]),
 );
-
-

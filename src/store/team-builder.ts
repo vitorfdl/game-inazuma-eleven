@@ -24,7 +24,7 @@ export type TeamBuilderState = {
 	slotConfigs: TeamBuilderSlotConfigs;
 };
 
-const TEAM_BUILDER_STORAGE_KEY = "inazuma-guide.team-builder.v1";
+const TEAM_BUILDER_STORAGE_KEY = "inazuma-guide.team-builder.v2";
 const DEFAULT_FORMATION_ID = FORMATIONS[0]?.id ?? "433-delta";
 const DEFAULT_SLOT_EQUIPMENTS: SlotEquipments = Object.freeze({
 	boots: null,

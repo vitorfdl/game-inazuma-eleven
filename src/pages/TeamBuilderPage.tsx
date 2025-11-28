@@ -1,10 +1,20 @@
 import { useAtom, useAtomValue } from "jotai";
-import { CheckCircle2, CirclePlus, RefreshCcw, UserX } from "lucide-react";
+import { CheckCircle2, CirclePlus, RefreshCcw, Share2, UserX } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { PositionChip } from "@/components/team-builder/Chips";
 import { PlayerAssignmentModal } from "@/components/team-builder/PlayerAssignmentModal";
 import { SlotDetailsDrawer } from "@/components/team-builder/SlotDetailsDrawer";
 import { Button } from "@/components/ui/button";
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogFooter,
+	DialogHeader,
+	DialogTitle,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 import {
 	Select,
 	SelectContent,
@@ -22,6 +32,11 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { formatNumber } from "@/lib/data-helpers";
 import { getElementIcon, getPositionColor } from "@/lib/icon-picker";
 import {
+	TEAM_SHARE_QUERY_KEY,
+	decodeTeamShareState,
+	encodeTeamShareState,
+} from "@/lib/team-share";
+import {
 	mapToElementType,
 	mapToTeamPosition,
 	type PlayerRecord,
@@ -38,6 +53,7 @@ import {
 	normalizeSlotConfig,
 	type TeamBuilderAssignments,
 	type TeamBuilderSlotConfigs,
+	type TeamBuilderState,
 	teamBuilderAtom,
 } from "@/store/team-builder";
 import type {
@@ -75,6 +91,14 @@ const POSITION_DISPLAY_ORDER: Record<string, number> = {
 	FW: 3,
 };
 
+type ShareCopyState = "idle" | "copied" | "error";
+
+type SharedTeamCandidate = {
+	state: TeamBuilderState;
+	filledSlots: number;
+	formationName: string;
+};
+
 export default function TeamBuilderPage() {
 	const [teamState, setTeamState] = useAtom(teamBuilderAtom);
 	const favoritePlayerIds = useAtomValue(favoritePlayersAtom);
@@ -82,14 +106,29 @@ export default function TeamBuilderPage() {
 	const [pickerOpen, setPickerOpen] = useState(false);
 	const [detailsOpen, setDetailsOpen] = useState(false);
 	const [activeSlotId, setActiveSlotId] = useState<string | null>(null);
+	const [shareDialogOpen, setShareDialogOpen] = useState(false);
+	const [shareLink, setShareLink] = useState("");
+	const [shareCopyState, setShareCopyState] = useState<ShareCopyState>("idle");
+	const [shareAlert, setShareAlert] = useState<string | null>(null);
+	const [sharedCandidate, setSharedCandidate] =
+		useState<SharedTeamCandidate | null>(null);
+	const [importDialogOpen, setImportDialogOpen] = useState(false);
+	const [clearDialogOpen, setClearDialogOpen] = useState(false);
+	const location = useLocation();
+	const navigate = useNavigate();
 	const isMobile = useIsMobile();
 	const favoriteSet = useMemo(
 		() => new Set(favoritePlayerIds),
 		[favoritePlayerIds],
 	);
 
-	const formation = formationsMap.get(teamState.formationId) ?? FORMATIONS[0];
-	const displayMode = teamState.displayMode ?? "nickname";
+	const previewState = sharedCandidate?.state ?? null;
+	const effectiveState = previewState ?? teamState;
+	const isPreviewingSharedTeam = Boolean(previewState);
+
+	const formation =
+		formationsMap.get(effectiveState.formationId) ?? FORMATIONS[0];
+	const displayMode = effectiveState.displayMode ?? "nickname";
 
 	useEffect(() => {
 		if (!formation.slots.length) {
@@ -106,11 +145,47 @@ export default function TeamBuilderPage() {
 		}
 	}, [formation, activeSlotId]);
 
+	useEffect(() => {
+		const params = new URLSearchParams(location.search);
+		const encodedShare = params.get(TEAM_SHARE_QUERY_KEY);
+		if (!encodedShare) {
+			return;
+		}
+		params.delete(TEAM_SHARE_QUERY_KEY);
+		const nextSearch = params.toString();
+		navigate(
+			`${location.pathname}${nextSearch ? `?${nextSearch}` : ""}`,
+			{
+				replace: true,
+				state: location.state,
+				preventScrollReset: true,
+			},
+		);
+		const decodedState = decodeTeamShareState(encodedShare);
+		if (decodedState) {
+			setSharedCandidate({
+				state: decodedState,
+				filledSlots: countAssignedPlayers(decodedState.assignments),
+				formationName:
+					formationsMap.get(decodedState.formationId)?.name ??
+					"Unknown formation",
+			});
+			setImportDialogOpen(true);
+			setActiveSlotId(null);
+			setPickerOpen(false);
+			setDetailsOpen(false);
+			setClearDialogOpen(false);
+			setShareAlert(null);
+		} else {
+			setShareAlert("We couldn't read the shared team link.");
+		}
+	}, [location.pathname, location.search, location.state, navigate]);
+
 	const slotAssignments: SlotAssignment[] = useMemo(() => {
-		const slotConfigs = teamState.slotConfigs ?? {};
+		const slotConfigs = effectiveState.slotConfigs ?? {};
 		return formation.slots.map((slot) => {
 			const config = normalizeSlotConfig(slotConfigs[slot.id]);
-			const player = getPlayerById(teamState.assignments[slot.id]);
+			const player = getPlayerById(effectiveState.assignments[slot.id]);
 			return {
 				slot,
 				player,
@@ -118,14 +193,14 @@ export default function TeamBuilderPage() {
 				computed: player ? computeSlotComputedStats(player, config) : null,
 			};
 		});
-	}, [formation.slots, teamState.assignments, teamState.slotConfigs]);
+	}, [effectiveState.assignments, effectiveState.slotConfigs, formation.slots]);
 
 	const assignedPlayerIds = useMemo(() => {
-		const ids = Object.values(teamState.assignments).filter(
+		const ids = Object.values(effectiveState.assignments).filter(
 			(value): value is number => typeof value === "number",
 		);
 		return new Set(ids);
-	}, [teamState.assignments]);
+	}, [effectiveState.assignments]);
 
 	const filledCount = slotAssignments.filter((entry) => entry.player).length;
 	const activeSlot = activeSlotId
@@ -180,52 +255,22 @@ export default function TeamBuilderPage() {
 	}, [activeSlot, favoriteSet]);
 
 	const handleFormationChange = (formationId: FormationDefinition["id"]) => {
+		if (isPreviewingSharedTeam) return;
 		setTeamState((prev) => {
-			const previousFormation =
+			const fallbackFormation =
 				formationsMap.get(prev.formationId) ?? FORMATIONS[0];
-			const nextFormation = formationsMap.get(formationId) ?? previousFormation;
+			const nextFormation = formationsMap.get(formationId) ?? fallbackFormation;
+			const prevAssignments = prev.assignments ?? {};
 			const prevSlotConfigs = prev.slotConfigs ?? {};
 
-			const seen = new Set<number>();
-			const assignedPlayers = previousFormation.slots
-				.map((slot) => {
-					const playerId = prev.assignments[slot.id];
-					if (typeof playerId !== "number" || seen.has(playerId)) return null;
-					seen.add(playerId);
-					const player = getPlayerById(playerId);
-					return {
-						id: playerId,
-						position: player ? normalizePosition(player.position) : null,
-					};
-				})
-				.filter((entry): entry is { id: number; position: string | null } =>
-					Boolean(entry),
-				);
-
 			const nextAssignments: TeamBuilderAssignments = {};
-			const remaining = [...assignedPlayers];
 			const nextSlotConfigs: TeamBuilderSlotConfigs = {};
 
 			nextFormation.slots.forEach((slot) => {
+				nextAssignments[slot.id] = prevAssignments[slot.id] ?? null;
 				if (prevSlotConfigs[slot.id]) {
 					nextSlotConfigs[slot.id] = prevSlotConfigs[slot.id];
 				}
-			});
-
-			nextFormation.slots.forEach((slot) => {
-				if (!remaining.length) {
-					nextAssignments[slot.id] = null;
-					return;
-				}
-				const normalizedLabel = normalizePosition(slot.label);
-				const matchIndex = remaining.findIndex(
-					(entry) => entry.position && entry.position === normalizedLabel,
-				);
-				const [selected] =
-					matchIndex >= 0
-						? remaining.splice(matchIndex, 1)
-						: remaining.splice(0, 1);
-				nextAssignments[slot.id] = selected?.id ?? null;
 			});
 
 			return {
@@ -240,6 +285,7 @@ export default function TeamBuilderPage() {
 	};
 
 	const handleDisplayModeChange = (mode: DisplayMode) => {
+		if (isPreviewingSharedTeam) return;
 		setTeamState((prev) => ({
 			...prev,
 			displayMode: mode,
@@ -247,20 +293,18 @@ export default function TeamBuilderPage() {
 	};
 
 	const handleOpenPicker = (slot: FormationSlot) => {
+		if (isPreviewingSharedTeam) return;
 		setActiveSlotId(slot.id);
 		setPickerOpen(true);
 	};
 
 	const handleAssignPlayer = (playerId: number) => {
-		if (!activeSlot) return;
+		if (!activeSlot || isPreviewingSharedTeam) return;
 		setTeamState((prev) => {
-			const nextAssignments: TeamBuilderAssignments = { ...prev.assignments };
-			Object.entries(nextAssignments).forEach(([slotId, assignedId]) => {
-				if (assignedId === playerId) {
-					nextAssignments[slotId] = null;
-				}
-			});
-			nextAssignments[activeSlot.id] = playerId;
+			const nextAssignments: TeamBuilderAssignments = {
+				...prev.assignments,
+				[activeSlot.id]: playerId,
+			};
 			return {
 				...prev,
 				assignments: nextAssignments,
@@ -273,6 +317,7 @@ export default function TeamBuilderPage() {
 		slotId: string,
 		partialConfig: Partial<SlotConfig>,
 	) => {
+		if (isPreviewingSharedTeam) return;
 		setTeamState((prev) => {
 			const prevConfigs = prev.slotConfigs ?? {};
 			const baseConfig = normalizeSlotConfig(prevConfigs[slotId]);
@@ -293,6 +338,7 @@ export default function TeamBuilderPage() {
 	};
 
 	const handleSelectEmptySlot = (slot: FormationSlot) => {
+		if (isPreviewingSharedTeam) return;
 		setActiveSlotId(slot.id);
 		setDetailsOpen(false);
 		setPickerOpen(true);
@@ -306,6 +352,7 @@ export default function TeamBuilderPage() {
 	};
 
 	const handleClearSlot = (slotId: string) => {
+		if (isPreviewingSharedTeam) return;
 		setTeamState((prev) => ({
 			...prev,
 			assignments: { ...prev.assignments, [slotId]: null },
@@ -313,6 +360,7 @@ export default function TeamBuilderPage() {
 	};
 
 	const handleClearTeam = () => {
+		if (isPreviewingSharedTeam) return;
 		setTeamState((prev) => {
 			const nextAssignments: TeamBuilderAssignments = {};
 			formation.slots.forEach((slot) => {
@@ -332,8 +380,109 @@ export default function TeamBuilderPage() {
 		setFilters(DEFAULT_FILTERS);
 	};
 
+	const attemptClipboardCopy = async (value: string) => {
+		if (typeof navigator === "undefined" || !navigator.clipboard?.writeText) {
+			setShareCopyState("error");
+			return;
+		}
+		try {
+			await navigator.clipboard.writeText(value);
+			setShareCopyState("copied");
+		} catch (error) {
+			console.error("Failed to copy share link", error);
+			setShareCopyState("error");
+		}
+	};
+
+	const handleShareTeam = () => {
+		if (isPreviewingSharedTeam) return;
+		setShareCopyState("idle");
+		setShareAlert(null);
+		const encoded = encodeTeamShareState(teamState);
+		if (!encoded || typeof window === "undefined") {
+			setShareAlert("Unable to generate a share link right now. Please try again.");
+			return;
+		}
+		const shareUrl = new URL(window.location.href);
+		shareUrl.searchParams.set(TEAM_SHARE_QUERY_KEY, encoded);
+		const link = shareUrl.toString();
+		setShareLink(link);
+		setShareDialogOpen(true);
+		void attemptClipboardCopy(link);
+	};
+
+	const handleCopyShareLink = () => {
+		if (!shareLink) return;
+		setShareCopyState("idle");
+		void attemptClipboardCopy(shareLink);
+	};
+
+	const handleDismissSharedCandidate = () => {
+		setSharedCandidate(null);
+		setImportDialogOpen(false);
+		setShareAlert(null);
+	};
+
+	const handleImportSharedTeam = () => {
+		if (!sharedCandidate) return;
+		const nextState = sharedCandidate.state;
+		setTeamState((prev) => ({
+			...prev,
+			formationId: nextState.formationId,
+			assignments: nextState.assignments,
+			slotConfigs: nextState.slotConfigs,
+			displayMode: nextState.displayMode,
+		}));
+		setSharedCandidate(null);
+		setImportDialogOpen(false);
+		setShareAlert(null);
+		setActiveSlotId(null);
+		setDetailsOpen(false);
+		setPickerOpen(false);
+	};
+
 	return (
 		<div className="flex flex-col gap-4">
+			{shareAlert ? (
+				<div className="rounded-xl border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive shadow-sm">
+					{shareAlert}
+				</div>
+			) : null}
+
+			{sharedCandidate ? (
+				<div className="rounded-xl border border-amber-200 bg-amber-50/80 px-4 py-3 text-sm shadow-sm">
+					<div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+						<div>
+							<p className="font-semibold text-amber-900">Previewing shared team</p>
+							<p className="text-xs text-amber-800">
+								{sharedCandidate.filledSlots}/11 slots ·{" "}
+								{sharedCandidate.formationName}
+							</p>
+							<p className="text-xs text-amber-700">
+								Import to edit or dismiss to return to your saved squad.
+							</p>
+						</div>
+						<div className="flex flex-wrap gap-2">
+							<Button
+								size="sm"
+								className="bg-amber-900 text-white hover:bg-amber-800"
+								onClick={() => setImportDialogOpen(true)}
+							>
+								Review & import
+							</Button>
+							<Button
+								variant="ghost"
+								size="sm"
+								className="text-amber-900 hover:bg-amber-100"
+								onClick={handleDismissSharedCandidate}
+							>
+								Dismiss
+							</Button>
+						</div>
+					</div>
+				</div>
+			) : null}
+
 			<section className="rounded-xl border bg-card p-4 shadow-sm">
 				<div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
 					<div className="flex flex-col gap-3 md:flex-row md:items-end md:gap-6">
@@ -343,6 +492,7 @@ export default function TeamBuilderPage() {
 							</p>
 							<div className="flex flex-wrap gap-2">
 								<Select
+									disabled={isPreviewingSharedTeam}
 									value={formation.id}
 									onValueChange={(value) => handleFormationChange(value)}
 								>
@@ -363,11 +513,20 @@ export default function TeamBuilderPage() {
 									variant="outline"
 									size="sm"
 									className="gap-1"
-									onClick={handleClearTeam}
-									disabled={filledCount === 0}
+									onClick={() => setClearDialogOpen(true)}
+									disabled={filledCount === 0 || isPreviewingSharedTeam}
 								>
 									<UserX className="size-4" />
 									Clear team
+								</Button>
+								<Button
+									size="sm"
+									className="gap-1"
+									onClick={handleShareTeam}
+									disabled={isPreviewingSharedTeam}
+								>
+									<Share2 className="size-4" />
+									Share team
 								</Button>
 							</div>
 						</div>
@@ -385,6 +544,7 @@ export default function TeamBuilderPage() {
 											variant={isActive ? "default" : "outline"}
 											className="px-2 text-[11px]"
 											aria-pressed={isActive}
+											disabled={isPreviewingSharedTeam}
 											onClick={() => handleDisplayModeChange(option.value)}
 										>
 											{option.label}
@@ -453,7 +613,8 @@ export default function TeamBuilderPage() {
 											<button
 												type="button"
 												onClick={() => handleOpenPicker(slot)}
-												className="text-[10px] font-semibold uppercase tracking-[0.35em] text-primary underline-offset-2 hover:underline"
+												disabled={isPreviewingSharedTeam}
+												className="text-[10px] font-semibold uppercase tracking-[0.35em] text-primary underline-offset-2 hover:underline disabled:opacity-60"
 											>
 												Assign player
 											</button>
@@ -464,6 +625,7 @@ export default function TeamBuilderPage() {
 											variant="ghost"
 											size="sm"
 											className="h-7 px-2"
+											disabled={isPreviewingSharedTeam}
 											onClick={() => handleOpenPicker(slot)}
 										>
 											<RefreshCcw className="size-4" />
@@ -488,7 +650,7 @@ export default function TeamBuilderPage() {
 
 			<PlayerAssignmentModal
 				isMobile={isMobile}
-				open={pickerOpen}
+				open={pickerOpen && !isPreviewingSharedTeam}
 				activeSlot={activeSlot}
 				favoriteSet={favoriteSet}
 				favoritePlayers={favoriteOptions}
@@ -508,6 +670,95 @@ export default function TeamBuilderPage() {
 					}
 				}}
 			/>
+
+			<Dialog open={shareDialogOpen} onOpenChange={setShareDialogOpen}>
+				<DialogContent>
+					<DialogHeader>
+						<DialogTitle>Share this team</DialogTitle>
+						<DialogDescription>
+							Send this link to load a read-only copy of your setup.
+						</DialogDescription>
+					</DialogHeader>
+					<div className="space-y-3">
+						<div className="flex flex-col gap-2 sm:flex-row">
+							<Input
+								readOnly
+								value={shareLink}
+								onFocus={(event) => event.currentTarget.select()}
+								className="font-mono text-xs"
+							/>
+							<Button onClick={handleCopyShareLink} disabled={!shareLink}>
+								{shareCopyState === "copied" ? "Copied" : "Copy link"}
+							</Button>
+						</div>
+						<p className="text-xs text-muted-foreground">
+							Anyone with this URL can import your team into their own builder.
+						</p>
+						{shareCopyState === "copied" ? (
+							<p className="text-xs text-emerald-600">Link copied to clipboard.</p>
+						) : null}
+						{shareCopyState === "error" ? (
+							<p className="text-xs text-destructive">
+								Your browser blocked auto copy. Please copy the link manually.
+							</p>
+						) : null}
+					</div>
+				</DialogContent>
+			</Dialog>
+
+			<Dialog open={clearDialogOpen} onOpenChange={setClearDialogOpen}>
+				<DialogContent>
+					<DialogHeader>
+						<DialogTitle>Clear current team?</DialogTitle>
+						<DialogDescription>
+							This will remove every assigned player and reset slot customizations.
+							You can't undo this action.
+						</DialogDescription>
+					</DialogHeader>
+					<DialogFooter>
+						<Button variant="outline" onClick={() => setClearDialogOpen(false)}>
+							Keep team
+						</Button>
+						<Button
+							variant="destructive"
+							onClick={() => {
+								handleClearTeam();
+								setClearDialogOpen(false);
+							}}
+						>
+							Clear anyway
+						</Button>
+					</DialogFooter>
+				</DialogContent>
+			</Dialog>
+
+			<Dialog
+				open={Boolean(sharedCandidate) && importDialogOpen}
+				onOpenChange={setImportDialogOpen}
+			>
+				<DialogContent>
+					<DialogHeader>
+						<DialogTitle>Import shared team</DialogTitle>
+						<DialogDescription>
+							Importing will overwrite your current formation and assignments.
+						</DialogDescription>
+					</DialogHeader>
+					<div className="rounded-lg border bg-muted/40 px-4 py-3 text-sm">
+						<p className="font-semibold">
+							{sharedCandidate?.formationName ?? "Unknown formation"}
+						</p>
+						<p className="text-xs text-muted-foreground">
+							{sharedCandidate?.filledSlots ?? 0}/11 slots filled
+						</p>
+					</div>
+					<DialogFooter>
+						<Button variant="outline" onClick={() => setImportDialogOpen(false)}>
+							Maybe later
+						</Button>
+						<Button onClick={handleImportSharedTeam}>Import team</Button>
+					</DialogFooter>
+				</DialogContent>
+			</Dialog>
 		</div>
 	);
 }
@@ -689,6 +940,12 @@ function getSlotDisplayValue(entry: SlotAssignment, mode: DisplayMode) {
 		return formatNumber(statValue);
 	}
 	return fallback;
+}
+
+function countAssignedPlayers(assignments: TeamBuilderAssignments): number {
+	return Object.values(assignments ?? {}).filter(
+		(value): value is number => typeof value === "number",
+	).length;
 }
 
 function ElementIcon({ element }: { element: string }) {

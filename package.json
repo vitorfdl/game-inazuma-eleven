@@ -22,6 +22,8 @@
     "@vitejs/plugin-react": "^5.0.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "fflate": "^0.8.2",
+    "gzip": "^0.1.0",
     "jotai": "^2.13.1",
     "lucide-react": "^0.555.0",
     "react": "^19.1.1",
@@ -32,7 +34,6 @@
     "vaul": "^1.1.2"
   },
   "devDependencies": {
-    "cheerio": "^1.1.2",
     "@biomejs/biome": "^2.2.3",
     "@eslint/js": "^9.33.0",
     "@tailwindcss/vite": "^4.1.12",
@@ -40,6 +41,7 @@
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react-swc": "^4.0.0",
+    "cheerio": "^1.1.2",
     "eslint": "^9.33.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
