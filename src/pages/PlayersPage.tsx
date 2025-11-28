@@ -421,7 +421,7 @@ export default function PlayersPage() {
 							variant={preferences.viewMode === "power" ? "default" : "ghost"}
 							onClick={() => handleUpdate({ viewMode: "power" })}
 						>
-							Power
+							AT/DF
 						</Button>
 					</div>
 					<Button

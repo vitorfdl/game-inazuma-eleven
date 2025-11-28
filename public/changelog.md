@@ -11,6 +11,7 @@
   - Improved performance by reducing the initial visible count to 50.
 - Improved all tables sorting to be more intuitive by clicking the column header.
 - Improved all filters to be more intuitive when they are active.
+- Renamed "Power" to "AT/DF" in all tables for consistency with the game glossary.
 
 # Version 1.1.2 - 2025-11-28
 

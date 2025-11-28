@@ -1,5 +1,11 @@
 import { useAtom } from "jotai";
-import { ArrowDown, ArrowUp, ArrowUpDown, RotateCcw, Search } from "lucide-react";
+import {
+	ArrowDown,
+	ArrowUp,
+	ArrowUpDown,
+	RotateCcw,
+	Search,
+} from "lucide-react";
 import type { ReactNode } from "react";
 import { useCallback, useMemo } from "react";
 
@@ -37,8 +43,8 @@ import { cn } from "@/lib/utils";
 import {
 	DEFAULT_EQUIPMENTS_PREFERENCES,
 	type EquipmentSortKey,
-	type EquipmentTableSortKey,
 	type EquipmentsPreferences,
+	type EquipmentTableSortKey,
 	equipmentsPreferencesAtom,
 } from "@/store/equipments";
 import type { EquipmentCategory } from "@/types/team-builder";
@@ -130,7 +136,10 @@ const metricAccessors: Record<EquipmentSortKey, (item: Equipment) => number> = {
 	kp: (item) => item.power.kp,
 };
 
-const sortAccessors: Record<EquipmentTableSortKey, (item: Equipment) => number | string> = {
+const sortAccessors: Record<
+	EquipmentTableSortKey,
+	(item: Equipment) => number | string
+> = {
 	...metricAccessors,
 	name: (item) => item.name,
 	type: (item) => item.type,
@@ -273,7 +282,8 @@ export default function EquipmentsPage() {
 
 	const sortedEquipments = useMemo(() => {
 		const fallbackKey = DEFAULT_EQUIPMENTS_PREFERENCES.sortKey;
-		const accessor = sortAccessors[preferences.sortKey] ?? sortAccessors[fallbackKey];
+		const accessor =
+			sortAccessors[preferences.sortKey] ?? sortAccessors[fallbackKey];
 
 		return [...filteredEquipments].sort((a, b) => {
 			const valueA = accessor(a);
@@ -285,9 +295,13 @@ export default function EquipmentsPage() {
 					: valueA - valueB;
 			}
 
-			const comparison = String(valueA).localeCompare(String(valueB), undefined, {
-				sensitivity: "base",
-			});
+			const comparison = String(valueA).localeCompare(
+				String(valueB),
+				undefined,
+				{
+					sensitivity: "base",
+				},
+			);
 
 			return preferences.sortDirection === "desc" ? -comparison : comparison;
 		});
@@ -356,7 +370,7 @@ export default function EquipmentsPage() {
 							variant={preferences.viewMode === "power" ? "default" : "ghost"}
 							onClick={() => handleUpdate({ viewMode: "power" })}
 						>
-							Power
+							AT/DF
 						</Button>
 					</div>
 					<Button
@@ -381,7 +395,9 @@ export default function EquipmentsPage() {
 							size="sm"
 							className={cn(
 								"h-10 w-full justify-between rounded-md border bg-background/30",
-								highlightControl(preferences.type !== DEFAULT_EQUIPMENTS_PREFERENCES.type),
+								highlightControl(
+									preferences.type !== DEFAULT_EQUIPMENTS_PREFERENCES.type,
+								),
 							)}
 						>
 							<SelectValue placeholder="All types" />
@@ -402,7 +418,9 @@ export default function EquipmentsPage() {
 							size="sm"
 							className={cn(
 								"h-10 w-full justify-between rounded-md border bg-background/30",
-								highlightControl(preferences.shop !== DEFAULT_EQUIPMENTS_PREFERENCES.shop),
+								highlightControl(
+									preferences.shop !== DEFAULT_EQUIPMENTS_PREFERENCES.shop,
+								),
 							)}
 						>
 							<SelectValue placeholder="All shops" />
@@ -429,7 +447,8 @@ export default function EquipmentsPage() {
 							className={cn(
 								"h-10 w-full justify-between rounded-md border bg-background/30",
 								highlightControl(
-									preferences.attribute !== DEFAULT_EQUIPMENTS_PREFERENCES.attribute,
+									preferences.attribute !==
+										DEFAULT_EQUIPMENTS_PREFERENCES.attribute,
 								),
 							)}
 						>
@@ -474,7 +493,9 @@ export default function EquipmentsPage() {
 										<button
 											type="button"
 											onClick={() =>
-												handleSortByColumn(column.sortKey as EquipmentTableSortKey)
+												handleSortByColumn(
+													column.sortKey as EquipmentTableSortKey,
+												)
 											}
 											className={cn(
 												"flex w-full items-center gap-1 text-left text-xs font-semibold uppercase tracking-wide text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
@@ -485,7 +506,9 @@ export default function EquipmentsPage() {
 														: "justify-start",
 											)}
 											aria-label={`Sort by ${
-												typeof column.header === "string" ? column.header : "column"
+												typeof column.header === "string"
+													? column.header
+													: "column"
 											}`}
 											aria-pressed={preferences.sortKey === column.sortKey}
 										>
@@ -501,7 +524,9 @@ export default function EquipmentsPage() {
 													<Icon
 														className={cn(
 															"size-3.5",
-															isActive ? "text-primary" : "text-muted-foreground/60",
+															isActive
+																? "text-primary"
+																: "text-muted-foreground/60",
 														)}
 														aria-hidden="true"
 													/>
