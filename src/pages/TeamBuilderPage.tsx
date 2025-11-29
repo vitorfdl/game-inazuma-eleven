@@ -143,7 +143,6 @@ export default function TeamBuilderPage() {
 				filledSlots: countAssignedPlayers(decodedState.assignments),
 				formationName: formationsMap.get(decodedState.formationId)?.name ?? "Unknown formation",
 			});
-			setImportDialogOpen(true);
 			setActiveSlotId(null);
 			setPickerOpen(false);
 			setDetailsOpen(false);
@@ -440,14 +439,11 @@ export default function TeamBuilderPage() {
 					<div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
 						<div>
 							<p className="font-semibold text-amber-900">Previewing shared team</p>
-							<p className="text-xs text-amber-800">
-								{sharedCandidate.filledSlots}/{totalSlotCount} slots · {sharedCandidate.formationName}
-							</p>
 							<p className="text-xs text-amber-700">Import to edit or dismiss to return to your saved squad.</p>
 						</div>
 						<div className="flex flex-wrap gap-2">
 							<Button size="sm" className="bg-amber-900 text-white hover:bg-amber-800" onClick={() => setImportDialogOpen(true)}>
-								Review & import
+								Import Team
 							</Button>
 							<Button variant="ghost" size="sm" className="text-amber-900 hover:bg-amber-100" onClick={handleDismissSharedCandidate}>
 								Dismiss
@@ -676,12 +672,8 @@ export default function TeamBuilderPage() {
 				<DialogContent>
 					<DialogHeader>
 						<DialogTitle>Import shared team</DialogTitle>
-						<DialogDescription>Importing will overwrite your current formation and assignments.</DialogDescription>
+						<DialogDescription>Importing will overwrite your previous formation and assignments.</DialogDescription>
 					</DialogHeader>
-					<div className="rounded-lg border bg-muted/40 px-4 py-3 text-sm">
-						<p className="font-semibold">{sharedCandidate?.formationName ?? "Unknown formation"}</p>
-						<p className="text-xs text-muted-foreground">{sharedCandidate?.filledSlots ?? 0}/11 slots filled</p>
-					</div>
 					<DialogFooter>
 						<Button variant="outline" onClick={() => setImportDialogOpen(false)}>
 							Maybe later
