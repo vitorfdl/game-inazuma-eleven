@@ -1,22 +1,13 @@
-import { type FormationDefinition, FORMATIONS } from "@/data/formations";
-import { getPositionColor, getElementIcon } from "@/lib/icon-picker";
+import { useDraggable, useDroppable } from "@dnd-kit/core";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { FORMATIONS, type FormationDefinition } from "@/data/formations";
+import { getElementIcon, getPositionColor } from "@/lib/icon-picker";
 import { mapToElementType, mapToTeamPosition } from "@/lib/players-data";
 import { getSlotRarityDefinition } from "@/lib/slot-rarity";
-import {
-	SLOT_CARD_WIDTH_CLASS,
-	getSlotDisplayValue,
-	getSlotPositionStyle,
-} from "@/lib/team-builder-ui";
+import { getSlotDisplayValue, getSlotPositionStyle, SLOT_CARD_WIDTH_CLASS } from "@/lib/team-builder-ui";
 import { cn } from "@/lib/utils";
 import type { DisplayMode } from "@/store/team-builder";
 import type { SlotAssignment, TeamBuilderSlot } from "@/types/team-builder";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
 
 export type FormationPitchProps = {
 	assignments: SlotAssignment[];
@@ -28,6 +19,8 @@ export type FormationPitchProps = {
 	formationId: FormationDefinition["id"];
 	onFormationChange: (formationId: FormationDefinition["id"]) => void;
 	isFormationDisabled: boolean;
+	dragDisabled?: boolean;
+	isDragActive?: boolean;
 };
 
 export function FormationPitch({
@@ -40,11 +33,11 @@ export function FormationPitch({
 	formationId,
 	onFormationChange,
 	isFormationDisabled,
+	dragDisabled = false,
+	isDragActive = false,
 }: FormationPitchProps) {
 	const managerEntry = staffEntries.find((entry) => entry.slot.kind === "manager");
-	const coordinatorEntries = staffEntries.filter(
-		(entry) => entry.slot.kind === "coordinator",
-	);
+	const coordinatorEntries = staffEntries.filter((entry) => entry.slot.kind === "coordinator");
 	const hasStaffFooter = managerEntry || coordinatorEntries.length > 0;
 
 	return (
@@ -52,14 +45,8 @@ export function FormationPitch({
 			<div className="relative w-full">
 				<div className="pointer-events-none absolute inset-x-0 -top-2 z-20 flex justify-center sm:-top-3">
 					<div className="pointer-events-auto inline-flex items-center gap-2 rounded-full border border-black/40 bg-black/70 px-3 py-1.5 shadow-lg shadow-emerald-900/60">
-						<p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-emerald-100/90">
-							Formation
-						</p>
-						<Select
-							disabled={isFormationDisabled}
-							value={formationId}
-							onValueChange={(value) => onFormationChange(value)}
-						>
+						<p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-emerald-100/90">Formation</p>
+						<Select disabled={isFormationDisabled} value={formationId} onValueChange={(value) => onFormationChange(value)}>
 							<SelectTrigger className="h-8 min-w-[180px] border-white/20 bg-emerald-950/80 text-xs text-emerald-50 shadow-sm sm:min-w-[220px]">
 								<SelectValue placeholder="Choose formation" />
 							</SelectTrigger>
@@ -91,6 +78,8 @@ export function FormationPitch({
 								displayMode={displayMode}
 								onSelect={() => onSlotSelect(entry.slot)}
 								onEmptySelect={() => onEmptySlotSelect(entry.slot)}
+								dragDisabled={dragDisabled}
+								isDragActive={isDragActive}
 							/>
 						))}
 					</div>
@@ -108,6 +97,8 @@ export function FormationPitch({
 								onEmptySlotSelect={onEmptySlotSelect}
 								buttonClassName="justify-start"
 								variant="compact"
+								dragDisabled={dragDisabled}
+								isDragActive={isDragActive}
 							/>
 						) : null}
 					</div>
@@ -122,6 +113,8 @@ export function FormationPitch({
 								onEmptySlotSelect={onEmptySlotSelect}
 								buttonClassName="justify-start"
 								variant="compact"
+								dragDisabled={dragDisabled}
+								isDragActive={isDragActive}
 							/>
 						))}
 					</div>
@@ -139,6 +132,8 @@ export type ReservesRailProps = {
 	onEmptySlotSelect: (slot: TeamBuilderSlot) => void;
 	variant?: "default" | "compact";
 	isStackedLayout?: boolean;
+	dragDisabled?: boolean;
+	isDragActive?: boolean;
 };
 
 export function ReservesRail({
@@ -149,22 +144,15 @@ export function ReservesRail({
 	onEmptySlotSelect,
 	variant = "default",
 	isStackedLayout = false,
+	dragDisabled = false,
+	isDragActive = false,
 }: ReservesRailProps) {
 	if (!entries.length) return null;
 
 	return (
 		<div className="rounded-2xl border border-white/15 bg-gradient-to-b from-emerald-950/20 via-emerald-900/10 to-emerald-950/30 p-3 text-white shadow-inner xl:max-w-[280px]">
-			<p className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-100/90">
-				Reserves
-			</p>
-			<div
-				className={cn(
-					"mt-3 flex gap-2",
-					isStackedLayout
-						? "flex-row overflow-x-auto pb-1"
-						: "flex-col overflow-visible pb-0",
-				)}
-			>
+			<p className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-100/90">Reserves</p>
+			<div className={cn("mt-3 flex gap-2", isStackedLayout ? "flex-row overflow-x-auto pb-1" : "flex-col overflow-visible pb-0")}>
 				{entries.map((entry) => (
 					<SlotEntryButton
 						key={entry.slot.id}
@@ -176,6 +164,8 @@ export function ReservesRail({
 						buttonClassName="justify-start"
 						cardWrapperClassName={variant === "compact" ? undefined : "w-full"}
 						variant={variant}
+						dragDisabled={dragDisabled}
+						isDragActive={isDragActive}
 					/>
 				))}
 			</div>
@@ -192,6 +182,8 @@ type SlotEntryButtonProps = {
 	buttonClassName?: string;
 	cardWrapperClassName?: string;
 	variant?: "default" | "compact";
+	dragDisabled?: boolean;
+	isDragActive?: boolean;
 };
 
 function SlotEntryButton({
@@ -203,39 +195,50 @@ function SlotEntryButton({
 	buttonClassName,
 	cardWrapperClassName,
 	variant = "default",
+	dragDisabled = false,
+	isDragActive = false,
 }: SlotEntryButtonProps) {
 	const isActive = entry.slot.id === activeSlotId;
 	const hasPlayer = Boolean(entry.player);
-	const handleClick = hasPlayer
-		? () => onSlotSelect(entry.slot)
-		: () => onEmptySlotSelect(entry.slot);
+	const handleClick = hasPlayer ? () => onSlotSelect(entry.slot) : () => onEmptySlotSelect(entry.slot);
+	const { setNodeRef: setDroppableNode, isOver } = useDroppable({
+		id: entry.slot.id,
+	});
+	const {
+		attributes,
+		listeners,
+		setNodeRef: setDraggableNode,
+		isDragging,
+	} = useDraggable({
+		id: entry.slot.id,
+		data: { slotId: entry.slot.id },
+		disabled: dragDisabled || !hasPlayer,
+	});
+	const setNodeRef = (node: HTMLButtonElement | null) => {
+		setDroppableNode(node);
+		setDraggableNode(node);
+	};
+
+	const cursorClass = isDragActive ? "cursor-grabbing" : hasPlayer ? "cursor-grab" : "cursor-pointer";
 
 	return (
 		<button
 			type="button"
+			ref={setNodeRef}
 			onClick={handleClick}
 			className={cn(
 				"transition",
-				variant === "compact"
-					? "inline-flex w-auto hover:-translate-y-1 hover:scale-[1.02]"
-					: "flex w-full justify-center",
+				variant === "compact" ? "inline-flex w-auto hover:-translate-y-1 hover:scale-[1.02]" : "flex w-full justify-center",
 				buttonClassName,
+				isDragging && "scale-105 opacity-80 drop-shadow-[0_10px_20px_rgba(16,185,129,0.35)]",
+				isOver && "ring-2 ring-emerald-300/70 drop-shadow-[0_0_25px_rgba(16,185,129,0.4)]",
+				cursorClass,
 			)}
+			{...listeners}
+			{...attributes}
 		>
-			<div
-				className={cn(
-					variant === "compact"
-						? SLOT_CARD_WIDTH_CLASS
-						: "w-[clamp(120px,25vw,180px)]",
-					cardWrapperClassName,
-				)}
-			>
-				<SlotCard
-					entry={entry}
-					displayMode={displayMode}
-					isActive={isActive}
-					variant={variant}
-				/>
+			<div className={cn(variant === "compact" ? SLOT_CARD_WIDTH_CLASS : "w-[clamp(120px,25vw,180px)]", cardWrapperClassName)}>
+				<SlotCard entry={entry} displayMode={displayMode} isActive={isActive} variant={variant} />
 			</div>
 		</button>
 	);
@@ -247,31 +250,50 @@ type PlayerSlotMarkerProps = {
 	displayMode: DisplayMode;
 	onSelect: () => void;
 	onEmptySelect: () => void;
+	dragDisabled?: boolean;
+	isDragActive?: boolean;
 };
 
-function PlayerSlotMarker({
-	entry,
-	isActive,
-	displayMode,
-	onSelect,
-	onEmptySelect,
-}: PlayerSlotMarkerProps) {
+function PlayerSlotMarker({ entry, isActive, displayMode, onSelect, onEmptySelect, dragDisabled = false, isDragActive = false }: PlayerSlotMarkerProps) {
 	const { slot, player } = entry;
 	const positionStyle = getSlotPositionStyle(slot);
 	const handleClick = player ? onSelect : onEmptySelect;
+	const { setNodeRef: setDroppableNode, isOver } = useDroppable({
+		id: slot.id,
+	});
+	const {
+		attributes,
+		listeners,
+		setNodeRef: setDraggableNode,
+		isDragging,
+	} = useDraggable({
+		id: slot.id,
+		data: { slotId: slot.id },
+		disabled: dragDisabled || !player,
+	});
+	const setNodeRef = (node: HTMLButtonElement | null) => {
+		setDroppableNode(node);
+		setDraggableNode(node);
+	};
+
+	const cursorClass = isDragActive ? "cursor-grabbing" : player ? "cursor-grab" : "cursor-pointer";
 
 	return (
 		<button
 			type="button"
+			ref={setNodeRef}
 			onClick={handleClick}
 			style={positionStyle}
 			className={cn(
 				"absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1 text-white outline-none transition",
 				SLOT_CARD_WIDTH_CLASS,
-				isActive
-					? "scale-105 drop-shadow-[0_12px_20px_rgba(0,0,0,0.35)]"
-					: "hover:scale-105",
+				isActive ? "scale-105 drop-shadow-[0_12px_20px_rgba(0,0,0,0.35)]" : "hover:scale-105",
+				isDragging && "scale-110 opacity-80 drop-shadow-[0_12px_25px_rgba(16,185,129,0.35)] cursor-grabbing",
+				isOver && "ring-2 ring-emerald-200/80 drop-shadow-[0_0_30px_rgba(16,185,129,0.45)]",
+				cursorClass,
 			)}
+			{...listeners}
+			{...attributes}
 		>
 			<SlotCard entry={entry} displayMode={displayMode} isActive={isActive} />
 		</button>
@@ -285,12 +307,7 @@ type SlotCardProps = {
 	variant?: "default" | "compact";
 };
 
-function SlotCard({
-	entry,
-	displayMode,
-	isActive,
-	variant = "default",
-}: SlotCardProps) {
+export function SlotCard({ entry, displayMode, isActive, variant = "default" }: SlotCardProps) {
 	const { slot, player, config } = entry;
 	const positionColor = getPositionColor(mapToTeamPosition(slot.label));
 	const rarityDefinition = getSlotRarityDefinition(config?.rarity ?? "normal");
@@ -302,9 +319,7 @@ function SlotCard({
 		<div
 			className={cn(
 				"relative w-full rounded-lg border-2 bg-black/40 p-0.5 text-white backdrop-blur-sm transition",
-				hasPlayer
-					? "border-white/60 shadow-xl"
-					: "border-dashed border-white/40",
+				hasPlayer ? "border-white/60 shadow-xl" : "border-dashed border-white/40",
 				isActive && "ring-2 ring-emerald-200",
 				isCompact && "rounded-md border-white/50 text-[11px]",
 			)}
@@ -312,14 +327,10 @@ function SlotCard({
 			<div
 				className={cn(
 					"relative w-full rounded-md",
-					hasPlayer
-						? "p-[2px]"
-						: "overflow-hidden border border-dashed border-white/30 bg-black/20",
+					hasPlayer ? "p-[2px]" : "overflow-hidden border border-dashed border-white/30 bg-black/20",
 					isCompact && "rounded-[8px]",
 				)}
-				style={
-					hasPlayer ? { background: rarityDefinition.cardBackground } : undefined
-				}
+				style={hasPlayer ? { background: rarityDefinition.cardBackground } : undefined}
 			>
 				<div className="relative w-full overflow-hidden rounded-[10px]">
 					{player ? (
@@ -333,30 +344,21 @@ function SlotCard({
 						/>
 					) : (
 						<div className="flex aspect-[4/4] flex-col items-center justify-center gap-2 px-2 text-center">
-							<span className="text-xs font-semibold uppercase tracking-[0.35em] text-white/80">
-								{label}
-							</span>
-							<span className="text-[9px] uppercase tracking-[0.3em] text-white/50">
-								Tap to assign
-							</span>
+							<span className="text-xs font-semibold uppercase tracking-[0.35em] text-white/80">{label}</span>
+							<span className="text-[9px] uppercase tracking-[0.3em] text-white/50">Tap to assign</span>
 						</div>
 					)}
 
 					{player && (
 						<>
 							<div className="pointer-events-none absolute inset-x-0 bottom-0 rounded-xs bg-black/80 text-center shadow-2xl backdrop-blur">
-								<span className="m-0 block text-xs font-semibold uppercase  text-white/95">
-									{player ? getSlotDisplayValue(entry, displayMode) : null}
-								</span>
+								<span className="m-0 block text-xs font-semibold uppercase  text-white/95">{player ? getSlotDisplayValue(entry, displayMode) : null}</span>
 							</div>
 							<span
 								className="absolute left-0 top-0 items-center justify-center px-2 py-[2px] text-xs font-semibold uppercase "
 								style={{
-									background:
-										positionColor.gradient ?? `${positionColor.primary}22`,
-									color: positionColor.gradient
-										? "#fff"
-										: positionColor.primary,
+									background: positionColor.gradient ?? `${positionColor.primary}22`,
+									color: positionColor.gradient ? "#fff" : positionColor.primary,
 								}}
 							>
 								{label}

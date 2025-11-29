@@ -1,51 +1,18 @@
 import type { LucideIcon } from "lucide-react";
-import {
-	BrickWall,
-	HeartPulse,
-	Shield,
-	ShieldCheck,
-	Swords,
-	Target,
-} from "lucide-react";
+import { Bean, BrickWall, HeartPulse, Shield, ShieldCheck, Swords, Target } from "lucide-react";
 import { type KeyboardEvent, useEffect, useMemo, useState } from "react";
 
 import { ElementChip, PositionChip } from "@/components/team-builder/Chips";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-	Dialog,
-	DialogContent,
-	DialogDescription,
-	DialogFooter,
-	DialogHeader,
-	DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { formatNumber, titleCase } from "@/lib/data-helpers";
-import {
-	EQUIPMENT_CATEGORIES,
-	EQUIPMENT_CATEGORY_LABELS,
-	type EquipmentRecord,
-	equipmentsByType,
-} from "@/lib/equipments-data";
-import {
-	clampBeanValue,
-	createEmptySlotBeans,
-	MAX_BEAN_POINTS,
-} from "@/lib/slot-beans";
-import {
-	applyRarityBonus,
-	getSlotRarityDefinition,
-	SLOT_RARITY_OPTIONS,
-} from "@/lib/slot-rarity";
+import { EQUIPMENT_CATEGORIES, EQUIPMENT_CATEGORY_LABELS, type EquipmentRecord, equipmentsByType } from "@/lib/equipments-data";
+import { BEAN_COLORS, clampBeanValue, createEmptySlotBeans, MAX_BEAN_POINTS } from "@/lib/slot-beans";
+import { applyRarityBonus, getSlotRarityDefinition, SLOT_RARITY_OPTIONS } from "@/lib/slot-rarity";
 import { createEmptySlotEquipments } from "@/store/team-builder";
 import type {
 	BaseAttributeKey,
@@ -59,14 +26,7 @@ import type {
 	TeamBuilderSlot,
 } from "@/types/team-builder";
 
-type StatKey =
-	| "shootAT"
-	| "focusAT"
-	| "focusDF"
-	| "wallDF"
-	| "scrambleAT"
-	| "scrambleDF"
-	| "kp";
+type StatKey = "shootAT" | "focusAT" | "focusDF" | "wallDF" | "scrambleAT" | "scrambleDF" | "kp";
 
 type StatDefinition = {
 	label: string;
@@ -103,36 +63,16 @@ export type SlotDetailsDrawerProps = {
 	assignment: SlotAssignment | null;
 	onAssign: (slot: TeamBuilderSlot) => void;
 	onClearSlot: (slotId: string) => void;
-	onUpdateSlotConfig: (
-		slotId: string,
-		partialConfig: Partial<SlotConfig>,
-	) => void;
+	onUpdateSlotConfig: (slotId: string, partialConfig: Partial<SlotConfig>) => void;
 	onOpenChange: (open: boolean) => void;
 };
 
-export function SlotDetailsDrawer({
-	open,
-	slot,
-	assignment,
-	onAssign,
-	onClearSlot,
-	onUpdateSlotConfig,
-	onOpenChange,
-}: SlotDetailsDrawerProps) {
+export function SlotDetailsDrawer({ open, slot, assignment, onAssign, onClearSlot, onUpdateSlotConfig, onOpenChange }: SlotDetailsDrawerProps) {
 	return (
 		<Sheet open={open} onOpenChange={onOpenChange}>
-			<SheetContent
-				side="left"
-				className="w-full !max-w-2xl border-l p-0 sm:max-w-md"
-			>
+			<SheetContent side="left" className="w-full !max-w-2xl border-l p-0 sm:max-w-md">
 				<div className="h-full overflow-y-auto p-3">
-					<SlotDetailsPanel
-						slot={slot}
-						assignment={assignment}
-						onAssign={onAssign}
-						onClearSlot={onClearSlot}
-						onUpdateSlotConfig={onUpdateSlotConfig}
-					/>
+					<SlotDetailsPanel slot={slot} assignment={assignment} onAssign={onAssign} onClearSlot={onClearSlot} onUpdateSlotConfig={onUpdateSlotConfig} />
 				</div>
 			</SheetContent>
 		</Sheet>
@@ -144,26 +84,16 @@ type SlotDetailsPanelProps = {
 	assignment: SlotAssignment | null;
 	onAssign: (slot: TeamBuilderSlot) => void;
 	onClearSlot: (slotId: string) => void;
-	onUpdateSlotConfig: (
-		slotId: string,
-		partialConfig: Partial<SlotConfig>,
-	) => void;
+	onUpdateSlotConfig: (slotId: string, partialConfig: Partial<SlotConfig>) => void;
 };
 
-function SlotDetailsPanel({
-	slot,
-	assignment,
-	onAssign,
-	onClearSlot,
-	onUpdateSlotConfig,
-}: SlotDetailsPanelProps) {
+function SlotDetailsPanel({ slot, assignment, onAssign, onClearSlot, onUpdateSlotConfig }: SlotDetailsPanelProps) {
 	const [clearDialogOpen, setClearDialogOpen] = useState(false);
 	const player = assignment?.player ?? null;
 	const rarity = assignment?.config.rarity ?? "normal";
 	const rarityDefinition = getSlotRarityDefinition(rarity);
 	const computedStats = assignment?.computed ?? null;
-	const currentEquipments =
-		assignment?.config.equipments ?? createEmptySlotEquipments();
+	const currentEquipments = assignment?.config.equipments ?? createEmptySlotEquipments();
 	const currentBeans = assignment?.config.beans ?? createEmptySlotBeans();
 	const allowsEquipmentConfig = slot?.configScope !== "rarity-only";
 	const allowsBeanConfig = slot?.configScope !== "rarity-only";
@@ -179,13 +109,9 @@ function SlotDetailsPanel({
 		onUpdateSlotConfig(slot.id, { rarity: value });
 	};
 
-	const handleEquipmentChange = (
-		category: EquipmentCategory,
-		equipmentId: string | null,
-	) => {
+	const handleEquipmentChange = (category: EquipmentCategory, equipmentId: string | null) => {
 		if (!slot) return;
-		const baseEquipments =
-			assignment?.config.equipments ?? createEmptySlotEquipments();
+		const baseEquipments = assignment?.config.equipments ?? createEmptySlotEquipments();
 		onUpdateSlotConfig(slot.id, {
 			equipments: {
 				...baseEquipments,
@@ -197,153 +123,123 @@ function SlotDetailsPanel({
 	const handleBeanChange = (index: number, bean: SlotBean) => {
 		if (!slot) return;
 		const baseBeans = assignment?.config.beans ?? createEmptySlotBeans();
-		const nextBeans = baseBeans.map((entry, idx) =>
-			idx === index ? bean : entry,
-		) as SlotBeans;
+		const nextBeans = baseBeans.map((entry, idx) => (idx === index ? bean : entry)) as SlotBeans;
 		onUpdateSlotConfig(slot.id, { beans: nextBeans });
 	};
 
-	return (
-		<section className="rounded-xl border bg-card p-4 shadow-sm">
-			<header className="flex flex-wrap items-center gap-2">
-				<div>
-					<p className="text-sm font-semibold">Slot details</p>
-				</div>
-				{slot ? <PositionChip label={slot.displayLabel ?? slot.label} /> : null}
-			</header>
-			<div className="mt-4 space-y-4">
-				{!slot ? (
-					<div className="rounded-lg border border-dashed p-4 text-sm text-muted-foreground">
-						No slot selected. Tap a position on the pitch to focus it.
-					</div>
-				) : !player ? (
-					<div className="flex flex-col items-center gap-3 rounded-lg border border-dashed p-6 text-center">
-						<div className="flex size-32 items-center justify-center rounded-2xl border border-dashed text-xl font-semibold">
-							{slot.displayLabel ?? slot.label}
-						</div>
-						<p className="text-sm text-muted-foreground">
-							This slot is empty. Choose a player to assign.
-						</p>
-						<Button onClick={() => onAssign(slot)}>Assign player</Button>
-					</div>
-				) : (
-					<div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-						<div className="flex flex-col items-center gap-3">
-							<img
-								src={player.safeImage}
-								alt={player.name}
-								className="w-full max-w-[220px] rounded-2xl border object-cover shadow-lg"
-								loading="lazy"
-								crossOrigin="anonymous"
-								referrerPolicy="no-referrer"
-							/>
-							<div className="flex flex-wrap items-center justify-center gap-2 text-xs">
-								<ElementChip element={player.element} />
-								<PositionChip label={player.position} />
-							</div>
-							<div className="text-center">
-								<p className="text-lg font-semibold">{player.name}</p>
-								<p className="text-sm text-muted-foreground">
-									{player.nickname}
-								</p>
-							</div>
-							<div className="flex flex-wrap gap-2">
-								<Button
-									onClick={() => onAssign(slot)}
-									className="flex-1 min-w-[140px]"
-								>
-									Replace player
-								</Button>
-								<Button
-									variant="destructive"
-									onClick={() => setClearDialogOpen(true)}
-									className="flex-1 min-w-[140px]"
-								>
-									Remove from slot
-								</Button>
-							</div>
-							{allowsBeanConfig ? (
-								<div className="w-full">
-									<BeansConfig
-										value={currentBeans}
-										onChange={handleBeanChange}
-									/>
-								</div>
-							) : null}
-						</div>
-						<div className="space-y-3">
-							<RarityConfig
-								value={rarity}
-								onChange={handleRarityChange}
-								accent={rarityDefinition.accent}
-							/>
-							<div className="space-y-2">
-								{BOOSTED_STATS.map((stat) => {
-									const rawValue = player.power[stat.key] ?? 0;
-									const boostedValue =
-										computedStats?.power[stat.key] ??
-										applyRarityBonus(
-											typeof rawValue === "number"
-												? rawValue
-												: Number(rawValue),
-											rarity,
-										);
-									const Icon = stat.icon;
-									return (
-										<div
-											key={stat.label}
-											className="flex items-center justify-between rounded-lg border bg-muted/30 px-3 py-2"
-										>
-											<div className="flex items-center gap-2 text-sm font-medium">
-												<Icon className="size-4 text-emerald-600" />
-												{stat.label}
-											</div>
-											<span className="text-base font-semibold">
-												{formatNumber(boostedValue)}
-											</span>
-										</div>
-									);
-								})}
-							</div>
-							{allowsEquipmentConfig ? (
-								<EquipmentLoadoutConfig
-									value={currentEquipments}
-									onChange={handleEquipmentChange}
-								/>
-							) : null}
-						</div>
-					</div>
-				)}
-			</div>
+	const showCustomBoosts = Boolean(slot && player) && (allowsBeanConfig || allowsEquipmentConfig);
 
-			<Dialog open={clearDialogOpen} onOpenChange={setClearDialogOpen}>
-				<DialogContent>
-					<DialogHeader>
-						<DialogTitle>Remove player from slot?</DialogTitle>
-						<DialogDescription>
-							This will clear the assignment and reset custom settings for this
-							slot.
-						</DialogDescription>
-					</DialogHeader>
-					<DialogFooter>
-						<Button variant="outline" onClick={() => setClearDialogOpen(false)}>
-							Keep player
-						</Button>
-						<Button
-							variant="destructive"
-							onClick={() => {
-								if (slot) {
-									onClearSlot(slot.id);
-								}
-								setClearDialogOpen(false);
-							}}
-						>
-							Remove anyway
-						</Button>
-					</DialogFooter>
-				</DialogContent>
-			</Dialog>
-		</section>
+	return (
+		<div className="flex flex-col gap-4">
+			<section className="rounded-xl border bg-card p-4 shadow-sm">
+				<header className="flex flex-wrap items-center gap-2">
+					<div>
+						<p className="text-sm font-semibold">Slot details</p>
+					</div>
+					{slot ? <PositionChip label={slot.displayLabel ?? slot.label} /> : null}
+				</header>
+				<div className="mt-4 space-y-4">
+					{!slot ? (
+						<div className="rounded-lg border border-dashed p-4 text-sm text-muted-foreground">No slot selected. Tap a position on the pitch to focus it.</div>
+					) : !player ? (
+						<div className="flex flex-col items-center gap-3 rounded-lg border border-dashed p-6 text-center">
+							<div className="flex size-32 items-center justify-center rounded-2xl border border-dashed text-xl font-semibold">
+								{slot.displayLabel ?? slot.label}
+							</div>
+							<p className="text-sm text-muted-foreground">This slot is empty. Choose a player to assign.</p>
+							<Button onClick={() => onAssign(slot)}>Assign player</Button>
+						</div>
+					) : (
+						<div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+							<div className="flex flex-col items-center gap-3">
+								<img
+									src={player.safeImage}
+									alt={player.name}
+									className="w-full max-w-[220px] rounded-2xl border object-cover shadow-lg"
+									loading="lazy"
+									crossOrigin="anonymous"
+									referrerPolicy="no-referrer"
+								/>
+								<div className="flex flex-wrap items-center justify-center gap-2 text-xs">
+									<ElementChip element={player.element} />
+									<PositionChip label={player.position} />
+								</div>
+								<div className="text-center">
+									<p className="text-lg font-semibold">{player.name}</p>
+									<p className="text-sm text-muted-foreground">{player.nickname}</p>
+								</div>
+								<div className="flex flex-wrap gap-2">
+									<Button onClick={() => onAssign(slot)} className="flex-1 min-w-[140px]">
+										Replace player
+									</Button>
+									<Button variant="destructive" onClick={() => setClearDialogOpen(true)} className="flex-1 min-w-[140px]">
+										Remove from slot
+									</Button>
+								</div>
+							</div>
+							<div className="space-y-3">
+								<RarityConfig value={rarity} onChange={handleRarityChange} accent={rarityDefinition.accent} />
+								<div className="space-y-2">
+									{BOOSTED_STATS.map((stat) => {
+										const rawValue = player.power[stat.key] ?? 0;
+										const boostedValue = computedStats?.power[stat.key] ?? applyRarityBonus(typeof rawValue === "number" ? rawValue : Number(rawValue), rarity);
+										const Icon = stat.icon;
+										return (
+											<div key={stat.label} className="flex items-center justify-between rounded-lg border bg-muted/30 px-3 py-2">
+												<div className="flex items-center gap-2 text-sm font-medium">
+													<Icon className="size-4 text-emerald-600" />
+													{stat.label}
+												</div>
+												<span className="text-base font-semibold">{formatNumber(boostedValue)}</span>
+											</div>
+										);
+									})}
+								</div>
+							</div>
+						</div>
+					)}
+				</div>
+
+				<Dialog open={clearDialogOpen} onOpenChange={setClearDialogOpen}>
+					<DialogContent>
+						<DialogHeader>
+							<DialogTitle>Remove player from slot?</DialogTitle>
+							<DialogDescription>This will clear the assignment and reset custom settings for this slot.</DialogDescription>
+						</DialogHeader>
+						<DialogFooter>
+							<Button variant="outline" onClick={() => setClearDialogOpen(false)}>
+								Keep player
+							</Button>
+							<Button
+								variant="destructive"
+								onClick={() => {
+									if (slot) {
+										onClearSlot(slot.id);
+									}
+									setClearDialogOpen(false);
+								}}
+							>
+								Remove anyway
+							</Button>
+						</DialogFooter>
+					</DialogContent>
+				</Dialog>
+			</section>
+
+			{showCustomBoosts ? (
+				<section className="rounded-xl border bg-card p-4 shadow-sm">
+					<header className="flex items-center justify-between">
+						<p className="text-sm font-semibold">Equipable Boosts</p>
+					</header>
+					<div className="mt-4">
+						<div className="flex flex-col gap-3 lg:grid lg:grid-cols-2">
+							{allowsBeanConfig ? <BeansConfig value={currentBeans} onChange={handleBeanChange} /> : null}
+							{allowsEquipmentConfig ? <EquipmentLoadoutConfig value={currentEquipments} onChange={handleEquipmentChange} /> : null}
+						</div>
+					</div>
+				</section>
+			) : null}
+		</div>
 	);
 }
 
@@ -354,9 +250,7 @@ type RarityConfigProps = {
 };
 
 function RarityConfig({ value, onChange, accent }: RarityConfigProps) {
-	const selectedDefinition = SLOT_RARITY_OPTIONS.find(
-		(option) => option.value === value,
-	);
+	const selectedDefinition = SLOT_RARITY_OPTIONS.find((option) => option.value === value);
 
 	return (
 		<div className="space-y-2 rounded-lg border bg-background/80 p-3">
@@ -370,10 +264,7 @@ function RarityConfig({ value, onChange, accent }: RarityConfigProps) {
 					{selectedDefinition?.boostLabel}
 				</Badge>
 			</div>
-			<Select
-				value={value}
-				onValueChange={(next) => onChange(next as SlotRarity)}
-			>
+			<Select value={value} onValueChange={(next) => onChange(next as SlotRarity)}>
 				<SelectTrigger className="bg-background/90 w-full">
 					<SelectValue placeholder="Select rarity" />
 				</SelectTrigger>
@@ -382,13 +273,8 @@ function RarityConfig({ value, onChange, accent }: RarityConfigProps) {
 						<SelectItem key={option.value} value={option.value}>
 							<div className="flex items-center justify-between">
 								<div className="flex items-center gap-2">
-									<span
-										className="size-3 rounded-full"
-										style={{ background: option.cardBackground }}
-									/>
-									<span className="text-sm font-semibold">
-										{option.label} Player
-									</span>
+									<span className="size-3 rounded-full" style={{ background: option.cardBackground }} />
+									<span className="text-sm font-semibold">{option.label} Player</span>
 								</div>
 							</div>
 						</SelectItem>
@@ -404,23 +290,13 @@ type EquipmentLoadoutConfigProps = {
 	onChange: (category: EquipmentCategory, equipmentId: string | null) => void;
 };
 
-function EquipmentLoadoutConfig({
-	value,
-	onChange,
-}: EquipmentLoadoutConfigProps) {
+function EquipmentLoadoutConfig({ value, onChange }: EquipmentLoadoutConfigProps) {
 	return (
 		<div className="space-y-2 rounded-lg border bg-background/80 p-3">
-			<div className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-				Equipments
-			</div>
+			<div className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Equipments</div>
 			<div className="space-y-3">
 				{EQUIPMENT_CATEGORIES.map((category) => (
-					<EquipmentSelectRow
-						key={category}
-						category={category}
-						selectedId={value[category] ?? null}
-						onChange={onChange}
-					/>
+					<EquipmentSelectRow key={category} category={category} selectedId={value[category] ?? null} onChange={onChange} />
 				))}
 			</div>
 		</div>
@@ -433,17 +309,11 @@ type EquipmentSelectRowProps = {
 	onChange: (category: EquipmentCategory, equipmentId: string | null) => void;
 };
 
-function EquipmentSelectRow({
-	category,
-	selectedId,
-	onChange,
-}: EquipmentSelectRowProps) {
+function EquipmentSelectRow({ category, selectedId, onChange }: EquipmentSelectRowProps) {
 	const [open, setOpen] = useState(false);
 	const [query, setQuery] = useState("");
 	const equipments = equipmentsByType[category] ?? [];
-	const selectedEquipment = selectedId
-		? equipments.find((item) => item.id === selectedId)
-		: null;
+	const selectedEquipment = selectedId ? equipments.find((item) => item.id === selectedId) : null;
 
 	const handleSearchKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
 		if (event.key === "Escape" || event.key === "Tab") {
@@ -456,9 +326,7 @@ function EquipmentSelectRow({
 	const filteredEquipments = useMemo(() => {
 		const normalizedQuery = query.trim().toLowerCase();
 		if (!normalizedQuery) return equipments;
-		return equipments.filter((equipment) =>
-			equipment.name.toLowerCase().includes(normalizedQuery),
-		);
+		return equipments.filter((equipment) => equipment.name.toLowerCase().includes(normalizedQuery));
 	}, [equipments, query]);
 
 	return (
@@ -468,13 +336,8 @@ function EquipmentSelectRow({
 				{selectedEquipment ? (
 					<div className="flex flex-wrap justify-end gap-1">
 						{getEquipmentHighlights(selectedEquipment).map((highlight) => (
-							<Badge
-								key={`${selectedEquipment.id}-${highlight.key}`}
-								variant="outline"
-								className="text-[10px] uppercase tracking-[0.2em]"
-							>
-								{ATTRIBUTE_LABELS[highlight.key].slice(0, 4)} +
-								{formatNumber(highlight.value)}
+							<Badge key={`${selectedEquipment.id}-${highlight.key}`} variant="outline" className="text-[10px] uppercase tracking-[0.2em]">
+								{ATTRIBUTE_LABELS[highlight.key].slice(0, 4)} +{formatNumber(highlight.value)}
 							</Badge>
 						))}
 					</div>
@@ -491,9 +354,7 @@ function EquipmentSelectRow({
 						setQuery("");
 					}
 				}}
-				onValueChange={(next) =>
-					onChange(category, next === "none" ? null : (next as string))
-				}
+				onValueChange={(next) => onChange(category, next === "none" ? null : (next as string))}
 			>
 				<SelectTrigger className="bg-background/90 w-full">
 					<SelectValue placeholder={`Select ${titleCase(category)}`} />
@@ -516,11 +377,7 @@ function EquipmentSelectRow({
 							</div>
 						</SelectItem>
 					))}
-					{!filteredEquipments.length && (
-						<div className="px-3 pb-3 text-center text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-							No matches
-						</div>
-					)}
+					{!filteredEquipments.length && <div className="px-3 pb-3 text-center text-[11px] uppercase tracking-[0.2em] text-muted-foreground">No matches</div>}
 				</SelectContent>
 			</Select>
 		</div>
@@ -541,17 +398,10 @@ function BeansConfig({ value, onChange }: BeansConfigProps) {
 
 	return (
 		<div className="space-y-2 rounded-lg border bg-background/80 p-3">
-			<div className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-				Beans
-			</div>
+			<div className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Beans</div>
 			<div className="space-y-2">
 				{slots.map(({ slotId, bean, index }) => (
-					<BeanRow
-						key={slotId}
-						index={index}
-						bean={bean}
-						onChange={(next) => onChange(index, next)}
-					/>
+					<BeanRow key={slotId} bean={bean} onChange={(next) => onChange(index, next)} />
 				))}
 			</div>
 		</div>
@@ -559,12 +409,11 @@ function BeansConfig({ value, onChange }: BeansConfigProps) {
 }
 
 type BeanRowProps = {
-	index: number;
 	bean: SlotBean;
 	onChange: (bean: SlotBean) => void;
 };
 
-function BeanRow({ index, bean, onChange }: BeanRowProps) {
+function BeanRow({ bean, onChange }: BeanRowProps) {
 	const handleAttributeChange = (value: string) => {
 		onChange({
 			attribute: value === "none" ? null : (value as BaseAttributeKey),
@@ -579,32 +428,43 @@ function BeanRow({ index, bean, onChange }: BeanRowProps) {
 		});
 	};
 
+	const beanColor = bean.attribute ? BEAN_COLORS[bean.attribute] : "#9ca3af";
+
 	return (
 		<div className="space-y-2 rounded-lg border bg-card/30 p-2">
-			<div className="flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-				<span>Bean {index + 1}</span>
-			</div>
 			<div className="flex flex-col gap-2 sm:flex-row">
-				<Select
-					value={bean.attribute ?? "none"}
-					onValueChange={handleAttributeChange}
-				>
+				<Select value={bean.attribute ?? "none"} onValueChange={handleAttributeChange}>
 					<SelectTrigger className="bg-background/90 w-full">
-						<SelectValue placeholder="Pick attribute" />
+						<SelectValue placeholder="Pick attribute">
+							{bean.attribute ? (
+								<div className="flex items-center gap-2">
+									<Bean className="size-4" style={{ color: beanColor }} />
+									<span>{ATTRIBUTE_LABELS[bean.attribute]}</span>
+								</div>
+							) : (
+								"Pick attribute"
+							)}
+						</SelectValue>
 					</SelectTrigger>
 					<SelectContent>
-						<SelectItem value="none">No attribute</SelectItem>
+						<SelectItem value="none">
+							<div className="flex items-center gap-2">
+								<Bean className="size-4 text-muted-foreground" />
+								<span>No attribute</span>
+							</div>
+						</SelectItem>
 						{ATTRIBUTE_KEYS.map((key) => (
 							<SelectItem key={key} value={key}>
-								{ATTRIBUTE_LABELS[key]}
+								<div className="flex items-center gap-2">
+									<Bean className="size-4" style={{ color: BEAN_COLORS[key] }} />
+									<span>{ATTRIBUTE_LABELS[key]}</span>
+								</div>
 							</SelectItem>
 						))}
 					</SelectContent>
 				</Select>
 				<div className="relative flex items-center w-[150px]">
-					<span className="absolute left-2 text-emerald-600 font-bold select-none pointer-events-none">
-						+
-					</span>
+					<span className="absolute left-2 text-emerald-600 font-bold select-none pointer-events-none">+</span>
 					<Input
 						type="number"
 						min={0}

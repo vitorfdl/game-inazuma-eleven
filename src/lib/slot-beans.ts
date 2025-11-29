@@ -1,11 +1,17 @@
-import type {
-	BaseAttributeKey,
-	SlotBean,
-	SlotBeans,
-} from "@/types/team-builder";
+import type { BaseAttributeKey, SlotBean, SlotBeans } from "@/types/team-builder";
 
 export const MAX_BEAN_POINTS = 198;
 export const BEAN_SLOTS_COUNT = 3;
+
+export const BEAN_COLORS: Record<BaseAttributeKey, string> = {
+	physical: "#1e3a8a", // Dark Blue (Toughness)
+	kick: "#dc2626", // Red (Kick Strength)
+	control: "#ec4899", // Pink (Acuity)
+	pressure: "#16a34a", // Green (Steadfast)
+	intelligence: "#0ea5e9", // Light Blue (Intellect)
+	technique: "#eab308", // Yellow (Finesse)
+	agility: "#f97316", // Orange (Velocity)
+};
 
 export function clampBeanValue(value: number): number {
 	if (!Number.isFinite(value)) {
@@ -18,7 +24,7 @@ export function clampBeanValue(value: number): number {
 export function createEmptySlotBeans(): SlotBeans {
 	return Array.from({ length: BEAN_SLOTS_COUNT }, () => ({
 		attribute: null,
-		value: 0,
+		value: 80,
 	})) as SlotBeans;
 }
 

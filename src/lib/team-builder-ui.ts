@@ -9,7 +9,7 @@ import type { FiltersState, SlotAssignment, TeamBuilderSlot } from "@/types/team
 export const FIELD_COLUMNS = 5;
 export const FIELD_ROWS = 6;
 export const COLUMN_STOPS = [8, 30, 50, 70, 92];
-export const ROW_STOPS = [14, 30, 48, 65, 78, 94];
+export const ROW_STOPS = [12, 30, 48, 67, 78, 94];
 export const SLOT_CARD_WIDTH_CLASS = "w-[clamp(92px,12vw,128px)]";
 
 export const DEFAULT_FILTERS: FiltersState = {

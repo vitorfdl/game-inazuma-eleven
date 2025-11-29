@@ -1,10 +1,11 @@
+import { DndContext, type DragCancelEvent, type DragEndEvent, DragOverlay, type DragStartEvent, PointerSensor, useSensor, useSensors } from "@dnd-kit/core";
 import { toPng } from "html-to-image";
 import { useAtom, useAtomValue } from "jotai";
 import { ClipboardList, ImageDown, RefreshCcw, Share2, UserX } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { PositionChip } from "@/components/team-builder/Chips";
-import { FormationPitch, ReservesRail } from "@/components/team-builder/FormationPitch";
+import { FormationPitch, ReservesRail, SlotCard } from "@/components/team-builder/FormationPitch";
 import { PlayerAssignmentModal } from "@/components/team-builder/PlayerAssignmentModal";
 import { SlotDetailsDrawer } from "@/components/team-builder/SlotDetailsDrawer";
 import { Button } from "@/components/ui/button";
@@ -62,6 +63,14 @@ export default function TeamBuilderPage() {
 	const [clearDialogOpen, setClearDialogOpen] = useState(false);
 	const [teamBoardOpen, setTeamBoardOpen] = useState(false);
 	const [isExportingImage, setIsExportingImage] = useState(false);
+	const [activeDragSlotId, setActiveDragSlotId] = useState<string | null>(null);
+	const sensors = useSensors(
+		useSensor(PointerSensor, {
+			activationConstraint: {
+				distance: 6,
+			},
+		}),
+	);
 	const location = useLocation();
 	const navigate = useNavigate();
 	const isMobile = useIsMobile();
@@ -109,7 +118,6 @@ export default function TeamBuilderPage() {
 	const starterSlots = useMemo(() => formation.slots.map((slot) => extendFormationSlot(slot)), [formation]);
 	const allSlots = useMemo(() => [...starterSlots, ...EXTRA_TEAM_SLOTS], [starterSlots]);
 	const slotMap = useMemo(() => new Map(allSlots.map((slot) => [slot.id, slot])), [allSlots]);
-	const totalSlotCount = allSlots.length;
 
 	useEffect(() => {
 		if (!allSlots.length) {
@@ -166,6 +174,7 @@ export default function TeamBuilderPage() {
 			};
 		});
 	}, [allSlots, effectiveState.assignments, effectiveState.slotConfigs]);
+	const assignmentsById = useMemo(() => new Map(allAssignments.map((entry) => [entry.slot.id, entry])), [allAssignments]);
 	const starterAssignments = allAssignments.filter((entry) => entry.slot.kind === "starter");
 	const reserveAssignments = allAssignments.filter((entry) => entry.slot.kind === "reserve");
 	const staffAssignments = allAssignments.filter((entry) => entry.slot.kind === "manager" || entry.slot.kind === "coordinator");
@@ -178,6 +187,8 @@ export default function TeamBuilderPage() {
 	const filledCount = allAssignments.filter((entry) => entry.player).length;
 	const activeSlot = activeSlotId ? (slotMap.get(activeSlotId) ?? null) : null;
 	const activeAssignment = activeSlot ? (allAssignments.find((entry) => entry.slot.id === activeSlot.id) ?? null) : null;
+	const activeDragEntry = activeDragSlotId ? (assignmentsById.get(activeDragSlotId) ?? null) : null;
+	const isDragActive = Boolean(activeDragSlotId);
 
 	const filteredPlayers = useMemo(() => {
 		if (!activeSlot) return [];
@@ -341,6 +352,70 @@ export default function TeamBuilderPage() {
 
 	const handleResetFilters = () => {
 		setFilters(DEFAULT_FILTERS);
+	};
+
+	const handleSlotDragStart = (event: DragStartEvent) => {
+		if (isPreviewingSharedTeam) return;
+		setActiveDragSlotId(String(event.active.id));
+	};
+
+	const handleSlotDragEnd = (event: DragEndEvent) => {
+		if (isPreviewingSharedTeam) return;
+		const { active, over } = event;
+		if (!over || active.id === over.id) {
+			setActiveDragSlotId(null);
+			return;
+		}
+		const sourceId = String(active.id);
+		const targetId = String(over.id);
+		setTeamState((prev) => {
+			const prevAssignments = prev.assignments ?? {};
+			const sourcePlayer = prevAssignments[sourceId];
+			if (typeof sourcePlayer !== "number") {
+				return prev;
+			}
+			const targetPlayer = prevAssignments[targetId];
+			const nextAssignments: TeamBuilderAssignments = { ...prevAssignments };
+			const prevSlotConfigs = prev.slotConfigs ?? {};
+			const nextSlotConfigs: TeamBuilderSlotConfigs = { ...prevSlotConfigs };
+			const sourceConfig = nextSlotConfigs[sourceId];
+			const targetConfig = nextSlotConfigs[targetId];
+
+			if (typeof targetPlayer === "number") {
+				nextAssignments[sourceId] = targetPlayer;
+				nextAssignments[targetId] = sourcePlayer;
+				if (typeof targetConfig === "undefined") {
+					delete nextSlotConfigs[sourceId];
+				} else {
+					nextSlotConfigs[sourceId] = targetConfig;
+				}
+				if (typeof sourceConfig === "undefined") {
+					delete nextSlotConfigs[targetId];
+				} else {
+					nextSlotConfigs[targetId] = sourceConfig;
+				}
+			} else {
+				nextAssignments[sourceId] = null;
+				nextAssignments[targetId] = sourcePlayer;
+				delete nextSlotConfigs[sourceId];
+				if (typeof sourceConfig === "undefined") {
+					delete nextSlotConfigs[targetId];
+				} else {
+					nextSlotConfigs[targetId] = sourceConfig;
+				}
+			}
+
+			return {
+				...prev,
+				assignments: nextAssignments,
+				slotConfigs: nextSlotConfigs,
+			};
+		});
+		setActiveDragSlotId(null);
+	};
+
+	const handleSlotDragCancel = (_event: DragCancelEvent) => {
+		setActiveDragSlotId(null);
 	};
 
 	const attemptClipboardCopy = async (value: string) => {
@@ -508,36 +583,49 @@ export default function TeamBuilderPage() {
 				</div>
 			</section>
 
-			<div className="grid gap-4">
-				<div className="rounded-xl border bg-card p-3 shadow-sm">
-					<div ref={layoutContainerRef} className="mx-auto flex w-full max-w-6xl flex-col gap-4 lg:flex-row lg:items-start lg:justify-center lg:gap-3">
-						<div className="flex-1">
-							<FormationPitch
-								assignments={starterAssignments}
-								staffEntries={staffAssignments}
-								activeSlotId={activeSlotId}
-								displayMode={displayMode}
-								onSlotSelect={handleSelectSlot}
-								onEmptySlotSelect={handleSelectEmptySlot}
-								formationId={formation.id}
-								onFormationChange={handleFormationChange}
-								isFormationDisabled={isPreviewingSharedTeam}
-							/>
-						</div>
-						<div className="self-start">
-							<ReservesRail
-								entries={reserveAssignments}
-								displayMode={displayMode}
-								activeSlotId={activeSlotId}
-								onSlotSelect={handleSelectSlot}
-								onEmptySlotSelect={handleSelectEmptySlot}
-								isStackedLayout={isStackedLayout}
-								variant="compact"
-							/>
+			<DndContext sensors={sensors} onDragStart={handleSlotDragStart} onDragEnd={handleSlotDragEnd} onDragCancel={handleSlotDragCancel}>
+				<div className="grid gap-4">
+					<div className="rounded-xl border bg-card p-3 shadow-sm">
+						<div ref={layoutContainerRef} className="mx-auto flex w-full max-w-5xl flex-col gap-4 lg:flex-row lg:items-start lg:justify-center lg:gap-3 ">
+							<div className="flex-1">
+								<FormationPitch
+									assignments={starterAssignments}
+									staffEntries={staffAssignments}
+									activeSlotId={activeSlotId}
+									displayMode={displayMode}
+									onSlotSelect={handleSelectSlot}
+									onEmptySlotSelect={handleSelectEmptySlot}
+									formationId={formation.id}
+									onFormationChange={handleFormationChange}
+									isFormationDisabled={isPreviewingSharedTeam}
+									dragDisabled={isPreviewingSharedTeam}
+									isDragActive={isDragActive}
+								/>
+							</div>
+							<div className="self-start">
+								<ReservesRail
+									entries={reserveAssignments}
+									displayMode={displayMode}
+									activeSlotId={activeSlotId}
+									onSlotSelect={handleSelectSlot}
+									onEmptySlotSelect={handleSelectEmptySlot}
+									isStackedLayout={isStackedLayout}
+									variant="compact"
+									dragDisabled={isPreviewingSharedTeam}
+									isDragActive={isDragActive}
+								/>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+				<DragOverlay dropAnimation={null}>
+					{activeDragEntry ? (
+						<div className="pointer-events-none w-[clamp(120px,25vw,180px)] drop-shadow-[0_18px_25px_rgba(0,0,0,0.4)]">
+							<SlotCard entry={activeDragEntry} displayMode={displayMode} isActive />
+						</div>
+					) : null}
+				</DragOverlay>
+			</DndContext>
 
 			<SlotDetailsDrawer
 				open={detailsOpen && Boolean(activeSlot)}
