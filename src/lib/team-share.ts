@@ -2,6 +2,7 @@ import { gunzipSync, gzipSync, strFromU8, strToU8 } from "fflate";
 
 import { FORMATIONS, formationsMap } from "@/data/formations";
 import { EXTRA_SLOT_IDS } from "@/data/team-builder-slots";
+import { DISPLAY_MODE_VALUES } from "@/lib/team-builder-display";
 import type {
 	DisplayMode,
 	TeamBuilderAssignments,
@@ -14,16 +15,6 @@ import type { SlotConfig } from "@/types/team-builder";
 const SHARE_VERSION = 1;
 const FALLBACK_FORMATION_ID = FORMATIONS[0]?.id ?? "433-delta";
 const FALLBACK_DISPLAY_MODE: DisplayMode = "nickname";
-const DISPLAY_MODE_VALUES: DisplayMode[] = [
-	"nickname",
-	"shootAT",
-	"focusAT",
-	"focusDF",
-	"wallDF",
-	"scrambleAT",
-	"scrambleDF",
-	"kp",
-];
 
 export const TEAM_SHARE_QUERY_KEY = "team";
 
