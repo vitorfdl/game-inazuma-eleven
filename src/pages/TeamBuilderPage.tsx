@@ -807,8 +807,8 @@ export default function TeamBuilderPage() {
 
 				<DndContext sensors={sensors} onDragStart={handleSlotDragStart} onDragEnd={handleSlotDragEnd} onDragCancel={handleSlotDragCancel}>
 					<div className="grid gap-4">
-						<div className="relative overflow-hidden rounded-[34px] border-[6px] border-black/80 bg-[radial-gradient(circle_at_top,#fff6c7_5%,#bfeeff_45%,#63c9ff_85%)] p-4 shadow-[0_32px_60px_rgba(0,0,0,0.45)]">
-							<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.75),transparent_60%)] opacity-70 mix-blend-screen" />
+						<div className="relative overflow-hidden rounded-[34px] border-[6px] border-black/80 bg-[radial-gradient(circle_at_top,#fff6c7_5%,#bfeeff_45%,#63c9ff_85%)] p-4 shadow-[0_32px_60px_rgba(0,0,0,0.45)] dark:bg-[radial-gradient(circle_at_top,#0d182f_10%,#042048_60%,#010511_95%)] dark:shadow-[0_32px_60px_rgba(1,6,17,0.85)]">
+							<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.75),transparent_60%)] opacity-70 mix-blend-screen dark:bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.3),transparent_60%)] dark:opacity-60" />
 							<div
 								ref={layoutContainerRef}
 								className="relative mx-auto flex w-full max-w-5xl flex-col gap-4 lg:flex-row lg:items-start lg:justify-center lg:gap-3"

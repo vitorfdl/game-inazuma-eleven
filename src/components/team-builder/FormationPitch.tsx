@@ -47,7 +47,7 @@ export function FormationPitch({
 					<div className="pointer-events-auto inline-flex items-center gap-2 rounded-full border-[3px] border-black/80 bg-[#fff59f] px-4 py-1.5 text-slate-900 shadow-[0_10px_0_rgba(0,0,0,0.35)]">
 						<p className="text-[10px] font-black uppercase tracking-[0.45em] text-slate-900">Formation</p>
 						<Select disabled={isFormationDisabled} value={formationId} onValueChange={(value) => onFormationChange(value)}>
-							<SelectTrigger className="h-9 min-w-[200px] border-[3px] border-black/80 bg-white/95 text-xs font-semibold uppercase tracking-[0.15em] text-slate-900 shadow-[0_6px_0_rgba(0,0,0,0.35)] sm:min-w-[240px] dark:bg-slate-900/80 dark:text-white">
+							<SelectTrigger className="h-9 min-w-[200px] border-[3px] border-black/80 bg-[#fff4a6] text-xs font-semibold uppercase tracking-[0.15em] text-slate-900 shadow-[0_6px_0_rgba(0,0,0,0.35)] transition-all hover:-translate-y-0.5 hover:bg-[#ffe77a] focus-visible:ring-2 focus-visible:ring-[#ffe066] sm:min-w-[240px] dark:border-black/60 dark:bg-slate-900/80 dark:text-white dark:hover:bg-slate-900/60 dark:focus-visible:ring-slate-100/60">
 								<SelectValue placeholder="Choose formation" />
 							</SelectTrigger>
 							<SelectContent>
