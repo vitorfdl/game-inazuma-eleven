@@ -65,8 +65,10 @@ export type SlotConfig = {
 export type SlotComputedStats = {
 	base: BaseStats;
 	power: PowerStats;
+	finalPower: PowerStats;
 	equipmentBonuses: Record<BaseAttributeKey, number>;
 	beanBonuses: Record<BaseAttributeKey, number>;
+	passiveBonuses: PowerStats;
 };
 
 export type SlotKind = "starter" | "reserve" | "manager" | "coordinator";

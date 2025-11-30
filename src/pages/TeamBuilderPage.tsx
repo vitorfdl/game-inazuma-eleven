@@ -16,7 +16,9 @@ import { FORMATIONS, type FormationDefinition, formationsMap } from "@/data/form
 import { EXTRA_SLOT_IDS, EXTRA_TEAM_SLOTS } from "@/data/team-builder-slots";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { type PlayerRecord, playersById, playersDataset } from "@/lib/players-data";
+import { PASSIVE_CONDITION_OPTIONS, type PassiveConditionOption, computePassiveImpacts } from "@/lib/passive-calculations";
 import { passivesById } from "@/lib/passives-data";
+import { addPowerStats, clonePowerStats } from "@/lib/power-utils";
 import { computeSlotComputedStats } from "@/lib/team-builder-calculations";
 import { DISPLAY_MODE_OPTIONS } from "@/lib/team-builder-display";
 import {
@@ -30,9 +32,11 @@ import {
 import { decodeTeamShareState, encodeTeamShareState, TEAM_SHARE_QUERY_KEY } from "@/lib/team-share";
 import { favoritePlayersAtom } from "@/store/favorites";
 import {
+	DEFAULT_PASSIVE_OPTIONS,
 	type DisplayMode,
 	mergeSlotConfig,
 	normalizeSlotConfig,
+	type PassiveCalculationOptions,
 	type TeamBuilderAssignments,
 	type TeamBuilderSlotConfigs,
 	type TeamBuilderState,
@@ -177,6 +181,7 @@ export default function TeamBuilderPage() {
 	const previewState = sharedCandidate?.state ?? null;
 	const effectiveState = previewState ?? teamState;
 	const isPreviewingSharedTeam = Boolean(previewState);
+	const passiveOptions = effectiveState.passiveOptions ?? DEFAULT_PASSIVE_OPTIONS;
 
 	const formation = formationsMap.get(effectiveState.formationId) ?? FORMATIONS[0];
 	const displayMode = effectiveState.displayMode ?? "nickname";
@@ -228,7 +233,7 @@ export default function TeamBuilderPage() {
 
 	const allAssignments: SlotAssignment[] = useMemo(() => {
 		const slotConfigs = effectiveState.slotConfigs ?? {};
-		return allSlots.map((slot) => {
+		const baseAssignments = allSlots.map((slot) => {
 			const config = normalizeSlotConfig(slotConfigs[slot.id]);
 			const player = getPlayerById(effectiveState.assignments[slot.id]);
 			return {
@@ -238,7 +243,40 @@ export default function TeamBuilderPage() {
 				computed: player ? computeSlotComputedStats(player, config) : null,
 			};
 		});
-	}, [allSlots, effectiveState.assignments, effectiveState.slotConfigs]);
+
+		if (!passiveOptions.enabled) {
+			return baseAssignments;
+		}
+
+		const impactMap = computePassiveImpacts(baseAssignments, passiveOptions);
+		if (!impactMap.size) {
+			return baseAssignments;
+		}
+
+		return baseAssignments.map((entry) => {
+			if (!entry.player || !entry.computed) {
+				return entry;
+			}
+			const rawBonuses = impactMap.get(entry.slot.id);
+			if (!rawBonuses) {
+				return entry;
+			}
+			const passiveBonuses = clonePowerStats(rawBonuses);
+			return {
+				...entry,
+				computed: {
+					...entry.computed,
+					passiveBonuses,
+					finalPower: addPowerStats(entry.computed.power, passiveBonuses),
+				},
+			};
+		});
+	}, [
+		allSlots,
+		effectiveState.assignments,
+		effectiveState.slotConfigs,
+		passiveOptions,
+	]);
 	const assignmentsById = useMemo(() => new Map(allAssignments.map((entry) => [entry.slot.id, entry])), [allAssignments]);
 	const starterAssignments = allAssignments.filter((entry) => entry.slot.kind === "starter");
 	const reserveAssignments = allAssignments.filter((entry) => entry.slot.kind === "reserve");
@@ -426,6 +464,40 @@ export default function TeamBuilderPage() {
 		setFilters(DEFAULT_FILTERS);
 	};
 
+	const handlePassiveEnabledChange = (enabled: boolean) => {
+		if (isPreviewingSharedTeam) return;
+		setTeamState((prev) => {
+			const prevOptions = prev.passiveOptions ?? DEFAULT_PASSIVE_OPTIONS;
+			return {
+				...prev,
+				passiveOptions: {
+					enabled,
+					activeConditions: [...(prevOptions.activeConditions ?? [])],
+				},
+			};
+		});
+	};
+
+	const handlePassiveConditionToggle = (
+		condition: PassiveConditionOption["type"],
+	) => {
+		if (isPreviewingSharedTeam) return;
+		setTeamState((prev) => {
+			const prevOptions = prev.passiveOptions ?? DEFAULT_PASSIVE_OPTIONS;
+			const hasCondition = prevOptions.activeConditions.includes(condition);
+			const nextConditions = hasCondition
+				? prevOptions.activeConditions.filter((entry) => entry !== condition)
+				: [...prevOptions.activeConditions, condition];
+			return {
+				...prev,
+				passiveOptions: {
+					...prevOptions,
+					activeConditions: nextConditions,
+				},
+			};
+		});
+	};
+
 	const handleSlotDragStart = (event: DragStartEvent) => {
 		if (isPreviewingSharedTeam) return;
 		setActiveDragSlotId(String(event.active.id));
@@ -542,6 +614,7 @@ export default function TeamBuilderPage() {
 			assignments: nextState.assignments,
 			slotConfigs: nextState.slotConfigs,
 			displayMode: nextState.displayMode,
+			passiveOptions: nextState.passiveOptions ?? DEFAULT_PASSIVE_OPTIONS,
 		}));
 		setSharedCandidate(null);
 		setImportDialogOpen(false);
@@ -601,57 +674,65 @@ export default function TeamBuilderPage() {
 			) : null}
 
 			<section className="rounded-xl border bg-card p-4 shadow-sm">
-				<div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-					<div className="flex flex-col gap-3 md:flex-row md:items-end md:gap-6">
-						<div className="space-y-1">
-							<p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Team actions</p>
-							<div className="flex flex-wrap gap-2">
-								<Button
-									variant="destructive"
-									size="sm"
-									className="gap-1"
-									onClick={() => setClearDialogOpen(true)}
-									disabled={filledCount === 0 || isPreviewingSharedTeam}
-								>
-									<UserX className="size-4" />
-									Clear team
-								</Button>
-								<Button size="sm" className="gap-1" onClick={handleShareTeam} disabled={isPreviewingSharedTeam}>
-									<Share2 className="size-4" />
-									Share team
-								</Button>
-								<Button variant="outline" size="sm" className="gap-1" onClick={handleDownloadTeamImage} disabled={isExportingImage}>
-									<ImageDown className="size-4" />
-									{isExportingImage ? "Preparing..." : "Export image"}
-								</Button>
-								<Button variant="outline" size="sm" className="gap-1" onClick={() => setTeamPassivesOpen(true)}>
-									<ClipboardList className="size-4" />
-									Team passives
-								</Button>
+				<div className="flex flex-col gap-3">
+					<div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+						<div className="flex flex-col gap-3 md:flex-row md:items-end md:gap-6">
+							<div className="space-y-1">
+								<p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Team actions</p>
+								<div className="flex flex-wrap gap-2">
+									<Button
+										variant="destructive"
+										size="sm"
+										className="gap-1"
+										onClick={() => setClearDialogOpen(true)}
+										disabled={filledCount === 0 || isPreviewingSharedTeam}
+									>
+										<UserX className="size-4" />
+										Clear team
+									</Button>
+									<Button size="sm" className="gap-1" onClick={handleShareTeam} disabled={isPreviewingSharedTeam}>
+										<Share2 className="size-4" />
+										Share team
+									</Button>
+									<Button variant="outline" size="sm" className="gap-1" onClick={handleDownloadTeamImage} disabled={isExportingImage}>
+										<ImageDown className="size-4" />
+										{isExportingImage ? "Preparing..." : "Export image"}
+									</Button>
+									<Button variant="outline" size="sm" className="gap-1" onClick={() => setTeamPassivesOpen(true)}>
+										<ClipboardList className="size-4" />
+										Team passives
+									</Button>
+								</div>
 							</div>
-						</div>
-						<div className="space-y-1">
-							<p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Slot display</p>
-							<div className="flex flex-wrap gap-1.5">
-								{DISPLAY_MODE_OPTIONS.map((option) => {
-									const isActive = displayMode === option.value;
-									return (
-										<Button
-											key={option.value}
-											size="sm"
-											variant={isActive ? "default" : "outline"}
-											className="px-2 text-[11px]"
-											aria-pressed={isActive}
-											disabled={isPreviewingSharedTeam}
-											onClick={() => handleDisplayModeChange(option.value)}
-										>
-											{option.label}
-										</Button>
-									);
-								})}
+							<div className="space-y-1">
+								<p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Slot display</p>
+								<div className="flex flex-wrap gap-1.5">
+									{DISPLAY_MODE_OPTIONS.map((option) => {
+										const isActive = displayMode === option.value;
+										return (
+											<Button
+												key={option.value}
+												size="sm"
+												variant={isActive ? "default" : "outline"}
+												className="px-2 text-[11px]"
+												aria-pressed={isActive}
+												disabled={isPreviewingSharedTeam}
+												onClick={() => handleDisplayModeChange(option.value)}
+											>
+												{option.label}
+											</Button>
+										);
+									})}
+								</div>
 							</div>
 						</div>
 					</div>
+					<PassiveOptionsPanel
+						options={passiveOptions}
+						disabled={isPreviewingSharedTeam}
+						onToggleEnabled={handlePassiveEnabledChange}
+						onToggleCondition={handlePassiveConditionToggle}
+					/>
 				</div>
 			</section>
 
@@ -853,6 +934,118 @@ export default function TeamBuilderPage() {
 					</DialogFooter>
 				</DialogContent>
 			</Dialog>
+		</div>
+	);
+}
+
+type PassiveOptionsPanelProps = {
+	options: PassiveCalculationOptions;
+	disabled: boolean;
+	onToggleEnabled: (enabled: boolean) => void;
+	onToggleCondition: (condition: PassiveConditionOption["type"]) => void;
+};
+
+function PassiveOptionsPanel(
+	{ options, disabled, onToggleEnabled, onToggleCondition }: PassiveOptionsPanelProps,
+) {
+	const handleSwitchClick = () => {
+		if (disabled) return;
+		onToggleEnabled(!options.enabled);
+	};
+
+	const handleConditionClick = (condition: PassiveConditionOption["type"]) => {
+		if (disabled) return;
+		onToggleCondition(condition);
+	};
+
+	return (
+		<div className="space-y-3 rounded-lg border border-border/70 bg-card/60 p-3">
+			<div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+				<div className="space-y-1">
+					<p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+						Passive calculations
+					</p>
+					<p className="text-xs text-muted-foreground">
+						Apply configured passives and optional conditions to slot stats.
+					</p>
+				</div>
+				<button
+					type="button"
+					role="switch"
+					aria-checked={options.enabled}
+					aria-disabled={disabled}
+					disabled={disabled}
+					onClick={handleSwitchClick}
+					className={`relative inline-flex h-8 w-16 items-center rounded-full border-2 transition-all ${
+						options.enabled
+							? "border-emerald-400 bg-emerald-500/90 shadow-[0_0_25px_rgba(16,185,129,0.35)]"
+							: "border-slate-500 bg-slate-900/70 text-slate-200"
+					} ${disabled ? "cursor-not-allowed opacity-80 ring-1 ring-white/10" : "cursor-pointer ring-1 ring-white/20"}`}
+				>
+					<span
+						className={`inline-flex h-6 w-6 transform items-center justify-center rounded-full bg-background text-[10px] font-bold transition-all ${
+							options.enabled
+								? "translate-x-7 text-emerald-600"
+								: "translate-x-1 text-slate-400"
+						}`}
+					>
+						{options.enabled ? "ON" : "OFF"}
+					</span>
+				</button>
+			</div>
+			{options.enabled
+				? PASSIVE_CONDITION_OPTIONS.length
+					? (
+						<div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+							{PASSIVE_CONDITION_OPTIONS.map((condition) => {
+								const checked = options.activeConditions.includes(condition.type);
+								return (
+									<label
+										key={condition.type}
+										className={`flex items-start gap-2 rounded-md border px-2 py-1.5 transition ${
+											checked
+												? "border-emerald-400 bg-emerald-500/10 shadow-[0_10px_25px_rgba(16,185,129,0.15)]"
+												: "border-slate-600/80 bg-slate-900/50"
+										} ${disabled ? "opacity-80" : "hover:border-emerald-400/70"}`}
+									>
+										<input
+											type="checkbox"
+											className="sr-only"
+											checked={checked}
+											disabled={disabled}
+											onChange={() => handleConditionClick(condition.type)}
+										/>
+										<span
+											aria-hidden
+											className={`mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-sm border-2 text-[10px] font-bold transition ${
+												checked
+													? "border-emerald-400 bg-emerald-400/90 text-emerald-950 dark:text-emerald-100"
+													: "border-slate-500 bg-slate-800/70 text-transparent"
+											} ${disabled ? "opacity-90" : ""}`}
+										>
+											✓
+										</span>
+										<div className="leading-tight">
+											<p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-foreground">
+												{condition.label}
+											</p>
+											<p className="text-[11px] text-muted-foreground">
+												{condition.helper}
+											</p>
+										</div>
+									</label>
+								);
+							})}
+						</div>
+					)
+					: (
+						<p className="text-xs text-muted-foreground">
+							No conditional passives require manual enabling for this dataset.
+						</p>
+					)
+				: (
+					null
+				)}
 		</div>
 	);
 }

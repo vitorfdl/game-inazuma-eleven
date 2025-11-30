@@ -1,3 +1,10 @@
+# Version 1.3.1 – 2025-11-30
+
+- Team Builder page:
+  - Added passive calculation options to the team builder page.
+  - Added conditional passives to the team builder page.
+- Added elements interaction reference sheet button to the header of the page.
+
 # Version 1.3.0 – 2025-11-30
 
 - You can now switch between light and dark themes.

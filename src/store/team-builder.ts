@@ -2,6 +2,7 @@ import { atomWithStorage, createJSONStorage } from "jotai/utils";
 import type { FormationId } from "@/data/formations";
 import { FORMATIONS } from "@/data/formations";
 import { EXTRA_SLOT_IDS } from "@/data/team-builder-slots";
+import type { PassiveCondition } from "@/lib/passives-data";
 import { createEmptySlotBeans, normalizeSlotBeans } from "@/lib/slot-beans";
 import {
 	createEmptySlotPassives,
@@ -27,7 +28,18 @@ export type TeamBuilderState = {
 	assignments: TeamBuilderAssignments;
 	displayMode: DisplayMode;
 	slotConfigs: TeamBuilderSlotConfigs;
+	passiveOptions: PassiveCalculationOptions;
 };
+
+export type PassiveCalculationOptions = {
+	enabled: boolean;
+	activeConditions: PassiveCondition["type"][];
+};
+
+export const DEFAULT_PASSIVE_OPTIONS: PassiveCalculationOptions = Object.freeze({
+	enabled: false,
+	activeConditions: [],
+});
 
 const TEAM_BUILDER_STORAGE_KEY = "inazuma-guide.team-builder.v2";
 const DEFAULT_FORMATION_ID = FORMATIONS[0]?.id ?? "433-delta";
@@ -95,6 +107,7 @@ const defaultState: TeamBuilderState = {
 	assignments: defaultAssignments,
 	displayMode: "nickname",
 	slotConfigs: {},
+	passiveOptions: DEFAULT_PASSIVE_OPTIONS,
 };
 
 const storage =

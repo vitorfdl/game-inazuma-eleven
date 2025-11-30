@@ -302,7 +302,8 @@ function SlotDetailsPanel(
 									<div className="space-y-2">
 										{BOOSTED_STATS.map((stat) => {
 											const rawValue = player.power[stat.key] ?? 0;
-											const boostedValue = computedStats?.power[stat.key] ??
+											const boostedValue = computedStats?.finalPower?.[stat.key] ??
+												computedStats?.power[stat.key] ??
 												applyRarityBonus(
 													typeof rawValue === "number"
 														? rawValue

@@ -6,11 +6,20 @@ import {
 	Sun,
 	Swords,
 	Users,
+	Wind,
 } from "lucide-react";
 import { useAtom } from "jotai";
 import { useEffect } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { ChangelogNoticeboard } from "@/components/changelog/ChangelogNoticeboard";
+import { Button } from "@/components/ui/button";
+import {
+	Dialog,
+	DialogContent,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "@/components/ui/dialog";
 import {
 	Sidebar,
 	SidebarContent,
@@ -70,6 +79,7 @@ export default function AppLayout() {
 	const handleThemeToggle = () =>
 		setTheme((current) => (current === "dark" ? "light" : "dark"));
 	const faviconUrl = `${import.meta.env.BASE_URL}favicon/favicon.svg`;
+	const elementsSheetUrl = `${import.meta.env.BASE_URL}assets/elements-table.jpg`;
 	const playersActive =
 		location.pathname === "/" || location.pathname.startsWith("/players");
 	const equipmentsActive = location.pathname.startsWith("/equipments");
@@ -175,6 +185,33 @@ export default function AppLayout() {
 					</div>
 					<div className="flex items-center gap-2">
 						<Skeleton className="hidden h-11 w-full max-w-xl rounded-full lg:block" />
+						<Dialog>
+							<DialogTrigger asChild>
+								<Button
+									type="button"
+									variant="outline"
+									size="sm"
+									className="h-10 gap-2 px-3"
+								>
+									<Wind className="size-4" />
+									<span className="text-xs font-semibold uppercase tracking-wide">
+										Elements Sheet
+									</span>
+								</Button>
+							</DialogTrigger>
+							<DialogContent className="!max-w-3xl">
+								<DialogHeader>
+									<DialogTitle>Elements Interaction Sheet</DialogTitle>
+								</DialogHeader>
+								<div className="">
+									<img
+										src={elementsSheetUrl}
+										alt="Elements interaction sheet"
+										className="h-auto w-full rounded-md shadow-sm"
+									/>
+								</div>
+							</DialogContent>
+						</Dialog>
 						<ChangelogNoticeboard />
 					</div>
 				</header>

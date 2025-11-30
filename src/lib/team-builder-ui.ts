@@ -55,7 +55,7 @@ export function getSlotDisplayValue(entry: SlotAssignment, mode: DisplayMode) {
 	if (mode === "nickname") {
 		return fallback;
 	}
-	const statValue = entry.computed?.power[mode];
+	const statValue = entry.computed?.finalPower?.[mode] ?? entry.computed?.power?.[mode];
 	if (typeof statValue === "number" && !Number.isNaN(statValue)) {
 		return formatNumber(statValue);
 	}

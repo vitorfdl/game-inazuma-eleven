@@ -1,5 +1,6 @@
 import { equipmentsById } from "@/lib/equipments-data";
 import { type BaseStats, computePower } from "@/lib/inazuma-math";
+import { clonePowerStats, createEmptyPowerStats } from "@/lib/power-utils";
 import type { PlayerRecord } from "@/lib/players-data";
 import { clampBeanValue } from "@/lib/slot-beans";
 import { applyRarityBonus } from "@/lib/slot-rarity";
@@ -80,10 +81,14 @@ export function computeSlotComputedStats(
 		finalBase.total += finalBase[key];
 	});
 
+	const powerStats = computePower(finalBase);
+
 	return {
 		base: finalBase,
-		power: computePower(finalBase),
+		power: powerStats,
+		finalPower: clonePowerStats(powerStats),
 		equipmentBonuses,
 		beanBonuses,
+		passiveBonuses: createEmptyPowerStats(),
 	};
 }

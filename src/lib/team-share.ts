@@ -3,13 +3,15 @@ import { gunzipSync, gzipSync, strFromU8, strToU8 } from "fflate";
 import { FORMATIONS, formationsMap } from "@/data/formations";
 import { EXTRA_SLOT_IDS } from "@/data/team-builder-slots";
 import { DISPLAY_MODE_VALUES } from "@/lib/team-builder-display";
-import type {
-	DisplayMode,
-	TeamBuilderAssignments,
-	TeamBuilderSlotConfigs,
-	TeamBuilderState,
+import {
+	DEFAULT_PASSIVE_OPTIONS,
+	type DisplayMode,
+	normalizeSlotConfig,
+	type PassiveCalculationOptions,
+	type TeamBuilderAssignments,
+	type TeamBuilderSlotConfigs,
+	type TeamBuilderState,
 } from "@/store/team-builder";
-import { normalizeSlotConfig } from "@/store/team-builder";
 import type { SlotConfig } from "@/types/team-builder";
 
 const SHARE_VERSION = 1;
@@ -77,6 +79,7 @@ function sanitizeTeamState(
 		displayMode,
 		assignments: sanitizeAssignments(input?.assignments),
 		slotConfigs: sanitizeSlotConfigs(input?.slotConfigs),
+		passiveOptions: sanitizePassiveOptions(input?.passiveOptions),
 	};
 }
 
@@ -120,6 +123,31 @@ function sanitizeSlotConfigs(value: unknown): TeamBuilderSlotConfigs {
 	});
 
 	return result;
+}
+
+function sanitizePassiveOptions(
+	value: unknown,
+): PassiveCalculationOptions {
+	if (!value || typeof value !== "object") {
+		return {
+			enabled: DEFAULT_PASSIVE_OPTIONS.enabled,
+			activeConditions: [...DEFAULT_PASSIVE_OPTIONS.activeConditions],
+		};
+	}
+
+	const input = value as Partial<PassiveCalculationOptions>;
+	const enabled = Boolean(input.enabled);
+	const rawConditions = Array.isArray(input.activeConditions)
+		? input.activeConditions.filter((entry): entry is PassiveCalculationOptions["activeConditions"][number] =>
+				typeof entry === "string"
+			)
+		: [];
+	const uniqueConditions = Array.from(new Set(rawConditions));
+
+	return {
+		enabled,
+		activeConditions: uniqueConditions,
+	};
 }
 
 function toBase64Url(bytes: Uint8Array): string {
