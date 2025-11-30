@@ -4,24 +4,13 @@ import { FORMATIONS } from "@/data/formations";
 import { EXTRA_SLOT_IDS } from "@/data/team-builder-slots";
 import type { PassiveCondition } from "@/lib/passives-data";
 import { createEmptySlotBeans, normalizeSlotBeans } from "@/lib/slot-beans";
-import {
-	createEmptySlotPassives,
-	normalizeSlotPassives,
-} from "@/lib/slot-passives";
+import { createEmptySlotPassives, normalizeSlotPassives } from "@/lib/slot-passives";
 import type { SlotConfig, SlotEquipments } from "@/types/team-builder";
 
 export type TeamBuilderAssignments = Record<string, number | null>;
 export type TeamBuilderSlotConfigs = Record<string, SlotConfig | undefined>;
 
-export type DisplayMode =
-	| "nickname"
-	| "shootAT"
-	| "focusAT"
-	| "focusDF"
-	| "wallDF"
-	| "scrambleAT"
-	| "scrambleDF"
-	| "kp";
+export type DisplayMode = "nickname" | "shootAT" | "focusAT" | "focusDF" | "wallDF" | "scrambleAT" | "scrambleDF" | "kp";
 
 export type TeamBuilderState = {
 	formationId: FormationId;
@@ -36,12 +25,24 @@ export type PassiveCalculationOptions = {
 	activeConditions: PassiveCondition["type"][];
 };
 
+export const TEAM_BUILDER_TEAM_IDS = [1, 2, 3, 4, 5, 6] as const;
+export type TeamBuilderTeamId = (typeof TEAM_BUILDER_TEAM_IDS)[number];
+
 export const DEFAULT_PASSIVE_OPTIONS: PassiveCalculationOptions = Object.freeze({
 	enabled: false,
 	activeConditions: [],
 });
 
-const TEAM_BUILDER_STORAGE_KEY = "inazuma-guide.team-builder.v2";
+const LEGACY_TEAM_STORAGE_KEY = "inazuma-guide.team-builder.v2";
+const TEAM_STORAGE_KEY_PREFIX = `${LEGACY_TEAM_STORAGE_KEY}.team-`;
+const TEAM_BUILDER_TEAM_STORAGE_KEYS: Record<TeamBuilderTeamId, string> = {
+	1: LEGACY_TEAM_STORAGE_KEY,
+	2: `${TEAM_STORAGE_KEY_PREFIX}2`,
+	3: `${TEAM_STORAGE_KEY_PREFIX}3`,
+	4: `${TEAM_STORAGE_KEY_PREFIX}4`,
+	5: `${TEAM_STORAGE_KEY_PREFIX}5`,
+	6: `${TEAM_STORAGE_KEY_PREFIX}6`,
+};
 const DEFAULT_FORMATION_ID = FORMATIONS[0]?.id ?? "433-delta";
 const DEFAULT_SLOT_EQUIPMENTS: SlotEquipments = Object.freeze({
 	boots: null,
@@ -78,10 +79,7 @@ export function normalizeSlotConfig(config?: SlotConfig | null): SlotConfig {
 	};
 }
 
-export function mergeSlotConfig(
-	base: SlotConfig,
-	patch: Partial<SlotConfig>,
-): SlotConfig {
+export function mergeSlotConfig(base: SlotConfig, patch: Partial<SlotConfig>): SlotConfig {
 	return {
 		rarity: patch.rarity ?? base.rarity,
 		equipments: {
@@ -94,13 +92,10 @@ export function mergeSlotConfig(
 	};
 }
 
-const defaultAssignments: TeamBuilderAssignments = EXTRA_SLOT_IDS.reduce(
-	(acc, slotId) => {
-		acc[slotId] = null;
-		return acc;
-	},
-	{} as TeamBuilderAssignments,
-);
+const defaultAssignments: TeamBuilderAssignments = EXTRA_SLOT_IDS.reduce((acc, slotId) => {
+	acc[slotId] = null;
+	return acc;
+}, {} as TeamBuilderAssignments);
 
 const defaultState: TeamBuilderState = {
 	formationId: DEFAULT_FORMATION_ID,
@@ -110,13 +105,25 @@ const defaultState: TeamBuilderState = {
 	passiveOptions: DEFAULT_PASSIVE_OPTIONS,
 };
 
-const storage =
-	typeof window === "undefined"
-		? undefined
-		: createJSONStorage<TeamBuilderState>(() => window.localStorage);
+const storage = typeof window === "undefined" ? undefined : createJSONStorage<TeamBuilderState>(() => window.localStorage);
 
-export const teamBuilderAtom = atomWithStorage<TeamBuilderState>(
-	TEAM_BUILDER_STORAGE_KEY,
-	defaultState,
-	storage,
+function createTeamBuilderAtom(storageKey: string) {
+	return atomWithStorage<TeamBuilderState>(storageKey, defaultState, storage);
+}
+
+type TeamBuilderAtom = ReturnType<typeof createTeamBuilderAtom>;
+
+export const teamBuilderTeamAtoms = TEAM_BUILDER_TEAM_IDS.reduce<Record<TeamBuilderTeamId, TeamBuilderAtom>>(
+	(acc, teamId) => {
+		acc[teamId] = createTeamBuilderAtom(TEAM_BUILDER_TEAM_STORAGE_KEYS[teamId]);
+		return acc;
+	},
+	{} as Record<TeamBuilderTeamId, TeamBuilderAtom>,
 );
+
+export const teamBuilderAtom = teamBuilderTeamAtoms[1];
+
+const ACTIVE_TEAM_STORAGE_KEY = "inazuma-guide.team-builder.active-team";
+const activeTeamStorage = typeof window === "undefined" ? undefined : createJSONStorage<TeamBuilderTeamId>(() => window.localStorage);
+
+export const teamBuilderActiveTeamAtom = atomWithStorage<TeamBuilderTeamId>(ACTIVE_TEAM_STORAGE_KEY, TEAM_BUILDER_TEAM_IDS[0], activeTeamStorage);

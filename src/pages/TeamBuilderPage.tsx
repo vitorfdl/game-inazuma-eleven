@@ -1,6 +1,6 @@
 import { DndContext, type DragCancelEvent, type DragEndEvent, DragOverlay, type DragStartEvent, PointerSensor, useSensor, useSensors } from "@dnd-kit/core";
 import { toPng } from "html-to-image";
-import { useAtom, useAtomValue } from "jotai";
+import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import type { LucideIcon } from "lucide-react";
 import { Activity, ClipboardList, ImageDown, Share2, Shield, Sparkles, Target, UserX, Zap } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -8,9 +8,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { FormationPitch, ReservesRail, SlotCard } from "@/components/team-builder/FormationPitch";
 import { PlayerAssignmentModal } from "@/components/team-builder/PlayerAssignmentModal";
 import { SlotDetailsDrawer } from "@/components/team-builder/SlotDetailsDrawer";
+import { TeamExportSnapshot } from "@/components/team-builder/TeamExportSnapshot";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FORMATIONS, type FormationDefinition, formationsMap } from "@/data/formations";
 import { EXTRA_SLOT_IDS, EXTRA_TEAM_SLOTS } from "@/data/team-builder-slots";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -31,10 +34,13 @@ import {
 	mergeSlotConfig,
 	normalizeSlotConfig,
 	type PassiveCalculationOptions,
+	TEAM_BUILDER_TEAM_IDS,
 	type TeamBuilderAssignments,
 	type TeamBuilderSlotConfigs,
 	type TeamBuilderState,
-	teamBuilderAtom,
+	type TeamBuilderTeamId,
+	teamBuilderActiveTeamAtom,
+	teamBuilderTeamAtoms,
 } from "@/store/team-builder";
 import type { SlotAssignment, SlotConfig, TeamBuilderSlot } from "@/types/team-builder";
 
@@ -110,8 +116,39 @@ function getPassiveHighlight(description: string): PassiveHighlightDescriptor {
 	return PASSIVE_HIGHLIGHTS.find((entry) => entry.pattern.test(description)) ?? DEFAULT_PASSIVE_HIGHLIGHT;
 }
 
+function isTeamBuilderTeamId(value: number): value is TeamBuilderTeamId {
+	return TEAM_BUILDER_TEAM_IDS.some((teamId) => teamId === value);
+}
+
+type TeamEntry = {
+	teamId: TeamBuilderTeamId;
+	state: TeamBuilderState;
+	setState: (updater: (prev: TeamBuilderState) => TeamBuilderState) => void;
+};
+
+function useTeamBuilderEntry(teamId: TeamBuilderTeamId): TeamEntry {
+	const state = useAtomValue(teamBuilderTeamAtoms[teamId]);
+	const setState = useSetAtom(teamBuilderTeamAtoms[teamId]);
+	return {
+		teamId,
+		state,
+		setState: (updater) => setState((prev) => updater(prev)),
+	};
+}
+
 export default function TeamBuilderPage() {
-	const [teamState, setTeamState] = useAtom(teamBuilderAtom);
+	const [activeTeamId, setActiveTeamId] = useAtom(teamBuilderActiveTeamAtom);
+	const teamEntry1 = useTeamBuilderEntry(TEAM_BUILDER_TEAM_IDS[0]);
+	const teamEntry2 = useTeamBuilderEntry(TEAM_BUILDER_TEAM_IDS[1]);
+	const teamEntry3 = useTeamBuilderEntry(TEAM_BUILDER_TEAM_IDS[2]);
+	const teamEntry4 = useTeamBuilderEntry(TEAM_BUILDER_TEAM_IDS[3]);
+	const teamEntry5 = useTeamBuilderEntry(TEAM_BUILDER_TEAM_IDS[4]);
+	const teamEntry6 = useTeamBuilderEntry(TEAM_BUILDER_TEAM_IDS[5]);
+	const teamEntries = [teamEntry1, teamEntry2, teamEntry3, teamEntry4, teamEntry5, teamEntry6];
+	const defaultTeamEntry = teamEntries[0]!;
+	const activeTeamEntry = teamEntries.find((entry) => entry.teamId === activeTeamId) ?? defaultTeamEntry;
+	const teamState = activeTeamEntry.state;
+	const setTeamState = activeTeamEntry.setState;
 	const favoritePlayerIds = useAtomValue(favoritePlayersAtom);
 	const namePreference = useAtomValue(playerNamePreferenceAtom);
 	const playersDataset = useMemo(() => getPlayersDataset(namePreference), [namePreference]);
@@ -125,6 +162,7 @@ export default function TeamBuilderPage() {
 	const [pageAlert, setPageAlert] = useState<string | null>(null);
 	const [sharedCandidate, setSharedCandidate] = useState<SharedTeamCandidate | null>(null);
 	const [importDialogOpen, setImportDialogOpen] = useState(false);
+	const [importTargetTeamId, setImportTargetTeamId] = useState<TeamBuilderTeamId>(activeTeamId);
 	const [clearDialogOpen, setClearDialogOpen] = useState(false);
 	const [teamPassivesOpen, setTeamPassivesOpen] = useState(false);
 	const [isExportingImage, setIsExportingImage] = useState(false);
@@ -140,8 +178,54 @@ export default function TeamBuilderPage() {
 	const navigate = useNavigate();
 	const isMobile = useIsMobile();
 	const layoutContainerRef = useRef<HTMLDivElement | null>(null);
+	const exportSnapshotRef = useRef<HTMLDivElement | null>(null);
 	const [isStackedLayout, setIsStackedLayout] = useState(true);
 	const favoriteSet = useMemo(() => new Set(favoritePlayerIds), [favoritePlayerIds]);
+	const teamHasPlayersMap = useMemo(() => {
+		return new Map(teamEntries.map((entry) => [entry.teamId, countAssignedPlayers(entry.state.assignments ?? {}) > 0]));
+	}, [teamEntries]);
+	const importTargetHasPlayers = teamHasPlayersMap.get(importTargetTeamId) ?? false;
+	const renderTeamOptionLabel = (teamId: TeamBuilderTeamId) => {
+		const hasPlayers = teamHasPlayersMap.get(teamId) ?? false;
+		return (
+			<span className="flex w-full items-center justify-between gap-3">
+				<span className="text-sm font-medium">Team {teamId}</span>
+				{!hasPlayers ? (
+					<Badge
+						variant="default"
+						className={"border-emerald-300 bg-emerald-50 text-emerald-900 dark:border-emerald-500/80 dark:bg-emerald-500/20 dark:text-emerald-100"}
+					>
+						Empty
+					</Badge>
+				) : null}
+			</span>
+		);
+	};
+
+	const handleActiveTeamChange = (value: string) => {
+		const numericValue = Number(value);
+		if (!isTeamBuilderTeamId(numericValue) || numericValue === activeTeamId) {
+			return;
+		}
+		setActiveTeamId(numericValue);
+		setActiveSlotId(null);
+		setPickerOpen(false);
+		setDetailsOpen(false);
+	};
+
+	const handleImportTargetChange = (value: string) => {
+		const numericValue = Number(value);
+		if (!isTeamBuilderTeamId(numericValue)) {
+			return;
+		}
+		setImportTargetTeamId(numericValue);
+	};
+
+	useEffect(() => {
+		if (!importDialogOpen) {
+			setImportTargetTeamId(activeTeamId);
+		}
+	}, [activeTeamId, importDialogOpen]);
 
 	useEffect(() => {
 		const updateLayoutState = () => {
@@ -567,7 +651,8 @@ export default function TeamBuilderPage() {
 	const handleImportSharedTeam = () => {
 		if (!sharedCandidate) return;
 		const nextState = sharedCandidate.state;
-		setTeamState((prev) => ({
+		const targetEntry = teamEntries.find((entry) => entry.teamId === importTargetTeamId) ?? activeTeamEntry;
+		targetEntry.setState((prev) => ({
 			...prev,
 			formationId: nextState.formationId,
 			assignments: nextState.assignments,
@@ -575,25 +660,34 @@ export default function TeamBuilderPage() {
 			displayMode: nextState.displayMode,
 			passiveOptions: nextState.passiveOptions ?? DEFAULT_PASSIVE_OPTIONS,
 		}));
+		setActiveTeamId(targetEntry.teamId);
 		setSharedCandidate(null);
 		setImportDialogOpen(false);
 		setPageAlert(null);
 		setActiveSlotId(null);
 		setDetailsOpen(false);
 		setPickerOpen(false);
+		setImportTargetTeamId(targetEntry.teamId);
 	};
 
 	const handleDownloadTeamImage = async () => {
-		if (!layoutContainerRef.current || typeof window === "undefined") {
+		const target = exportSnapshotRef.current ?? layoutContainerRef.current;
+		if (!target || typeof window === "undefined") {
 			return;
 		}
 		setIsExportingImage(true);
 		setPageAlert(null);
 		try {
-			const dataUrl = await toPng(layoutContainerRef.current, {
+			await ensureNodeImagesReady(target);
+			await inlineNodeImages(target);
+			await waitForNextFrame();
+			const bounds = target.getBoundingClientRect();
+			const dataUrl = await toPng(target, {
 				cacheBust: true,
 				pixelRatio: Math.min(window.devicePixelRatio || 2, 3),
 				backgroundColor: "#020617",
+				width: Math.ceil(bounds.width),
+				height: Math.ceil(bounds.height),
 			});
 			const link = document.createElement("a");
 			link.href = dataUrl;
@@ -608,287 +702,439 @@ export default function TeamBuilderPage() {
 	};
 
 	return (
-		<div className="flex flex-col gap-4">
-			{pageAlert ? (
-				<div className="rounded-xl border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive shadow-sm">{pageAlert}</div>
-			) : null}
+		<>
+			<div className="flex flex-col gap-4">
+				{pageAlert ? (
+					<div className="rounded-xl border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive shadow-sm">{pageAlert}</div>
+				) : null}
 
-			{sharedCandidate ? (
-				<div className="rounded-xl border border-amber-200 bg-amber-50/80 px-4 py-3 text-sm shadow-sm">
-					<div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-						<div>
-							<p className="font-semibold text-amber-900">Previewing shared team</p>
-							<p className="text-xs text-amber-700">Import to edit or dismiss to return to your saved squad.</p>
-						</div>
-						<div className="flex flex-wrap gap-2">
-							<Button size="sm" className="bg-amber-900 text-white hover:bg-amber-800" onClick={() => setImportDialogOpen(true)}>
-								Import Team
-							</Button>
-							<Button variant="ghost" size="sm" className="text-amber-900 hover:bg-amber-100" onClick={handleDismissSharedCandidate}>
-								Dismiss
-							</Button>
+				{sharedCandidate ? (
+					<div className="rounded-xl border border-amber-200 bg-amber-50/80 px-4 py-3 text-sm shadow-sm">
+						<div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+							<div>
+								<p className="font-semibold text-amber-900">Previewing shared team</p>
+								<p className="text-xs text-amber-700">Import to edit or dismiss to return to your saved squad.</p>
+							</div>
+							<div className="flex flex-wrap gap-2">
+								<Button size="sm" className="bg-amber-900 text-white hover:bg-amber-800" onClick={() => setImportDialogOpen(true)}>
+									Import Team
+								</Button>
+								<Button variant="ghost" size="sm" className="text-amber-900 hover:bg-amber-100" onClick={handleDismissSharedCandidate}>
+									Dismiss
+								</Button>
+							</div>
 						</div>
 					</div>
-				</div>
-			) : null}
+				) : null}
 
-			<section className="rounded-xl border bg-card p-4 shadow-sm">
-				<div className="flex flex-col gap-3">
-					<div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-						<div className="flex flex-col gap-3 md:flex-row md:items-end md:gap-6">
-							<div className="space-y-1">
-								<p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Team actions</p>
-								<div className="flex flex-wrap gap-2">
-									<Button
-										variant="destructive"
-										size="sm"
-										className="gap-1"
-										onClick={() => setClearDialogOpen(true)}
-										disabled={filledCount === 0 || isPreviewingSharedTeam}
-									>
-										<UserX className="size-4" />
-										Clear team
-									</Button>
-									<Button size="sm" className="gap-1" onClick={handleShareTeam} disabled={isPreviewingSharedTeam}>
-										<Share2 className="size-4" />
-										Share team
-									</Button>
-									<Button variant="outline" size="sm" className="gap-1" onClick={handleDownloadTeamImage} disabled={isExportingImage}>
-										<ImageDown className="size-4" />
-										{isExportingImage ? "Preparing..." : "Export image"}
-									</Button>
-									<Button variant="outline" size="sm" className="gap-1" onClick={() => setTeamPassivesOpen(true)}>
-										<ClipboardList className="size-4" />
-										Team passives
-									</Button>
+				<section className="rounded-xl border bg-card p-4 shadow-sm">
+					<div className="flex flex-col gap-3">
+						<div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+							<div className="flex flex-col gap-3 md:flex-row md:items-end md:gap-6">
+								<div className="space-y-1">
+									<p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Active team</p>
+									<Select value={String(activeTeamId)} onValueChange={handleActiveTeamChange} disabled={isPreviewingSharedTeam}>
+										<SelectTrigger size="sm" className="min-w-[140px]">
+											<SelectValue placeholder="Select a team" />
+										</SelectTrigger>
+										<SelectContent>
+											{TEAM_BUILDER_TEAM_IDS.map((teamId) => (
+												<SelectItem key={teamId} value={String(teamId)}>
+													{renderTeamOptionLabel(teamId)}
+												</SelectItem>
+											))}
+										</SelectContent>
+									</Select>
+								</div>
+								<div className="space-y-1">
+									<p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Team actions</p>
+									<div className="flex flex-wrap gap-2">
+										<Button
+											variant="destructive"
+											size="sm"
+											className="gap-1"
+											onClick={() => setClearDialogOpen(true)}
+											disabled={filledCount === 0 || isPreviewingSharedTeam}
+										>
+											<UserX className="size-4" />
+											Clear team
+										</Button>
+										<Button size="sm" className="gap-1" onClick={handleShareTeam} disabled={isPreviewingSharedTeam}>
+											<Share2 className="size-4" />
+											Share team
+										</Button>
+										<Button variant="outline" size="sm" className="gap-1" onClick={handleDownloadTeamImage} disabled={isExportingImage}>
+											<ImageDown className="size-4" />
+											{isExportingImage ? "Preparing..." : "Export image"}
+										</Button>
+										<Button variant="outline" size="sm" className="gap-1" onClick={() => setTeamPassivesOpen(true)}>
+											<ClipboardList className="size-4" />
+											Team passives
+										</Button>
+									</div>
+								</div>
+								<div className="space-y-1">
+									<p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Slot display</p>
+									<div className="flex flex-wrap gap-1.5">
+										{DISPLAY_MODE_OPTIONS.map((option) => {
+											const isActive = displayMode === option.value;
+											return (
+												<Button
+													key={option.value}
+													size="sm"
+													variant={isActive ? "default" : "outline"}
+													className="px-2 text-[11px]"
+													aria-pressed={isActive}
+													disabled={isPreviewingSharedTeam}
+													onClick={() => handleDisplayModeChange(option.value)}
+												>
+													{option.label}
+												</Button>
+											);
+										})}
+									</div>
 								</div>
 							</div>
-							<div className="space-y-1">
-								<p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Slot display</p>
-								<div className="flex flex-wrap gap-1.5">
-									{DISPLAY_MODE_OPTIONS.map((option) => {
-										const isActive = displayMode === option.value;
+						</div>
+						<PassiveOptionsPanel
+							options={passiveOptions}
+							disabled={isPreviewingSharedTeam}
+							onToggleEnabled={handlePassiveEnabledChange}
+							onToggleCondition={handlePassiveConditionToggle}
+						/>
+					</div>
+				</section>
+
+				<DndContext sensors={sensors} onDragStart={handleSlotDragStart} onDragEnd={handleSlotDragEnd} onDragCancel={handleSlotDragCancel}>
+					<div className="grid gap-4">
+						<div className="rounded-xl border bg-card p-3 shadow-sm">
+							<div ref={layoutContainerRef} className="mx-auto flex w-full max-w-5xl flex-col gap-4 lg:flex-row lg:items-start lg:justify-center lg:gap-3 ">
+								<div className="flex-1">
+									<FormationPitch
+										assignments={starterAssignments}
+										staffEntries={staffAssignments}
+										activeSlotId={activeSlotId}
+										displayMode={displayMode}
+										onSlotSelect={handleSelectSlot}
+										onEmptySlotSelect={handleSelectEmptySlot}
+										formationId={formation.id}
+										onFormationChange={handleFormationChange}
+										isFormationDisabled={isPreviewingSharedTeam}
+										dragDisabled={isPreviewingSharedTeam}
+										isDragActive={isDragActive}
+									/>
+								</div>
+								<div className="self-start">
+									<ReservesRail
+										entries={reserveAssignments}
+										displayMode={displayMode}
+										activeSlotId={activeSlotId}
+										onSlotSelect={handleSelectSlot}
+										onEmptySlotSelect={handleSelectEmptySlot}
+										isStackedLayout={isStackedLayout}
+										variant="compact"
+										dragDisabled={isPreviewingSharedTeam}
+										isDragActive={isDragActive}
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<DragOverlay dropAnimation={null}>
+						{activeDragEntry ? (
+							<div className="pointer-events-none w-[clamp(120px,25vw,180px)] drop-shadow-[0_18px_25px_rgba(0,0,0,0.4)]">
+								<SlotCard entry={activeDragEntry} displayMode={displayMode} isActive />
+							</div>
+						) : null}
+					</DragOverlay>
+				</DndContext>
+
+				<SlotDetailsDrawer
+					open={detailsOpen && Boolean(activeSlot)}
+					slot={activeSlot}
+					assignment={activeAssignment}
+					onAssign={handleOpenPicker}
+					onClearSlot={handleClearSlot}
+					onUpdateSlotConfig={handleUpdateSlotConfig}
+					onOpenChange={handleDetailsOpenChange}
+				/>
+
+				<PlayerAssignmentModal
+					isMobile={isMobile}
+					open={pickerOpen && !isPreviewingSharedTeam}
+					activeSlot={activeSlot}
+					favoriteSet={favoriteSet}
+					favoritePlayers={favoritePlayersList}
+					onOpenChange={(open) => {
+						setPickerOpen(open);
+					}}
+					assignedIds={assignedPlayerIds}
+					playersDataset={playersDataset}
+					onSelectPlayer={handleAssignPlayer}
+					onClearSlot={() => {
+						if (activeSlot) {
+							handleClearSlot(activeSlot.id);
+							setPickerOpen(false);
+						}
+					}}
+				/>
+
+				<Dialog open={teamPassivesOpen} onOpenChange={setTeamPassivesOpen}>
+					<DialogContent className="!max-w-5xl border border-border/60 bg-[color:color-mix(in_oklab,var(--background)_92%,white_8%)] shadow-[0_45px_90px_rgba(15,23,42,0.12)] dark:border-white/10 dark:bg-popover dark:shadow-[0_35px_75px_rgba(2,6,23,0.65)]">
+						<DialogHeader>
+							<DialogTitle>Team passives</DialogTitle>
+							<DialogDescription>Combined bonuses from every configured passive across the squad.</DialogDescription>
+						</DialogHeader>
+						<div className="max-h-[60vh] overflow-y-auto pr-1">
+							{combinedTeamPassives.length ? (
+								<div className="grid gap-4 sm:grid-cols-2">
+									{combinedTeamPassives.map((entry) => {
+										const highlight = getPassiveHighlight(entry.description);
+										const HighlightIcon = highlight.Icon;
+										const formattedValue = formatSignedPercent(entry.totalValue);
+										const valueColor = entry.totalValue >= 0 ? "text-emerald-600 dark:text-emerald-300" : "text-rose-600 dark:text-rose-300";
+
 										return (
-											<Button
-												key={option.value}
-												size="sm"
-												variant={isActive ? "default" : "outline"}
-												className="px-2 text-[11px]"
-												aria-pressed={isActive}
-												disabled={isPreviewingSharedTeam}
-												onClick={() => handleDisplayModeChange(option.value)}
+											<div
+												key={entry.description}
+												className="group relative overflow-hidden rounded-2xl border border-border/70 bg-[color:color-mix(in_oklab,var(--card)_88%,white_12%)] p-4 text-left shadow-md dark:border-white/5 dark:bg-gradient-to-br dark:from-background/95 dark:via-background/90 dark:to-background/80 dark:shadow-[0_12px_40px_rgba(0,0,0,0.25)]"
 											>
-												{option.label}
-											</Button>
+												<div className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100">
+													<div className="absolute inset-0 bg-[radial-gradient(circle_at_top,color-mix(in_oklab,var(--primary)_25%,white_15%),transparent_65%)] dark:bg-[radial-gradient(circle_at_top,var(--primary)/20,transparent_65%)]" />
+												</div>
+												<div className="relative space-y-3">
+													<div className="flex items-start gap-3">
+														<div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-border/70 bg-white/80 text-sm font-semibold text-foreground dark:border-white/10 dark:bg-white/5 dark:text-foreground/80">
+															<HighlightIcon className={`size-5 ${highlight.colorClass}`} />
+														</div>
+														<div className="flex-1 space-y-1">
+															<div className="flex items-center justify-between gap-3">
+																<span className={`text-[10px] font-semibold uppercase tracking-[0.35em] ${highlight.colorClass}`}>{highlight.label}</span>
+																<span className={`text-sm font-semibold ${valueColor}`}>{formattedValue}</span>
+															</div>
+															<p className="text-sm font-semibold leading-snug text-foreground">{entry.renderedDescription}</p>
+														</div>
+													</div>
+													<div className="flex items-center justify-between text-[10px] uppercase tracking-[0.35em] text-muted-foreground/80">
+														<div className="flex items-center gap-1 text-muted-foreground">
+															<ClipboardList className="size-3.5 text-muted-foreground/80" />
+															<span>Sources</span>
+														</div>
+														<div className="flex items-center gap-1 font-semibold text-foreground/80">
+															<span className={entry.count ? "text-muted-foreground" : "text-muted-foreground/60"}>
+																{entry.count} {entry.count === 1 ? "slot" : "slots"}
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
 										);
 									})}
 								</div>
+							) : (
+								<div className="rounded-lg border border-dashed border-muted-foreground/40 bg-muted/20 p-6 text-center text-sm text-muted-foreground">
+									No passives configured yet. Assign players and set their passives to see combined effects here.
+								</div>
+							)}
+						</div>
+					</DialogContent>
+				</Dialog>
+
+				<Dialog open={shareDialogOpen} onOpenChange={setShareDialogOpen}>
+					<DialogContent>
+						<DialogHeader>
+							<DialogTitle>Share this team</DialogTitle>
+							<DialogDescription>Send this link to load a read-only copy of your setup.</DialogDescription>
+						</DialogHeader>
+						<div className="space-y-3">
+							<div className="flex flex-col gap-2 sm:flex-row">
+								<Input readOnly value={shareLink} onFocus={(event) => event.currentTarget.select()} className="font-mono text-xs" />
+								<Button onClick={handleCopyShareLink} disabled={!shareLink}>
+									{shareCopyState === "copied" ? "Copied" : "Copy link"}
+								</Button>
+							</div>
+							<p className="text-xs text-muted-foreground">Anyone with this URL can import your team into their own builder.</p>
+							{shareCopyState === "copied" ? <p className="text-xs text-emerald-600">Link copied to clipboard.</p> : null}
+							{shareCopyState === "error" ? <p className="text-xs text-destructive">Your browser blocked auto copy. Please copy the link manually.</p> : null}
+						</div>
+					</DialogContent>
+				</Dialog>
+
+				<Dialog open={clearDialogOpen} onOpenChange={setClearDialogOpen}>
+					<DialogContent>
+						<DialogHeader>
+							<DialogTitle>Clear current team?</DialogTitle>
+							<DialogDescription>This will remove every assigned player and reset slot customizations. You can't undo this action.</DialogDescription>
+						</DialogHeader>
+						<DialogFooter>
+							<Button variant="outline" onClick={() => setClearDialogOpen(false)}>
+								Keep team
+							</Button>
+							<Button
+								variant="destructive"
+								onClick={() => {
+									handleClearTeam();
+									setClearDialogOpen(false);
+								}}
+							>
+								Clear anyway
+							</Button>
+						</DialogFooter>
+					</DialogContent>
+				</Dialog>
+
+				<Dialog open={Boolean(sharedCandidate) && importDialogOpen} onOpenChange={setImportDialogOpen}>
+					<DialogContent>
+						<DialogHeader>
+							<DialogTitle>Import shared team</DialogTitle>
+							<DialogDescription>Select where this squad should be saved. Importing replaces the chosen team.</DialogDescription>
+						</DialogHeader>
+						<div className="space-y-4 py-2">
+							<div className="space-y-2">
+								<p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Destination team</p>
+								<Select value={String(importTargetTeamId)} onValueChange={handleImportTargetChange}>
+									<SelectTrigger className="w-full">
+										<SelectValue placeholder="Choose a team slot" />
+									</SelectTrigger>
+									<SelectContent>
+										{TEAM_BUILDER_TEAM_IDS.map((teamId) => (
+											<SelectItem key={teamId} value={String(teamId)}>
+												{renderTeamOptionLabel(teamId)}
+											</SelectItem>
+										))}
+									</SelectContent>
+								</Select>
+								<p className="text-xs text-muted-foreground">
+									{importTargetHasPlayers ? "This team already has assigned players and they will be replaced." : "This team slot is currently empty."}
+								</p>
+							</div>
+							<div className="rounded-md border border-amber-200/70 bg-amber-50/60 p-3 text-xs text-amber-900 dark:border-amber-400/50 dark:bg-amber-400/10 dark:text-amber-100">
+								Importing overwrites the selected team's formation, assignments, slot configs, and passive options.
 							</div>
 						</div>
-					</div>
-					<PassiveOptionsPanel
-						options={passiveOptions}
-						disabled={isPreviewingSharedTeam}
-						onToggleEnabled={handlePassiveEnabledChange}
-						onToggleCondition={handlePassiveConditionToggle}
+						<DialogFooter>
+							<Button variant="outline" onClick={() => setImportDialogOpen(false)}>
+								Maybe later
+							</Button>
+							<Button onClick={handleImportSharedTeam}>Import team</Button>
+						</DialogFooter>
+					</DialogContent>
+				</Dialog>
+			</div>
+			<div aria-hidden className="fixed left-0 top-0 -z-10 flex w-full justify-center bg-[#020617] opacity-0" style={{ pointerEvents: "none" }}>
+				<div ref={exportSnapshotRef} className="w-full max-w-5xl p-3">
+					<TeamExportSnapshot
+						starterAssignments={starterAssignments}
+						reserveAssignments={reserveAssignments}
+						staffAssignments={staffAssignments}
+						displayMode={displayMode}
+						formationId={formation.id}
+						isStackedLayout={isStackedLayout}
 					/>
 				</div>
-			</section>
-
-			<DndContext sensors={sensors} onDragStart={handleSlotDragStart} onDragEnd={handleSlotDragEnd} onDragCancel={handleSlotDragCancel}>
-				<div className="grid gap-4">
-					<div className="rounded-xl border bg-card p-3 shadow-sm">
-						<div ref={layoutContainerRef} className="mx-auto flex w-full max-w-5xl flex-col gap-4 lg:flex-row lg:items-start lg:justify-center lg:gap-3 ">
-							<div className="flex-1">
-								<FormationPitch
-									assignments={starterAssignments}
-									staffEntries={staffAssignments}
-									activeSlotId={activeSlotId}
-									displayMode={displayMode}
-									onSlotSelect={handleSelectSlot}
-									onEmptySlotSelect={handleSelectEmptySlot}
-									formationId={formation.id}
-									onFormationChange={handleFormationChange}
-									isFormationDisabled={isPreviewingSharedTeam}
-									dragDisabled={isPreviewingSharedTeam}
-									isDragActive={isDragActive}
-								/>
-							</div>
-							<div className="self-start">
-								<ReservesRail
-									entries={reserveAssignments}
-									displayMode={displayMode}
-									activeSlotId={activeSlotId}
-									onSlotSelect={handleSelectSlot}
-									onEmptySlotSelect={handleSelectEmptySlot}
-									isStackedLayout={isStackedLayout}
-									variant="compact"
-									dragDisabled={isPreviewingSharedTeam}
-									isDragActive={isDragActive}
-								/>
-							</div>
-						</div>
-					</div>
-				</div>
-				<DragOverlay dropAnimation={null}>
-					{activeDragEntry ? (
-						<div className="pointer-events-none w-[clamp(120px,25vw,180px)] drop-shadow-[0_18px_25px_rgba(0,0,0,0.4)]">
-							<SlotCard entry={activeDragEntry} displayMode={displayMode} isActive />
-						</div>
-					) : null}
-				</DragOverlay>
-			</DndContext>
-
-			<SlotDetailsDrawer
-				open={detailsOpen && Boolean(activeSlot)}
-				slot={activeSlot}
-				assignment={activeAssignment}
-				onAssign={handleOpenPicker}
-				onClearSlot={handleClearSlot}
-				onUpdateSlotConfig={handleUpdateSlotConfig}
-				onOpenChange={handleDetailsOpenChange}
-			/>
-
-			<PlayerAssignmentModal
-				isMobile={isMobile}
-				open={pickerOpen && !isPreviewingSharedTeam}
-				activeSlot={activeSlot}
-				favoriteSet={favoriteSet}
-				favoritePlayers={favoritePlayersList}
-				onOpenChange={(open) => {
-					setPickerOpen(open);
-				}}
-				assignedIds={assignedPlayerIds}
-				playersDataset={playersDataset}
-				onSelectPlayer={handleAssignPlayer}
-				onClearSlot={() => {
-					if (activeSlot) {
-						handleClearSlot(activeSlot.id);
-						setPickerOpen(false);
-					}
-				}}
-			/>
-
-			<Dialog open={teamPassivesOpen} onOpenChange={setTeamPassivesOpen}>
-				<DialogContent className="!max-w-5xl border border-border/60 bg-[color:color-mix(in_oklab,var(--background)_92%,white_8%)] shadow-[0_45px_90px_rgba(15,23,42,0.12)] dark:border-white/10 dark:bg-popover dark:shadow-[0_35px_75px_rgba(2,6,23,0.65)]">
-					<DialogHeader>
-						<DialogTitle>Team passives</DialogTitle>
-						<DialogDescription>Combined bonuses from every configured passive across the squad.</DialogDescription>
-					</DialogHeader>
-					<div className="max-h-[60vh] overflow-y-auto pr-1">
-						{combinedTeamPassives.length ? (
-							<div className="grid gap-4 sm:grid-cols-2">
-								{combinedTeamPassives.map((entry) => {
-									const highlight = getPassiveHighlight(entry.description);
-									const HighlightIcon = highlight.Icon;
-									const formattedValue = formatSignedPercent(entry.totalValue);
-									const valueColor = entry.totalValue >= 0 ? "text-emerald-600 dark:text-emerald-300" : "text-rose-600 dark:text-rose-300";
-
-									return (
-										<div
-											key={entry.description}
-											className="group relative overflow-hidden rounded-2xl border border-border/70 bg-[color:color-mix(in_oklab,var(--card)_88%,white_12%)] p-4 text-left shadow-md dark:border-white/5 dark:bg-gradient-to-br dark:from-background/95 dark:via-background/90 dark:to-background/80 dark:shadow-[0_12px_40px_rgba(0,0,0,0.25)]"
-										>
-											<div className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100">
-												<div className="absolute inset-0 bg-[radial-gradient(circle_at_top,color-mix(in_oklab,var(--primary)_25%,white_15%),transparent_65%)] dark:bg-[radial-gradient(circle_at_top,var(--primary)/20,transparent_65%)]" />
-											</div>
-											<div className="relative space-y-3">
-												<div className="flex items-start gap-3">
-													<div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-border/70 bg-white/80 text-sm font-semibold text-foreground dark:border-white/10 dark:bg-white/5 dark:text-foreground/80">
-														<HighlightIcon className={`size-5 ${highlight.colorClass}`} />
-													</div>
-													<div className="flex-1 space-y-1">
-														<div className="flex items-center justify-between gap-3">
-															<span className={`text-[10px] font-semibold uppercase tracking-[0.35em] ${highlight.colorClass}`}>{highlight.label}</span>
-															<span className={`text-sm font-semibold ${valueColor}`}>{formattedValue}</span>
-														</div>
-														<p className="text-sm font-semibold leading-snug text-foreground">{entry.renderedDescription}</p>
-													</div>
-												</div>
-												<div className="flex items-center justify-between text-[10px] uppercase tracking-[0.35em] text-muted-foreground/80">
-													<div className="flex items-center gap-1 text-muted-foreground">
-														<ClipboardList className="size-3.5 text-muted-foreground/80" />
-														<span>Sources</span>
-													</div>
-													<div className="flex items-center gap-1 font-semibold text-foreground/80">
-														<span className={entry.count ? "text-muted-foreground" : "text-muted-foreground/60"}>
-															{entry.count} {entry.count === 1 ? "slot" : "slots"}
-														</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									);
-								})}
-							</div>
-						) : (
-							<div className="rounded-lg border border-dashed border-muted-foreground/40 bg-muted/20 p-6 text-center text-sm text-muted-foreground">
-								No passives configured yet. Assign players and set their passives to see combined effects here.
-							</div>
-						)}
-					</div>
-				</DialogContent>
-			</Dialog>
-
-			<Dialog open={shareDialogOpen} onOpenChange={setShareDialogOpen}>
-				<DialogContent>
-					<DialogHeader>
-						<DialogTitle>Share this team</DialogTitle>
-						<DialogDescription>Send this link to load a read-only copy of your setup.</DialogDescription>
-					</DialogHeader>
-					<div className="space-y-3">
-						<div className="flex flex-col gap-2 sm:flex-row">
-							<Input readOnly value={shareLink} onFocus={(event) => event.currentTarget.select()} className="font-mono text-xs" />
-							<Button onClick={handleCopyShareLink} disabled={!shareLink}>
-								{shareCopyState === "copied" ? "Copied" : "Copy link"}
-							</Button>
-						</div>
-						<p className="text-xs text-muted-foreground">Anyone with this URL can import your team into their own builder.</p>
-						{shareCopyState === "copied" ? <p className="text-xs text-emerald-600">Link copied to clipboard.</p> : null}
-						{shareCopyState === "error" ? <p className="text-xs text-destructive">Your browser blocked auto copy. Please copy the link manually.</p> : null}
-					</div>
-				</DialogContent>
-			</Dialog>
-
-			<Dialog open={clearDialogOpen} onOpenChange={setClearDialogOpen}>
-				<DialogContent>
-					<DialogHeader>
-						<DialogTitle>Clear current team?</DialogTitle>
-						<DialogDescription>This will remove every assigned player and reset slot customizations. You can't undo this action.</DialogDescription>
-					</DialogHeader>
-					<DialogFooter>
-						<Button variant="outline" onClick={() => setClearDialogOpen(false)}>
-							Keep team
-						</Button>
-						<Button
-							variant="destructive"
-							onClick={() => {
-								handleClearTeam();
-								setClearDialogOpen(false);
-							}}
-						>
-							Clear anyway
-						</Button>
-					</DialogFooter>
-				</DialogContent>
-			</Dialog>
-
-			<Dialog open={Boolean(sharedCandidate) && importDialogOpen} onOpenChange={setImportDialogOpen}>
-				<DialogContent>
-					<DialogHeader>
-						<DialogTitle>Import shared team</DialogTitle>
-						<DialogDescription>Importing will overwrite your previous formation and assignments.</DialogDescription>
-					</DialogHeader>
-					<DialogFooter>
-						<Button variant="outline" onClick={() => setImportDialogOpen(false)}>
-							Maybe later
-						</Button>
-						<Button onClick={handleImportSharedTeam}>Import team</Button>
-					</DialogFooter>
-				</DialogContent>
-			</Dialog>
-		</div>
+			</div>
+		</>
 	);
+}
+
+async function ensureNodeImagesReady(node: HTMLElement) {
+	const images = Array.from(node.querySelectorAll("img"));
+	if (!images.length) {
+		return;
+	}
+	await Promise.all(images.map((img) => ensureImageReady(img)));
+}
+
+function ensureImageReady(image: HTMLImageElement) {
+	if (!image.getAttribute("loading")) {
+		image.setAttribute("loading", "eager");
+	}
+	if (image.complete && image.naturalWidth > 0) {
+		return image.decode ? image.decode().catch(() => undefined) : Promise.resolve();
+	}
+	return new Promise<void>((resolve) => {
+		const finalize = () => {
+			image.removeEventListener("load", finalize);
+			image.removeEventListener("error", finalize);
+			resolve();
+		};
+		image.addEventListener("load", finalize, { once: true });
+		image.addEventListener("error", finalize, { once: true });
+		if (typeof image.decode === "function") {
+			image.decode().then(finalize).catch(finalize);
+		}
+	});
+}
+
+function waitForNextFrame() {
+	return new Promise<void>((resolve) => {
+		requestAnimationFrame(() => resolve());
+	});
+}
+
+async function inlineNodeImages(node: HTMLElement) {
+	const images = Array.from(node.querySelectorAll("img"));
+	if (!images.length) {
+		return;
+	}
+	const cache = new Map<string, string>();
+	await Promise.all(
+		images.map(async (image) => {
+			const source = image.currentSrc || image.src;
+			if (!source || source.startsWith("data:")) {
+				return;
+			}
+			if (cache.has(source)) {
+				image.src = cache.get(source)!;
+				return;
+			}
+			try {
+				const dataUrl = await fetchImageAsDataUrl(source);
+				if (dataUrl) {
+					cache.set(source, dataUrl);
+					image.src = dataUrl;
+				}
+			} catch (error) {
+				console.warn("Failed to inline image for export", source, error);
+			}
+		}),
+	);
+}
+
+async function fetchImageAsDataUrl(url: string): Promise<string | null> {
+	try {
+		const response = await fetch(url, {
+			mode: "cors",
+			credentials: "omit",
+			cache: "force-cache",
+		});
+		if (!response.ok) {
+			return null;
+		}
+		const blob = await response.blob();
+		return await blobToDataUrl(blob);
+	} catch (error) {
+		console.warn("Failed to fetch image for export", url, error);
+		return null;
+	}
+}
+
+function blobToDataUrl(blob: Blob) {
+	return new Promise<string>((resolve, reject) => {
+		const reader = new FileReader();
+		reader.onloadend = () => {
+			if (typeof reader.result === "string") {
+				resolve(reader.result);
+			} else {
+				reject(new Error("Unable to convert blob to data URL"));
+			}
+		};
+		reader.onerror = (event) => {
+			reader.abort();
+			reject(event);
+		};
+		reader.readAsDataURL(blob);
+	});
 }
 
 type PassiveOptionsPanelProps = {
@@ -919,7 +1165,7 @@ function PassiveOptionsPanel({ options, disabled, onToggleEnabled, onToggleCondi
 					aria-disabled={disabled}
 					disabled={disabled}
 					onClick={handleSwitchClick}
-					className={`relative inline-flex h-8 w-16 items-center rounded-full border-2 transition-all ${
+					className={`relative inline-flex h-8 w-16 items-center rounded-md border-2 transition-all ${
 						options.enabled
 							? "border-emerald-300 bg-emerald-400/90 shadow-[0_0_18px_rgba(16,185,129,0.35)] dark:border-emerald-400 dark:bg-emerald-500/90"
 							: "border-slate-300 bg-white/80 text-slate-500 dark:border-slate-500 dark:bg-slate-900/70"
@@ -935,7 +1181,7 @@ function PassiveOptionsPanel({ options, disabled, onToggleEnabled, onToggleCondi
 				</button>
 				<div className="space-y-1">
 					<p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Passive calculations</p>
-					<p className="text-xs text-muted-foreground">Apply configured passives and optional conditions to slot stats.</p>
+					<p className="text-xs text-foreground">Apply configured passives and optional conditions to slot stats.</p>
 				</div>
 			</div>
 			{options.enabled ? (
