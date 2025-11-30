@@ -1,60 +1,20 @@
 import { useAtom, useAtomValue } from "jotai";
-import {
-	ArrowDown,
-	ArrowUp,
-	ArrowUpDown,
-	RotateCcw,
-	Search,
-	Star,
-} from "lucide-react";
+import { ArrowDown, ArrowUp, ArrowUpDown, RotateCcw, Search, Star } from "lucide-react";
 import type { MouseEvent } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { ElementBadge, PlayerDetailsButton, PlayerDetailsDialog, type PlayerMetric, PositionBadge } from "@/components/player/PlayerDetailsDialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-	PlayerDetailsButton,
-	PlayerDetailsDialog,
-	type PlayerMetric,
-	PositionBadge,
-	ElementBadge,
-} from "@/components/player/PlayerDetailsDialog";
 import { Input } from "@/components/ui/input";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from "@/components/ui/table";
-import {
-	createSortedUniqueOptions,
-	formatNumber,
-	titleCase,
-} from "@/lib/data-helpers";
-import { cn } from "@/lib/utils";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { createSortedUniqueOptions, formatNumber, titleCase } from "@/lib/data-helpers";
 import type { BaseStats, PowerStats } from "@/lib/inazuma-math";
-import {
-	getPlayersDataset,
-	type PlayerRecord,
-	playersDataset as basePlayersDataset,
-} from "@/lib/players-data";
+import { playersDataset as basePlayersDataset, getPlayersDataset, type PlayerRecord } from "@/lib/players-data";
+import { cn } from "@/lib/utils";
 import { favoritePlayersAtom } from "@/store/favorites";
-import {
-	DEFAULT_PLAYERS_PREFERENCES,
-	type PlayersPreferences,
-	type PlayersSortKey,
-	type PlayerTableSortKey,
-	playersPreferencesAtom,
-} from "@/store/players";
 import { playerNamePreferenceAtom } from "@/store/name-preference";
+import { DEFAULT_PLAYERS_PREFERENCES, type PlayersPreferences, type PlayersSortKey, type PlayerTableSortKey, playersPreferencesAtom } from "@/store/players";
 
 type Player = PlayerRecord;
 
@@ -69,7 +29,6 @@ type TableColumn = {
 
 const INITIAL_VISIBLE_COUNT = 20;
 const LOAD_MORE_BATCH_SIZE = 20;
-
 
 const metricAccessors: Record<PlayersSortKey, (player: Player) => number> = {
 	total: (player) => player.stats.total,
@@ -89,44 +48,23 @@ const metricAccessors: Record<PlayersSortKey, (player: Player) => number> = {
 	kp: (player) => player.power.kp,
 };
 
-const sortAccessors: Record<
-	PlayerTableSortKey,
-	(player: Player) => number | string
-> = {
+const sortAccessors: Record<PlayerTableSortKey, (player: Player) => number | string> = {
 	name: (player) => player.name,
 	...metricAccessors,
 };
 
-const elementOptions = createSortedUniqueOptions(
-	basePlayersDataset.map((player) => player.element),
-);
-const genderOptions = createSortedUniqueOptions(
-	basePlayersDataset.map((player) => player.gender).filter((value) => value),
-);
-const positionOptions = createSortedUniqueOptions(
-	basePlayersDataset.map((player) => player.position),
-);
-const roleOptions = createSortedUniqueOptions(
-	basePlayersDataset.map((player) => player.role),
-);
+const elementOptions = createSortedUniqueOptions(basePlayersDataset.map((player) => player.element));
+const genderOptions = createSortedUniqueOptions(basePlayersDataset.map((player) => player.gender).filter((value) => value));
+const positionOptions = createSortedUniqueOptions(basePlayersDataset.map((player) => player.position));
+const roleOptions = createSortedUniqueOptions(basePlayersDataset.map((player) => player.role));
 
 const statsMetricColumns: TableColumn[] = [
-	...[
-		"kick",
-		"control",
-		"technique",
-		"pressure",
-		"physical",
-		"agility",
-		"intelligence",
-		"total",
-	].map((key) => ({
+	...["kick", "control", "technique", "pressure", "physical", "agility", "intelligence", "total"].map((key) => ({
 		key,
 		header: titleCase(key),
 		align: "center" as const,
 		sortKey: key as PlayerTableSortKey,
-		render: (player: Player) =>
-			formatNumber(player.stats[key as keyof BaseStats]),
+		render: (player: Player) => formatNumber(player.stats[key as keyof BaseStats]),
 	})),
 ];
 
@@ -144,8 +82,7 @@ const powerMetricColumns: TableColumn[] = [
 		header: label,
 		align: "center" as const,
 		sortKey: key as PlayerTableSortKey,
-		render: (player: Player) =>
-			formatNumber(player.power[key as keyof PowerStats]),
+		render: (player: Player) => formatNumber(player.power[key as keyof PowerStats]),
 	})),
 ];
 
@@ -153,14 +90,8 @@ export default function PlayersPage() {
 	const [preferences, setPreferences] = useAtom(playersPreferencesAtom);
 	const [favoritePlayers, setFavoritePlayers] = useAtom(favoritePlayersAtom);
 	const namePreference = useAtomValue(playerNamePreferenceAtom);
-	const playersDataset = useMemo(
-		() => getPlayersDataset(namePreference),
-		[namePreference],
-	);
-	const favoriteSet = useMemo(
-		() => new Set(favoritePlayers),
-		[favoritePlayers],
-	);
+	const playersDataset = useMemo(() => getPlayersDataset(namePreference), [namePreference]);
+	const favoriteSet = useMemo(() => new Set(favoritePlayers), [favoritePlayers]);
 	const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
 	const [selectedPlayerId, setSelectedPlayerId] = useState<number | null>(null);
 	const selectedPlayer = useMemo(() => {
@@ -182,28 +113,18 @@ export default function PlayersPage() {
 		}));
 	}, [selectedPlayer]);
 	const loadMoreRef = useRef<HTMLDivElement | null>(null);
-	const highlightControl = (isActive: boolean) =>
-		isActive ? "border-primary/60 bg-primary/10 text-primary" : undefined;
+	const highlightControl = (isActive: boolean) => (isActive ? "border-primary/60 bg-primary/10 text-primary" : undefined);
 
 	const filteredPlayers = useMemo(() => {
 		const query = preferences.search.trim().toLowerCase();
 		return playersDataset.filter((player) => {
-			if (
-				preferences.element !== "all" &&
-				player.element !== preferences.element
-			) {
+			if (preferences.element !== "all" && player.element !== preferences.element) {
 				return false;
 			}
-			if (
-				preferences.gender !== "all" &&
-				player.gender !== preferences.gender
-			) {
+			if (preferences.gender !== "all" && player.gender !== preferences.gender) {
 				return false;
 			}
-			if (
-				preferences.position !== "all" &&
-				player.position !== preferences.position
-			) {
+			if (preferences.position !== "all" && player.position !== preferences.position) {
 				return false;
 			}
 			if (preferences.role !== "all" && player.role !== preferences.role) {
@@ -213,10 +134,7 @@ export default function PlayersPage() {
 				return false;
 			}
 			if (!query) return true;
-			return (
-				player.name.toLowerCase().includes(query) ||
-				player.nickname.toLowerCase().includes(query)
-			);
+			return player.name.toLowerCase().includes(query) || player.nickname.toLowerCase().includes(query);
 		});
 	}, [
 		playersDataset,
@@ -242,13 +160,9 @@ export default function PlayersPage() {
 				return sortDirection === "desc" ? valueB - valueA : valueA - valueB;
 			}
 
-			const comparison = String(valueA).localeCompare(
-				String(valueB),
-				undefined,
-				{
-					sensitivity: "base",
-				},
-			);
+			const comparison = String(valueA).localeCompare(String(valueB), undefined, {
+				sensitivity: "base",
+			});
 
 			return sortDirection === "desc" ? -comparison : comparison;
 		});
@@ -271,11 +185,7 @@ export default function PlayersPage() {
 		(sortKey: PlayerTableSortKey) => {
 			setPreferences((prev) => {
 				const isSameColumn = prev.sortKey === sortKey;
-				const nextDirection = isSameColumn
-					? prev.sortDirection === "asc"
-						? "desc"
-						: "asc"
-					: "desc";
+				const nextDirection = isSameColumn ? (prev.sortDirection === "asc" ? "desc" : "asc") : "desc";
 
 				return {
 					...prev,
@@ -296,30 +206,20 @@ export default function PlayersPage() {
 	}, []);
 
 	const tableColumns = useMemo(() => {
-		const metricColumns =
-			preferences.viewMode === "stats"
-				? statsMetricColumns
-				: powerMetricColumns;
+		const metricColumns = preferences.viewMode === "stats" ? statsMetricColumns : powerMetricColumns;
 		const favoriteColumn: TableColumn = {
 			key: "favorite",
 			header: "",
 			className: "w-12",
 			align: "center",
-			render: (player: Player) => (
-				<FavoriteToggle
-					isFavorite={favoriteSet.has(player.id)}
-					onToggle={() => handleToggleFavorite(player.id)}
-				/>
-			),
+			render: (player: Player) => <FavoriteToggle isFavorite={favoriteSet.has(player.id)} onToggle={() => handleToggleFavorite(player.id)} />,
 		};
 		const detailsColumn: TableColumn = {
 			key: "details",
 			header: "",
 			className: "w-12",
 			align: "center",
-			render: (player: Player) => (
-				<PlayerDetailsButton onClick={() => handleOpenDetails(player)} />
-			),
+			render: (player: Player) => <PlayerDetailsButton onClick={() => handleOpenDetails(player)} />,
 		};
 		const identityColumn: TableColumn = {
 			key: "identity",
@@ -408,16 +308,14 @@ export default function PlayersPage() {
 		preferences.viewMode,
 		preferences.sortDirection,
 		preferences.sortKey,
-		favoritePlayers.join(","),
+		preferences.favoritesOnly ? favoritePlayers.join(",") : null,
 	]);
 
 	useEffect(() => {
 		if (selectedPlayerId == null) {
 			return;
 		}
-		const exists = playersDataset.some(
-			(playerRecord) => playerRecord.id === selectedPlayerId,
-		);
+		const exists = playersDataset.some((playerRecord) => playerRecord.id === selectedPlayerId);
 		if (!exists) {
 			setSelectedPlayerId(null);
 		}
@@ -428,9 +326,7 @@ export default function PlayersPage() {
 		const observer = new IntersectionObserver(
 			(entries) => {
 				if (entries.some((entry) => entry.isIntersecting)) {
-					setVisibleCount((prev) =>
-						Math.min(prev + LOAD_MORE_BATCH_SIZE, sortedPlayers.length),
-					);
+					setVisibleCount((prev) => Math.min(prev + LOAD_MORE_BATCH_SIZE, sortedPlayers.length));
 				}
 			},
 			{
@@ -453,15 +349,10 @@ export default function PlayersPage() {
 							highlightControl(preferences.search.trim().length > 0),
 						)}
 					>
-						<Search
-							className="size-4 text-muted-foreground"
-							aria-hidden="true"
-						/>
+						<Search className="size-4 text-muted-foreground" aria-hidden="true" />
 						<Input
 							value={preferences.search}
-							onChange={(event) =>
-								handleUpdate({ search: event.currentTarget.value })
-							}
+							onChange={(event) => handleUpdate({ search: event.currentTarget.value })}
 							placeholder="Search players"
 							className="flex-1 border-0 bg-transparent px-0 focus-visible:ring-0"
 							aria-label="Filter players by name"
@@ -488,44 +379,24 @@ export default function PlayersPage() {
 					<Button
 						size="sm"
 						variant={preferences.favoritesOnly ? "default" : "outline"}
-						onClick={() =>
-							handleUpdate({ favoritesOnly: !preferences.favoritesOnly })
-						}
+						onClick={() => handleUpdate({ favoritesOnly: !preferences.favoritesOnly })}
 						aria-pressed={preferences.favoritesOnly}
 						className="h-8"
 					>
-						<Star
-							className={cn(
-								"size-4",
-								preferences.favoritesOnly ? "fill-current" : "fill-transparent",
-							)}
-						/>
+						<Star className={cn("size-4", preferences.favoritesOnly ? "fill-current" : "fill-transparent")} />
 						Favorites
 					</Button>
-					<Button
-						size="sm"
-						variant="ghost"
-						className="h-8 text-muted-foreground"
-						onClick={handleResetFilters}
-						disabled={!filtersAreDirty}
-					>
+					<Button size="sm" variant="ghost" className="h-8 text-muted-foreground" onClick={handleResetFilters} disabled={!filtersAreDirty}>
 						<RotateCcw className="size-4" />
 						Reset
 					</Button>
 				</div>
 				<div className="mt-3 grid gap-2 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4">
 					{traitFilters.map((filter) => (
-						<Select
-							key={filter.key}
-							value={filter.value}
-							onValueChange={filter.onValueChange}
-						>
+						<Select key={filter.key} value={filter.value} onValueChange={filter.onValueChange}>
 							<SelectTrigger
 								size="sm"
-								className={cn(
-									"h-10 w-full justify-between rounded-md border bg-background/30",
-									highlightControl(filter.isActive),
-								)}
+								className={cn("h-10 w-full justify-between rounded-md border bg-background/30", highlightControl(filter.isActive))}
 								aria-label={filter.label}
 							>
 								<SelectValue placeholder={filter.defaultLabel} />
@@ -546,8 +417,7 @@ export default function PlayersPage() {
 			<section className="rounded-lg border bg-card/60">
 				<div className="flex items-center justify-between gap-2 p-3 text-xs text-muted-foreground">
 					<span>
-						Showing {visiblePlayers.length.toLocaleString()} of{" "}
-						{sortedPlayers.length.toLocaleString()} players
+						Showing {visiblePlayers.length.toLocaleString()} of {sortedPlayers.length.toLocaleString()} players
 					</span>
 					<span>Player data is shown at level 50 and Normal rarity</span>
 				</div>
@@ -557,28 +427,15 @@ export default function PlayersPage() {
 							{tableColumns.map((column) => (
 								<TableHead
 									key={column.key}
-									className={cn(
-										column.className,
-										column.align === "right"
-											? "text-right"
-											: column.align === "center"
-												? "text-center"
-												: undefined,
-									)}
+									className={cn(column.className, column.align === "right" ? "text-right" : column.align === "center" ? "text-center" : undefined)}
 								>
 									{column.sortKey ? (
 										<button
 											type="button"
-											onClick={() =>
-												handleSortByColumn(column.sortKey as PlayerTableSortKey)
-											}
+											onClick={() => handleSortByColumn(column.sortKey as PlayerTableSortKey)}
 											className={cn(
 												"flex w-full items-center gap-1 text-left text-xs font-semibold uppercase tracking-wide text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
-												column.align === "right"
-													? "justify-end"
-													: column.align === "center"
-														? "justify-center"
-														: "justify-start",
+												column.align === "right" ? "justify-end" : column.align === "center" ? "justify-center" : "justify-start",
 											)}
 											aria-label={`Sort by ${column.header}`}
 											aria-pressed={preferences.sortKey === column.sortKey}
@@ -586,22 +443,8 @@ export default function PlayersPage() {
 											<span>{column.header}</span>
 											{(() => {
 												const isActive = preferences.sortKey === column.sortKey;
-												const Icon = !isActive
-													? ArrowUpDown
-													: preferences.sortDirection === "asc"
-														? ArrowUp
-														: ArrowDown;
-												return (
-													<Icon
-														className={cn(
-															"size-3.5",
-															isActive
-																? "text-primary"
-																: "text-muted-foreground/60",
-														)}
-														aria-hidden="true"
-													/>
-												);
+												const Icon = !isActive ? ArrowUpDown : preferences.sortDirection === "asc" ? ArrowUp : ArrowDown;
+												return <Icon className={cn("size-3.5", isActive ? "text-primary" : "text-muted-foreground/60")} aria-hidden="true" />;
 											})()}
 										</button>
 									) : (
@@ -636,18 +479,11 @@ export default function PlayersPage() {
 					</TableBody>
 				</Table>
 				{hasMore && (
-					<div
-						ref={loadMoreRef}
-						className="flex h-16 items-center justify-center text-sm text-muted-foreground"
-					>
+					<div ref={loadMoreRef} className="flex h-16 items-center justify-center text-sm text-muted-foreground">
 						Loading more players…
 					</div>
 				)}
-				{!visiblePlayers.length && (
-					<div className="border-t p-6 text-center text-sm text-muted-foreground">
-						No players match the selected filters.
-					</div>
-				)}
+				{!visiblePlayers.length && <div className="border-t p-6 text-center text-sm text-muted-foreground">No players match the selected filters.</div>}
 			</section>
 
 			<PlayerDetailsDialog
@@ -713,18 +549,10 @@ function FavoriteToggle({ isFavorite, onToggle }: FavoriteToggleProps) {
 			aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
 			className={cn(
 				"rounded-full border p-1 transition-colors",
-				isFavorite
-					? "border-amber-400 bg-amber-50 text-amber-500"
-					: "border-transparent text-muted-foreground hover:border-border hover:text-foreground",
+				isFavorite ? "border-amber-400 bg-amber-50 text-amber-500" : "border-transparent text-muted-foreground hover:border-border hover:text-foreground",
 			)}
 		>
-			<Star
-				className={cn(
-					"size-4",
-					isFavorite ? "fill-current" : "fill-transparent",
-				)}
-				aria-hidden="true"
-			/>
+			<Star className={cn("size-4", isFavorite ? "fill-current" : "fill-transparent")} aria-hidden="true" />
 		</button>
 	);
 }
