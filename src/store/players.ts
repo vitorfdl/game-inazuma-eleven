@@ -47,13 +47,6 @@ export const DEFAULT_PLAYERS_PREFERENCES: PlayersPreferences = {
 	sortDirection: "desc",
 };
 
-const storage =
-	typeof window === "undefined"
-		? undefined
-		: createJSONStorage<PlayersPreferences>(() => window.localStorage);
+const storage = typeof window === "undefined" ? undefined : createJSONStorage<PlayersPreferences>(() => window.sessionStorage);
 
-export const playersPreferencesAtom = atomWithStorage<PlayersPreferences>(
-	PLAYERS_PREFERENCES_KEY,
-	DEFAULT_PLAYERS_PREFERENCES,
-	storage,
-);
+export const playersPreferencesAtom = atomWithStorage<PlayersPreferences>(PLAYERS_PREFERENCES_KEY, DEFAULT_PLAYERS_PREFERENCES, storage);

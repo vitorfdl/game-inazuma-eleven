@@ -1,14 +1,7 @@
 import { atomWithStorage, createJSONStorage } from "jotai/utils";
 
 export type HissatsuSortDirection = "asc" | "desc";
-export type HissatsuSortKey =
-	| "order"
-	| "name"
-	| "type"
-	| "element"
-	| "shop"
-	| "power"
-	| "tension";
+export type HissatsuSortKey = "order" | "name" | "type" | "element" | "shop" | "power" | "tension";
 
 export type HissatsuPreferences = {
 	search: string;
@@ -32,15 +25,6 @@ export const DEFAULT_HISSATSU_PREFERENCES: HissatsuPreferences = {
 	sortDirection: "desc",
 };
 
-const storage =
-	typeof window === "undefined"
-		? undefined
-		: createJSONStorage<HissatsuPreferences>(() => window.localStorage);
+const storage = typeof window === "undefined" ? undefined : createJSONStorage<HissatsuPreferences>(() => window.sessionStorage);
 
-export const hissatsuPreferencesAtom = atomWithStorage<HissatsuPreferences>(
-	HISSATSU_PREFERENCES_KEY,
-	DEFAULT_HISSATSU_PREFERENCES,
-	storage,
-);
-
-
+export const hissatsuPreferencesAtom = atomWithStorage<HissatsuPreferences>(HISSATSU_PREFERENCES_KEY, DEFAULT_HISSATSU_PREFERENCES, storage);

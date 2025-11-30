@@ -9,15 +9,7 @@ import { type Cheerio, type CheerioAPI, load } from "cheerio";
 
 const BASE_URL = "https://zukan.inazuma.jp";
 
-const STAT_KEYS = [
-	"Kick",
-	"Control",
-	"Technique",
-	"Pressure",
-	"Physical",
-	"Agility",
-	"Intelligence",
-] as const;
+const STAT_KEYS = ["Kick", "Control", "Technique", "Pressure", "Physical", "Agility", "Intelligence"] as const;
 
 type StatKey = (typeof STAT_KEYS)[number];
 
@@ -102,10 +94,7 @@ function extractDescription($description: Cheerio<any>): string {
 		.join("\n");
 }
 
-function extractBasicInfo(
-	$: CheerioAPI,
-	$item: Cheerio<any>,
-): Record<string, string> {
+function extractBasicInfo($: CheerioAPI, $item: Cheerio<any>): Record<string, string> {
 	const info: Record<string, string> = {};
 	$item.find("li").each((_, li) => {
 		const $li = $(li);
@@ -116,13 +105,8 @@ function extractBasicInfo(
 	return info;
 }
 
-function extractStats(
-	$: CheerioAPI,
-	$player: Cheerio<any>,
-): Record<StatKey, number> {
-	const stats: Record<StatKey, number> = Object.fromEntries(
-		STAT_KEYS.map((key) => [key, 0]),
-	) as Record<StatKey, number>;
+function extractStats($: CheerioAPI, $player: Cheerio<any>): Record<StatKey, number> {
+	const stats: Record<StatKey, number> = Object.fromEntries(STAT_KEYS.map((key) => [key, 0])) as Record<StatKey, number>;
 
 	$player.find("ul.param > li dl").each((_, dl) => {
 		const $dl = $(dl);
@@ -136,10 +120,7 @@ function extractStats(
 	return stats;
 }
 
-function extractListItems(
-	$: CheerioAPI,
-	$root: Cheerio<any>,
-): string[] {
+function extractListItems($: CheerioAPI, $root: Cheerio<any>): string[] {
 	const items: string[] = [];
 	$root.find("li").each((_, li) => {
 		const text = cleanText($(li).text());
@@ -150,10 +131,7 @@ function extractListItems(
 	return items;
 }
 
-function extractParagraphItems(
-	_$: CheerioAPI,
-	$root: Cheerio<any>,
-): string[] {
+function extractParagraphItems(_$: CheerioAPI, $root: Cheerio<any>): string[] {
 	const clone = $root.clone();
 	clone.find("ul,ol").remove();
 	const text = cleanText(clone.text());
@@ -164,10 +142,7 @@ function extractParagraphItems(
 		.filter(Boolean);
 }
 
-function extractHowToObtainEntries(
-	$: CheerioAPI,
-	$section: Cheerio<any>,
-): HowToObtainEntry[] {
+function extractHowToObtainEntries($: CheerioAPI, $section: Cheerio<any>): HowToObtainEntry[] {
 	const entries: HowToObtainEntry[] = [];
 	const $dds = $section.children("dd");
 
@@ -183,8 +158,7 @@ function extractHowToObtainEntries(
 		const $dd = $(dd);
 		const title = cleanText($dd.children("p").first().text());
 		const items = extractListItems($, $dd);
-		const fallbackItems =
-			items.length > 0 ? [] : extractParagraphItems($, $dd);
+		const fallbackItems = items.length > 0 ? [] : extractParagraphItems($, $dd);
 		const collected = items.length > 0 ? items : fallbackItems;
 		if (collected.length === 0 && !title) {
 			return;
@@ -219,10 +193,7 @@ function formatHowToObtainSection(section: HowToObtainSection): string {
 	return lines.join("\n").trim();
 }
 
-function extractHowToObtainMarkdown(
-	$: CheerioAPI,
-	$player: Cheerio<any>,
-): string {
+function extractHowToObtainMarkdown($: CheerioAPI, $player: Cheerio<any>): string {
 	const $howToObtain = $player.find("dl.getTxt");
 	if ($howToObtain.length === 0) return "";
 
@@ -261,34 +232,18 @@ function extractPlayers(html: string): PlayerRecordWithoutIndex[] {
 			return;
 		}
 
-		const nickname = cleanRubyText(
-			$player.find(".lBox .name span.nickname").first(),
-		);
+		const nickname = cleanRubyText($player.find(".lBox .name span.nickname").first());
 		const image = $player.find("figure img").attr("src") ?? "";
 		const game = cleanText($player.find("dl.appearedWorks dd").first().text());
-		const description = extractDescription(
-			$player.find("p.description").first(),
-		);
-		const position = cleanText(
-			$player
-				.find("ul.param > li")
-				.first()
-				.find("dl")
-				.first()
-				.find("dd")
-				.text(),
-		);
-		const elementType = cleanText(
-			$player.find("ul.param > li").first().find("dl.box dd").first().text(),
-		);
+		const description = extractDescription($player.find("p.description").first());
+		const position = cleanText($player.find("ul.param > li").first().find("dl").first().find("dd").text());
+		const elementType = cleanText($player.find("ul.param > li").first().find("dl.box dd").first().text());
 		const howToObtainMarkdown = extractHowToObtainMarkdown($, $player);
 		const stats = extractStats($, $player);
 		const total = STAT_KEYS.reduce((sum, key) => sum + stats[key], 0);
 		const basicInfo = extractBasicInfo($, $player.find("ul.basic"));
 		const viewerHref = $player.find("a.verLink").attr("href") ?? "";
-		const inazugleLink = viewerHref
-			? new URL(viewerHref, BASE_URL).toString()
-			: "";
+		const inazugleLink = viewerHref ? new URL(viewerHref, BASE_URL).toString() : "";
 
 		players.push({
 			id: players.length + 1,
@@ -325,7 +280,6 @@ async function fetchAllPlayers(perPage = 1000): Promise<PlayerRecord[]> {
 
 	while (true) {
 		const pageUrl = `${BASE_URL}/en/chara_param/?page=${page}&per_page=${perPage}`;
-		console.log(`Fetching page ${page} (${perPage} per page)...`);
 		const html = await fetchHtml(pageUrl);
 		const players = extractPlayers(html);
 
@@ -360,13 +314,7 @@ async function main(): Promise<void> {
 		const players = await fetchAllPlayers();
 		console.log(`Found ${players.length} players. Writing JSON file...`);
 
-		const outPath = path.resolve(
-			process.cwd(),
-			"src",
-			"assets",
-			"data",
-			"players.json",
-		);
+		const outPath = path.resolve(process.cwd(), "src", "assets", "data", "players.json");
 
 		ensureDir(outPath);
 		fs.writeFileSync(outPath, JSON.stringify(players, null, 2), "utf8");

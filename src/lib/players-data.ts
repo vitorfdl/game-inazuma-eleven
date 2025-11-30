@@ -2,11 +2,7 @@ import jpNamesJson from "@/assets/data/jp_names.json?raw";
 import playersJson from "@/assets/data/players.json?raw";
 import { normalizeStat, sanitizeAttribute } from "@/lib/data-helpers";
 import type { ElementType, TeamPosition } from "@/lib/icon-picker";
-import {
-	type BaseStats,
-	computePower,
-	type PowerStats,
-} from "@/lib/inazuma-math";
+import { type BaseStats, computePower, type PowerStats } from "@/lib/inazuma-math";
 import type { PlayerNamePreference } from "@/store/name-preference";
 
 export type RawPlayerRecord = {
@@ -54,19 +50,9 @@ export type PlayerRecord = {
 
 type PlayerBaseStatKey = Exclude<keyof BaseStats, "total">;
 
-const playerBaseStatKeys: PlayerBaseStatKey[] = [
-	"kick",
-	"control",
-	"technique",
-	"pressure",
-	"physical",
-	"agility",
-	"intelligence",
-];
+const playerBaseStatKeys: PlayerBaseStatKey[] = ["kick", "control", "technique", "pressure", "physical", "agility", "intelligence"];
 
-const rawPlayers = JSON.parse(playersJson).filter(
-	(record: RawPlayerRecord) => record.Name !== "???" && record.Position !== "?",
-) as RawPlayerRecord[];
+const rawPlayers = JSON.parse(playersJson).filter((record: RawPlayerRecord) => record.Name !== "???" && record.Position !== "?") as RawPlayerRecord[];
 
 export const playersDataset: PlayerRecord[] = rawPlayers.map((player) => {
 	const baseStats: Record<PlayerBaseStatKey, number> = {
@@ -96,18 +82,13 @@ export const playersDataset: PlayerRecord[] = rawPlayers.map((player) => {
 		ageGroup: sanitizeAttribute(player["Age group"]),
 		year: sanitizeAttribute(player.Year),
 		gender: sanitizeAttribute(player.Gender),
-		howToObtainMarkdown:
-			typeof player.HowToObtainMarkdown === "string"
-				? player.HowToObtainMarkdown.trim()
-				: "",
+		howToObtainMarkdown: typeof player.HowToObtainMarkdown === "string" ? player.HowToObtainMarkdown.trim() : "",
 		stats,
 		power: computePower(stats),
 	};
 });
 
-export const playersById = new Map<number, PlayerRecord>(
-	playersDataset.map((player) => [player.id, player]),
-);
+export const playersById = new Map<number, PlayerRecord>(playersDataset.map((player) => [player.id, player]));
 
 type JpNameRecord = {
 	dub_name: string;
@@ -136,35 +117,23 @@ const romajiPlayersDataset: PlayerRecord[] = playersDataset.map((player) => {
 	};
 });
 
-const romajiPlayersById = new Map<number, PlayerRecord>(
-	romajiPlayersDataset.map((player) => [player.id, player]),
-);
+const romajiPlayersById = new Map<number, PlayerRecord>(romajiPlayersDataset.map((player) => [player.id, player]));
 
-const playersDatasetByPreference: Record<
-	PlayerNamePreference,
-	PlayerRecord[]
-> = {
+const playersDatasetByPreference: Record<PlayerNamePreference, PlayerRecord[]> = {
 	dub: playersDataset,
 	romaji: romajiPlayersDataset,
 };
 
-const playersByIdByPreference: Record<
-	PlayerNamePreference,
-	Map<number, PlayerRecord>
-> = {
+const playersByIdByPreference: Record<PlayerNamePreference, Map<number, PlayerRecord>> = {
 	dub: playersById,
 	romaji: romajiPlayersById,
 };
 
-export function getPlayersDataset(
-	preference: PlayerNamePreference = "dub",
-): PlayerRecord[] {
+export function getPlayersDataset(preference: PlayerNamePreference = "dub"): PlayerRecord[] {
 	return playersDatasetByPreference[preference] ?? playersDataset;
 }
 
-export function getPlayersById(
-	preference: PlayerNamePreference = "dub",
-): Map<number, PlayerRecord> {
+export function getPlayersById(preference: PlayerNamePreference = "dub"): Map<number, PlayerRecord> {
 	return playersByIdByPreference[preference] ?? playersById;
 }
 
@@ -190,12 +159,7 @@ function createRomajiNameOverrides(): Map<string, RomajiNameOverride> {
 		parsed.forEach((record) => {
 			const dubName = sanitizeAttribute(record.dub_name);
 			const romajiName = sanitizeAttribute(record.roma_name);
-			if (
-				!dubName ||
-				!romajiName ||
-				dubName === "Unknown" ||
-				romajiName === "Unknown"
-			) {
+			if (!dubName || !romajiName || dubName === "Unknown" || romajiName === "Unknown") {
 				return;
 			}
 			const key = dubName.toLowerCase();
@@ -253,14 +217,11 @@ export function getSafePlayerImageUrl(imageUrl: string | null | undefined) {
 	}
 	try {
 		const parsed = new URL(imageUrl);
-		const hasSupportedProtocol =
-			parsed.protocol === "https:" || parsed.protocol === "http:";
+		const hasSupportedProtocol = parsed.protocol === "https:" || parsed.protocol === "http:";
 		if (!hasSupportedProtocol) {
 			return imageUrl;
 		}
-		return `${PLAYER_IMAGE_PROXY_ENDPOINT}${encodeURIComponent(
-			parsed.toString(),
-		)}`;
+		return `${PLAYER_IMAGE_PROXY_ENDPOINT}${encodeURIComponent(parsed.toString())}`;
 	} catch {
 		return imageUrl;
 	}

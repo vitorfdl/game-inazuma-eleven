@@ -43,14 +43,6 @@ export const DEFAULT_EQUIPMENTS_PREFERENCES: EquipmentsPreferences = {
 	sortDirection: "desc",
 };
 
-const storage =
-	typeof window === "undefined"
-		? undefined
-		: createJSONStorage<EquipmentsPreferences>(() => window.localStorage);
+const storage = typeof window === "undefined" ? undefined : createJSONStorage<EquipmentsPreferences>(() => window.sessionStorage);
 
-export const equipmentsPreferencesAtom = atomWithStorage<EquipmentsPreferences>(
-	EQUIPMENTS_PREFERENCES_KEY,
-	DEFAULT_EQUIPMENTS_PREFERENCES,
-	storage,
-);
-
+export const equipmentsPreferencesAtom = atomWithStorage<EquipmentsPreferences>(EQUIPMENTS_PREFERENCES_KEY, DEFAULT_EQUIPMENTS_PREFERENCES, storage);
