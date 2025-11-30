@@ -807,8 +807,12 @@ export default function TeamBuilderPage() {
 
 				<DndContext sensors={sensors} onDragStart={handleSlotDragStart} onDragEnd={handleSlotDragEnd} onDragCancel={handleSlotDragCancel}>
 					<div className="grid gap-4">
-						<div className="rounded-xl border bg-card p-3 shadow-sm">
-							<div ref={layoutContainerRef} className="mx-auto flex w-full max-w-5xl flex-col gap-4 lg:flex-row lg:items-start lg:justify-center lg:gap-3 ">
+						<div className="relative overflow-hidden rounded-[34px] border-[6px] border-black/80 bg-[radial-gradient(circle_at_top,#fff6c7_5%,#bfeeff_45%,#63c9ff_85%)] p-4 shadow-[0_32px_60px_rgba(0,0,0,0.45)]">
+							<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.75),transparent_60%)] opacity-70 mix-blend-screen" />
+							<div
+								ref={layoutContainerRef}
+								className="relative mx-auto flex w-full max-w-5xl flex-col gap-4 lg:flex-row lg:items-start lg:justify-center lg:gap-3"
+							>
 								<div className="flex-1">
 									<FormationPitch
 										assignments={starterAssignments}

@@ -43,13 +43,11 @@ export function FormationPitch({
 	return (
 		<div className="w-full">
 			<div className="relative w-full">
-				<div className="pointer-events-none absolute inset-x-0 -top-2 z-20 flex justify-center sm:-top-3">
-					<div className="pointer-events-auto inline-flex items-center gap-2 rounded-full border border-border bg-card/90 px-3 py-1.5 text-emerald-900 shadow-md shadow-emerald-400/30 dark:border-white/30 dark:bg-black/70 dark:text-emerald-100/90 dark:shadow-emerald-900/60">
-						<p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-emerald-900/80 dark:text-emerald-100/90">
-							Formation
-						</p>
+				<div className="pointer-events-none absolute inset-x-0 -top-3 z-20 flex justify-center sm:-top-4">
+					<div className="pointer-events-auto inline-flex items-center gap-2 rounded-full border-[3px] border-black/80 bg-[#fff59f] px-4 py-1.5 text-slate-900 shadow-[0_10px_0_rgba(0,0,0,0.35)]">
+						<p className="text-[10px] font-black uppercase tracking-[0.45em] text-slate-900">Formation</p>
 						<Select disabled={isFormationDisabled} value={formationId} onValueChange={(value) => onFormationChange(value)}>
-							<SelectTrigger className="h-8 min-w-[180px] border-border bg-background/90 text-xs text-foreground shadow-sm sm:min-w-[220px] dark:border-white/20 dark:bg-emerald-950/80 dark:text-emerald-50">
+							<SelectTrigger className="h-9 min-w-[200px] border-[3px] border-black/80 bg-white/95 text-xs font-semibold uppercase tracking-[0.15em] text-slate-900 shadow-[0_6px_0_rgba(0,0,0,0.35)] sm:min-w-[240px] dark:bg-slate-900/80 dark:text-white">
 								<SelectValue placeholder="Choose formation" />
 							</SelectTrigger>
 							<SelectContent>
@@ -64,14 +62,15 @@ export function FormationPitch({
 						</Select>
 					</div>
 				</div>
-				<div className="relative aspect-[3/4] w-full rounded-[36px] border border-emerald-800 bg-gradient-to-b from-emerald-700/70 via-emerald-800/80 to-emerald-900/95 p-4 shadow-[inset_0_0_50px_rgba(0,0,0,0.35)] sm:aspect-[5/6] lg:aspect-[5/5]">
-					<div className="absolute inset-4 rounded-[30px] border border-white/25" />
-					<div className="absolute inset-x-8 top-1/2 h-px -translate-y-1/2 bg-white/15" />
-					<div className="absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/15 sm:h-56 sm:w-56" />
-					<div className="absolute left-1/2 top-8 h-28 w-[55%] -translate-x-1/2 rounded-xl border-2 border-white/20 sm:h-32" />
-					<div className="absolute left-1/2 bottom-8 h-28 w-[55%] -translate-x-1/2 rounded-xl border-2 border-white/20 sm:h-32" />
-					<div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),transparent_55%)]" />
-					<div className="relative h-full w-full">
+				<div className="relative aspect-[3/4] w-full overflow-hidden rounded-[46px] border-[6px] border-black/80 bg-[#042a20] p-4 shadow-[0_35px_70px_rgba(0,0,0,0.65)] sm:aspect-[5/6] lg:aspect-[5/5]">
+					<div className="pointer-events-none absolute inset-1 rounded-[40px] border-[3px] border-black/70 bg-[radial-gradient(circle_at_top,#e9ff7a_0%,#6eda6f_45%,#0a7b58_85%)] shadow-[inset_0_-40px_80px_rgba(0,0,0,0.35)]" />
+					<div className="pointer-events-none absolute inset-4 rounded-[32px] border-[3px] border-black/50 bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.08)_0,rgba(255,255,255,0.08)_8%,transparent_8%,transparent_16%)] opacity-80" />
+					<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.45),transparent_60%)]" />
+					<div className="pointer-events-none absolute inset-x-10 top-1/2 h-[3px] -translate-y-1/2 rounded-full bg-[#fffbc4] shadow-[0_0_18px_rgba(255,255,255,0.6)]" />
+					<div className="pointer-events-none absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full border-[3px] border-[#fffbc4] shadow-[0_0_18px_rgba(255,255,255,0.45)] sm:h-56 sm:w-56" />
+					<div className="pointer-events-none absolute left-1/2 top-8 h-28 w-[60%] -translate-x-1/2 rounded-[28px] border-[3px] border-[#fffbc4] shadow-[0_0_18px_rgba(255,255,255,0.45)] sm:h-32" />
+					<div className="pointer-events-none absolute left-1/2 bottom-8 h-28 w-[60%] -translate-x-1/2 rounded-[28px] border-[3px] border-[#fffbc4] shadow-[0_0_18px_rgba(255,255,255,0.45)] sm:h-32" />
+					<div className="relative z-10 h-full w-full">
 						{assignments.map((entry) => (
 							<PlayerSlotMarker
 								key={entry.slot.id}
@@ -88,7 +87,7 @@ export function FormationPitch({
 				</div>
 			</div>
 			{hasStaffFooter && (
-				<div className="mt-4 flex w-full flex-wrap items-center gap-2 rounded-3xl border border-emerald-200 bg-gradient-to-r from-emerald-50 via-emerald-100 to-emerald-50 p-3 text-emerald-950 shadow-[inset_0_0_25px_rgba(16,185,129,0.25)] dark:border-emerald-900/50 dark:from-emerald-900/40 dark:via-emerald-950/30 dark:to-emerald-900/40 dark:text-white dark:shadow-[inset_0_0_30px_rgba(0,0,0,0.35)] sm:gap-3 sm:justify-between">
+				<div className="mt-4 flex w-full flex-wrap items-center gap-2 rounded-[30px] border-[4px] border-black/80 bg-gradient-to-r from-[#fff48a] via-[#ffd35d] to-[#fff48a] p-3 text-slate-900 shadow-[0_12px_0_rgba(0,0,0,0.35)] dark:border-white/20 dark:from-[#3c2a00] dark:via-[#4b1e00] dark:to-[#3c2a00] dark:text-white sm:gap-3 sm:justify-between">
 					<div className="flex flex-1 justify-start">
 						{managerEntry ? (
 							<SlotEntryButton
@@ -152,7 +151,7 @@ export function ReservesRail({
 	if (!entries.length) return null;
 
 	return (
-		<div className="rounded-2xl border border-emerald-300 bg-gradient-to-b from-emerald-200 via-emerald-400 to-emerald-200 p-3 text-emerald-950 shadow-inner shadow-emerald-400/40 dark:border-white/15 dark:from-emerald-950/20 dark:via-emerald-900/10 dark:to-emerald-950/30 dark:text-white xl:max-w-[280px]">
+		<div className="rounded-[28px] border-[4px] border-black/80 bg-gradient-to-b from-[#fff288] via-[#ffcf54] to-[#ffd95b] p-3 text-slate-900 shadow-[0_12px_0_rgba(0,0,0,0.35)] dark:border-white/20 dark:from-[#3a2200] dark:via-[#431100] dark:to-[#3a2200] dark:text-white xl:max-w-[280px]">
 			<div className={cn("mt-3 flex gap-2", isStackedLayout ? "flex-row overflow-x-auto pb-1" : "flex-col overflow-visible pb-0")}>
 				{entries.map((entry) => (
 					<SlotEntryButton
@@ -288,9 +287,7 @@ function PlayerSlotMarker({ entry, isActive, displayMode, onSelect, onEmptySelec
 			className={cn(
 				"absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1 text-emerald-950 outline-none transition dark:text-white",
 				SLOT_CARD_WIDTH_CLASS,
-				isActive
-					? "scale-105 drop-shadow-[0_12px_20px_rgba(15,118,110,0.3)] dark:drop-shadow-[0_12px_20px_rgba(0,0,0,0.35)]"
-					: "hover:scale-105",
+				isActive ? "scale-105 drop-shadow-[0_12px_20px_rgba(15,118,110,0.3)] dark:drop-shadow-[0_12px_20px_rgba(0,0,0,0.35)]" : "hover:scale-105",
 				isDragging && "scale-110 opacity-80 drop-shadow-[0_12px_25px_rgba(16,185,129,0.35)] cursor-grabbing",
 				isOver && "ring-2 ring-emerald-200/80 drop-shadow-[0_0_30px_rgba(16,185,129,0.45)]",
 				cursorClass,
@@ -322,9 +319,7 @@ export function SlotCard({ entry, displayMode, isActive, variant = "default" }: 
 		<div
 			className={cn(
 				"relative w-full rounded-lg border-2 bg-white/80 p-0.5 text-emerald-950 backdrop-blur-sm transition dark:bg-black/40 dark:text-white",
-				hasPlayer
-					? "border-emerald-300 shadow-xl dark:border-white/60"
-					: "border-dashed border-emerald-200 dark:border-white/40",
+				hasPlayer ? "border-emerald-300 shadow-xl dark:border-white/60" : "border-dashed border-emerald-200 dark:border-white/40",
 				isActive && "ring-2 ring-emerald-300 dark:ring-emerald-200",
 				isCompact && "rounded-md border-emerald-200 dark:border-white/50 text-[11px]",
 			)}
@@ -332,9 +327,7 @@ export function SlotCard({ entry, displayMode, isActive, variant = "default" }: 
 			<div
 				className={cn(
 					"relative w-full rounded-md",
-					hasPlayer
-						? "p-[2px]"
-						: "overflow-hidden border border-dashed border-emerald-200 bg-emerald-50/80 dark:border-white/30 dark:bg-black/20",
+					hasPlayer ? "p-[2px]" : "overflow-hidden border border-dashed border-emerald-200 bg-emerald-50/80 dark:border-white/30 dark:bg-black/20",
 					isCompact && "rounded-[8px]",
 				)}
 				style={hasPlayer ? { background: rarityDefinition.cardBackground } : undefined}
@@ -351,21 +344,15 @@ export function SlotCard({ entry, displayMode, isActive, variant = "default" }: 
 						/>
 					) : (
 						<div className="flex aspect-[4/4] flex-col items-center justify-center gap-2 px-2 text-center">
-							<span className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-white/80">
-								{label}
-							</span>
-							<span className="text-[9px] uppercase tracking-[0.3em] text-muted-foreground">
-								Tap to assign
-							</span>
+							<span className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-white/80">{label}</span>
+							<span className="text-[9px] uppercase tracking-[0.3em] text-muted-foreground">Tap to assign</span>
 						</div>
 					)}
 
 					{player && (
 						<>
 							<div className="pointer-events-none absolute inset-x-0 bottom-0 rounded-xs bg-black/75 text-center shadow-2xl backdrop-blur">
-								<span className="m-0 block text-xs font-semibold uppercase  text-white">
-									{player ? getSlotDisplayValue(entry, displayMode) : null}
-								</span>
+								<span className="m-0 block text-xs font-semibold uppercase  text-white">{player ? getSlotDisplayValue(entry, displayMode) : null}</span>
 							</div>
 							<span
 								className="absolute left-0 top-0 items-center justify-center px-2 py-[2px] text-xs font-semibold uppercase "
@@ -396,7 +383,7 @@ function ElementIcon({ element }: { element: string }) {
 
 	return (
 		<span
-			className="inline-flex items-center justify-center rounded-full border border-white/20 p-1.5 shadow-sm shadow-black/30"
+			className="inline-flex items-center justify-center rounded-full border-[2px] border-black/70 p-1.5 shadow-[0_6px_0_rgba(0,0,0,0.35)] dark:border-white/60"
 			style={{
 				backgroundColor: definition.color,
 			}}
