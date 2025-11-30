@@ -1,5 +1,6 @@
 import {
 	Github,
+	Languages,
 	Moon,
 	Shirt,
 	Sparkles,
@@ -37,6 +38,7 @@ import {
 } from "@/components/ui/sidebar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { themePreferenceAtom } from "@/store/theme";
+import { playerNamePreferenceAtom } from "@/store/name-preference";
 
 // Helper function to get page title based on current route
 function getPageTitle(pathname: string): string {
@@ -58,8 +60,10 @@ function getPageTitle(pathname: string): string {
 export default function AppLayout() {
 	const location = useLocation();
 	const [theme, setTheme] = useAtom(themePreferenceAtom);
+	const [namePreference, setNamePreference] = useAtom(playerNamePreferenceAtom);
 	const isDarkMode = theme === "dark";
 	const nextThemeLabel = isDarkMode ? "Light" : "Dark";
+	const isRomajiEnabled = namePreference === "romaji";
 	useEffect(() => {
 		if (typeof document === "undefined") {
 			return;
@@ -78,6 +82,8 @@ export default function AppLayout() {
 	}, [isDarkMode, theme]);
 	const handleThemeToggle = () =>
 		setTheme((current) => (current === "dark" ? "light" : "dark"));
+	const handleNamePreferenceToggle = () =>
+		setNamePreference((current) => (current === "romaji" ? "dub" : "romaji"));
 	const faviconUrl = `${import.meta.env.BASE_URL}favicon/favicon.svg`;
 	const elementsSheetUrl = `${import.meta.env.BASE_URL}assets/elements-table.jpg`;
 	const playersActive =
@@ -185,6 +191,27 @@ export default function AppLayout() {
 					</div>
 					<div className="flex items-center gap-2">
 						<Skeleton className="hidden h-11 w-full max-w-xl rounded-full lg:block" />
+						<Button
+							type="button"
+							variant={isRomajiEnabled ? "default" : "outline"}
+							size="sm"
+							className="h-10 gap-2 px-3"
+							onClick={handleNamePreferenceToggle}
+							aria-pressed={isRomajiEnabled}
+							title={
+								isRomajiEnabled
+									? "Switch to English dub names"
+									: "Switch to JP romaji names"
+							}
+						>
+							<Languages className="size-4" />
+							<span className="text-xs font-semibold uppercase tracking-wide">
+								JP Names
+							</span>
+							<span className="text-[10px] font-bold tracking-wide">
+								{isRomajiEnabled ? "ON" : "OFF"}
+							</span>
+						</Button>
 						<Dialog>
 							<DialogTrigger asChild>
 								<Button

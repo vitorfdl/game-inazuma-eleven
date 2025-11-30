@@ -15,7 +15,7 @@ import { formatNumber } from "@/lib/data-helpers";
 import { FORMATIONS, type FormationDefinition, formationsMap } from "@/data/formations";
 import { EXTRA_SLOT_IDS, EXTRA_TEAM_SLOTS } from "@/data/team-builder-slots";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { type PlayerRecord, playersById, playersDataset } from "@/lib/players-data";
+import { getPlayersById, getPlayersDataset, type PlayerRecord } from "@/lib/players-data";
 import { PASSIVE_CONDITION_OPTIONS, type PassiveConditionOption, computePassiveImpacts } from "@/lib/passive-calculations";
 import { passivesById } from "@/lib/passives-data";
 import { addPowerStats, clonePowerStats } from "@/lib/power-utils";
@@ -42,6 +42,7 @@ import {
 	type TeamBuilderState,
 	teamBuilderAtom,
 } from "@/store/team-builder";
+import { playerNamePreferenceAtom } from "@/store/name-preference";
 import type { FiltersState, SlotAssignment, SlotConfig, TeamBuilderSlot } from "@/types/team-builder";
 
 type ShareCopyState = "idle" | "copied" | "error";
@@ -119,6 +120,15 @@ function getPassiveHighlight(description: string): PassiveHighlightDescriptor {
 export default function TeamBuilderPage() {
 	const [teamState, setTeamState] = useAtom(teamBuilderAtom);
 	const favoritePlayerIds = useAtomValue(favoritePlayersAtom);
+	const namePreference = useAtomValue(playerNamePreferenceAtom);
+	const playersDataset = useMemo(
+		() => getPlayersDataset(namePreference),
+		[namePreference],
+	);
+	const playersById = useMemo(
+		() => getPlayersById(namePreference),
+		[namePreference],
+	);
 	const [filters, setFilters] = useState<FiltersState>(DEFAULT_FILTERS);
 	const [pickerOpen, setPickerOpen] = useState(false);
 	const [detailsOpen, setDetailsOpen] = useState(false);
@@ -235,7 +245,7 @@ export default function TeamBuilderPage() {
 		const slotConfigs = effectiveState.slotConfigs ?? {};
 		const baseAssignments = allSlots.map((slot) => {
 			const config = normalizeSlotConfig(slotConfigs[slot.id]);
-			const player = getPlayerById(effectiveState.assignments[slot.id]);
+			const player = getPlayerById(playersById, effectiveState.assignments[slot.id]);
 			return {
 				slot,
 				player,
@@ -276,6 +286,7 @@ export default function TeamBuilderPage() {
 		effectiveState.assignments,
 		effectiveState.slotConfigs,
 		passiveOptions,
+		playersById,
 	]);
 	const assignmentsById = useMemo(() => new Map(allAssignments.map((entry) => [entry.slot.id, entry])), [allAssignments]);
 	const starterAssignments = allAssignments.filter((entry) => entry.slot.kind === "starter");
@@ -324,12 +335,12 @@ export default function TeamBuilderPage() {
 				if (byPosition !== 0) return byPosition;
 				return b.stats.total - a.stats.total;
 			});
-	}, [matchesActiveFilters]);
+	}, [matchesActiveFilters, playersDataset]);
 
 	const favoriteOptions = useMemo(() => {
 		if (!activeSlot) return [];
 		return playersDataset.filter((player) => favoriteSet.has(player.id) && matchesActiveFilters(player));
-	}, [activeSlot, favoriteSet, matchesActiveFilters]);
+	}, [activeSlot, favoriteSet, matchesActiveFilters, playersDataset]);
 
 	const handleFormationChange = (formationId: FormationDefinition["id"]) => {
 		if (isPreviewingSharedTeam) return;
@@ -1050,9 +1061,12 @@ function PassiveOptionsPanel(
 	);
 }
 
-function getPlayerById(id: number | null | undefined): PlayerRecord | null {
+function getPlayerById(
+	playersMap: Map<number, PlayerRecord>,
+	id: number | null | undefined,
+): PlayerRecord | null {
 	if (typeof id !== "number") return null;
-	return playersById.get(id) ?? null;
+	return playersMap.get(id) ?? null;
 }
 
 function combineTeamPassives(assignments: SlotAssignment[]): CombinedPassiveEntry[] {

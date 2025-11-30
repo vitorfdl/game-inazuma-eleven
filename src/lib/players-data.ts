@@ -1,3 +1,4 @@
+import jpNamesJson from "@/assets/data/jp_names.json?raw";
 import playersJson from "@/assets/data/players.json?raw";
 import { normalizeStat, sanitizeAttribute } from "@/lib/data-helpers";
 import type { ElementType, TeamPosition } from "@/lib/icon-picker";
@@ -6,6 +7,7 @@ import {
 	computePower,
 	type PowerStats,
 } from "@/lib/inazuma-math";
+import type { PlayerNamePreference } from "@/store/name-preference";
 
 export type RawPlayerRecord = {
 	id: number;
@@ -101,6 +103,65 @@ export const playersById = new Map<number, PlayerRecord>(
 	playersDataset.map((player) => [player.id, player]),
 );
 
+type JpNameRecord = {
+	dub_name: string;
+	roma_name: string;
+};
+
+type RomajiNameOverride = {
+	name: string;
+	nickname: string;
+};
+
+const romajiNameOverrides = createRomajiNameOverrides();
+
+const romajiPlayersDataset: PlayerRecord[] = playersDataset.map((player) => {
+	if (!player.name || player.name === "Unknown") {
+		return player;
+	}
+	const override = romajiNameOverrides.get(player.name.toLowerCase());
+	if (!override) {
+		return player;
+	}
+	return {
+		...player,
+		name: override.name,
+		nickname: override.nickname,
+	};
+});
+
+const romajiPlayersById = new Map<number, PlayerRecord>(
+	romajiPlayersDataset.map((player) => [player.id, player]),
+);
+
+const playersDatasetByPreference: Record<
+	PlayerNamePreference,
+	PlayerRecord[]
+> = {
+	dub: playersDataset,
+	romaji: romajiPlayersDataset,
+};
+
+const playersByIdByPreference: Record<
+	PlayerNamePreference,
+	Map<number, PlayerRecord>
+> = {
+	dub: playersById,
+	romaji: romajiPlayersById,
+};
+
+export function getPlayersDataset(
+	preference: PlayerNamePreference = "dub",
+): PlayerRecord[] {
+	return playersDatasetByPreference[preference] ?? playersDataset;
+}
+
+export function getPlayersById(
+	preference: PlayerNamePreference = "dub",
+): Map<number, PlayerRecord> {
+	return playersByIdByPreference[preference] ?? playersById;
+}
+
 export function mapToElementType(element: string): ElementType {
 	const normalized = element.trim().toLowerCase();
 	switch (normalized) {
@@ -114,6 +175,46 @@ export function mapToElementType(element: string): ElementType {
 		default:
 			return "Forest";
 	}
+}
+
+function createRomajiNameOverrides(): Map<string, RomajiNameOverride> {
+	try {
+		const parsed = JSON.parse(jpNamesJson) as JpNameRecord[];
+		const overrides = new Map<string, RomajiNameOverride>();
+		parsed.forEach((record) => {
+			const dubName = sanitizeAttribute(record.dub_name);
+			const romajiName = sanitizeAttribute(record.roma_name);
+			if (
+				!dubName ||
+				!romajiName ||
+				dubName === "Unknown" ||
+				romajiName === "Unknown"
+			) {
+				return;
+			}
+			const key = dubName.toLowerCase();
+			if (overrides.has(key)) {
+				return;
+			}
+			overrides.set(key, {
+				name: romajiName,
+				nickname: extractRomajiLastName(romajiName),
+			});
+		});
+		return overrides;
+	} catch (error) {
+		console.error("Failed to parse romaji names dataset", error);
+		return new Map();
+	}
+}
+
+function extractRomajiLastName(value: string): string {
+	const trimmed = value.trim();
+	if (!trimmed) {
+		return value;
+	}
+	const parts = trimmed.split(/\s+/);
+	return parts[parts.length - 1] ?? trimmed;
 }
 
 export function mapToTeamPosition(position: string): TeamPosition {

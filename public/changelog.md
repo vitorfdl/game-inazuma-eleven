@@ -1,14 +1,11 @@
-# Version 1.3.1 – 2025-11-30
-
+# Version 1.3.2 – 2025-11-30
+- You can now use JP names for players by switching the language at the header of the page.
+  - Thanks @rikineko on Discord for the JP names data.
+- You can now switch between light and dark themes.
+- Added elements interaction reference sheet button to the header of the page.
 - Team Builder page:
   - Added passive calculation options to the team builder page.
   - Added conditional passives to the team builder page.
-- Added elements interaction reference sheet button to the header of the page.
-
-# Version 1.3.0 – 2025-11-30
-
-- You can now switch between light and dark themes.
-- Team Builder page:
   - Added passive configuration for each slot. Thanks to [VR Calculator](https://www.reddit.com/r/inazumaeleven/comments/1p5nefv/inazuma_eleven_vr_charactershissatsuequipment/) for the passives data.
   - Passives are now automatically filtered based on those allowed for each slot.
   - Removed the "Team Comp" button and replaced it with the Team Passives button.

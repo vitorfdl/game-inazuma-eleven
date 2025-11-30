@@ -1,4 +1,4 @@
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import {
 	ArrowDown,
 	ArrowUp,
@@ -35,10 +35,11 @@ import {
 import { getElementIcon, getPositionColor } from "@/lib/icon-picker";
 import type { BaseStats, PowerStats } from "@/lib/inazuma-math";
 import {
+	getPlayersDataset,
 	mapToElementType,
 	mapToTeamPosition,
 	type PlayerRecord,
-	playersDataset,
+	playersDataset as basePlayersDataset,
 } from "@/lib/players-data";
 import { cn } from "@/lib/utils";
 import { favoritePlayersAtom } from "@/store/favorites";
@@ -49,6 +50,7 @@ import {
 	type PlayerTableSortKey,
 	playersPreferencesAtom,
 } from "@/store/players";
+import { playerNamePreferenceAtom } from "@/store/name-preference";
 
 type Player = PlayerRecord;
 
@@ -91,16 +93,16 @@ const sortAccessors: Record<
 };
 
 const elementOptions = createSortedUniqueOptions(
-	playersDataset.map((player) => player.element),
+	basePlayersDataset.map((player) => player.element),
 );
 const genderOptions = createSortedUniqueOptions(
-	playersDataset.map((player) => player.gender).filter((value) => value),
+	basePlayersDataset.map((player) => player.gender).filter((value) => value),
 );
 const positionOptions = createSortedUniqueOptions(
-	playersDataset.map((player) => player.position),
+	basePlayersDataset.map((player) => player.position),
 );
 const roleOptions = createSortedUniqueOptions(
-	playersDataset.map((player) => player.role),
+	basePlayersDataset.map((player) => player.role),
 );
 
 const statsMetricColumns: TableColumn[] = [
@@ -145,6 +147,11 @@ const powerMetricColumns: TableColumn[] = [
 export default function PlayersPage() {
 	const [preferences, setPreferences] = useAtom(playersPreferencesAtom);
 	const [favoritePlayers, setFavoritePlayers] = useAtom(favoritePlayersAtom);
+	const namePreference = useAtomValue(playerNamePreferenceAtom);
+	const playersDataset = useMemo(
+		() => getPlayersDataset(namePreference),
+		[namePreference],
+	);
 	const favoriteSet = useMemo(
 		() => new Set(favoritePlayers),
 		[favoritePlayers],
@@ -188,6 +195,7 @@ export default function PlayersPage() {
 			);
 		});
 	}, [
+		playersDataset,
 		favoriteSet,
 		preferences.element,
 		preferences.gender,
