@@ -20,14 +20,16 @@ const FALLBACK_DISPLAY_MODE: DisplayMode = "nickname";
 
 export const TEAM_SHARE_QUERY_KEY = "team";
 
+type SharedTeamState = Pick<TeamBuilderState, "formationId" | "assignments" | "slotConfigs">;
+
 type SharePayload = {
 	v: number;
-	state: TeamBuilderState;
+	state: SharedTeamState;
 };
 
 export function encodeTeamShareState(state: TeamBuilderState): string | null {
 	try {
-		const prepared = sanitizeTeamState(state);
+		const prepared = extractShareableState(sanitizeTeamState(state));
 		const payload: SharePayload = {
 			v: SHARE_VERSION,
 			state: prepared,
@@ -80,6 +82,14 @@ function sanitizeTeamState(
 		assignments: sanitizeAssignments(input?.assignments),
 		slotConfigs: sanitizeSlotConfigs(input?.slotConfigs),
 		passiveOptions: sanitizePassiveOptions(input?.passiveOptions),
+	};
+}
+
+function extractShareableState(state: TeamBuilderState): SharedTeamState {
+	return {
+		formationId: state.formationId,
+		assignments: state.assignments,
+		slotConfigs: state.slotConfigs,
 	};
 }
 

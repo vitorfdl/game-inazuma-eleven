@@ -29,6 +29,11 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { formatNumber, titleCase } from "@/lib/data-helpers";
 import {
@@ -662,6 +667,9 @@ type PassiveSelectRowProps = {
 function PassiveSelectRow({ rule, preset, onChange }: PassiveSelectRowProps) {
 	const [open, setOpen] = useState(false);
 	const [query, setQuery] = useState("");
+	const [draftValue, setDraftValue] = useState(() =>
+		preset.passiveId ? formatPassiveInputValue(preset.value ?? 0) : ""
+	);
 	const selectedPassive = preset.passiveId
 		? passivesById.get(preset.passiveId) ?? null
 		: null;
@@ -688,6 +696,17 @@ function PassiveSelectRow({ rule, preset, onChange }: PassiveSelectRowProps) {
 		return matches;
 	}, [query, rule.options, selectedPassive]);
 
+	useEffect(() => {
+		if (!preset.passiveId) {
+			setDraftValue("");
+			return;
+		}
+		const normalizedValue = formatPassiveInputValue(preset.value ?? 0);
+		setDraftValue((current) =>
+			current === normalizedValue ? current : normalizedValue
+		);
+	}, [preset.passiveId, preset.value]);
+
 	const handleSearchKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
 		if (event.key === "Escape" || event.key === "Tab") {
 			return;
@@ -710,12 +729,46 @@ function PassiveSelectRow({ rule, preset, onChange }: PassiveSelectRowProps) {
 	};
 
 	const handleValueChange = (eventValue: string) => {
+		setDraftValue(eventValue);
 		if (!selectedPassive) {
 			return;
 		}
+		if (
+			eventValue.trim() === "" ||
+			eventValue === "-" ||
+			eventValue === "." ||
+			eventValue === "-."
+		) {
+			return;
+		}
+		const normalizedValue = normalizeNumericInput(eventValue);
+		const nextValue = Number(normalizedValue);
+		if (Number.isNaN(nextValue)) {
+			return;
+		}
+		const clampedValue = clampPassiveValue(nextValue);
+		const displayValue = formatPassiveInputValue(clampedValue);
+		setDraftValue(displayValue);
 		onChange({
 			...preset,
-			value: clampPassiveValue(Number(eventValue)),
+			value: clampedValue,
+		});
+	};
+
+	const handleValueBlur = () => {
+		if (!selectedPassive) {
+			setDraftValue("");
+			return;
+		}
+		const normalizedValue = normalizeNumericInput(draftValue);
+		const parsed = Number(normalizedValue);
+		const clamped = clampPassiveValue(
+			Number.isNaN(parsed) ? 0 : parsed,
+		);
+		setDraftValue(formatPassiveInputValue(clamped));
+		onChange({
+			...preset,
+			value: clamped,
 		});
 	};
 
@@ -773,11 +826,12 @@ function PassiveSelectRow({ rule, preset, onChange }: PassiveSelectRowProps) {
 						step={0.1}
 						min={-999}
 						max={999}
-						value={preset.value}
+						value={draftValue}
 						disabled={!selectedPassive}
 						hideSpinButtons
 						className={`max-w-20 bg-background/90 sm:self-center ${isPercentagePassive ? "pr-6" : ""}`}
 						onChange={(event) => handleValueChange(event.currentTarget.value)}
+						onBlur={handleValueBlur}
 					/>
 					{isPercentagePassive
 						? (
@@ -793,15 +847,98 @@ function PassiveSelectRow({ rule, preset, onChange }: PassiveSelectRowProps) {
 }
 
 function PassiveSelectValue({ passive }: { passive: PassiveRecord }) {
-	return (
-		<div className="flex flex-col text-left leading-tight break-words">
+	const tooltipContent = getPassiveTooltipContent(passive);
+
+	const content = (
+		<div className="flex flex-col break-words text-left leading-tight">
 			<span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-				{passive.buildType ? `[${passive.buildType}] ` : ""}{" "}
-				Passive #{passive.number}
+				{passive.buildType ? `[${passive.buildType}] ` : ""} Passive #{passive.number}
 			</span>
 			<span className="text-xs">{passive.description}</span>
 		</div>
 	);
+
+	if (!tooltipContent) {
+		return content;
+	}
+
+	return (
+		<Tooltip>
+			<TooltipTrigger asChild>
+				{content}
+			</TooltipTrigger>
+			<TooltipContent side="top">{tooltipContent}</TooltipContent>
+		</Tooltip>
+	);
+}
+
+function getPassiveTooltipContent(passive: PassiveRecord) {
+	const strong = formatPassiveTooltipValue(passive.strongValue);
+	const weak = formatPassiveTooltipValue(passive.weakValue);
+
+	if (!strong && !weak) {
+		return null;
+	}
+
+	if (weak) {
+		return (
+			<div className="flex flex-col gap-0.5 text-[11px] font-semibold">
+				<span>Strong: {strong ?? "—"}</span>
+				<span>Weak: {weak}</span>
+			</div>
+		);
+	}
+
+	return (
+		<div className="text-[11px] font-semibold">
+			Default: {strong ?? "—"}
+		</div>
+	);
+}
+
+function formatPassiveTooltipValue(value: number | null) {
+	if (value === null) {
+		return null;
+	}
+	const formatted = formatNumber(value);
+	const sign = value > 0 ? "+" : "";
+	return `${sign}${formatted}`;
+}
+
+function formatPassiveInputValue(value: number) {
+	const safeValue = Number.isFinite(value) ? value : 0;
+	return normalizeNumericInput(String(safeValue));
+}
+
+function normalizeNumericInput(value: string) {
+	const trimmed = value.trim();
+	if (!trimmed) {
+		return "";
+	}
+
+	const hasNegativeSign = trimmed.startsWith("-");
+	const unsignedValue = hasNegativeSign ? trimmed.slice(1) : trimmed;
+
+	if (!unsignedValue) {
+		return hasNegativeSign ? "" : "";
+	}
+
+	const [rawInteger, rawFraction] = unsignedValue.split(".", 2);
+	const integerPart = rawInteger.replace(/^0+(?=\d)/, "") || "0";
+	const fractionPart = rawFraction ?? null;
+
+	if (!fractionPart) {
+		if (hasNegativeSign && integerPart === "0") {
+			return "0";
+		}
+		return `${hasNegativeSign ? "-" : ""}${integerPart}`;
+	}
+
+	if (hasNegativeSign && integerPart === "0" && /^0*$/.test(fractionPart)) {
+		return "0";
+	}
+
+	return `${hasNegativeSign ? "-" : ""}${integerPart}.${fractionPart}`;
 }
 
 type BeansConfigProps = {
