@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react";
 import { BadgeInfo, Bean, BrickWall, HeartPulse, Shield, ShieldCheck, Sparkles, Swords, Target } from "lucide-react";
 import { type KeyboardEvent, useEffect, useMemo, useState } from "react";
 
-import { ElementBadge, PositionBadge } from "@/components/player/PlayerDetailsDialog";
+import { ElementBadge, PlayerDetailsButton, PlayerDetailsDialog, type PlayerMetric, PositionBadge } from "@/components/player/PlayerDetailsDialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -12,6 +12,7 @@ import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { formatNumber, titleCase } from "@/lib/data-helpers";
 import { EQUIPMENT_CATEGORIES, EQUIPMENT_CATEGORY_LABELS, type EquipmentRecord, equipmentsByType } from "@/lib/equipments-data";
+import type { BaseStats } from "@/lib/inazuma-math";
 import { customPassives, type PassiveRecord, passivesById, passivesByType, playerBuildPassives, playerGeneralPassives } from "@/lib/passives-data";
 import { BEAN_COLORS, clampBeanValue, createEmptySlotBeans, MAX_BEAN_POINTS } from "@/lib/slot-beans";
 import { clampPassiveValue, createEmptySlotPassives, PASSIVE_PRESET_SLOTS } from "@/lib/slot-passives";
@@ -60,6 +61,13 @@ const ATTRIBUTE_LABELS: Record<BaseAttributeKey, string> = {
 
 const ATTRIBUTE_KEYS = Object.keys(ATTRIBUTE_LABELS) as BaseAttributeKey[];
 const BEAN_SLOT_KEYS = ["bean-1", "bean-2", "bean-3"] as const;
+const STAT_METRIC_DEFINITIONS: Array<{ key: keyof BaseStats; label: string }> = [
+	...ATTRIBUTE_KEYS.map((key) => ({
+		key,
+		label: ATTRIBUTE_LABELS[key],
+	})),
+	{ key: "total", label: "Total" },
+];
 
 export type SlotDetailsDrawerProps = {
 	open: boolean;
@@ -93,6 +101,7 @@ type SlotDetailsPanelProps = {
 
 function SlotDetailsPanel({ slot, assignment, onAssign, onClearSlot, onUpdateSlotConfig }: SlotDetailsPanelProps) {
 	const [clearDialogOpen, setClearDialogOpen] = useState(false);
+	const [detailsOpen, setDetailsOpen] = useState(false);
 	const player = assignment?.player ?? null;
 	const rarity = assignment?.config.rarity ?? "normal";
 	const rarityDefinition = getSlotRarityDefinition(rarity);
@@ -109,6 +118,32 @@ function SlotDetailsPanel({ slot, assignment, onAssign, onClearSlot, onUpdateSlo
 			setClearDialogOpen(false);
 		}
 	}, [player, slot]);
+
+	useEffect(() => {
+		if (!player) {
+			setDetailsOpen(false);
+		}
+	}, [player]);
+
+	const playerStatMetrics = useMemo<PlayerMetric[]>(() => {
+		if (!player) {
+			return [];
+		}
+		return STAT_METRIC_DEFINITIONS.map((definition) => ({
+			label: definition.label,
+			value: formatNumber(player.stats[definition.key]),
+		}));
+	}, [player]);
+
+	const playerPowerMetrics = useMemo<PlayerMetric[]>(() => {
+		if (!player) {
+			return [];
+		}
+		return BOOSTED_STATS.map((stat) => ({
+			label: stat.label,
+			value: formatNumber(player.power[stat.key]),
+		}));
+	}, [player]);
 
 	const handleRarityChange = (value: SlotRarity) => {
 		if (!slot) return;
@@ -170,6 +205,7 @@ function SlotDetailsPanel({ slot, assignment, onAssign, onClearSlot, onUpdateSlo
 								<div className="flex flex-wrap items-center justify-center gap-2 text-xs">
 									<ElementBadge element={player.element} />
 									<PositionBadge position={player.position} />
+									<PlayerDetailsButton onClick={() => setDetailsOpen(true)} />
 								</div>
 								<div>
 									<p className="text-lg font-semibold">{player.name}</p>
@@ -265,6 +301,7 @@ function SlotDetailsPanel({ slot, assignment, onAssign, onClearSlot, onUpdateSlo
 					/>
 				</section>
 			) : null}
+			<PlayerDetailsDialog player={player} open={detailsOpen} onOpenChange={setDetailsOpen} statMetrics={playerStatMetrics} powerMetrics={playerPowerMetrics} />
 		</div>
 	);
 }
