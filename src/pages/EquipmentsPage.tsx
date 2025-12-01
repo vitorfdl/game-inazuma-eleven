@@ -1,43 +1,15 @@
 import { useAtom } from "jotai";
-import {
-	ArrowDown,
-	ArrowUp,
-	ArrowUpDown,
-	RotateCcw,
-	Search,
-} from "lucide-react";
+import { ArrowDown, ArrowUp, ArrowUpDown, RotateCcw, Search } from "lucide-react";
 import type { ReactNode } from "react";
 import { useCallback, useMemo } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from "@/components/ui/table";
-import {
-	createSortedUniqueOptions,
-	formatNumber,
-	titleCase,
-} from "@/lib/data-helpers";
-import {
-	EQUIPMENT_CATEGORIES,
-	EQUIPMENT_CATEGORY_LABELS,
-	type EquipmentRecord,
-	equipmentsDataset,
-} from "@/lib/equipments-data";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { createSortedUniqueOptions, formatNumber, titleCase } from "@/lib/data-helpers";
+import { EQUIPMENT_CATEGORIES, EQUIPMENT_CATEGORY_LABELS, type EquipmentRecord, equipmentsDataset } from "@/lib/equipments-data";
 import type { BaseStats, PowerStats } from "@/lib/inazuma-math";
 import { cn } from "@/lib/utils";
 import {
@@ -64,25 +36,9 @@ type TableColumn = {
 
 type EquipmentBaseStatKey = Exclude<keyof BaseStats, "total">;
 
-const baseStatKeys: EquipmentBaseStatKey[] = [
-	"kick",
-	"control",
-	"technique",
-	"pressure",
-	"physical",
-	"agility",
-	"intelligence",
-];
+const baseStatKeys: EquipmentBaseStatKey[] = ["kick", "control", "technique", "pressure", "physical", "agility", "intelligence"];
 
-const powerMetricKeys: Array<keyof PowerStats> = [
-	"shootAT",
-	"focusAT",
-	"focusDF",
-	"wallDF",
-	"scrambleAT",
-	"scrambleDF",
-	"kp",
-];
+const powerMetricKeys: Array<keyof PowerStats> = ["shootAT", "focusAT", "focusDF", "wallDF", "scrambleAT", "scrambleDF", "kp"];
 
 const powerMetricLabels: Record<keyof PowerStats, string> = {
 	shootAT: "Shoot AT",
@@ -98,9 +54,7 @@ const getPowerLabel = (key: keyof PowerStats): string => powerMetricLabels[key];
 
 const equipmentDataset: Equipment[] = equipmentsDataset;
 
-const shopOptions = createSortedUniqueOptions(
-	equipmentDataset.map((item) => item.shop),
-);
+const shopOptions = createSortedUniqueOptions(equipmentDataset.map((item) => item.shop));
 
 const typeOptions: Array<{ value: EquipmentType | "all"; label: string }> = [
 	{ value: "all", label: "All types" },
@@ -113,10 +67,7 @@ const typeOptions: Array<{ value: EquipmentType | "all"; label: string }> = [
 const attributeOptions: Array<{
 	value: EquipmentsPreferences["attribute"];
 	label: string;
-}> = [
-	{ value: "any", label: "Any attribute" },
-	...baseStatKeys.map((key) => ({ value: key, label: titleCase(key) })),
-];
+}> = [{ value: "any", label: "Any attribute" }, ...baseStatKeys.map((key) => ({ value: key, label: titleCase(key) }))];
 
 const metricAccessors: Record<EquipmentSortKey, (item: Equipment) => number> = {
 	total: (item) => item.stats.total,
@@ -136,10 +87,7 @@ const metricAccessors: Record<EquipmentSortKey, (item: Equipment) => number> = {
 	kp: (item) => item.power.kp,
 };
 
-const sortAccessors: Record<
-	EquipmentTableSortKey,
-	(item: Equipment) => number | string
-> = {
+const sortAccessors: Record<EquipmentTableSortKey, (item: Equipment) => number | string> = {
 	...metricAccessors,
 	name: (item) => item.name,
 	type: (item) => item.type,
@@ -164,10 +112,7 @@ const sharedColumns: TableColumn[] = [
 		render: (item) => (
 			<Badge
 				variant="outline"
-				className={cn(
-					"w-full justify-center border px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide",
-					typeBadgeClasses[item.type],
-				)}
+				className={cn("w-full justify-center border px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide", typeBadgeClasses[item.type])}
 			>
 				{titleCase(item.type)}
 			</Badge>
@@ -205,16 +150,18 @@ const statsColumns: TableColumn[] = [
 		header: titleCase(key),
 		align: "right" as const,
 		sortKey: key as EquipmentTableSortKey,
-		render: (item: Equipment) => formatNumber(item.stats[key]),
+		render: (item: Equipment) => formatEquipmentValue(item.stats[key]),
 	})),
 	{
 		key: "total",
 		header: "Total",
 		align: "right",
 		sortKey: "total",
-		render: (item) => formatNumber(item.stats.total),
+		render: (item) => formatEquipmentValue(item.stats.total),
 	},
 ];
+
+const formatEquipmentValue = (value: number) => (value === 0 ? "-" : formatNumber(value));
 
 const powerColumns: TableColumn[] = [
 	...sharedColumns,
@@ -223,24 +170,19 @@ const powerColumns: TableColumn[] = [
 		header: getPowerLabel(key),
 		align: "right" as const,
 		sortKey: key as EquipmentTableSortKey,
-		render: (item: Equipment) => formatNumber(item.power[key]),
+		render: (item: Equipment) => formatEquipmentValue(item.power[key]),
 	})),
 ];
 
 export default function EquipmentsPage() {
 	const [preferences, setPreferences] = useAtom(equipmentsPreferencesAtom);
-	const highlightControl = (isActive: boolean) =>
-		isActive ? "border-primary/60 bg-primary/10 text-primary" : undefined;
+	const highlightControl = (isActive: boolean) => (isActive ? "border-primary/60 bg-primary/10 text-primary" : undefined);
 
 	const handleSortByColumn = useCallback(
 		(sortKey: EquipmentTableSortKey) => {
 			setPreferences((prev) => {
 				const isSameColumn = prev.sortKey === sortKey;
-				const nextDirection = isSameColumn
-					? prev.sortDirection === "asc"
-						? "desc"
-						: "asc"
-					: "desc";
+				const nextDirection = isSameColumn ? (prev.sortDirection === "asc" ? "desc" : "asc") : "desc";
 
 				return {
 					...prev,
@@ -261,11 +203,7 @@ export default function EquipmentsPage() {
 			if (preferences.shop !== "all" && item.shop !== preferences.shop) {
 				return false;
 			}
-			if (
-				preferences.attribute !== "any" &&
-				(!item.stats[preferences.attribute] ||
-					item.stats[preferences.attribute] <= 0)
-			) {
+			if (preferences.attribute !== "any" && (!item.stats[preferences.attribute] || item.stats[preferences.attribute] <= 0)) {
 				return false;
 			}
 			if (query && !item.name.toLowerCase().includes(query)) {
@@ -273,42 +211,29 @@ export default function EquipmentsPage() {
 			}
 			return true;
 		});
-	}, [
-		preferences.attribute,
-		preferences.search,
-		preferences.shop,
-		preferences.type,
-	]);
+	}, [preferences.attribute, preferences.search, preferences.shop, preferences.type]);
 
 	const sortedEquipments = useMemo(() => {
 		const fallbackKey = DEFAULT_EQUIPMENTS_PREFERENCES.sortKey;
-		const accessor =
-			sortAccessors[preferences.sortKey] ?? sortAccessors[fallbackKey];
+		const accessor = sortAccessors[preferences.sortKey] ?? sortAccessors[fallbackKey];
 
 		return [...filteredEquipments].sort((a, b) => {
 			const valueA = accessor(a);
 			const valueB = accessor(b);
 
 			if (typeof valueA === "number" && typeof valueB === "number") {
-				return preferences.sortDirection === "desc"
-					? valueB - valueA
-					: valueA - valueB;
+				return preferences.sortDirection === "desc" ? valueB - valueA : valueA - valueB;
 			}
 
-			const comparison = String(valueA).localeCompare(
-				String(valueB),
-				undefined,
-				{
-					sensitivity: "base",
-				},
-			);
+			const comparison = String(valueA).localeCompare(String(valueB), undefined, {
+				sensitivity: "base",
+			});
 
 			return preferences.sortDirection === "desc" ? -comparison : comparison;
 		});
 	}, [filteredEquipments, preferences.sortDirection, preferences.sortKey]);
 
-	const tableColumns =
-		preferences.viewMode === "stats" ? statsColumns : powerColumns;
+	const tableColumns = preferences.viewMode === "stats" ? statsColumns : powerColumns;
 
 	const filtersAreDirty =
 		preferences.search !== DEFAULT_EQUIPMENTS_PREFERENCES.search ||
@@ -341,15 +266,10 @@ export default function EquipmentsPage() {
 							highlightControl(preferences.search.trim().length > 0),
 						)}
 					>
-						<Search
-							className="size-4 text-muted-foreground"
-							aria-hidden="true"
-						/>
+						<Search className="size-4 text-muted-foreground" aria-hidden="true" />
 						<Input
 							value={preferences.search}
-							onChange={(event) =>
-								handleUpdate({ search: event.currentTarget.value })
-							}
+							onChange={(event) => handleUpdate({ search: event.currentTarget.value })}
 							placeholder="Search equipments"
 							className="flex-1 border-0 bg-transparent px-0 focus-visible:ring-0"
 							aria-label="Filter equipments by name"
@@ -373,31 +293,18 @@ export default function EquipmentsPage() {
 							AT/DF
 						</Button>
 					</div>
-					<Button
-						size="sm"
-						variant="ghost"
-						className="h-8 text-muted-foreground"
-						onClick={handleResetFilters}
-						disabled={!filtersAreDirty}
-					>
+					<Button size="sm" variant="ghost" className="h-8 text-muted-foreground" onClick={handleResetFilters} disabled={!filtersAreDirty}>
 						<RotateCcw className="size-4" />
 						Reset
 					</Button>
 				</div>
 				<div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-					<Select
-						value={preferences.type}
-						onValueChange={(value) =>
-							handleUpdate({ type: value as EquipmentsPreferences["type"] })
-						}
-					>
+					<Select value={preferences.type} onValueChange={(value) => handleUpdate({ type: value as EquipmentsPreferences["type"] })}>
 						<SelectTrigger
 							size="sm"
 							className={cn(
 								"h-10 w-full justify-between rounded-md border bg-background/30",
-								highlightControl(
-									preferences.type !== DEFAULT_EQUIPMENTS_PREFERENCES.type,
-								),
+								highlightControl(preferences.type !== DEFAULT_EQUIPMENTS_PREFERENCES.type),
 							)}
 						>
 							<SelectValue placeholder="All types" />
@@ -410,17 +317,12 @@ export default function EquipmentsPage() {
 							))}
 						</SelectContent>
 					</Select>
-					<Select
-						value={preferences.shop}
-						onValueChange={(value) => handleUpdate({ shop: value })}
-					>
+					<Select value={preferences.shop} onValueChange={(value) => handleUpdate({ shop: value })}>
 						<SelectTrigger
 							size="sm"
 							className={cn(
 								"h-10 w-full justify-between rounded-md border bg-background/30",
-								highlightControl(
-									preferences.shop !== DEFAULT_EQUIPMENTS_PREFERENCES.shop,
-								),
+								highlightControl(preferences.shop !== DEFAULT_EQUIPMENTS_PREFERENCES.shop),
 							)}
 						>
 							<SelectValue placeholder="All shops" />
@@ -446,10 +348,7 @@ export default function EquipmentsPage() {
 							size="sm"
 							className={cn(
 								"h-10 w-full justify-between rounded-md border bg-background/30",
-								highlightControl(
-									preferences.attribute !==
-										DEFAULT_EQUIPMENTS_PREFERENCES.attribute,
-								),
+								highlightControl(preferences.attribute !== DEFAULT_EQUIPMENTS_PREFERENCES.attribute),
 							)}
 						>
 							<SelectValue placeholder="Any attribute" />
@@ -467,12 +366,8 @@ export default function EquipmentsPage() {
 
 			<section className="rounded-lg border bg-card/60">
 				<div className="flex items-center justify-between gap-2 p-3 text-xs text-muted-foreground">
-					<span>
-						Showing {sortedEquipments.length.toLocaleString()} equipments
-					</span>
-					<span>
-						View: {preferences.viewMode === "stats" ? "Stats" : "Power"}
-					</span>
+					<span>Showing {sortedEquipments.length.toLocaleString()} equipments</span>
+					<span>View: {preferences.viewMode === "stats" ? "Stats" : "Power"}</span>
 				</div>
 				<Table>
 					<TableHeader>
@@ -480,57 +375,24 @@ export default function EquipmentsPage() {
 							{tableColumns.map((column) => (
 								<TableHead
 									key={column.key}
-									className={cn(
-										column.headerClassName,
-										column.align === "right"
-											? "text-right"
-											: column.align === "center"
-												? "text-center"
-												: undefined,
-									)}
+									className={cn(column.headerClassName, column.align === "right" ? "text-right" : column.align === "center" ? "text-center" : undefined)}
 								>
 									{column.sortKey ? (
 										<button
 											type="button"
-											onClick={() =>
-												handleSortByColumn(
-													column.sortKey as EquipmentTableSortKey,
-												)
-											}
+											onClick={() => handleSortByColumn(column.sortKey as EquipmentTableSortKey)}
 											className={cn(
 												"flex w-full items-center gap-1 text-left text-xs font-semibold uppercase tracking-wide text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
-												column.align === "right"
-													? "justify-end"
-													: column.align === "center"
-														? "justify-center"
-														: "justify-start",
+												column.align === "right" ? "justify-end" : column.align === "center" ? "justify-center" : "justify-start",
 											)}
-											aria-label={`Sort by ${
-												typeof column.header === "string"
-													? column.header
-													: "column"
-											}`}
+											aria-label={`Sort by ${typeof column.header === "string" ? column.header : "column"}`}
 											aria-pressed={preferences.sortKey === column.sortKey}
 										>
 											<span>{column.header}</span>
 											{(() => {
 												const isActive = preferences.sortKey === column.sortKey;
-												const Icon = !isActive
-													? ArrowUpDown
-													: preferences.sortDirection === "asc"
-														? ArrowUp
-														: ArrowDown;
-												return (
-													<Icon
-														className={cn(
-															"size-3.5",
-															isActive
-																? "text-primary"
-																: "text-muted-foreground/60",
-														)}
-														aria-hidden="true"
-													/>
-												);
+												const Icon = !isActive ? ArrowUpDown : preferences.sortDirection === "asc" ? ArrowUp : ArrowDown;
+												return <Icon className={cn("size-3.5", isActive ? "text-primary" : "text-muted-foreground/60")} aria-hidden="true" />;
 											})()}
 										</button>
 									) : (
@@ -546,14 +408,7 @@ export default function EquipmentsPage() {
 								{tableColumns.map((column) => (
 									<TableCell
 										key={column.key}
-										className={cn(
-											column.className,
-											column.align === "right"
-												? "text-right font-mono"
-												: column.align === "center"
-													? "text-center"
-													: undefined,
-										)}
+										className={cn(column.className, column.align === "right" ? "text-right font-mono" : column.align === "center" ? "text-center" : undefined)}
 									>
 										{column.render(item)}
 									</TableCell>
@@ -562,11 +417,7 @@ export default function EquipmentsPage() {
 						))}
 					</TableBody>
 				</Table>
-				{!sortedEquipments.length && (
-					<div className="border-t p-6 text-center text-sm text-muted-foreground">
-						No equipments match the selected filters.
-					</div>
-				)}
+				{!sortedEquipments.length && <div className="border-t p-6 text-center text-sm text-muted-foreground">No equipments match the selected filters.</div>}
 			</section>
 		</div>
 	);

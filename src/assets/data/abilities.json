@@ -1,4412 +1,3845 @@
 [
   {
-    "N": 1,
-    "Shop": "Commercial District",
-    "Name": "Phantom Shot",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 2,
-    "Shop": "Commercial District",
-    "Name": "Dirt Ball",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 3,
-    "Shop": "Commercial District",
-    "Name": "Optimal Trajectory",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 4,
-    "Shop": "Commercial District",
-    "Name": "Rolling Kick",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 5,
-    "Shop": "Commercial District",
-    "Name": "Condor Dive",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 6,
-    "Shop": "Commercial District",
-    "Name": "Tarzan Kick",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 7,
-    "Shop": "Commercial District",
-    "Name": "Double Grenade",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 8,
-    "Shop": "Commercial District",
-    "Name": "Flying Fish",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "Long Shot",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 9,
-    "Shop": "Commercial District",
-    "Name": "Bed of Roses",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 10,
-    "Shop": "Commercial District",
-    "Name": "Cross Drive",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 11,
-    "Shop": "Commercial District",
-    "Name": "Warhead",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "Long Shot",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 12,
-    "Shop": "Commercial District",
-    "Name": "Run Ball Run",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 13,
-    "Shop": "Commercial District",
-    "Name": "Breath Taker",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 14,
-    "Shop": "Commercial District",
-    "Name": "Security Shot",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 15,
-    "Shop": "Commercial District",
-    "Name": "Bouncing Bomb",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 16,
-    "Shop": "Commercial District",
-    "Name": "Sonic Shot",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 17,
-    "Shop": "Commercial District",
-    "Name": "Plasma Ball",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "Long Shot",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 18,
-    "Shop": "Commercial District",
-    "Name": "Cupid's Arrow",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "Long Shot",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 19,
-    "Shop": "Commercial District",
-    "Name": "Jumping Whack",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 20,
-    "Shop": "Commercial District",
-    "Name": "Jurassic Jaws",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 21,
-    "Shop": "Commercial District",
-    "Name": "Dual Strike",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 22,
-    "Shop": "Commercial District",
-    "Name": "Paladin Strike",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 23,
-    "Shop": "Commercial District",
-    "Name": "RC Shot",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "Long Shot",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 24,
-    "Shop": "Commercial District",
-    "Name": "Gunshot",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 25,
-    "Shop": "Commercial District",
-    "Name": "Will-o'-the-Wisp Shot",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 26,
-    "Shop": "Commercial District",
-    "Name": "Bouncing Bunny",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 27,
-    "Shop": "Commercial District",
-    "Name": "Slingshot",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 28,
-    "Shop": "Commercial District",
-    "Name": "Double Helix",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 29,
-    "Shop": "Commercial District",
-    "Name": "Revolution V",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 30,
-    "Shop": "Commercial District",
-    "Name": "Eagle Buster",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "Long Shot",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 31,
-    "Shop": "Commercial District",
-    "Name": "Atomic Flare",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "Counter",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 32,
-    "Shop": "Commercial District",
-    "Name": "Grand Fire",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 33,
-    "Shop": "Commercial District",
-    "Name": "White Hurricane",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "Counter",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 34,
-    "Shop": "Commercial District",
-    "Name": "Dark Energy Star",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 35,
-    "Shop": "Commercial District",
-    "Name": "Samba Strike",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "Long Shot",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 36,
-    "Shop": "Commercial District",
-    "Name": "Celestial Smash",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "Long Shot",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 37,
-    "Shop": "Commercial District",
-    "Name": "Falling Planet",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 38,
-    "Shop": "Commercial District",
-    "Name": "Triple Threat",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 370,
-    "Tension": 100
-  },
-  {
-    "N": 39,
-    "Shop": "Commercial District",
-    "Name": "Shadow Ray",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 40,
-    "Shop": "Commercial District",
-    "Name": "Dragster",
-    "Type": "Dribble",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 41,
-    "Shop": "Commercial District",
-    "Name": "Whirlwind Twister",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 42,
-    "Shop": "Commercial District",
-    "Name": "Monkey Turn",
-    "Type": "Dribble",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 43,
-    "Shop": "Commercial District",
-    "Name": "Hoopsie-Loop",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 45,
-    "Tension": 45
-  },
-  {
-    "N": 44,
-    "Shop": "Commercial District",
-    "Name": "Transporter Device",
-    "Type": "Dribble",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 45,
-    "Shop": "Commercial District",
-    "Name": "Kangaroo Kick",
-    "Type": "Dribble",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 46,
-    "Shop": "Commercial District",
-    "Name": "Plasma Cut",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 47,
-    "Shop": "Commercial District",
-    "Name": "Heel Drop",
-    "Type": "Dribble",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 48,
-    "Shop": "Commercial District",
-    "Name": "Boomerang Bluff",
-    "Type": "Dribble",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 49,
-    "Shop": "Commercial District",
-    "Name": "Dog Run",
-    "Type": "Dribble",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 50,
-    "Shop": "Commercial District",
-    "Name": "Aurora Dribble",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 51,
-    "Shop": "Commercial District",
-    "Name": "Blast Mine",
-    "Type": "Dribble",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 52,
-    "Shop": "Commercial District",
-    "Name": "Swallow Counter",
-    "Type": "Dribble",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 53,
-    "Shop": "Commercial District",
-    "Name": "Scorching Tackle",
-    "Type": "Dribble",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 54,
-    "Shop": "Commercial District",
-    "Name": "Big Ball Trick",
-    "Type": "Dribble",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 55,
-    "Shop": "Commercial District",
-    "Name": "Clone Faker",
-    "Type": "Dribble",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 56,
-    "Shop": "Commercial District",
-    "Name": "Three-Legged Rush",
-    "Type": "Dribble",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 57,
-    "Shop": "Commercial District",
-    "Name": "Criss-Cross",
-    "Type": "Dribble",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 58,
-    "Shop": "Commercial District",
-    "Name": "Matador Feint",
-    "Type": "Dribble",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 59,
-    "Shop": "Commercial District",
-    "Name": "Black Tide Ride",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 60,
-    "Shop": "Commercial District",
-    "Name": "Athena's Anthem",
-    "Type": "Dribble",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 61,
-    "Shop": "Commercial District",
-    "Name": "Black Tide Ride",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 62,
-    "Shop": "Commercial District",
-    "Name": "Water Veil",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 63,
-    "Shop": "Commercial District",
-    "Name": "Air Ride",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 64,
-    "Shop": "Commercial District",
-    "Name": "Sumo Stomp",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 65,
-    "Shop": "Commercial District",
-    "Name": "Thief's Eye",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 66,
-    "Shop": "Commercial District",
-    "Name": "Blade Attack",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 67,
-    "Shop": "Commercial District",
-    "Name": "Fractal Repeller",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 68,
-    "Shop": "Commercial District",
-    "Name": "Land of Ice",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 69,
-    "Shop": "Commercial District",
-    "Name": "Super Sumo Stomp",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "Block",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 70,
-    "Shop": "Commercial District",
-    "Name": "Racing Flame",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 71,
-    "Shop": "Commercial District",
-    "Name": "Rotary Sander",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 72,
-    "Shop": "Commercial District",
-    "Name": "Fake Ball",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 73,
-    "Shop": "Commercial District",
-    "Name": "Tesla Coil",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 74,
-    "Shop": "Commercial District",
-    "Name": "Runaway Bull",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 75,
-    "Shop": "Commercial District",
-    "Name": "Metal Hammer",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 76,
-    "Shop": "Commercial District",
-    "Name": "Pincer Pinch",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 77,
-    "Shop": "Commercial District",
-    "Name": "Magnetism",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 78,
-    "Shop": "Commercial District",
-    "Name": "Fire Drill",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 79,
-    "Shop": "Commercial District",
-    "Name": "Perimeter Zone",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 80,
-    "Shop": "Commercial District",
-    "Name": "Rolling Slide",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 81,
-    "Shop": "Commercial District",
-    "Name": "Electric Impedance",
-    "Type": "Wall",
-    "Element": "Void",
-    "Extra": "Block",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 82,
-    "Shop": "Commercial District",
-    "Name": "Slice and Dice",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 83,
-    "Shop": "Commercial District",
-    "Name": "Pancake Defence",
-    "Type": "Wall",
-    "Element": "Void",
-    "Extra": "Block",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 84,
-    "Shop": "Commercial District",
-    "Name": "Ozone Flayer",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "Block",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 85,
-    "Shop": "Commercial District",
-    "Name": "Shooting Star",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "Block",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 86,
-    "Shop": "Commercial District",
-    "Name": "Circus Block",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 87,
-    "Shop": "Commercial District",
-    "Name": "Okehazama Ravine",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 88,
-    "Shop": "Commercial District",
-    "Name": "Needle Hammer",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 45,
-    "Tension": 45
-  },
-  {
-    "N": 89,
-    "Shop": "Commercial District",
-    "Name": "Diabolical Cut",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "Block",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 90,
-    "Shop": "Commercial District",
-    "Name": "Body Shield",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 91,
-    "Shop": "Commercial District",
-    "Name": "Dazzling Carnival",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 92,
-    "Shop": "Commercial District",
-    "Name": "Wood Chopper",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "Clearance",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 93,
-    "Shop": "Commercial District",
-    "Name": "Somersault Stamp",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 94,
-    "Shop": "Commercial District",
-    "Name": "Capable Hands",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 95,
-    "Shop": "Commercial District",
-    "Name": "Nitro Slap",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "Clearance",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 96,
-    "Shop": "Commercial District",
-    "Name": "Whirlpool",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 97,
-    "Shop": "Commercial District",
-    "Name": "Flower Power",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 98,
-    "Shop": "Commercial District",
-    "Name": "Barrier Reef",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 99,
-    "Shop": "Commercial District",
-    "Name": "Sword of the King",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 100,
-    "Shop": "Commercial District",
-    "Name": "Anchors Aweigh",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "Clearance",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 101,
-    "Shop": "Commercial District",
-    "Name": "Black Hole",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 102,
-    "Shop": "Commercial District",
-    "Name": "Shadow Catch",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 103,
-    "Shop": "Commercial District",
-    "Name": "Blazing Knuckle",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "Clearance",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 104,
-    "Shop": "Commercial District",
-    "Name": "Storm Rider",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 105,
-    "Shop": "Commercial District",
-    "Name": "Capoeira Grab",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 106,
-    "Shop": "Commercial District",
-    "Name": "Hammer of Fury",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 107,
-    "Shop": "Commercial District",
-    "Name": "Power Shield",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 108,
-    "Shop": "Commercial District",
-    "Name": "Shot Stopper",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "Clearance",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 109,
-    "Shop": "Commercial District",
-    "Name": "Giant Spider",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 110,
-    "Shop": "Commercial District",
-    "Name": "Crystal Barrier",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 111,
-    "Shop": "Commercial District",
-    "Name": "Crescent Cross",
-    "Type": "Catch",
-    "Element": "Void",
-    "Extra": "Clearance",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 112,
-    "Shop": "Commercial District",
-    "Name": "Clone Defence",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 113,
-    "Shop": "Commercial District",
-    "Name": "Fist Beam",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "Clearance",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 114,
-    "Shop": "Commercial District",
-    "Name": "Rejection",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 115,
-    "Shop": "Commercial District",
-    "Name": "Bridge to Nowhere",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 116,
-    "Shop": "Commercial District",
-    "Name": "Gravity Point",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 117,
-    "Shop": "Commercial District",
-    "Name": "Beast Fang",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 118,
-    "Shop": "Commercial District",
-    "Name": "Million Hands",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "Clearance",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 119,
-    "Shop": "Odaiba",
-    "Name": "Oglitteration",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 120,
-    "Shop": "Odaiba",
-    "Name": "Flame Breath",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 121,
-    "Shop": "Odaiba",
-    "Name": "Flame Dance",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 122,
-    "Shop": "Odaiba",
-    "Name": "Duskfall",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 123,
-    "Shop": "Odaiba",
-    "Name": "Spider Web",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 124,
-    "Shop": "Odaiba",
-    "Name": "Fortress of Despair",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "Block",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 125,
-    "Shop": "Odaiba",
-    "Name": "Quick Draw",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 126,
-    "Shop": "Odaiba",
-    "Name": "Runaway Train",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 127,
-    "Shop": "Odaiba",
-    "Name": "Whirlwind Twister",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 128,
-    "Shop": "Odaiba",
-    "Name": "Chrysanthemum Katana",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 129,
-    "Shop": "Odaiba",
-    "Name": "Hellfire",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 130,
-    "Shop": "Odaiba",
-    "Name": "Freeze Shot",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 131,
-    "Shop": "Odaiba",
-    "Name": "Katana Kick",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 132,
-    "Shop": "Story Training",
-    "Name": "Holy Roller",
-    "Type": "Shot",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 133,
-    "Shop": "Story Training",
-    "Name": "Sidewinder",
-    "Type": "Shot",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 134,
-    "Shop": "Story Training",
-    "Name": "Bouncing Bunny",
-    "Type": "Shot",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 135,
-    "Shop": "Story Training",
-    "Name": "Patriot Shot",
-    "Type": "Shot",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 136,
-    "Shop": "Story Training",
-    "Name": "Flying Marlin",
-    "Type": "Shot",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 137,
-    "Shop": "Story Training",
-    "Name": "Grenade Shot",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 138,
-    "Shop": "Story Training",
-    "Name": "Shell Burst",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 139,
-    "Shop": "Story Training",
-    "Name": "Spin Meister",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 140,
-    "Shop": "Story Training",
-    "Name": "Splitting Hares",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 141,
-    "Shop": "Story Training",
-    "Name": "Spiral Shot",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 142,
-    "Shop": "Story Training",
-    "Name": "Reflect Buster",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 143,
-    "Shop": "Story Training",
-    "Name": "Kung Fu Header",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 144,
-    "Shop": "Story Training",
-    "Name": "Divine Arrows",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 145,
-    "Shop": "Story Training",
-    "Name": "Back Tornado",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "Counter",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 146,
-    "Shop": "Story Training",
-    "Name": "Dark Tornado",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "Counter",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 147,
-    "Shop": "Story Training",
-    "Name": "Rainbow Arc",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "Long Shot",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 148,
-    "Shop": "Story Training",
-    "Name": "Acrobat Bomber",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 149,
-    "Shop": "Story Training",
-    "Name": "Fire Blizzard",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 150,
-    "Shop": "Story Training",
-    "Name": "Triple Boost",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "Long Shot",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 151,
-    "Shop": "Story Training",
-    "Name": "Cross Fire",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 370,
-    "Tension": 100
-  },
-  {
-    "N": 152,
-    "Shop": "Story Training",
-    "Name": "Whirlwind Drop",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 153,
-    "Shop": "Story Training",
-    "Name": "Mirage Shot",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 154,
-    "Shop": "Story Training",
-    "Name": "Double Jaw",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 155,
-    "Shop": "Story Training",
-    "Name": "Negative Feedback",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "Counter",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 156,
-    "Shop": "Story Training",
-    "Name": "Brimstone Rain",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 157,
-    "Shop": "Story Training",
-    "Name": "Snowstorm Leopard",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 158,
-    "Shop": "Story Training",
-    "Name": "Spinning Shot",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 159,
-    "Shop": "Story Training",
-    "Name": "Accelerator Gears",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 160,
-    "Shop": "Story Training",
-    "Name": "Twin Sun Smash",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "Counter",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 161,
-    "Shop": "Story Training",
-    "Name": "Spring Thunderclap",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 370,
-    "Tension": 100
-  },
-  {
-    "N": 162,
-    "Shop": "Story Training",
-    "Name": "Sunshine Splitter",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 163,
-    "Shop": "Story Training",
-    "Name": "Force Flash",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 164,
-    "Shop": "Story Training",
-    "Name": "Swirly Shot",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 165,
-    "Shop": "Story Training",
-    "Name": "Cheat Blaster",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 166,
-    "Shop": "Story Training",
-    "Name": "Sniper Shot",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 167,
-    "Shop": "Story Training",
-    "Name": "Royal Penguin Parade",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 168,
-    "Shop": "Story Training",
-    "Name": "Doom Dive Drive",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 169,
-    "Shop": "Story Training",
-    "Name": "Fangtasmagoria",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 170,
-    "Shop": "Story Training",
-    "Name": "Heavenly Thunder",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 171,
-    "Shop": "Story Training",
-    "Name": "Dash Accelerator",
-    "Type": "Dribble",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 172,
-    "Shop": "Story Training",
-    "Name": "Deceptor Dribble",
-    "Type": "Dribble",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 173,
-    "Shop": "Story Training",
-    "Name": "Double Touch",
-    "Type": "Dribble",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 174,
-    "Shop": "Story Training",
-    "Name": "Gunshot",
-    "Type": "Dribble",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 175,
-    "Shop": "Story Training",
-    "Name": "Dash Storm",
-    "Type": "Dribble",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 176,
-    "Shop": "Story Training",
-    "Name": "Bewildered",
-    "Type": "Dribble",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 177,
-    "Shop": "Story Training",
-    "Name": "Zigzag Spark",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 178,
-    "Shop": "Story Training",
-    "Name": "Super Armadillo",
-    "Type": "Dribble",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 179,
-    "Shop": "Story Training",
-    "Name": "Afterimage",
-    "Type": "Dribble",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 180,
-    "Shop": "Story Training",
-    "Name": "Mole Fake",
-    "Type": "Dribble",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 181,
-    "Shop": "Story Training",
-    "Name": "Phantasm Dribble",
-    "Type": "Dribble",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 182,
-    "Shop": "Story Training",
-    "Name": "Heart Beat",
-    "Type": "Dribble",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 183,
-    "Shop": "Story Training",
-    "Name": "Aikido",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 184,
-    "Shop": "Story Training",
-    "Name": "Meteor Shower",
-    "Type": "Dribble",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 185,
-    "Shop": "Story Training",
-    "Name": "The Ikaros",
-    "Type": "Dribble",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 186,
-    "Shop": "Story Training",
-    "Name": "Super Elastico",
-    "Type": "Dribble",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 187,
-    "Shop": "Story Training",
-    "Name": "Ultra Moon",
-    "Type": "Dribble",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 188,
-    "Shop": "Story Training",
-    "Name": "Frosticle",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 189,
-    "Shop": "Story Training",
-    "Name": "Tornado Tunnel",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 190,
-    "Shop": "Story Training",
-    "Name": "Ball Lightning",
-    "Type": "Dribble",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 191,
-    "Shop": "Story Training",
-    "Name": "Flurry Dash",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 192,
-    "Shop": "Story Training",
-    "Name": "Grand Glow",
-    "Type": "Dribble",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 193,
-    "Shop": "Story Training",
-    "Name": "Niagara Falls",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 194,
-    "Shop": "Story Training",
-    "Name": "Ghoulish Glare",
-    "Type": "Dribble",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 195,
-    "Shop": "Story Training",
-    "Name": "Marshal's Light",
-    "Type": "Dribble",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 196,
-    "Shop": "Story Training",
-    "Name": "Deceptor Dribble",
-    "Type": "Wall",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 197,
-    "Shop": "Story Training",
-    "Name": "Jumbo Sandwich",
-    "Type": "Wall",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 198,
-    "Shop": "Story Training",
-    "Name": "Somersault Stamp",
-    "Type": "Wall",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 199,
-    "Shop": "Story Training",
-    "Name": "Hey Presto",
-    "Type": "Wall",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 200,
-    "Shop": "Story Training",
-    "Name": "Quick Draw",
-    "Type": "Wall",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 201,
-    "Shop": "Story Training",
-    "Name": "Side Swipe",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 202,
-    "Shop": "Story Training",
-    "Name": "Coil Turn",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 203,
-    "Shop": "Story Training",
-    "Name": "Earthquake",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 204,
-    "Shop": "Story Training",
-    "Name": "Hurricane Arrows",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 205,
-    "Shop": "Story Training",
-    "Name": "Spinning Cut",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "Block",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 206,
-    "Shop": "Story Training",
-    "Name": "Mega Quake",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 207,
-    "Shop": "Story Training",
-    "Name": "Volcano Cut",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "Block",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 208,
-    "Shop": "Story Training",
-    "Name": "Double Cyclone",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 209,
-    "Shop": "Story Training",
-    "Name": "Whirlwind Force",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "Block",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 210,
-    "Shop": "Story Training",
-    "Name": "Snow Angel",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 211,
-    "Shop": "Story Training",
-    "Name": "Stone Prison",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 212,
-    "Shop": "Story Training",
-    "Name": "Zigzag Flame",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 213,
-    "Shop": "Story Training",
-    "Name": "Cyclone Sprint",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 214,
-    "Shop": "Story Training",
-    "Name": "Spin Out",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 215,
-    "Shop": "Story Training",
-    "Name": "Warp Space",
-    "Type": "Wall",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 216,
-    "Shop": "Story Training",
-    "Name": "Acrobotics",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 217,
-    "Shop": "Story Training",
-    "Name": "Twirling Turtle",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 218,
-    "Shop": "Story Training",
-    "Name": "Foil Formula",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 219,
-    "Shop": "Story Training",
-    "Name": "Deep Diver",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 220,
-    "Shop": "Story Training",
-    "Name": "The Stronghold",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 221,
-    "Shop": "Story Training",
-    "Name": "Kraken Seaquake",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 222,
-    "Shop": "Story Training",
-    "Name": "Rocket Kobushi",
-    "Type": "Catch",
-    "Element": "Void",
-    "Extra": "Clearance",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 223,
-    "Shop": "Story Training",
-    "Name": "Power Spike",
-    "Type": "Catch",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 224,
-    "Shop": "Story Training",
-    "Name": "Stomper Stopper",
-    "Type": "Catch",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 115,
-    "Tension": 30
-  },
-  {
-    "N": 225,
-    "Shop": "Story Training",
-    "Name": "Full Power Shield",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "Clearance",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 226,
-    "Shop": "Story Training",
-    "Name": "Procyon Net",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 227,
-    "Shop": "Story Training",
-    "Name": "Toughness Block",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 228,
-    "Shop": "Story Training",
-    "Name": "Flash Upper",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "Clearance",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 229,
-    "Shop": "Story Training",
-    "Name": "Burnout",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 230,
-    "Shop": "Story Training",
-    "Name": "Ice Block",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 231,
-    "Shop": "Story Training",
-    "Name": "Fist of Justice",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 232,
-    "Shop": "Story Training",
-    "Name": "Fireball Knuckle",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "Clearance",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 233,
-    "Shop": "Story Training",
-    "Name": "Colosseum Guard",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "Clearance",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 234,
-    "Shop": "Story Training",
-    "Name": "Electric Trap",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 235,
-    "Shop": "Story Training",
-    "Name": "Table-Turner",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 236,
-    "Shop": "Story Training",
-    "Name": "Snakebite",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 237,
-    "Shop": "Story Training",
-    "Name": "Gyro-Blocker",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 238,
-    "Shop": "Story Training",
-    "Name": "Icy Grace",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 239,
-    "Shop": "Story Training",
-    "Name": "Cyber Realm",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 240,
-    "Shop": "Story Training",
-    "Name": "Stillness Drip",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 241,
-    "Shop": "Story Training",
-    "Name": "Gravity Dune",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 242,
-    "Shop": "Story Training",
-    "Name": "Silent Inkstroke",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 243,
-    "Shop": "Story Training",
-    "Name": "Royal Shield",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "Clearance",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 244,
-    "Shop": "Story Training",
-    "Name": "Song of the Three Kingdoms",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 245,
-    "Shop": "Story Training",
-    "Name": "Galatyn",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 370,
-    "Tension": 100
-  },
-  {
-    "N": 246,
-    "Shop": "Story Training",
-    "Name": "Divine Deflectors",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 370,
-    "Tension": 100
-  },
-  {
-    "N": 247,
-    "Shop": "Chronicles Shop",
-    "Name": "Ephemeral Boost",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "Counter",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 248,
-    "Shop": "Chronicles Shop",
-    "Name": "Twin Boost",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 249,
-    "Shop": "Chronicles Shop",
-    "Name": "Fire Tornado",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 250,
-    "Shop": "Chronicles Shop",
-    "Name": "Inazuma Break",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "Counter",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 251,
-    "Shop": "Chronicles Shop",
-    "Name": "Dragon Crash",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 252,
-    "Shop": "Chronicles Shop",
-    "Name": "Death Zone",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 253,
-    "Shop": "Chronicles Shop",
-    "Name": "Triangle Z",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 254,
-    "Shop": "Chronicles Shop",
-    "Name": "Utter Gutsiness Bat",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "Counter",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 255,
-    "Shop": "Chronicles Shop",
-    "Name": "God Knows",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 256,
-    "Shop": "Chronicles Shop",
-    "Name": "Dragon Tornado",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 257,
-    "Shop": "Chronicles Shop",
-    "Name": "The Phoenix",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "Long Shot",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 258,
-    "Shop": "Chronicles Shop",
-    "Name": "Inazuma-1",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 370,
-    "Tension": 100
-  },
-  {
-    "N": 259,
-    "Shop": "Chronicles Shop",
-    "Name": "Emperor Penguin No. 2",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 260,
-    "Shop": "Chronicles Shop",
-    "Name": "Eternal Blizzard",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 261,
-    "Shop": "Chronicles Shop",
-    "Name": "Fireball Storm",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 262,
-    "Shop": "Chronicles Shop",
-    "Name": "Tsunami Boost",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "Long Shot",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 263,
-    "Shop": "Chronicles Shop",
-    "Name": "Death Zone 2",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 264,
-    "Shop": "Chronicles Shop",
-    "Name": "Astro Break",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 265,
-    "Shop": "Chronicles Shop",
-    "Name": "Meteor Blade",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "Long Shot",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 266,
-    "Shop": "Chronicles Shop",
-    "Name": "Legendary Wolf",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "Long Shot",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 267,
-    "Shop": "Chronicles Shop",
-    "Name": "Emperor Penguin No. 1",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 268,
-    "Shop": "Chronicles Shop",
-    "Name": "Gungnir",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "Long Shot",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 269,
-    "Shop": "Chronicles Shop",
-    "Name": "Tri-Pegasus",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 270,
-    "Shop": "Chronicles Shop",
-    "Name": "Butterfly Trance",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "Counter",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 271,
-    "Shop": "Chronicles Shop",
-    "Name": "Spectacle Crash",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 272,
-    "Shop": "Chronicles Shop",
-    "Name": "Twin Boost F",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 273,
-    "Shop": "Chronicles Shop",
-    "Name": "Wyvern Crash",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 274,
-    "Shop": "Chronicles Shop",
-    "Name": "Wyvern Blizzard",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 275,
-    "Shop": "Chronicles Shop",
-    "Name": "Dark Phoenix",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 370,
-    "Tension": 100
-  },
-  {
-    "N": 276,
-    "Shop": "Chronicles Shop",
-    "Name": "Megaton Head",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "Counter",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 277,
-    "Shop": "Chronicles Shop",
-    "Name": "Excalibur",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "Long Shot",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 278,
-    "Shop": "Chronicles Shop",
-    "Name": "The Typhoon",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 279,
-    "Shop": "Chronicles Shop",
-    "Name": "Tiger Storm",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 280,
-    "Shop": "Chronicles Shop",
-    "Name": "Dark Matter",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 281,
-    "Shop": "Chronicles Shop",
-    "Name": "Gladius Arch",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "Long Shot",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 282,
-    "Shop": "Chronicles Shop",
-    "Name": "Odin Sword",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 283,
-    "Shop": "Chronicles Shop",
-    "Name": "The Hurricane",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 284,
-    "Shop": "Chronicles Shop",
-    "Name": "Fireball Screw",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 285,
-    "Shop": "Chronicles Shop",
-    "Name": "X Blast",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 286,
-    "Shop": "Chronicles Shop",
-    "Name": "Doom Spear",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 287,
-    "Shop": "Chronicles Shop",
-    "Name": "Zephyr Shot",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 288,
-    "Shop": "Chronicles Shop",
-    "Name": "Doom Break",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 289,
-    "Shop": "Chronicles Shop",
-    "Name": "Jumping Jack",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "Counter",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 290,
-    "Shop": "Chronicles Shop",
-    "Name": "Chrysanthemum Katana",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 291,
-    "Shop": "Chronicles Shop",
-    "Name": "Triangle ZZ",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 292,
-    "Shop": "Chronicles Shop",
-    "Name": "Unify",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 293,
-    "Shop": "Chronicles Shop",
-    "Name": "Doomsword Slash",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 294,
-    "Shop": "Chronicles Shop",
-    "Name": "Katana Kick",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 295,
-    "Shop": "Chronicles Shop",
-    "Name": "Black Ash",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 296,
-    "Shop": "Chronicles Shop",
-    "Name": "Reflect Buster",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 297,
-    "Shop": "Chronicles Shop",
-    "Name": "Fission and Fusion",
-    "Type": "Shot",
-    "Element": "Void",
-    "Extra": "Long Shot",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 298,
-    "Shop": "Chronicles Shop",
-    "Name": "Dragon Drive",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 299,
-    "Shop": "Chronicles Shop",
-    "Name": "Solution Boost",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 300,
-    "Shop": "Chronicles Shop",
-    "Name": "Atomic Spin",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 301,
-    "Shop": "Chronicles Shop",
-    "Name": "No Future",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 302,
-    "Shop": "Chronicles Shop",
-    "Name": "Dough Ray Me",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "Long Shot",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 303,
-    "Shop": "Chronicles Shop",
-    "Name": "Easy Breezy",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 304,
-    "Shop": "Chronicles Shop",
-    "Name": "Illusory Ball",
-    "Type": "Dribble",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 305,
-    "Shop": "Chronicles Shop",
-    "Name": "Ignited Steal",
-    "Type": "Dribble",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 306,
-    "Shop": "Chronicles Shop",
-    "Name": "Bewildered",
-    "Type": "Dribble",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 307,
-    "Shop": "Chronicles Shop",
-    "Name": "Heaven's Time",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 308,
-    "Shop": "Chronicles Shop",
-    "Name": "Lightning Bolt",
-    "Type": "Dribble",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 309,
-    "Shop": "Chronicles Shop",
-    "Name": "Southern Cross",
-    "Type": "Dribble",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 310,
-    "Shop": "Chronicles Shop",
-    "Name": "Foul Offence 3",
-    "Type": "Dribble",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 370,
-    "Tension": 100
-  },
-  {
-    "N": 311,
-    "Shop": "Chronicles Shop",
-    "Name": "Angel Ball",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 312,
-    "Shop": "Chronicles Shop",
-    "Name": "Devil Ball",
-    "Type": "Dribble",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 313,
-    "Shop": "Chronicles Shop",
-    "Name": "Future Eye",
-    "Type": "Dribble",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 314,
-    "Shop": "Chronicles Shop",
-    "Name": "Dash Storm",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 315,
-    "Shop": "Chronicles Shop",
-    "Name": "Look! A Rice Ball",
-    "Type": "Dribble",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 316,
-    "Shop": "Chronicles Shop",
-    "Name": "Easy Breezy Kid",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 317,
-    "Shop": "Chronicles Shop",
-    "Name": "Fortissimo",
-    "Type": "Dribble",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 318,
-    "Shop": "Chronicles Shop",
-    "Name": "Rising Dragon",
-    "Type": "Dribble",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 319,
-    "Shop": "Chronicles Shop",
-    "Name": "Acrobatic Keep",
-    "Type": "Dribble",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 320,
-    "Shop": "Chronicles Shop",
-    "Name": "Decoy Deploy",
-    "Type": "Dribble",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 321,
-    "Shop": "Chronicles Shop",
-    "Name": "The Wall",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "Block",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 322,
-    "Shop": "Chronicles Shop",
-    "Name": "Ghost Pull",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 323,
-    "Shop": "Chronicles Shop",
-    "Name": "Dramatic Swipe",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 324,
-    "Shop": "Chronicles Shop",
-    "Name": "Clone Defence",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 325,
-    "Shop": "Chronicles Shop",
-    "Name": "The Tower",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "Block",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 326,
-    "Shop": "Chronicles Shop",
-    "Name": "Photon Crash",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 327,
-    "Shop": "Chronicles Shop",
-    "Name": "Gravitation",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "Block",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 328,
-    "Shop": "Chronicles Shop",
-    "Name": "Sigma Zone",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 329,
-    "Shop": "Chronicles Shop",
-    "Name": "Asteroid Belt",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "Block",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 330,
-    "Shop": "Chronicles Shop",
-    "Name": "La Flamme",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 331,
-    "Shop": "Chronicles Shop",
-    "Name": "Hyper-Swiper",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 332,
-    "Shop": "Chronicles Shop",
-    "Name": "Perfect Tower",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 333,
-    "Shop": "Chronicles Shop",
-    "Name": "Vac Attack",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "Block",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 334,
-    "Shop": "Chronicles Shop",
-    "Name": "The Mountain",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "Block",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 335,
-    "Shop": "Chronicles Shop",
-    "Name": "Dark Mist",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 336,
-    "Shop": "Chronicles Shop",
-    "Name": "Hunter's Net",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "Block",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 337,
-    "Shop": "Chronicles Shop",
-    "Name": "Runaway Train",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 338,
-    "Shop": "Chronicles Shop",
-    "Name": "Vigorous Stomp",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "Block",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 339,
-    "Shop": "Chronicles Shop",
-    "Name": "Spatial Portal",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 340,
-    "Shop": "Chronicles Shop",
-    "Name": "Particle Accelerator",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 341,
-    "Shop": "Chronicles Shop",
-    "Name": "Great Wall",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "Block",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 342,
-    "Shop": "Chronicles Shop",
-    "Name": "Mystic Mist",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "Block",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 343,
-    "Shop": "Chronicles Shop",
-    "Name": "Wall of Atlantis",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "Block",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 344,
-    "Shop": "Chronicles Shop",
-    "Name": "Goopy Gloopy Goo",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "Block",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 345,
-    "Shop": "Chronicles Shop",
-    "Name": "God Hand",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 346,
-    "Shop": "Chronicles Shop",
-    "Name": "Killer Slide",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 347,
-    "Shop": "Chronicles Shop",
-    "Name": "Tsunami Wall",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "Clearance",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 348,
-    "Shop": "Chronicles Shop",
-    "Name": "Mugen the Hand",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 349,
-    "Shop": "Chronicles Shop",
-    "Name": "Infinite Wall",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 350,
-    "Shop": "Chronicles Shop",
-    "Name": "Double God Hand",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 351,
-    "Shop": "Chronicles Shop",
-    "Name": "Wormhole",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 352,
-    "Shop": "Chronicles Shop",
-    "Name": "Procyon Net",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 353,
-    "Shop": "Chronicles Shop",
-    "Name": "High Voltage",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "Clearance",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 354,
-    "Shop": "Chronicles Shop",
-    "Name": "Majin the Hand",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 355,
-    "Shop": "Chronicles Shop",
-    "Name": "God Hand",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 356,
-    "Shop": "Chronicles Shop",
-    "Name": "Dimensional Hand",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 357,
-    "Shop": "Chronicles Shop",
-    "Name": "Fist of Justice",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 358,
-    "Shop": "Chronicles Shop",
-    "Name": "Safety First",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 359,
-    "Shop": "Chronicles Shop",
-    "Name": "God Hand V",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 360,
-    "Shop": "VS Shop",
-    "Name": "Freeze Shot",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 361,
-    "Shop": "VS Shop",
-    "Name": "Kung Fu Fighting",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "Counter",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 362,
-    "Shop": "VS Shop",
-    "Name": "Inazuma-1 Drop",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 363,
-    "Shop": "VS Shop",
-    "Name": "Ganymede Ray",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "Counter",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 364,
-    "Shop": "VS Shop",
-    "Name": "Cosmic Blast",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 365,
-    "Shop": "VS Shop",
-    "Name": "Gaia Break",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 366,
-    "Shop": "VS Shop",
-    "Name": "Space Penguin",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 370,
-    "Tension": 100
-  },
-  {
-    "N": 367,
-    "Shop": "VS Shop",
-    "Name": "Steeple Shot",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 368,
-    "Shop": "VS Shop",
-    "Name": "Tiger Drive",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "Long Shot",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 369,
-    "Shop": "VS Shop",
-    "Name": "Hellfire",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 370,
-    "Shop": "VS Shop",
-    "Name": "Thunder Beast",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 371,
-    "Shop": "VS Shop",
-    "Name": "The Tube",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 372,
-    "Shop": "VS Shop",
-    "Name": "Pegasus Shot",
-    "Type": "Shot",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 373,
-    "Shop": "VS Shop",
-    "Name": "Unicorn Boost",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 374,
-    "Shop": "VS Shop",
-    "Name": "Almighty Cannon",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 375,
-    "Shop": "VS Shop",
-    "Name": "Doom Rain",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 376,
-    "Shop": "VS Shop",
-    "Name": "Emperor Penguin 7",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "Long Shot",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 377,
-    "Shop": "VS Shop",
-    "Name": "Ballista Barrage",
-    "Type": "Shot",
-    "Element": "Mountain",
-    "Extra": "Long Shot",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 378,
-    "Shop": "VS Shop",
-    "Name": "Supernatural Strike",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 379,
-    "Shop": "VS Shop",
-    "Name": "Matchlock Bullet",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "Long Shot",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 380,
-    "Shop": "VS Shop",
-    "Name": "Heavenly Drive",
-    "Type": "Shot",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 381,
-    "Shop": "VS Shop",
-    "Name": "Prima Donna",
-    "Type": "Dribble",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 382,
-    "Shop": "VS Shop",
-    "Name": "Wind God's Dance",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 383,
-    "Shop": "VS Shop",
-    "Name": "Whirlwind Twister",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 384,
-    "Shop": "VS Shop",
-    "Name": "Dance on Air",
-    "Type": "Dribble",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 385,
-    "Shop": "VS Shop",
-    "Name": "Amp Beat",
-    "Type": "Dribble",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 386,
-    "Shop": "VS Shop",
-    "Name": "Peaky Breezy",
-    "Type": "Dribble",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 387,
-    "Shop": "VS Shop",
-    "Name": "Quick Draw",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 388,
-    "Shop": "VS Shop",
-    "Name": "Spider Web",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 389,
-    "Shop": "VS Shop",
-    "Name": "Cyclone",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 390,
-    "Shop": "VS Shop",
-    "Name": "Duskfall",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 391,
-    "Shop": "VS Shop",
-    "Name": "Flame Dance",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 392,
-    "Shop": "VS Shop",
-    "Name": "Iron Wall",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "Block",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 393,
-    "Shop": "VS Shop",
-    "Name": "Dawnrise",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 394,
-    "Shop": "VS Shop",
-    "Name": "Mystifying Mist",
-    "Type": "Wall",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 395,
-    "Shop": "VS Shop",
-    "Name": "Pterrordactyl Swoop",
-    "Type": "Wall",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 396,
-    "Shop": "VS Shop",
-    "Name": "Fortress of Despair",
-    "Type": "Wall",
-    "Element": "Fire",
-    "Extra": "Block",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 397,
-    "Shop": "VS Shop",
-    "Name": "Bamboo Pattern",
-    "Type": "Wall",
-    "Element": "Mountain",
-    "Extra": "Block",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 398,
-    "Shop": "VS Shop",
-    "Name": "Dual Smash",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "Clearance",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 399,
-    "Shop": "VS Shop",
-    "Name": "Matrix Eye",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 400,
-    "Shop": "VS Shop",
-    "Name": "Triple Defence",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 401,
-    "Shop": "VS Shop",
-    "Name": "Gigant Wall",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 402,
-    "Shop": "VS Shop",
-    "Name": "Combustion Catch",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 403,
-    "Shop": "VS Shop",
-    "Name": "Flame Breath",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 404,
-    "Shop": "VS Shop",
-    "Name": "Drill Smasher",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "Clearance",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 405,
-    "Shop": "VS Shop",
-    "Name": "Gravestone",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "Clearance",
-    "Power": 175,
-    "Tension": 50
-  },
-  {
-    "N": 406,
-    "Shop": "VS Shop",
-    "Name": "God Hand X",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 407,
-    "Shop": "VS Shop",
-    "Name": "Celestial Zone",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 408,
-    "Shop": "VS Shop",
-    "Name": "The End",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 409,
-    "Shop": "VS Shop",
-    "Name": "Fingers of Gaia",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "Clearance",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 410,
-    "Shop": "VS Shop",
-    "Name": "Nitro Slap",
-    "Type": "Catch",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 411,
-    "Shop": "VS Shop",
-    "Name": "Oglitteration",
-    "Type": "Catch",
-    "Element": "Forest",
-    "Extra": "",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 412,
-    "Shop": "VS Shop",
-    "Name": "Sliding Goal",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "Clearance",
-    "Power": 210,
-    "Tension": 60
-  },
-  {
-    "N": 413,
-    "Shop": "VS Shop",
-    "Name": "Omega Hand",
-    "Type": "Catch",
-    "Element": "Mountain",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 414,
-    "Shop": "VS Shop",
-    "Name": "Penguin the Hand",
-    "Type": "Catch",
-    "Element": "Void",
-    "Extra": "",
-    "Power": 255,
-    "Tension": 70
-  },
-  {
-    "N": 415,
-    "Shop": "Spirit Shop",
     "Name": "Chaos Break",
-    "Type": "Shot",
     "Element": "Forest",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Shoot",
     "Extra": "",
-    "Power": 370,
-    "Tension": 100
+    "Shop": "Spirit Market"
   },
   {
-    "N": 416,
-    "Shop": "Spirit Shop",
     "Name": "Grand Fenrir",
-    "Type": "Shot",
     "Element": "Forest",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
     "Extra": "",
-    "Power": 312,
-    "Tension": 80
+    "Shop": "Spirit Market"
   },
   {
-    "N": 417,
-    "Shop": "Spirit Shop",
     "Name": "Jet Stream",
-    "Type": "Shot",
     "Element": "Mountain",
-    "Extra": "Long Shot",
-    "Power": 370,
-    "Tension": 100
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Spirit Market"
   },
   {
-    "N": 418,
-    "Shop": "Spirit Shop",
     "Name": "Emperor Penguin No. 3",
-    "Type": "Shot",
     "Element": "Forest",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Shoot",
     "Extra": "",
-    "Power": 370,
-    "Tension": 100
+    "Shop": "Spirit Market"
   },
   {
-    "N": 419,
-    "Shop": "Spirit Shop",
-    "Name": "Wrath Shot",
-    "Type": "Shot",
+    "Name": "Doom Break",
     "Element": "Mountain",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Shoot",
     "Extra": "",
-    "Power": 370,
-    "Tension": 100
+    "Shop": "Spirit Market"
   },
   {
-    "N": 420,
-    "Shop": "Spirit Shop",
-    "Name": "Doom Dive Drive",
-    "Type": "Shot",
+    "Name": "Fire Tornado DD",
     "Element": "Fire",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
     "Extra": "",
-    "Power": 312,
-    "Tension": 80
+    "Shop": "Spirit Market"
   },
   {
-    "N": 421,
-    "Shop": "Spirit Shop",
     "Name": "Omega Assault",
-    "Type": "Shot",
     "Element": "Void",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Shoot",
     "Extra": "",
-    "Power": 370,
-    "Tension": 100
+    "Shop": "Spirit Market"
   },
   {
-    "N": 422,
-    "Shop": "Spirit Shop",
-    "Name": "Thundertaker",
-    "Type": "Shot",
+    "Name": "Shell Burst",
     "Element": "Void",
-    "Extra": "Long Shot",
-    "Power": 312,
-    "Tension": 80
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Spirit Market"
   },
   {
-    "N": 423,
-    "Shop": "Spirit Shop",
     "Name": "Disaster Strike",
-    "Type": "Shot",
     "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
     "Extra": "",
-    "Power": 255,
-    "Tension": 70
+    "Shop": "Spirit Market"
   },
   {
-    "N": 424,
-    "Shop": "Spirit Shop",
     "Name": "The Dawn",
-    "Type": "Shot",
-    "Element": "Air",
+    "Element": "Wind",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
     "Extra": "",
-    "Power": 312,
-    "Tension": 80
+    "Shop": "Spirit Market"
   },
   {
-    "N": 425,
-    "Shop": "Spirit Shop",
     "Name": "Supernova",
-    "Type": "Shot",
     "Element": "Forest",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Shoot",
     "Extra": "",
-    "Power": 370,
-    "Tension": 100
+    "Shop": "Spirit Market"
   },
   {
-    "N": 426,
-    "Shop": "Spirit Shop",
     "Name": "Big Bang",
-    "Type": "Shot",
     "Element": "Fire",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Shoot",
     "Extra": "",
-    "Power": 370,
-    "Tension": 100
+    "Shop": "Spirit Market"
   },
   {
-    "N": 427,
-    "Shop": "Spirit Shop",
     "Name": "The Earth",
-    "Type": "Shot",
     "Element": "Mountain",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Shoot",
     "Extra": "",
-    "Power": 370,
-    "Tension": 100
+    "Shop": "Spirit Market"
   },
   {
-    "N": 428,
-    "Shop": "Spirit Shop",
-    "Name": "Northern Impact",
-    "Type": "Shot",
-    "Element": "Air",
+    "Name": "Prime Legend",
+    "Element": "Wind",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Shoot",
     "Extra": "",
-    "Power": 370,
-    "Tension": 100
+    "Shop": "Spirit Market"
   },
   {
-    "N": 429,
-    "Shop": "Spirit Shop",
     "Name": "Field of Force",
+    "Element": "Forest",
+    "Power": "85",
+    "Tension": "80",
     "Type": "Dribble",
-    "Element": "Forest",
     "Extra": "",
-    "Power": 312,
-    "Tension": 80
+    "Shop": "Spirit Market"
   },
   {
-    "N": 430,
-    "Shop": "Spirit Shop",
     "Name": "Temporal Wall",
-    "Type": "Catch",
-    "Element": "Air",
-    "Extra": "Clearance",
-    "Power": 312,
-    "Tension": 80
+    "Element": "Wind",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Spirit Market"
   },
   {
-    "N": 431,
-    "Shop": "Spirit Shop",
     "Name": "Fiend Hand",
-    "Type": "Catch",
     "Element": "Forest",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Keep",
     "Extra": "",
-    "Power": 370,
-    "Tension": 100
+    "Shop": "Spirit Market"
   },
   {
-    "N": 432,
-    "Shop": "Spirit Shop",
     "Name": "Soul Hand",
-    "Type": "Catch",
     "Element": "Fire",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Keep",
     "Extra": "",
-    "Power": 370,
-    "Tension": 100
+    "Shop": "Spirit Market"
   },
   {
-    "N": 433,
-    "Shop": "Spirit Shop",
     "Name": "God Catch",
-    "Type": "Catch",
     "Element": "Mountain",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Keep",
     "Extra": "",
-    "Power": 370,
-    "Tension": 100
+    "Shop": "Spirit Market"
   },
   {
-    "N": 434,
+    "Name": "Inazuma Drop",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "Counter Shoot",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Twin Boost",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Fire Tornado",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Inazuma-1",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "Counter Shoot",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Dragon Crash",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Death Zone",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Triangle Z",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Utter Gutsiness Bat",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Counter Shoot",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "God Knows",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Dragon Tornado",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Fire Rooster",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Inazuma Break",
+    "Element": "Wind",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Emperor Penguin No. 2",
+    "Element": "Forest",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Eternal Blizzard",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Fireball Storm",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Tsunami Boost",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Death Zone 2",
+    "Element": "Forest",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Astro Break",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Meteor Blade",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "Counter Shoot",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Legendary Wolf",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Emperor Penguin No. 1",
+    "Element": "Forest",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Gungnir",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Tri-Pegasus",
+    "Element": "Wind",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Butterfly Trance",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Spectable Crash",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Twin Boost F",
+    "Element": "Fire",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Wyvern Crash",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Wyvern Blizzard",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Dark Phoenix",
+    "Element": "Forest",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Megaton Head",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "Counter Shoot",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Excalibur",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "The Typhoon",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Tiger Storm",
+    "Element": "Fire",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Dragon Slayer",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Gladius Arch",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Odin Sword",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "The Hurricane",
+    "Element": "Wind",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Fireball Screw",
+    "Element": "Fire",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "X Blast",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Doom Spear",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Zephyr Shot",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Doomsword Slash",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Jumping Jack",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "Counter Shoot",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Katana Kick",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Triangle ZZ",
+    "Element": "Fire",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Fortissimo",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Doom Dive Drive",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Sidewinder",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Black Ash",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Bouncing Bunny",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Fission and Fusion",
+    "Element": "Void",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Dragon Drive",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Splitting Hares",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Atomic Spin",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "No Future",
+    "Element": "Fire",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Dough Ray Me",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Flurry Dash",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Illusory Ball",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Scorching Tackle",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Bewildered",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Heaven's Time",
+    "Element": "Wind",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Lightning Bolt",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Southern Cross",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Foul Offence 3",
+    "Element": "Fire",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Angel Ball",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Devil Ball",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Future Eye",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Dragster",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Hey Presto",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Easy Breezy",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Ball Lightning",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Rising Dragon",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Acrobatic Keep",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Decoy Deploy",
+    "Element": "Void",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "The Wall",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Ghost Pull",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Bamboo Pattern",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Clone Defence",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "The Tower",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Photon Crash",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Gravitation",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Sigma Zone",
+    "Element": "Forest",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Asteroid Belt",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Ignited Steal",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Frozen Steal",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Perfect Tower",
+    "Element": "Wind",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Vac Attack",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "The Mountain",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Mystifying Mist",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Hunter's Net",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Runaway Train",
+    "Element": "Fire",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Pancake Defence",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Spatial Portal",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Solar Surprise",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Great Wall",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Mystic Mist",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Wall of Atlantis",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Goopy Gloopy Goo",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "God Hand",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Sliding Goal",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Tsunami Wall",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Majin the Hand",
+    "Element": "Mountain",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Infinite Wall",
+    "Element": "Mountain",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Mugen the Hand",
+    "Element": "Forest",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Wormhole",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Procyon Net",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Fist of Justice",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Majin the Hand",
+    "Element": "Forest",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "God Hand",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Dimensional Hand",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Hammer of Fury",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Combustion Catch",
+    "Element": "Fire",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "God Hand V",
+    "Element": "Mountain",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Chronicle Department Store"
+  },
+  {
+    "Name": "Freeze Shot",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Kung Fu Fighting",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "Counter Shoot",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Inazuma-1 Drop",
+    "Element": "Wind",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Ganymede Ray",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Counter Shoot",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Cosmic Blast",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Gaia Break",
+    "Element": "Mountain",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Space Penguin",
+    "Element": "Wind",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Steeple Shot",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Tiger Drive",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Hellfire",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Thunder Beast",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "The Tube",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Pegasus Shot",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Unicorn Boost",
+    "Element": "Mountain",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Almighty Cannon",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Doom Rain",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Emperor Penguin 7",
+    "Element": "Wind",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Ballista Barrage",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Supernatural Strike",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Matchlock Bullet",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Holy Roller",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Prima Donna",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Wind God's Dance",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Log Roll",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Dance on Air",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Heart Beat",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Easy Breezy Kid",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Quick Draw",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Spider Web",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Cyclone",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Shadow Stitch",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Flame Dance",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Iron Wall",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Dawnrise",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Duskfall",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Hyper-Swiper",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Overnight Fortress",
+    "Element": "Fire",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Okehazama Ravine",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Fireball Knuckle",
+    "Element": "Fire",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Warp Space",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Triple Defence",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Gigant Wall",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Blazing Knuckle",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Flame Breath",
+    "Element": "Fire",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Drill Smasher",
+    "Element": "Fire",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Safety First",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "God Hand X",
+    "Element": "Fire",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Celestial Zone",
+    "Element": "Wind",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "The End",
+    "Element": "Forest",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Fingers of Gaia",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Capable Hands",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Stomper Stopper",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Jumping Whack",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Double God Hand",
+    "Element": "Mountain",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Penguin the Hand",
+    "Element": "Void",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Vs Store"
+  },
+  {
+    "Name": "Northen Impact",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Slingshot",
+    "Element": "Mountain",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Double Helix",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Revolution V",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Eagle Buster",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Atomic Flare",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "Counter Shoot",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Maximum Fire",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "White Hurricane",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Counter Shoot",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Dark Energy Star",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Samba Strike",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Heavenly Drive",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Falling Planet",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Triple Threat",
+    "Element": "Mountain",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Shadow Ray",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Bungee Ball Burst",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Big Ball Trick",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Clone Faker",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Three-Legged Rush",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Criss-Cross",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Matador Feint",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Dash Storm",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Athena's Anthem",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Water Veil",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Air Ride",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Magnetism",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Fire Drill",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Perimeter Zone",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Rolling Slide",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Electric Impedance",
+    "Element": "Void",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Harvest",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Particle Accelerator",
+    "Element": "Void",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Ozone Flayer",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Shooting Star",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Circus Block",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "No Escape",
+    "Element": "Mountain",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Rock Hammer",
+    "Element": "Mountain",
+    "Power": "45",
+    "Tension": "45",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Diabolical Cut",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Body Shield",
+    "Element": "Mountain",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Oglitteration",
+    "Element": "Forest",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Fist Beam",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Storm Rider",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Capoeira Grab",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Needle Hammer",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Table-Turner",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Shot Stopper",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Giant Spider",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Crystal Barrier",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Crescent Cross",
+    "Element": "Void",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Dual Smash",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Double Rocket",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Rotary Sander",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Bridge to Nowhere",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Gravity Point",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Beast Fang",
+    "Element": "Fire",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Million Hands",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Phantom Shot",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Rolling Kick",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Patriot Shot",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Cross Drive",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Condor Dive",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Run Ball Run",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Shine Drive",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Tarzan Kick",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Dirt Ball",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Double Grenade",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Dual Strike",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Bed of Roses",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Security Shot",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Megalodon",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Paladin Strike",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Gunshot",
+    "Element": "Fire",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "RC Shot",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Bouncing Bomb",
+    "Element": "Fire",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Warhead",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Optimal Trajectory",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Will-o'-the-Wisp Shot",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Flying Fish",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Plasma Ball",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Cupid's Arrow",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Whirlwind Twister",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Dash Accelerator",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Monkey Turn",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Aurora Dribble",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Kangaroo Kick",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Heel Drop",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Dog Run",
+    "Element": "Fire",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Boomerang Bluff",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Blast Mine",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Spin Out",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Transporter Device",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Swallow Counter",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Hoopsie-Daisy",
+    "Element": "Wind",
+    "Power": "45",
+    "Tension": "45",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Fake Ball",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Sumo Stomp",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Blade Attack",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Land of Ice",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Super Sumo Stomp",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Gravestone",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Racing Flame",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Thief's Eye",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Slice and Dice",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Pincer Pinch",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Jumbo Sandwich",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Fractal Repeller",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Tesla Coil",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Wood Chopper",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Whirlwind",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Rocket Kobushi",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Flower Power",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Black Hole",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Barrier Reef",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Galatyn",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Anchors Aweigh",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Shadow Catch",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Somersault Stamp",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Breath Taker",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Phantom Shot",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Sonic Shot",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Magic Moves (Odaiba Branch)"
+  },
+  {
+    "Name": "Chip Shot",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Curve Shot",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Bounce Shot",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Power Shot",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Low Drive",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Wrath Shot",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Grenade Shot",
+    "Element": "Fire",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Spinning Shot",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Clone Shot",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Spiral Shot",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Reflect Buster",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Kung Fu Header",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Divine Arrows",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Back Tornado",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Counter Shoot",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Dark Tornado",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Counter Shoot",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Rainbow Arc",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Acrobat Bomber",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Fire Blizzard",
+    "Element": "Wind",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Triple Boost",
+    "Element": "Fire",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "Long Shoot",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Cross Fire",
+    "Element": "Fire",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Whirlwind Drop",
+    "Element": "Wind",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Mirage Shot",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Double Jaw",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Dark Matter",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "Counter Shoot",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Brimstone Rain",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Snowstorm Leopard",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Spin Meister",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Accelerator Gears",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Twin Sun Smash",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "Counter Shoot",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Spring Thunderclap",
+    "Element": "Wind",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Sunshine Splitter",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Force Flash",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Swirly Shot",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Cheat Blaster",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Sniper Shot",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Royal Penguin Parade",
+    "Element": "Forest",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Meteoric Fire Tornado",
+    "Element": "Fire",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Bahamut Crash",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Heavenly Thunder",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Shoot",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Dust Kick",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Crosscut Feint",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Heel Flick",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Nutmeg",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Feint Dash",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Deceptive Step",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Zipzag Spark",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Super Armadillo",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Afterimage",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Mole Fake",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Deceptor Dribble",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Double Touch",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Aikido",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Meteor Shower",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "The Ikaros",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Super Elastico",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Ultra Moon",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Frosticle",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Tornado Tunnel",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Plasma Cut",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Endeavor Rush",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Grand Glow",
+    "Element": "Fire",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Niagara Falls",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Ghoulish Glare",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Marshal's Light",
+    "Element": "Mountain",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Dribble",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Feint Play",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Shoulder Tackle",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Curving Cut",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Cunning Pull",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Rolling Steal",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Killer Slide",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Coil Turn",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Earthquake",
+    "Element": "Mountain",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Hurricane Arrows",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Spinning Cut",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Mega Quake",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Volcano Cut",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Double Cyclone",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Whirlwind Force",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "Shoot Block",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Snow Angel",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Stone Prison",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Zigzag Flame",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Whirlpool",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Cyclone Sprint",
+    "Element": "Wind",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Side Swipe",
+    "Element": "Void",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Acrobotics",
+    "Element": "Mountain",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Twirling Turtle",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Foil Formula",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Deep Diver",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "The Stronghold",
+    "Element": "Mountain",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Kraken Seaquake",
+    "Element": "Wind",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Wall",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Strong Punch",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Power Catch",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Mighty Save",
+    "Element": "Void",
+    "Power": "30",
+    "Tension": "30",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Power Shield",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Shot Pocket",
+    "Element": "Forest",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Toughness Block",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Full Power Shield",
+    "Element": "Fire",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Burnout",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Ice Block",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Flash Upper",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Nitro Slap",
+    "Element": "Fire",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Colosseum Guard",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Electric Trap",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Power Spike",
+    "Element": "Fire",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Snakebite",
+    "Element": "Mountain",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Gyro-Blocker",
+    "Element": "Forest",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Icy Grace",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Cyber Realm",
+    "Element": "Forest",
+    "Power": "70",
+    "Tension": "70",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Stillness Drip",
+    "Element": "Fire",
+    "Power": "50",
+    "Tension": "50",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Gravity Dune",
+    "Element": "Mountain",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Silent Inkstroke",
+    "Element": "Wind",
+    "Power": "60",
+    "Tension": "60",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Royal Shield",
+    "Element": "Fire",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Tiger God Hand",
+    "Element": "Mountain",
+    "Power": "85",
+    "Tension": "80",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Sacred Embrace",
+    "Element": "Forest",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
+    "Name": "Divine Deflectors",
+    "Element": "Wind",
+    "Power": "100",
+    "Tension": "100",
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Special Training Booth"
+  },
+  {
     "Shop": "Legendary Box",
     "Name": "God Break",
-    "Type": "Shot",
+    "Type": "Shoot",
     "Element": "Air",
     "Extra": "",
     "Power": 312,
     "Tension": 80
   },
   {
-    "N": 435,
     "Shop": "Legendary Box",
     "Name": "Zero Magnum",
-    "Type": "Shot",
+    "Type": "Shoot",
     "Element": "Void",
     "Extra": "Counter",
     "Power": 312,
     "Tension": 80
   },
   {
-    "N": 436,
-    "Shop": "Legendary Box",
-    "Name": "Fire Rooster",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 437,
-    "Shop": "Legendary Box",
-    "Name": "Dragon Slayer",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "",
-    "Power": 312,
-    "Tension": 80
-  },
-  {
-    "N": 438,
-    "Shop": "Legendary Box",
-    "Name": "Maximum Fire",
-    "Type": "Shot",
-    "Element": "Fire",
-    "Extra": "Long Shot",
-    "Power": 370,
-    "Tension": 100
-  },
-  {
-    "N": 439,
     "Shop": "Legendary Box",
     "Name": "Ultimate Eleven Assault",
-    "Type": "Shot",
+    "Type": "Shoot",
     "Element": "Air",
     "Extra": "",
     "Power": 370,
     "Tension": 100
   },
   {
-    "N": 440,
     "Shop": "Legendary Box",
     "Name": "Elemental Destroyer",
-    "Type": "Shot",
+    "Type": "Shoot",
     "Element": "Void",
     "Extra": "",
     "Power": 312,
     "Tension": 80
   },
   {
-    "N": 441,
     "Shop": "Legendary Box",
     "Name": "Emperor Penguin X",
-    "Type": "Shot",
+    "Type": "Shoot",
     "Element": "Fire",
     "Extra": "",
     "Power": 312,
     "Tension": 80
+  },
+  {
+    "Shop": "Legendary Chest",
+    "Name": "The Phoenix",
+    "Type": "Shoot",
+    "Element": "Fire",
+    "Extra": "",
+    "Power": 85,
+    "Tension": 80
+  },
+  {
+    "Name": "Omega Hand",
+    "Element": "Mountain",
+    "Power": 100,
+    "Tension": 100,
+    "Type": "Keep",
+    "Extra": "",
+    "Shop": "Legendary Chest"
   }
 ]

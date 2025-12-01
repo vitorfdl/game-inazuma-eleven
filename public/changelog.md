@@ -1,3 +1,8 @@
+# Version 1.4.0 - 2025-11-30
+- Equipments Page:
+  - Added history equipment data, useful for recruiting story scouts.
+  - Equipments with 0 values are now shown as "-".
+
 # Version 1.3.4 - 2025-11-30
 
 - Players Page:

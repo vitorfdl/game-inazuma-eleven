@@ -1,10 +1,10 @@
 import type { LucideIcon } from "lucide-react";
-import { BrickWall, Dribbble, Flame, Hand, Mountain, Tornado, TreePine } from "lucide-react";
+import { BrickWall, CircleSlash2, Dribbble, Flame, Hand, Mountain, Tornado, TreePine } from "lucide-react";
 
 import { withBase } from "@/lib/utils";
 
-export type ElementType = "Forest" | "Wind" | "Fire" | "Mountain";
-export type MoveType = "Shot" | "Dribble" | "Wall" | "Catch";
+export type ElementType = "Forest" | "Wind" | "Fire" | "Mountain" | "Void";
+export type MoveType = "Shoot" | "Dribble" | "Wall" | "Keep";
 export type TeamPosition = "FW" | "MD" | "DF" | "GK" | "RESERVE" | "MANAGER" | "COORDINATOR";
 
 type IconDefinition = {
@@ -41,10 +41,14 @@ const ELEMENT_ICON_MAP: Record<ElementType, IconDefinition> = {
 		icon: Mountain,
 		color: "#b45309",
 	},
+	Void: {
+		color: "#a21caf", // purple
+		icon: CircleSlash2,
+	},
 };
 
 const MOVE_ICON_MAP: Record<MoveType, IconDefinition> = {
-	Shot: {
+	Shoot: {
 		assetPath: "icons/meteor.svg",
 		color: "#d42525",
 	},
@@ -56,7 +60,7 @@ const MOVE_ICON_MAP: Record<MoveType, IconDefinition> = {
 		icon: BrickWall,
 		color: "#0ea5e9",
 	},
-	Catch: {
+	Keep: {
 		icon: Hand,
 		color: "#ffd700",
 	},
