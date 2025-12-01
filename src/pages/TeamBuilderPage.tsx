@@ -365,7 +365,7 @@ export default function TeamBuilderPage() {
 		}
 		const entries: { slotId: string; value: number }[] = [];
 		allAssignments.forEach((entry) => {
-			if (!entry.player) {
+			if (!entry.player || entry.slot.kind === "manager" || entry.slot.kind === "coordinator") {
 				return;
 			}
 			const statValue = entry.computed?.finalPower?.[displayMode] ?? entry.computed?.power?.[displayMode];
