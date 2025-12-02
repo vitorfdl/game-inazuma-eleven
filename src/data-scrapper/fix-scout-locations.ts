@@ -86,14 +86,14 @@ function buildScoutLine(hint: ScoutHint): string {
 	const schedule = formatDayTime(hint.day && hint.day.length > 0 ? hint.day : undefined, hint.time && hint.time.length > 0 ? hint.time : undefined);
 
 	if (hint.kind === "gift") {
-		const locationPart = `Scout at ${hint.location} on ${schedule}.`;
+		const locationPart = `Scout at __${hint.location}__ on __${schedule}__.`;
 		const followUpPart = hint.giftLocation
-			? `Gift them with a ${hint.desiredGift} which can be bought at ${hint.giftLocation}.`
-			: `Gift them with a ${hint.desiredGift} to complete the recruitment.`;
+			? `Gift him with a __${hint.desiredGift}__ which can be bought at __${hint.giftLocation}__.`
+			: `Gift him with a __${hint.desiredGift}__ to complete the recruitment.`;
 		return `${locationPart} ${followUpPart}`;
 	}
 
-	return `Scout at ${hint.location} on ${schedule}. No gift required.`;
+	return `Scout at __${hint.location}__ on __${schedule}__. No gift required.`;
 }
 
 function buildStorySection(hint: ScoutHint): string {
