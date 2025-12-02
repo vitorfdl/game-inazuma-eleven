@@ -1,6 +1,8 @@
 # Version 1.4.1 - 2025-12-02
 - Improved Team Builder Layout for Mobile screens.
 - Fixed some contrast issues in Light Theme for select buttons.
+- Added story scout How to Obtain instructions.
+  - Thanks to [@frikiderekes](https://www.reddit.com/r/inazumaeleven/comments/1p62zne/victory_road_story_scout_spreadsheet_now_available/) on Reddit for the story scout data.  
 
 # Version 1.4.0 - 2025-11-30
 - Team Builder Page:
