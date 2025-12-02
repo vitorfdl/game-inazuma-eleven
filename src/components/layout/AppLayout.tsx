@@ -72,13 +72,16 @@ export default function AppLayout() {
 		<SidebarProvider>
 			<Sidebar collapsible="icon">
 				<SidebarHeader>
-					<div className="flex items-center gap-2 px-2 py-1.5">
-						<div className="flex aspect-square size-7 items-center justify-center">
-							<img src={faviconUrl} alt="StatFrame - Inazuma Eleven VC" className="size-7" />
+					<div className="flex items-center gap-2 px-2 py-1.5 transition-all group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:gap-0 group-data-[collapsible=icon]:px-0">
+						<div className="flex size-8 shrink-0 items-center justify-center rounded-md border border-border/50 bg-background/70 shadow-sm transition-all group-data-[collapsible=icon]:size-9 group-data-[collapsible=icon]:rounded-full group-data-[collapsible=icon]:border-transparent group-data-[collapsible=icon]:bg-transparent">
+							<img src={faviconUrl} alt="StatFrame - Inazuma Eleven VC" className="size-6" />
 						</div>
-						<div className="grid flex-1 text-left text-sm leading-tight">
-							<span className="truncate font-semibold">StatFrame - Inazuma Eleven</span>
-							<span className="truncate text-xs">Reference Sheets</span>
+						<div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden">
+							<h1 className="text-lg font-black tracking-tight text-foreground">
+								<span className="text-primary drop-shadow-[3px_3px_0_rgba(0,0,0,0.8)]">Stat</span>
+								<span className="drop-shadow-[3px_3px_0_rgba(0,0,0,0.8)]">Frame</span>
+							</h1>
+							<span className="truncate text-xs italic">Inazuma Eleven Victory Road</span>
 						</div>
 					</div>
 				</SidebarHeader>
