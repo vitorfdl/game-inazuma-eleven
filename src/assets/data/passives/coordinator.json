@@ -258,7 +258,7 @@
     "number": 14,
     "type": "coordinator",
     "buildType": null,
-    "description": "Special tactics cooldown -_%",
+    "description": "Special tactics cooldown -%",
     "strongValue": 1.5,
     "weakValue": 0,
     "effects": [
@@ -382,7 +382,7 @@
     "number": 20,
     "type": "coordinator",
     "buildType": "Breach",
-    "description": "Tension required for Team Breach -_%",
+    "description": "Tension required for Team Breach -%",
     "strongValue": 2,
     "weakValue": 0,
     "effects": [
@@ -642,7 +642,7 @@
     "number": 32,
     "type": "coordinator",
     "buildType": "Bond",
-    "description": "Bond Power Loss -_% for 10 seconds when the team loses a Scramble",
+    "description": "Bond Power Loss -% for 10 seconds when the team loses a Scramble",
     "strongValue": 5,
     "weakValue": 0,
     "effects": [
@@ -664,7 +664,7 @@
     "number": 33,
     "type": "coordinator",
     "buildType": "Rough Play",
-    "description": "Team Foul Rate -_% while dashing",
+    "description": "Team Foul Rate -% while dashing",
     "strongValue": 1.5,
     "weakValue": 0,
     "effects": [
@@ -686,7 +686,7 @@
     "number": 34,
     "type": "coordinator",
     "buildType": "Rough Play",
-    "description": "Team Foul Rate -_% when outside the penalty area",
+    "description": "Team Foul Rate -% when outside the penalty area",
     "strongValue": 1.5,
     "weakValue": 0,
     "effects": [
@@ -1097,7 +1097,7 @@
     "number": 54,
     "type": "coordinator",
     "buildType": null,
-    "description": "Special tactics cooldown -_%",
+    "description": "Special tactics cooldown -%",
     "strongValue": 3,
     "weakValue": 0,
     "effects": [
@@ -1221,7 +1221,7 @@
     "number": 60,
     "type": "coordinator",
     "buildType": "Breach",
-    "description": "Tension required for Team Breach -_%",
+    "description": "Tension required for Team Breach -%",
     "strongValue": 4,
     "weakValue": 0,
     "effects": [
@@ -1481,7 +1481,7 @@
     "number": 72,
     "type": "coordinator",
     "buildType": "Bond",
-    "description": "Bond Power Loss -_% for 10 seconds when the team loses a Scramble",
+    "description": "Bond Power Loss -% for 10 seconds when the team loses a Scramble",
     "strongValue": 10,
     "weakValue": 0,
     "effects": [
@@ -1503,7 +1503,7 @@
     "number": 73,
     "type": "coordinator",
     "buildType": "Rough Play",
-    "description": "Team Foul Rate -_% while dashing",
+    "description": "Team Foul Rate -% while dashing",
     "strongValue": 3,
     "weakValue": 0,
     "effects": [
@@ -1525,7 +1525,7 @@
     "number": 74,
     "type": "coordinator",
     "buildType": "Rough Play",
-    "description": "Team Foul Rate -_% when outside the penalty area",
+    "description": "Team Foul Rate -% when outside the penalty area",
     "strongValue": 3,
     "weakValue": 0,
     "effects": [

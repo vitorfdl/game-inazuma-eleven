@@ -780,7 +780,7 @@
     "number": 43,
     "type": "player",
     "buildType": "Breach",
-    "description": "Tension required for Team Breach -_%",
+    "description": "Tension required for Team Breach -%",
     "strongValue": 3.6,
     "weakValue": 2.5,
     "effects": [
@@ -1062,7 +1062,7 @@
     "number": 56,
     "type": "player",
     "buildType": "Bond",
-    "description": "Bond Power Loss -_% for 10 seconds when the team loses a Scramble",
+    "description": "Bond Power Loss -% for 10 seconds when the team loses a Scramble",
     "strongValue": 9,
     "weakValue": 8,
     "effects": [
@@ -1084,7 +1084,7 @@
     "number": 57,
     "type": "player",
     "buildType": "Rough Play",
-    "description": "Team Foul Rate -_% while dashing",
+    "description": "Team Foul Rate -% while dashing",
     "strongValue": 4,
     "weakValue": 2.5,
     "effects": [
@@ -1106,7 +1106,7 @@
     "number": 58,
     "type": "player",
     "buildType": "Rough Play",
-    "description": "Team Foul Rate -_% when outside the penalty area",
+    "description": "Team Foul Rate -% when outside the penalty area",
     "strongValue": 4,
     "weakValue": 2.5,
     "effects": [
