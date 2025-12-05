@@ -1,0 +1,1680 @@
+[
+  {
+    "id": "manager_001",
+    "number": 1,
+    "type": "manager",
+    "buildType": null,
+    "description": "Shot AT +% for players of the same element",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_002",
+    "number": 2,
+    "type": "manager",
+    "buildType": null,
+    "description": "Focus Value +% for players of the same element",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_003",
+    "number": 3,
+    "type": "manager",
+    "buildType": null,
+    "description": "Scramble Value +% for players of the same element",
+    "strongValue": 9,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_004",
+    "number": 4,
+    "type": "manager",
+    "buildType": null,
+    "description": "Wall DF +% for players of the same element",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_005",
+    "number": 5,
+    "type": "manager",
+    "buildType": null,
+    "description": "Shot AT +% for players of different elements",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_006",
+    "number": 6,
+    "type": "manager",
+    "buildType": null,
+    "description": "Focus Value +% for players of different elements",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_007",
+    "number": 7,
+    "type": "manager",
+    "buildType": null,
+    "description": "Scramble Value +% for players of different elements",
+    "strongValue": 9,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_008",
+    "number": 8,
+    "type": "manager",
+    "buildType": null,
+    "description": "Wall DF +% for players of different elements",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_009",
+    "number": 9,
+    "type": "manager",
+    "buildType": null,
+    "description": "Team Focus Value +% in own half",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOwnHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_010",
+    "number": 10,
+    "type": "manager",
+    "buildType": null,
+    "description": "Team Focus Value +% in opponent's half",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOpponentHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_011",
+    "number": 11,
+    "type": "manager",
+    "buildType": null,
+    "description": "Team Focus Value +% when outside the penalty area",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "outsideZoneArea"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_012",
+    "number": 12,
+    "type": "manager",
+    "buildType": null,
+    "description": "After substitution, substitute player's AT +% for 15s",
+    "strongValue": 12,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "subbedOnPlayer",
+        "stat": "AT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterSubstitution"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_013",
+    "number": 13,
+    "type": "manager",
+    "buildType": null,
+    "description": "After substitution, substitute player's DF +% for 15s",
+    "strongValue": 12,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "subbedOnPlayer",
+        "stat": "DF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterSubstitution"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_014",
+    "number": 14,
+    "type": "manager",
+    "buildType": null,
+    "description": "Special tactics cooldown -_%",
+    "strongValue": 4.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "tacticCooldown",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_015",
+    "number": 15,
+    "type": "manager",
+    "buildType": null,
+    "description": "Team AT +% during the first half",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "AT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "matchTimeHalfFirst"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_016",
+    "number": 16,
+    "type": "manager",
+    "buildType": null,
+    "description": "Team DF +% during the second half",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "DF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "matchTimeHalfSecond"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_017",
+    "number": 17,
+    "type": "manager",
+    "buildType": "Breach",
+    "description": "Breach Rate +%",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "breachRate",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_018",
+    "number": 18,
+    "type": "manager",
+    "buildType": "Breach",
+    "description": "Breach Rate +% if the team has the same or fewer goals",
+    "strongValue": 4.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "breachRate",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "scoreNotLeading"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_019",
+    "number": 19,
+    "type": "manager",
+    "buildType": "Breach",
+    "description": "Wall Piercing +% if Team Breach Rate is 15% or higher",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "wallPierce",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "teamBreachRateAtLeast15"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_020",
+    "number": 20,
+    "type": "manager",
+    "buildType": "Breach",
+    "description": "Tension required for Team Breach -_%",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "breachTensionRequirement",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_021",
+    "number": 21,
+    "type": "manager",
+    "buildType": "Tension",
+    "description": "Tension +% when the team wins a Focus or Scramble",
+    "strongValue": 9,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "tension",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "whenWinningFocusOrScramble"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_022",
+    "number": 22,
+    "type": "manager",
+    "buildType": "Tension",
+    "description": "Team Focus Value +% when Tension is at 50% or more",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "tensionAtLeast50"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_023",
+    "number": 23,
+    "type": "manager",
+    "buildType": "Tension",
+    "description": "Team Shot AT +% when Tension is at 100%",
+    "strongValue": 9,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "tensionAt100"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_024",
+    "number": 24,
+    "type": "manager",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, Team Shot AT +% for the next 15 seconds",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_025",
+    "number": 25,
+    "type": "manager",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, MF Focus AT/DF +% for the next 15 seconds",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliedMF",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_026",
+    "number": 26,
+    "type": "manager",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, DF Focus AT/DF +% for the next 15 seconds",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliedDF",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_027",
+    "number": 27,
+    "type": "manager",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, KP (Keeper Power) increases by _% for the next 15 seconds",
+    "strongValue": 7.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliedGK",
+        "stat": "KP",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_028",
+    "number": 28,
+    "type": "manager",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, Team Rough Attack AT/DF +% for the next 15 seconds",
+    "strongValue": 9,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "roughAttack",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_029",
+    "number": 29,
+    "type": "manager",
+    "buildType": "Bond",
+    "description": "Bond Power gained +% when the team passes",
+    "strongValue": 9,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondGain",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onTeamPass"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_030",
+    "number": 30,
+    "type": "manager",
+    "buildType": "Bond",
+    "description": "Team Scramble Value +% if Bond Power is 20% or more",
+    "strongValue": 15,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "bondPowerAtLeast20"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_031",
+    "number": 31,
+    "type": "manager",
+    "buildType": "Bond",
+    "description": "Team Direct Shot AT +% if Bond Power is 20% or more",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "directShotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "bondPowerAtLeast20"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_032",
+    "number": 32,
+    "type": "manager",
+    "buildType": "Bond",
+    "description": "Bond Power Loss -_% for 10 seconds when the team loses a Scramble",
+    "strongValue": 15,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondLoss",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": [
+          {
+            "type": "onLostScramble"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_033",
+    "number": 33,
+    "type": "manager",
+    "buildType": "Rough Play",
+    "description": "Team Foul Rate -_% while dashing",
+    "strongValue": 4.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "foulRate",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": [
+          {
+            "type": "whileDashing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_034",
+    "number": 34,
+    "type": "manager",
+    "buildType": "Rough Play",
+    "description": "Team Foul Rate -_% when outside the penalty area",
+    "strongValue": 4.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "foulRate",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": [
+          {
+            "type": "outsideZoneArea"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_035",
+    "number": 35,
+    "type": "manager",
+    "buildType": "Rough Play",
+    "description": "Tension +% when marked or blocked while dashing",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "tension",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onMarkedOrBlockedWhileDashing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_036",
+    "number": 36,
+    "type": "manager",
+    "buildType": "Rough Play",
+    "description": "Next Team Rough Attack AT/DF +% when marked or blocked while dashing",
+    "strongValue": 7.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "roughAttack",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onMarkedOrBlockedWhileDashing"
+          },
+          {
+            "type": "nextRoughAttackOnly"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_037",
+    "number": 37,
+    "type": "manager",
+    "buildType": "Justice",
+    "description": "Bond Power +% when marked or blocked while dashing",
+    "strongValue": 15,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondGain",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onMarkedOrBlockedWhileDashing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_038",
+    "number": 38,
+    "type": "manager",
+    "buildType": "Justice",
+    "description": "Bond Power +% when the opponent commits a foul",
+    "strongValue": 12,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondGain",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onOpponentFoul"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_039",
+    "number": 39,
+    "type": "manager",
+    "buildType": "Justice",
+    "description": "Wall DF +% until the team commits a foul",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "noFoulCommittedYet"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_040",
+    "number": 40,
+    "type": "manager",
+    "buildType": "Justice",
+    "description": "Team AT/DF +% until the team commits a foul",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "all",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "noFoulCommittedYet"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_041",
+    "number": 41,
+    "type": "manager",
+    "buildType": null,
+    "description": "Shot AT +% for players of the same element",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_042",
+    "number": 42,
+    "type": "manager",
+    "buildType": null,
+    "description": "Focus Value +% for players of the same element",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_043",
+    "number": 43,
+    "type": "manager",
+    "buildType": null,
+    "description": "Scramble Value +% for players of the same element",
+    "strongValue": 18,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_044",
+    "number": 44,
+    "type": "manager",
+    "buildType": null,
+    "description": "Wall DF +% for players of the same element",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_045",
+    "number": 45,
+    "type": "manager",
+    "buildType": null,
+    "description": "Shot AT +% for players of different elements",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_046",
+    "number": 46,
+    "type": "manager",
+    "buildType": null,
+    "description": "Focus Value +% for players of different elements",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_047",
+    "number": 47,
+    "type": "manager",
+    "buildType": null,
+    "description": "Scramble Value +% for players of different elements",
+    "strongValue": 18,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_048",
+    "number": 48,
+    "type": "manager",
+    "buildType": null,
+    "description": "Wall DF +% for players of different elements",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_049",
+    "number": 49,
+    "type": "manager",
+    "buildType": null,
+    "description": "Team Focus Value +% in own half",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOwnHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_050",
+    "number": 50,
+    "type": "manager",
+    "buildType": null,
+    "description": "Team Focus Value +% in opponent's half",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOpponentHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_051",
+    "number": 51,
+    "type": "manager",
+    "buildType": null,
+    "description": "Team Focus Value +% when outside the penalty area",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "outsideZoneArea"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_052",
+    "number": 52,
+    "type": "manager",
+    "buildType": null,
+    "description": "After substitution, substitute player's AT +% for 15s",
+    "strongValue": 25,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "subbedOnPlayer",
+        "stat": "AT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterSubstitution"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_053",
+    "number": 53,
+    "type": "manager",
+    "buildType": null,
+    "description": "After substitution, substitute player's DF +% for 15s",
+    "strongValue": 25,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "subbedOnPlayer",
+        "stat": "DF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterSubstitution"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_054",
+    "number": 54,
+    "type": "manager",
+    "buildType": null,
+    "description": "Special tactics cooldown -_%",
+    "strongValue": 9,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "tacticCooldown",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_055",
+    "number": 55,
+    "type": "manager",
+    "buildType": null,
+    "description": "Team AT +% during the first half",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "AT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "matchTimeHalfFirst"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_056",
+    "number": 56,
+    "type": "manager",
+    "buildType": null,
+    "description": "Team DF +% during the second half",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "DF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "matchTimeHalfSecond"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_057",
+    "number": 57,
+    "type": "manager",
+    "buildType": "Breach",
+    "description": "Breach Rate +%",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "breachRate",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_058",
+    "number": 58,
+    "type": "manager",
+    "buildType": "Breach",
+    "description": "Breach Rate +% if the team has the same or fewer goals",
+    "strongValue": 9,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "breachRate",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "scoreNotLeading"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_059",
+    "number": 59,
+    "type": "manager",
+    "buildType": "Breach",
+    "description": "Wall Piercing +% if Team Breach Rate is 15% or higher",
+    "strongValue": 12,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "wallPierce",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "teamBreachRateAtLeast15"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_060",
+    "number": 60,
+    "type": "manager",
+    "buildType": "Breach",
+    "description": "Tension required for Team Breach -_%",
+    "strongValue": 12,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "breachTensionRequirement",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "manager_061",
+    "number": 61,
+    "type": "manager",
+    "buildType": "Tension",
+    "description": "Tension +% when the team wins a Focus or Scramble",
+    "strongValue": 18,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "tension",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "whenWinningFocusOrScramble"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_062",
+    "number": 62,
+    "type": "manager",
+    "buildType": "Tension",
+    "description": "Team Focus Value +% when Tension is at 50% or more",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "tensionAtLeast50"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_063",
+    "number": 63,
+    "type": "manager",
+    "buildType": "Tension",
+    "description": "Team Shot AT +% when Tension is at 100%",
+    "strongValue": 18,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "tensionAt100"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_064",
+    "number": 64,
+    "type": "manager",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, Team Shot AT +% for the next 15 seconds",
+    "strongValue": 12,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_065",
+    "number": 65,
+    "type": "manager",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, MF Focus AT/DF +% for the next 15 seconds",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliedMF",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_066",
+    "number": 66,
+    "type": "manager",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, DF Focus AT/DF +% for the next 15 seconds",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliedDF",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_067",
+    "number": 67,
+    "type": "manager",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, KP (Keeper Power) increases by _% for the next 15 seconds",
+    "strongValue": 15,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliedGK",
+        "stat": "KP",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_068",
+    "number": 68,
+    "type": "manager",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, Team Rough Attack AT/DF +% for the next 15 seconds",
+    "strongValue": 18,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "roughAttack",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_069",
+    "number": 69,
+    "type": "manager",
+    "buildType": "Bond",
+    "description": "Bond Power gained +% when the team passes",
+    "strongValue": 18,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondGain",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onTeamPass"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_070",
+    "number": 70,
+    "type": "manager",
+    "buildType": "Bond",
+    "description": "Team Scramble Value +% if Bond Power is 20% or more",
+    "strongValue": 30,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "bondPowerAtLeast20"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_071",
+    "number": 71,
+    "type": "manager",
+    "buildType": "Bond",
+    "description": "Team Direct Shot AT +% if Bond Power is 20% or more",
+    "strongValue": 12,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "directShotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "bondPowerAtLeast20"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_072",
+    "number": 72,
+    "type": "manager",
+    "buildType": "Bond",
+    "description": "Bond Power Loss -_% for 10 seconds when the team loses a Scramble",
+    "strongValue": 30,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondLoss",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": [
+          {
+            "type": "onLostScramble"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_073",
+    "number": 73,
+    "type": "manager",
+    "buildType": "Rough Play",
+    "description": "Team Foul Rate -_% while dashing",
+    "strongValue": 9,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "foulRate",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": [
+          {
+            "type": "whileDashing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_074",
+    "number": 74,
+    "type": "manager",
+    "buildType": "Rough Play",
+    "description": "Team Foul Rate -_% when outside the penalty area",
+    "strongValue": 9,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "foulRate",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": [
+          {
+            "type": "outsideZoneArea"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_075",
+    "number": 75,
+    "type": "manager",
+    "buildType": "Rough Play",
+    "description": "Tension +% when marked or blocked while dashing",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "tension",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onMarkedOrBlockedWhileDashing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_076",
+    "number": 76,
+    "type": "manager",
+    "buildType": "Rough Play",
+    "description": "Next Team Rough Attack AT/DF +% when marked or blocked while dashing",
+    "strongValue": 15,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "roughAttack",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onMarkedOrBlockedWhileDashing"
+          },
+          {
+            "type": "nextRoughAttackOnly"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_077",
+    "number": 77,
+    "type": "manager",
+    "buildType": "Justice",
+    "description": "Bond Power +% when marked or blocked while dashing",
+    "strongValue": 30,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondGain",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onMarkedOrBlockedWhileDashing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_078",
+    "number": 78,
+    "type": "manager",
+    "buildType": "Justice",
+    "description": "Bond Power +% when the opponent commits a foul",
+    "strongValue": 25,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondGain",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onOpponentFoul"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_079",
+    "number": 79,
+    "type": "manager",
+    "buildType": "Justice",
+    "description": "Wall DF +% until the team commits a foul",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "noFoulCommittedYet"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manager_080",
+    "number": 80,
+    "type": "manager",
+    "buildType": "Justice",
+    "description": "Team AT/DF +% until the team commits a foul",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "all",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "noFoulCommittedYet"
+          }
+        ]
+      }
+    ]
+  }
+]

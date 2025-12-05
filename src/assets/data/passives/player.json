@@ -1,0 +1,1261 @@
+[
+  {
+    "id": "passive_001",
+    "number": 1,
+    "type": "player",
+    "buildType": null,
+    "description": "Shot AT +% for players of the same element",
+    "strongValue": 1.5,
+    "weakValue": 1,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "passive_002",
+    "number": 2,
+    "type": "player",
+    "buildType": null,
+    "description": "Focus Value +% for players of the same element",
+    "strongValue": 1.1,
+    "weakValue": 1,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "passive_003",
+    "number": 3,
+    "type": "player",
+    "buildType": null,
+    "description": "Scramble Value +% for players of the same element",
+    "strongValue": 3.5,
+    "weakValue": 2,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "passive_004",
+    "number": 4,
+    "type": "player",
+    "buildType": null,
+    "description": "Wall DF +% for players of the same element",
+    "strongValue": 1,
+    "weakValue": 0.7,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "passive_005",
+    "number": 5,
+    "type": "player",
+    "buildType": null,
+    "description": "Shot AT +% for players of different elements",
+    "strongValue": 1,
+    "weakValue": null,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "passive_006",
+    "number": 6,
+    "type": "player",
+    "buildType": null,
+    "description": "Focus Value +% for players of different elements",
+    "strongValue": 1.5,
+    "weakValue": 1,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "passive_007",
+    "number": 7,
+    "type": "player",
+    "buildType": null,
+    "description": "Scramble Value +% for players of different elements",
+    "strongValue": 4.5,
+    "weakValue": 3,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "passive_008",
+    "number": 8,
+    "type": "player",
+    "buildType": null,
+    "description": "Wall DF +% for players of different elements",
+    "strongValue": 1.5,
+    "weakValue": 1,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "passive_009",
+    "number": 9,
+    "type": "player",
+    "buildType": null,
+    "description": "Shot AT +% for players of the same position",
+    "strongValue": 2.5,
+    "weakValue": null,
+    "effects": [
+      {
+        "scope": "alliesSamePosition",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "passive_010",
+    "number": 10,
+    "type": "player",
+    "buildType": null,
+    "description": "Focus Value +% for players of the same position",
+    "strongValue": 1.5,
+    "weakValue": 1,
+    "effects": [
+      {
+        "scope": "alliesSamePosition",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "passive_011",
+    "number": 11,
+    "type": "player",
+    "buildType": null,
+    "description": "Scramble Value +% for players of the same position",
+    "strongValue": 8.5,
+    "weakValue": 7,
+    "effects": [
+      {
+        "scope": "alliesSamePosition",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "passive_014",
+    "number": 14,
+    "type": "player",
+    "buildType": null,
+    "description": "Focus Value +% for players of different positions",
+    "strongValue": 1.2,
+    "weakValue": 1,
+    "effects": [
+      {
+        "scope": "alliesDifferentPosition",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "passive_015",
+    "number": 15,
+    "type": "player",
+    "buildType": null,
+    "description": "Scramble Value +% for players of different positions",
+    "strongValue": 4.5,
+    "weakValue": 3,
+    "effects": [
+      {
+        "scope": "alliesDifferentPosition",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "passive_016",
+    "number": 16,
+    "type": "player",
+    "buildType": null,
+    "description": "Wall DF +% for players of different positions",
+    "strongValue": 2,
+    "weakValue": null,
+    "effects": [
+      {
+        "scope": "alliesDifferentPosition",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "passive_017",
+    "number": 17,
+    "type": "player",
+    "buildType": null,
+    "description": "Shot AT +% for nearby players",
+    "strongValue": 3.5,
+    "weakValue": 2,
+    "effects": [
+      {
+        "scope": "nearbyAllies",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "distanceWithinRadius"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_018",
+    "number": 18,
+    "type": "player",
+    "buildType": null,
+    "description": "Focus Value +% for nearby players",
+    "strongValue": 2,
+    "weakValue": 1.5,
+    "effects": [
+      {
+        "scope": "nearbyAllies",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "distanceWithinRadius"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_019",
+    "number": 19,
+    "type": "player",
+    "buildType": null,
+    "description": "Scramble Value +% for nearby players",
+    "strongValue": 8.5,
+    "weakValue": null,
+    "effects": [
+      {
+        "scope": "nearbyAllies",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "distanceWithinRadius"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_020",
+    "number": 20,
+    "type": "player",
+    "buildType": null,
+    "description": "Wall DF +% for nearby players",
+    "strongValue": 3.5,
+    "weakValue": 2,
+    "effects": [
+      {
+        "scope": "nearbyAllies",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "distanceWithinRadius"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_021",
+    "number": 21,
+    "type": "player",
+    "buildType": null,
+    "description": "Own Shot AT +% when a player of the same element is nearby",
+    "strongValue": 8,
+    "weakValue": 6,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "sameElementAllyNearby"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_022",
+    "number": 22,
+    "type": "player",
+    "buildType": null,
+    "description": "Own Focus Value +% when a player of the same element is nearby",
+    "strongValue": 8,
+    "weakValue": 7,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "sameElementAllyNearby"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_023",
+    "number": 23,
+    "type": "player",
+    "buildType": null,
+    "description": "Own Scramble Value +% when a player of the same element is nearby",
+    "strongValue": 20,
+    "weakValue": 15,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "sameElementAllyNearby"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_024",
+    "number": 24,
+    "type": "player",
+    "buildType": null,
+    "description": "Own Wall DF +% when a player of the same element is nearby",
+    "strongValue": 7,
+    "weakValue": 6,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "sameElementAllyNearby"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_025",
+    "number": 25,
+    "type": "player",
+    "buildType": null,
+    "description": "Own Shot AT +% when a player of a different element is nearby",
+    "strongValue": 8,
+    "weakValue": null,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "differentElementAllyNearby"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_026",
+    "number": 26,
+    "type": "player",
+    "buildType": null,
+    "description": "Own Focus Value +% when a player of a different element is nearby",
+    "strongValue": 7,
+    "weakValue": 5.5,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "differentElementAllyNearby"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_027",
+    "number": 27,
+    "type": "player",
+    "buildType": null,
+    "description": "Own Wall DF +% when a player of a different element is nearby",
+    "strongValue": 4,
+    "weakValue": null,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "differentElementAllyNearby"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_028",
+    "number": 28,
+    "type": "player",
+    "buildType": null,
+    "description": "Own Focus Value +% when in own half",
+    "strongValue": 7,
+    "weakValue": 5.5,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOwnHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_029",
+    "number": 29,
+    "type": "player",
+    "buildType": null,
+    "description": "Own Scramble Value +% when in own half",
+    "strongValue": 15,
+    "weakValue": 12,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOwnHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_030",
+    "number": 30,
+    "type": "player",
+    "buildType": null,
+    "description": "Team Focus Value +% when in own half",
+    "strongValue": 1,
+    "weakValue": 0.6,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOwnHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_031",
+    "number": 31,
+    "type": "player",
+    "buildType": null,
+    "description": "Own Shot AT +% when in opponent's half",
+    "strongValue": 8,
+    "weakValue": 6,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOpponentHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_032",
+    "number": 32,
+    "type": "player",
+    "buildType": null,
+    "description": "Own Focus Value +% when in opponent's half",
+    "strongValue": 7,
+    "weakValue": 6,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOpponentHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_033",
+    "number": 33,
+    "type": "player",
+    "buildType": null,
+    "description": "Own Scramble Value +% when in opponent's half",
+    "strongValue": 10,
+    "weakValue": null,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOpponentHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_034",
+    "number": 34,
+    "type": "player",
+    "buildType": null,
+    "description": "Team Focus Value +% when in opponent's half",
+    "strongValue": 1,
+    "weakValue": 0.6,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOpponentHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_035",
+    "number": 35,
+    "type": "player",
+    "buildType": null,
+    "description": "Own Focus Value +% when outside the penalty area",
+    "strongValue": 6,
+    "weakValue": 5,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "outsideZoneArea"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_036",
+    "number": 36,
+    "type": "player",
+    "buildType": null,
+    "description": "Own Scramble Value +% when outside the penalty area",
+    "strongValue": 13,
+    "weakValue": 10,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "outsideZoneArea"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_037",
+    "number": 37,
+    "type": "player",
+    "buildType": null,
+    "description": "Team Focus Value +% when outside the penalty area",
+    "strongValue": 1,
+    "weakValue": 0.6,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "outsideZoneArea"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_040",
+    "number": 40,
+    "type": "player",
+    "buildType": "Breach",
+    "description": "Breach Rate +%",
+    "strongValue": 1.8,
+    "weakValue": 1.2,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "breachRate",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "passive_041",
+    "number": 41,
+    "type": "player",
+    "buildType": "Breach",
+    "description": "Breach Rate +% if the team has the same or fewer goals",
+    "strongValue": 2.7,
+    "weakValue": 2,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "breachRate",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "scoreNotLeading"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_042",
+    "number": 42,
+    "type": "player",
+    "buildType": "Breach",
+    "description": "Wall Piercing +% if Team Breach Rate is 15% or higher",
+    "strongValue": 3.6,
+    "weakValue": 2.5,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "wallPierce",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "teamBreachRateAtLeast15"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_043",
+    "number": 43,
+    "type": "player",
+    "buildType": "Breach",
+    "description": "Tension required for Team Breach -_%",
+    "strongValue": 3.6,
+    "weakValue": 2.5,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "breachTensionRequirement",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "passive_044",
+    "number": 44,
+    "type": "player",
+    "buildType": "Tension",
+    "description": "When the opponent passes during a Focus, drains _% Tension",
+    "strongValue": 65,
+    "weakValue": 50,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "tension",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": [
+          {
+            "type": "onOpponentPassDuringFocus"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_045",
+    "number": 45,
+    "type": "player",
+    "buildType": "Tension",
+    "description": "Tension +% when the team wins a Focus or Scramble",
+    "strongValue": 5.4,
+    "weakValue": 4,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "tension",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "whenWinningFocusOrScramble"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_046",
+    "number": 46,
+    "type": "player",
+    "buildType": "Tension",
+    "description": "Team Focus Value +% when Tension is at 50% or more",
+    "strongValue": 2,
+    "weakValue": 1.5,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "tensionAtLeast50"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_047",
+    "number": 47,
+    "type": "player",
+    "buildType": "Tension",
+    "description": "Team Shot AT +% when Tension is at 100%",
+    "strongValue": 5.5,
+    "weakValue": 4.5,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "tensionAt100"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_048",
+    "number": 48,
+    "type": "player",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, Team Shot AT +% for the next 15 seconds",
+    "strongValue": 3.5,
+    "weakValue": 3,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_049",
+    "number": 49,
+    "type": "player",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, MF Focus AT/DF +% for the next 15 seconds",
+    "strongValue": 2,
+    "weakValue": 1.5,
+    "effects": [
+      {
+        "scope": "alliedMF",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_050",
+    "number": 50,
+    "type": "player",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, DF Focus AT/DF +% for the next 15 seconds",
+    "strongValue": 2,
+    "weakValue": 1.5,
+    "effects": [
+      {
+        "scope": "alliedDF",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_051",
+    "number": 51,
+    "type": "player",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, KP (Keeper Power) increases by _% for the next 15 seconds",
+    "strongValue": 5,
+    "weakValue": 3.5,
+    "effects": [
+      {
+        "scope": "alliedGK",
+        "stat": "KP",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_052",
+    "number": 52,
+    "type": "player",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, Team Rough Attack AT/DF +% for the next 15 seconds",
+    "strongValue": 5,
+    "weakValue": 3.5,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "roughAttack",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_053",
+    "number": 53,
+    "type": "player",
+    "buildType": "Bond",
+    "description": "Bond Power gained +% when the team passes",
+    "strongValue": 5.5,
+    "weakValue": 4,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondGain",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onTeamPass"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_054",
+    "number": 54,
+    "type": "player",
+    "buildType": "Bond",
+    "description": "Team Scramble Value +% if Bond Power is 20% or more",
+    "strongValue": 9,
+    "weakValue": 7,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "bondPowerAtLeast20"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_055",
+    "number": 55,
+    "type": "player",
+    "buildType": "Bond",
+    "description": "Team Direct Shot AT +% if Bond Power is 20% or more",
+    "strongValue": 3.5,
+    "weakValue": 3,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "directShotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "bondPowerAtLeast20"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_056",
+    "number": 56,
+    "type": "player",
+    "buildType": "Bond",
+    "description": "Bond Power Loss -_% for 10 seconds when the team loses a Scramble",
+    "strongValue": 9,
+    "weakValue": 8,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondLoss",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": [
+          {
+            "type": "onLostScramble"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_057",
+    "number": 57,
+    "type": "player",
+    "buildType": "Rough Play",
+    "description": "Team Foul Rate -_% while dashing",
+    "strongValue": 4,
+    "weakValue": 2.5,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "foulRate",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": [
+          {
+            "type": "whileDashing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_058",
+    "number": 58,
+    "type": "player",
+    "buildType": "Rough Play",
+    "description": "Team Foul Rate -_% when outside the penalty area",
+    "strongValue": 4,
+    "weakValue": 2.5,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "foulRate",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": [
+          {
+            "type": "outsideZoneArea"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_059",
+    "number": 59,
+    "type": "player",
+    "buildType": "Rough Play",
+    "description": "Tension +% when marked or blocked while dashing",
+    "strongValue": 4,
+    "weakValue": 2.5,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "tension",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onMarkedOrBlockedWhileDashing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_060",
+    "number": 60,
+    "type": "player",
+    "buildType": "Rough Play",
+    "description": "Next Team Rough Attack AT/DF +% when marked or blocked while dashing",
+    "strongValue": 5,
+    "weakValue": 3.5,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "roughAttack",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onMarkedOrBlockedWhileDashing"
+          },
+          {
+            "type": "nextRoughAttackOnly"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_061",
+    "number": 61,
+    "type": "player",
+    "buildType": "Justice",
+    "description": "Bond Power +% when marked or blocked while dashing",
+    "strongValue": 8,
+    "weakValue": 6,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondGain",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onMarkedOrBlockedWhileDashing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_062",
+    "number": 62,
+    "type": "player",
+    "buildType": "Justice",
+    "description": "Bond Power +% when the opponent commits a foul",
+    "strongValue": 7,
+    "weakValue": 6,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondGain",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onOpponentFoul"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_063",
+    "number": 63,
+    "type": "player",
+    "buildType": "Justice",
+    "description": "Wall DF +% until the team commits a foul",
+    "strongValue": 2,
+    "weakValue": 1.5,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "noFoulCommittedYet"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_064",
+    "number": 64,
+    "type": "player",
+    "buildType": "Justice",
+    "description": "Team AT/DF +% until the team commits a foul",
+    "strongValue": 2,
+    "weakValue": 1.5,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "all",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "noFoulCommittedYet"
+          }
+        ]
+      }
+    ]
+  }
+]

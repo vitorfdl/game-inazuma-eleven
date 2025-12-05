@@ -1,0 +1,1680 @@
+[
+  {
+    "id": "coordinator_001",
+    "number": 1,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Shot AT +% for players of the same element",
+    "strongValue": 0.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_002",
+    "number": 2,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Focus Value +% for players of the same element",
+    "strongValue": 0.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_003",
+    "number": 3,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Scramble Value +% for players of the same element",
+    "strongValue": 0.9,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_004",
+    "number": 4,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Wall DF +% for players of the same element",
+    "strongValue": 0.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_005",
+    "number": 5,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Shot AT +% for players of different elements",
+    "strongValue": 0.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_006",
+    "number": 6,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Focus Value +% for players of different elements",
+    "strongValue": 0.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_007",
+    "number": 7,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Scramble Value +% for players of different elements",
+    "strongValue": 0.9,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_008",
+    "number": 8,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Wall DF +% for players of different elements",
+    "strongValue": 0.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_009",
+    "number": 9,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Team Focus Value +% in own half",
+    "strongValue": 0.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOwnHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_010",
+    "number": 10,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Team Focus Value +% in opponent's half",
+    "strongValue": 0.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOpponentHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_011",
+    "number": 11,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Team Focus Value +% when outside the penalty area",
+    "strongValue": 0.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "outsideZoneArea"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_012",
+    "number": 12,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "After substitution, substitute player's AT +% for 15s",
+    "strongValue": 4,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "subbedOnPlayer",
+        "stat": "AT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterSubstitution"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_013",
+    "number": 13,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "After substitution, substitute player's DF +% for 15s",
+    "strongValue": 4,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "subbedOnPlayer",
+        "stat": "DF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterSubstitution"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_014",
+    "number": 14,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Special tactics cooldown -_%",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "tacticCooldown",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_015",
+    "number": 15,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Team AT +% during the first half",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "AT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "matchTimeHalfFirst"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_016",
+    "number": 16,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Team DF +% during the second half",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "DF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "matchTimeHalfSecond"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_017",
+    "number": 17,
+    "type": "coordinator",
+    "buildType": "Breach",
+    "description": "Breach Rate +%",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "breachRate",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_018",
+    "number": 18,
+    "type": "coordinator",
+    "buildType": "Breach",
+    "description": "Breach Rate +% if the team has the same or fewer goals",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "breachRate",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "scoreNotLeading"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_019",
+    "number": 19,
+    "type": "coordinator",
+    "buildType": "Breach",
+    "description": "Wall Piercing +% if Team Breach Rate is 15% or higher",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "wallPierce",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "teamBreachRateAtLeast15"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_020",
+    "number": 20,
+    "type": "coordinator",
+    "buildType": "Breach",
+    "description": "Tension required for Team Breach -_%",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "breachTensionRequirement",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_021",
+    "number": 21,
+    "type": "coordinator",
+    "buildType": "Tension",
+    "description": "Tension +% when the team wins a Focus or Scramble",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "tension",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "whenWinningFocusOrScramble"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_022",
+    "number": 22,
+    "type": "coordinator",
+    "buildType": "Tension",
+    "description": "Team Focus Value +% when Tension is at 50% or more",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "tensionAtLeast50"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_023",
+    "number": 23,
+    "type": "coordinator",
+    "buildType": "Tension",
+    "description": "Team Shot AT +% when Tension is at 100%",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "tensionAt100"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_024",
+    "number": 24,
+    "type": "coordinator",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, Team Shot AT +% for the next 15 seconds",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_025",
+    "number": 25,
+    "type": "coordinator",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, MF Focus AT/DF +% for the next 15 seconds",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliedMF",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_026",
+    "number": 26,
+    "type": "coordinator",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, DF Focus AT/DF +% for the next 15 seconds",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliedDF",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_027",
+    "number": 27,
+    "type": "coordinator",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, KP (Keeper Power) increases by _% for the next 15 seconds",
+    "strongValue": 2.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliedGK",
+        "stat": "KP",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_028",
+    "number": 28,
+    "type": "coordinator",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, Team Rough Attack AT/DF +% for the next 15 seconds",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "roughAttack",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_029",
+    "number": 29,
+    "type": "coordinator",
+    "buildType": "Bond",
+    "description": "Bond Power gained +% when the team passes",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondGain",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onTeamPass"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_030",
+    "number": 30,
+    "type": "coordinator",
+    "buildType": "Bond",
+    "description": "Team Scramble Value +% if Bond Power is 20% or more",
+    "strongValue": 5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "bondPowerAtLeast20"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_031",
+    "number": 31,
+    "type": "coordinator",
+    "buildType": "Bond",
+    "description": "Team Direct Shot AT +% if Bond Power is 20% or more",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "directShotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "bondPowerAtLeast20"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_032",
+    "number": 32,
+    "type": "coordinator",
+    "buildType": "Bond",
+    "description": "Bond Power Loss -_% for 10 seconds when the team loses a Scramble",
+    "strongValue": 5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondLoss",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": [
+          {
+            "type": "onLostScramble"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_033",
+    "number": 33,
+    "type": "coordinator",
+    "buildType": "Rough Play",
+    "description": "Team Foul Rate -_% while dashing",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "foulRate",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": [
+          {
+            "type": "whileDashing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_034",
+    "number": 34,
+    "type": "coordinator",
+    "buildType": "Rough Play",
+    "description": "Team Foul Rate -_% when outside the penalty area",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "foulRate",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": [
+          {
+            "type": "outsideZoneArea"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_035",
+    "number": 35,
+    "type": "coordinator",
+    "buildType": "Rough Play",
+    "description": "Tension +% when marked or blocked while dashing",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "tension",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onMarkedOrBlockedWhileDashing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_036",
+    "number": 36,
+    "type": "coordinator",
+    "buildType": "Rough Play",
+    "description": "Next Team Rough Attack AT/DF +% when marked or blocked while dashing",
+    "strongValue": 2.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "roughAttack",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onMarkedOrBlockedWhileDashing"
+          },
+          {
+            "type": "nextRoughAttackOnly"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_037",
+    "number": 37,
+    "type": "coordinator",
+    "buildType": "Justice",
+    "description": "Bond Power +% when marked or blocked while dashing",
+    "strongValue": 4.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondGain",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onMarkedOrBlockedWhileDashing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_038",
+    "number": 38,
+    "type": "coordinator",
+    "buildType": "Justice",
+    "description": "Bond Power +% when the opponent commits a foul",
+    "strongValue": 3.8,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondGain",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onOpponentFoul"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_039",
+    "number": 39,
+    "type": "coordinator",
+    "buildType": "Justice",
+    "description": "Wall DF +% until the team commits a foul",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "noFoulCommittedYet"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_040",
+    "number": 40,
+    "type": "coordinator",
+    "buildType": "Justice",
+    "description": "Team AT/DF +% until the team commits a foul",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "all",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "noFoulCommittedYet"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_041",
+    "number": 41,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Shot AT +% for players of the same element",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_042",
+    "number": 42,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Focus Value +% for players of the same element",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_043",
+    "number": 43,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Scramble Value +% for players of the same element",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_044",
+    "number": 44,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Wall DF +% for players of the same element",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_045",
+    "number": 45,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Shot AT +% for players of different elements",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_046",
+    "number": 46,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Focus Value +% for players of different elements",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_047",
+    "number": 47,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Scramble Value +% for players of different elements",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_048",
+    "number": 48,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Wall DF +% for players of different elements",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_049",
+    "number": 49,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Team Focus Value +% in own half",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOwnHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_050",
+    "number": 50,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Team Focus Value +% in opponent's half",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOpponentHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_051",
+    "number": 51,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Team Focus Value +% when outside the penalty area",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "outsideZoneArea"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_052",
+    "number": 52,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "After substitution, substitute player's AT +% for 15s",
+    "strongValue": 8,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "subbedOnPlayer",
+        "stat": "AT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterSubstitution"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_053",
+    "number": 53,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "After substitution, substitute player's DF +% for 15s",
+    "strongValue": 8,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "subbedOnPlayer",
+        "stat": "DF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterSubstitution"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_054",
+    "number": 54,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Special tactics cooldown -_%",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "tacticCooldown",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_055",
+    "number": 55,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Team AT +% during the first half",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "AT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "matchTimeHalfFirst"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_056",
+    "number": 56,
+    "type": "coordinator",
+    "buildType": null,
+    "description": "Team DF +% during the second half",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "DF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "matchTimeHalfSecond"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_057",
+    "number": 57,
+    "type": "coordinator",
+    "buildType": "Breach",
+    "description": "Breach Rate +%",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "breachRate",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_058",
+    "number": 58,
+    "type": "coordinator",
+    "buildType": "Breach",
+    "description": "Breach Rate +% if the team has the same or fewer goals",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "breachRate",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "scoreNotLeading"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_059",
+    "number": 59,
+    "type": "coordinator",
+    "buildType": "Breach",
+    "description": "Wall Piercing +% if Team Breach Rate is 15% or higher",
+    "strongValue": 4,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "wallPierce",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "teamBreachRateAtLeast15"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_060",
+    "number": 60,
+    "type": "coordinator",
+    "buildType": "Breach",
+    "description": "Tension required for Team Breach -_%",
+    "strongValue": 4,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "breachTensionRequirement",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "coordinator_061",
+    "number": 61,
+    "type": "coordinator",
+    "buildType": "Tension",
+    "description": "Tension +% when the team wins a Focus or Scramble",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "tension",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "whenWinningFocusOrScramble"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_062",
+    "number": 62,
+    "type": "coordinator",
+    "buildType": "Tension",
+    "description": "Team Focus Value +% when Tension is at 50% or more",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "tensionAtLeast50"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_063",
+    "number": 63,
+    "type": "coordinator",
+    "buildType": "Tension",
+    "description": "Team Shot AT +% when Tension is at 100%",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "tensionAt100"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_064",
+    "number": 64,
+    "type": "coordinator",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, Team Shot AT +% for the next 15 seconds",
+    "strongValue": 4,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_065",
+    "number": 65,
+    "type": "coordinator",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, MF Focus AT/DF +% for the next 15 seconds",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliedMF",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_066",
+    "number": 66,
+    "type": "coordinator",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, DF Focus AT/DF +% for the next 15 seconds",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliedDF",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_067",
+    "number": 67,
+    "type": "coordinator",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, KP (Keeper Power) increases by _% for the next 15 seconds",
+    "strongValue": 5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliedGK",
+        "stat": "KP",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_068",
+    "number": 68,
+    "type": "coordinator",
+    "buildType": "Counter",
+    "description": "After recovering the ball without a direct catch, Team Rough Attack AT/DF +% for the next 15 seconds",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "roughAttack",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "afterBallRecoveryNoDirectCatch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_069",
+    "number": 69,
+    "type": "coordinator",
+    "buildType": "Bond",
+    "description": "Bond Power gained +% when the team passes",
+    "strongValue": 6,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondGain",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onTeamPass"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_070",
+    "number": 70,
+    "type": "coordinator",
+    "buildType": "Bond",
+    "description": "Team Scramble Value +% if Bond Power is 20% or more",
+    "strongValue": 10,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "bondPowerAtLeast20"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_071",
+    "number": 71,
+    "type": "coordinator",
+    "buildType": "Bond",
+    "description": "Team Direct Shot AT +% if Bond Power is 20% or more",
+    "strongValue": 4,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "directShotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "bondPowerAtLeast20"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_072",
+    "number": 72,
+    "type": "coordinator",
+    "buildType": "Bond",
+    "description": "Bond Power Loss -_% for 10 seconds when the team loses a Scramble",
+    "strongValue": 10,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondLoss",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": [
+          {
+            "type": "onLostScramble"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_073",
+    "number": 73,
+    "type": "coordinator",
+    "buildType": "Rough Play",
+    "description": "Team Foul Rate -_% while dashing",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "foulRate",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": [
+          {
+            "type": "whileDashing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_074",
+    "number": 74,
+    "type": "coordinator",
+    "buildType": "Rough Play",
+    "description": "Team Foul Rate -_% when outside the penalty area",
+    "strongValue": 3,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "foulRate",
+        "mode": "percent",
+        "direction": "decrease",
+        "conditions": [
+          {
+            "type": "outsideZoneArea"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_075",
+    "number": 75,
+    "type": "coordinator",
+    "buildType": "Rough Play",
+    "description": "Tension +% when marked or blocked while dashing",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "tension",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onMarkedOrBlockedWhileDashing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_076",
+    "number": 76,
+    "type": "coordinator",
+    "buildType": "Rough Play",
+    "description": "Next Team Rough Attack AT/DF +% when marked or blocked while dashing",
+    "strongValue": 5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "roughAttack",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onMarkedOrBlockedWhileDashing"
+          },
+          {
+            "type": "nextRoughAttackOnly"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_077",
+    "number": 77,
+    "type": "coordinator",
+    "buildType": "Justice",
+    "description": "Bond Power +% when marked or blocked while dashing",
+    "strongValue": 9,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondGain",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onMarkedOrBlockedWhileDashing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_078",
+    "number": 78,
+    "type": "coordinator",
+    "buildType": "Justice",
+    "description": "Bond Power +% when the opponent commits a foul",
+    "strongValue": 8,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "bondGain",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "onOpponentFoul"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_079",
+    "number": 79,
+    "type": "coordinator",
+    "buildType": "Justice",
+    "description": "Wall DF +% until the team commits a foul",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "noFoulCommittedYet"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coordinator_080",
+    "number": 80,
+    "type": "coordinator",
+    "buildType": "Justice",
+    "description": "Team AT/DF +% until the team commits a foul",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "all",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "noFoulCommittedYet"
+          }
+        ]
+      }
+    ]
+  }
+]

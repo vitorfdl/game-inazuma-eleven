@@ -1,0 +1,752 @@
+[
+  {
+    "id": "custom_001",
+    "number": 1,
+    "type": "custom",
+    "buildType": null,
+    "description": "Shot AT +% for players of the same element",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "custom_002",
+    "number": 2,
+    "type": "custom",
+    "buildType": null,
+    "description": "Focus Value +% for players of the same element",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "custom_003",
+    "number": 3,
+    "type": "custom",
+    "buildType": null,
+    "description": "Scramble Value +% for players of the same element",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "custom_004",
+    "number": 4,
+    "type": "custom",
+    "buildType": null,
+    "description": "Wall DF +% for players of the same element",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSameElement",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "custom_005",
+    "number": 5,
+    "type": "custom",
+    "buildType": null,
+    "description": "Shot AT +% for players of different elements",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "custom_006",
+    "number": 6,
+    "type": "custom",
+    "buildType": null,
+    "description": "Focus Value +% for players of different elements",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "custom_007",
+    "number": 7,
+    "type": "custom",
+    "buildType": null,
+    "description": "Scramble Value +% for players of different elements",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "custom_008",
+    "number": 8,
+    "type": "custom",
+    "buildType": null,
+    "description": "Wall DF +% for players of different elements",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentElement",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "custom_009",
+    "number": 9,
+    "type": "custom",
+    "buildType": null,
+    "description": "Shot AT +% for players of the same position",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSamePosition",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "custom_010",
+    "number": 10,
+    "type": "custom",
+    "buildType": null,
+    "description": "Focus Value +% for players of the same position",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSamePosition",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "custom_011",
+    "number": 11,
+    "type": "custom",
+    "buildType": null,
+    "description": "Scramble Value +% for players of the same position",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesSamePosition",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "custom_012",
+    "number": 12,
+    "type": "custom",
+    "buildType": null,
+    "description": "Focus Value +% for players of different positions",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentPosition",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "custom_013",
+    "number": 13,
+    "type": "custom",
+    "buildType": null,
+    "description": "Scramble Value +% for players of different positions",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentPosition",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "custom_014",
+    "number": 14,
+    "type": "custom",
+    "buildType": null,
+    "description": "Wall DF +% for players of different positions",
+    "strongValue": 1,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "alliesDifferentPosition",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "custom_015",
+    "number": 15,
+    "type": "custom",
+    "buildType": null,
+    "description": "Shot AT +% for nearby players",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "nearbyAllies",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "distanceWithinRadius"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_016",
+    "number": 16,
+    "type": "custom",
+    "buildType": null,
+    "description": "Focus Value +% for nearby players",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "nearbyAllies",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "distanceWithinRadius"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_017",
+    "number": 17,
+    "type": "custom",
+    "buildType": null,
+    "description": "Scramble Value +% for nearby players",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "nearbyAllies",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "distanceWithinRadius"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_018",
+    "number": 18,
+    "type": "custom",
+    "buildType": null,
+    "description": "Wall DF +% for nearby players",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "nearbyAllies",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "distanceWithinRadius"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_019",
+    "number": 19,
+    "type": "custom",
+    "buildType": null,
+    "description": "Own Shot AT +% when a player of the same element is nearby",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "sameElementAllyNearby"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_020",
+    "number": 20,
+    "type": "custom",
+    "buildType": null,
+    "description": "Own Focus Value +% when a player of the same element is nearby",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "sameElementAllyNearby"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_021",
+    "number": 21,
+    "type": "custom",
+    "buildType": null,
+    "description": "Own Scramble Value +% when a player of the same element is nearby",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "sameElementAllyNearby"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_022",
+    "number": 22,
+    "type": "custom",
+    "buildType": null,
+    "description": "Own Wall DF +% when a player of the same element is nearby",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "sameElementAllyNearby"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_023",
+    "number": 23,
+    "type": "custom",
+    "buildType": null,
+    "description": "Own Shot AT +% when a player of a different element is nearby",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "differentElementAllyNearby"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_024",
+    "number": 24,
+    "type": "custom",
+    "buildType": null,
+    "description": "Own Focus Value +% when a player of the same element is nearby",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "sameElementAllyNearby"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_025",
+    "number": 25,
+    "type": "custom",
+    "buildType": null,
+    "description": "Own Wall DF +% when a player of a different element is nearby",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "wallDF",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "differentElementAllyNearby"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_026",
+    "number": 26,
+    "type": "custom",
+    "buildType": null,
+    "description": "Own Focus Value +% in own half",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOwnHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_027",
+    "number": 27,
+    "type": "custom",
+    "buildType": null,
+    "description": "Own Scramble Value +% in own half",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOwnHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_028",
+    "number": 28,
+    "type": "custom",
+    "buildType": null,
+    "description": "Team Focus Value +% in own half",
+    "strongValue": 0.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOwnHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_029",
+    "number": 29,
+    "type": "custom",
+    "buildType": null,
+    "description": "Own Shot AT +% in opponent's half",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "shotAT",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOpponentHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_030",
+    "number": 30,
+    "type": "custom",
+    "buildType": null,
+    "description": "Own Focus Value +% in opponent's half",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOpponentHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_031",
+    "number": 31,
+    "type": "custom",
+    "buildType": null,
+    "description": "Own Scramble Value +% in opponent's half",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOpponentHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_032",
+    "number": 32,
+    "type": "custom",
+    "buildType": null,
+    "description": "Team Focus Value +% in opponent's half",
+    "strongValue": 0.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "fieldZoneOpponentHalf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_033",
+    "number": 33,
+    "type": "custom",
+    "buildType": null,
+    "description": "Own Focus Value +% when outside the penalty area",
+    "strongValue": 1.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "outsideZoneArea"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_034",
+    "number": 34,
+    "type": "custom",
+    "buildType": null,
+    "description": "Own Scramble Value +% when outside the penalty area",
+    "strongValue": 2,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "self",
+        "stat": "scramble",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "outsideZoneArea"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_035",
+    "number": 35,
+    "type": "custom",
+    "buildType": null,
+    "description": "Team Focus Value +% when outside the penalty area",
+    "strongValue": 0.5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "focus",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": [
+          {
+            "type": "outsideZoneArea"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom_036",
+    "number": 36,
+    "type": "custom",
+    "buildType": null,
+    "description": "Team common item drop rate increases by +%",
+    "strongValue": 10,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "commonDropRate",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "custom_037",
+    "number": 37,
+    "type": "custom",
+    "buildType": null,
+    "description": "Team rare item drop rate increases by +%",
+    "strongValue": 5,
+    "weakValue": 0,
+    "effects": [
+      {
+        "scope": "team",
+        "stat": "rareDropRate",
+        "mode": "percent",
+        "direction": "increase",
+        "conditions": []
+      }
+    ]
+  }
+]

@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { Github, Languages, Moon, Shirt, Sparkles, Sun, Swords, Users, Wind } from "lucide-react";
+import { Github, Languages, Moon, Shirt, Sparkles, Sun, Swords, Trophy, Users, Wind } from "lucide-react";
 import { useEffect } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { ChangelogNoticeboard } from "@/components/changelog/ChangelogNoticeboard";
@@ -37,6 +37,9 @@ function getPageTitle(pathname: string): string {
 	if (pathname.startsWith("/team-builder")) {
 		return "Team Builder";
 	}
+	if (pathname.startsWith("/match-drops")) {
+		return "Match Drops";
+	}
 	return "StatFrame - Inazuma Eleven VC";
 }
 
@@ -67,6 +70,7 @@ export default function AppLayout() {
 	const playersActive = location.pathname === "/" || location.pathname.startsWith("/players");
 	const equipmentsActive = location.pathname.startsWith("/equipments");
 	const hissatsuActive = location.pathname.startsWith("/hissatsu");
+	const matchDropsActive = location.pathname.startsWith("/match-drops");
 	const teamBuilderActive = location.pathname.startsWith("/team-builder");
 	return (
 		<SidebarProvider>
@@ -79,7 +83,7 @@ export default function AppLayout() {
 						<div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden">
 							<h1 className="text-lg font-black tracking-tight text-foreground">
 								<span className="text-primary drop-shadow-[3px_3px_0_rgba(0,0,0,0.8)]">Stat</span>
-								<span className="drop-shadow-[3px_3px_0_rgba(0,0,0,0.8)]">Frame</span>
+								<span className="text-white drop-shadow-[3px_3px_0_rgba(0,0,0,0.8)]">Frame</span>
 							</h1>
 							<span className="truncate text-xs italic">Inazuma Eleven Victory Road</span>
 						</div>
@@ -119,6 +123,14 @@ export default function AppLayout() {
 										<NavLink to="/team-builder">
 											<Swords />
 											<span>Team Builder</span>
+										</NavLink>
+									</SidebarMenuButton>
+								</SidebarMenuItem>
+								<SidebarMenuItem>
+									<SidebarMenuButton asChild isActive={matchDropsActive}>
+										<NavLink to="/match-drops">
+											<Trophy />
+											<span>Match Drops</span>
 										</NavLink>
 									</SidebarMenuButton>
 								</SidebarMenuItem>

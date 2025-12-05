@@ -2,6 +2,7 @@ import { useAtom, useAtomValue } from "jotai";
 import { ArrowDown, ArrowUp, ArrowUpDown, RotateCcw, Search, Star } from "lucide-react";
 import type { MouseEvent } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { getPassiveBuildLabel, PassiveBadge } from "@/components/passives/PassiveBadge";
 import { ElementBadge, PlayerDetailsButton, PlayerDetailsDialog, type PlayerMetric, PositionBadge } from "@/components/player/PlayerDetailsDialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -57,6 +58,13 @@ const elementOptions = createSortedUniqueOptions(basePlayersDataset.map((player)
 const genderOptions = createSortedUniqueOptions(basePlayersDataset.map((player) => player.gender).filter((value) => value));
 const positionOptions = createSortedUniqueOptions(basePlayersDataset.map((player) => player.position));
 const roleOptions = createSortedUniqueOptions(basePlayersDataset.map((player) => player.role));
+const buildAffinityOptions = Array.from(new Set(basePlayersDataset.map((player) => (player.affinity === "unknown" ? "unknown" : player.affinity))))
+	.filter(Boolean)
+	.sort((a, b) => getPassiveBuildLabel(a).localeCompare(getPassiveBuildLabel(b)))
+	.map((value) => ({
+		value,
+		label: getPassiveBuildLabel(value),
+	}));
 
 const statsMetricColumns: TableColumn[] = [
 	...["kick", "control", "technique", "pressure", "physical", "agility", "intelligence", "total"].map((key) => ({
@@ -130,6 +138,10 @@ export default function PlayersPage() {
 			if (preferences.role !== "all" && player.role !== preferences.role) {
 				return false;
 			}
+			const normalizedAffinity = player.affinity === "unknown" ? "unknown" : player.affinity;
+			if (preferences.affinity !== "all" && normalizedAffinity !== preferences.affinity) {
+				return false;
+			}
 			if (preferences.favoritesOnly && !favoriteSet.has(player.id)) {
 				return false;
 			}
@@ -144,6 +156,7 @@ export default function PlayersPage() {
 		preferences.favoritesOnly,
 		preferences.position,
 		preferences.role,
+		preferences.affinity,
 		preferences.search,
 	]);
 
@@ -240,6 +253,7 @@ export default function PlayersPage() {
 		preferences.gender !== DEFAULT_PLAYERS_PREFERENCES.gender ||
 		preferences.position !== DEFAULT_PLAYERS_PREFERENCES.position ||
 		preferences.role !== DEFAULT_PLAYERS_PREFERENCES.role ||
+		preferences.affinity !== DEFAULT_PLAYERS_PREFERENCES.affinity ||
 		preferences.favoritesOnly !== DEFAULT_PLAYERS_PREFERENCES.favoritesOnly;
 
 	const handleUpdate = (patch: Partial<PlayersPreferences>) => {
@@ -253,6 +267,7 @@ export default function PlayersPage() {
 			gender: DEFAULT_PLAYERS_PREFERENCES.gender,
 			position: DEFAULT_PLAYERS_PREFERENCES.position,
 			role: DEFAULT_PLAYERS_PREFERENCES.role,
+			affinity: DEFAULT_PLAYERS_PREFERENCES.affinity,
 			favoritesOnly: DEFAULT_PLAYERS_PREFERENCES.favoritesOnly,
 		});
 	};
@@ -263,7 +278,7 @@ export default function PlayersPage() {
 			label: "Element",
 			value: preferences.element,
 			defaultLabel: "All elements",
-			options: elementOptions,
+			options: elementOptions.map((option) => ({ value: option, label: option })),
 			isActive: preferences.element !== DEFAULT_PLAYERS_PREFERENCES.element,
 			onValueChange: (value: string) => handleUpdate({ element: value }),
 		},
@@ -272,7 +287,7 @@ export default function PlayersPage() {
 			label: "Gender",
 			value: preferences.gender,
 			defaultLabel: "All genders",
-			options: genderOptions,
+			options: genderOptions.map((option) => ({ value: option, label: option })),
 			isActive: preferences.gender !== DEFAULT_PLAYERS_PREFERENCES.gender,
 			onValueChange: (value: string) => handleUpdate({ gender: value }),
 		},
@@ -281,7 +296,7 @@ export default function PlayersPage() {
 			label: "Position",
 			value: preferences.position,
 			defaultLabel: "All positions",
-			options: positionOptions,
+			options: positionOptions.map((option) => ({ value: option, label: option })),
 			isActive: preferences.position !== DEFAULT_PLAYERS_PREFERENCES.position,
 			onValueChange: (value: string) => handleUpdate({ position: value }),
 		},
@@ -290,9 +305,18 @@ export default function PlayersPage() {
 			label: "Role",
 			value: preferences.role,
 			defaultLabel: "All roles",
-			options: roleOptions,
+			options: roleOptions.map((option) => ({ value: option, label: option })),
 			isActive: preferences.role !== DEFAULT_PLAYERS_PREFERENCES.role,
 			onValueChange: (value: string) => handleUpdate({ role: value }),
+		},
+		{
+			key: "affinity",
+			label: "Build Affinity",
+			value: preferences.affinity,
+			defaultLabel: "All affinities",
+			options: buildAffinityOptions,
+			isActive: preferences.affinity !== DEFAULT_PLAYERS_PREFERENCES.affinity,
+			onValueChange: (value: string) => handleUpdate({ affinity: value }),
 		},
 	] as const;
 
@@ -403,11 +427,15 @@ export default function PlayersPage() {
 							</SelectTrigger>
 							<SelectContent>
 								<SelectItem value="all">{filter.defaultLabel}</SelectItem>
-								{filter.options.map((option) => (
-									<SelectItem key={option} value={option}>
-										{option}
-									</SelectItem>
-								))}
+								{filter.options.map((option) => {
+									const optionValue = typeof option === "string" ? option : option.value;
+									const optionLabel = typeof option === "string" ? option : option.label;
+									return (
+										<SelectItem key={optionValue} value={optionValue}>
+											{optionLabel}
+										</SelectItem>
+									);
+								})}
 							</SelectContent>
 						</Select>
 					))}
@@ -521,6 +549,7 @@ function PlayerIdentity({ player }: PlayerIdentityProps) {
 				<div className="mt-1 flex flex-wrap gap-1 text-xs">
 					<PositionBadge position={player.position} />
 					<ElementBadge element={player.element} />
+					{player.affinity !== "unknown" ? <PassiveBadge label={getPassiveBuildLabel(player.affinity)} buildType={player.affinity} /> : null}
 					<Badge variant="outline" className="px-2 py-0.5">
 						{player.role}
 					</Badge>

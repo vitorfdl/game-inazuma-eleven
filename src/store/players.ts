@@ -27,6 +27,7 @@ export type PlayersPreferences = {
 	gender: string;
 	position: string;
 	role: string;
+	affinity: string;
 	favoritesOnly: boolean;
 	viewMode: PlayersViewMode;
 	sortKey: PlayerTableSortKey;
@@ -41,6 +42,7 @@ export const DEFAULT_PLAYERS_PREFERENCES: PlayersPreferences = {
 	gender: "all",
 	position: "all",
 	role: "all",
+	affinity: "all",
 	favoritesOnly: false,
 	viewMode: "stats",
 	sortKey: "total",

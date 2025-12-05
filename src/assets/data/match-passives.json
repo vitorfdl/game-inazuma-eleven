@@ -1,0 +1,1444 @@
+[
+  {
+    "match": "Royal Academy",
+    "game": "Inazuma 1",
+    "drops": [
+      { "id": 1, "type": "custom" },
+      { "id": 2, "type": "custom" },
+      { "id": 3, "type": "custom" },
+      { "id": 4, "type": "custom" },
+      { "id": 5, "type": "custom" },
+      { "id": 6, "type": "custom" },
+      { "id": 7, "type": "custom" },
+      { "id": 8, "type": "custom" },
+      { "id": 36, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Inazuma KFC",
+    "game": "Inazuma 1",
+    "drops": [
+      { "id": 1, "type": "manager" },
+      { "id": 2, "type": "manager" },
+      { "id": 3, "type": "manager" },
+      { "id": 4, "type": "manager" },
+      { "id": 5, "type": "manager" },
+      { "id": 6, "type": "manager" },
+      { "id": 7, "type": "manager" },
+      { "id": 8, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Occult",
+    "game": "Inazuma 1",
+    "drops": [
+      { "id": 1, "type": "coordinator" },
+      { "id": 2, "type": "coordinator" },
+      { "id": 3, "type": "coordinator" },
+      { "id": 4, "type": "coordinator" },
+      { "id": 5, "type": "coordinator" },
+      { "id": 6, "type": "coordinator" },
+      { "id": 7, "type": "coordinator" },
+      { "id": 8, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Wild",
+    "game": "Inazuma 1",
+    "drops": [
+      { "id": 9, "type": "custom" },
+      { "id": 10, "type": "custom" },
+      { "id": 11, "type": "custom" },
+      { "id": 12, "type": "custom" },
+      { "id": 13, "type": "custom" },
+      { "id": 14, "type": "custom" },
+      { "id": 15, "type": "custom" },
+      { "id": 16, "type": "custom" },
+      { "id": 17, "type": "custom" },
+      { "id": 18, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Cybertech",
+    "game": "Inazuma 1",
+    "drops": [
+      { "id": 9, "type": "manager" },
+      { "id": 10, "type": "manager" },
+      { "id": 11, "type": "manager" },
+      { "id": 12, "type": "manager" },
+      { "id": 13, "type": "manager" },
+      { "id": 14, "type": "manager" },
+      { "id": 15, "type": "manager" },
+      { "id": 16, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Otaku",
+    "game": "Inazuma 1",
+    "drops": [
+      { "id": 9, "type": "coordinator" },
+      { "id": 10, "type": "coordinator" },
+      { "id": 11, "type": "coordinator" },
+      { "id": 12, "type": "coordinator" },
+      { "id": 13, "type": "coordinator" },
+      { "id": 14, "type": "coordinator" },
+      { "id": 15, "type": "coordinator" },
+      { "id": 16, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Royal Academy 2",
+    "game": "Inazuma 1",
+    "drops": [
+      { "id": 19, "type": "custom" },
+      { "id": 20, "type": "custom" },
+      { "id": 21, "type": "custom" },
+      { "id": 22, "type": "custom" },
+      { "id": 23, "type": "custom" },
+      { "id": 24, "type": "custom" },
+      { "id": 25, "type": "custom" },
+      { "id": 35, "type": "custom" },
+      { "id": 37, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Old Inazuma",
+    "game": "Inazuma 1",
+    "drops": [
+      { "id": 21, "type": "manager" },
+      { "id": 22, "type": "manager" },
+      { "id": 23, "type": "manager" },
+      { "id": 24, "type": "manager" },
+      { "id": 25, "type": "manager" },
+      { "id": 26, "type": "manager" },
+      { "id": 27, "type": "manager" },
+      { "id": 28, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Shuriken",
+    "game": "Inazuma 1",
+    "drops": [
+      { "id": 21, "type": "coordinator" },
+      { "id": 22, "type": "coordinator" },
+      { "id": 23, "type": "coordinator" },
+      { "id": 24, "type": "coordinator" },
+      { "id": 25, "type": "coordinator" },
+      { "id": 26, "type": "coordinator" },
+      { "id": 27, "type": "coordinator" },
+      { "id": 28, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Terria",
+    "game": "Inazuma 1",
+    "drops": [
+      { "id": 26, "type": "custom" },
+      { "id": 27, "type": "custom" },
+      { "id": 28, "type": "custom" },
+      { "id": 29, "type": "custom" },
+      { "id": 30, "type": "custom" },
+      { "id": 31, "type": "custom" },
+      { "id": 32, "type": "custom" },
+      { "id": 33, "type": "custom" },
+      { "id": 34, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Kirkwood",
+    "game": "Inazuma 1",
+    "drops": [
+      { "id": 17, "type": "manager" },
+      { "id": 18, "type": "manager" },
+      { "id": 19, "type": "manager" },
+      { "id": 20, "type": "manager" },
+      { "id": 29, "type": "manager" },
+      { "id": 30, "type": "manager" },
+      { "id": 31, "type": "manager" },
+      { "id": 32, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Zeus",
+    "game": "Inazuma 1",
+    "drops": [
+      { "id": 17, "type": "coordinator" },
+      { "id": 18, "type": "coordinator" },
+      { "id": 19, "type": "coordinator" },
+      { "id": 20, "type": "coordinator" },
+      { "id": 29, "type": "coordinator" },
+      { "id": 30, "type": "coordinator" },
+      { "id": 31, "type": "coordinator" },
+      { "id": 32, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Ogre",
+    "game": "Inazuma 1",
+    "drops": [
+      { "id": 1, "type": "custom" },
+      { "id": 2, "type": "custom" },
+      { "id": 3, "type": "custom" },
+      { "id": 4, "type": "custom" },
+      { "id": 5, "type": "custom" },
+      { "id": 6, "type": "custom" },
+      { "id": 7, "type": "custom" },
+      { "id": 8, "type": "custom" },
+      { "id": 36, "type": "custom" }
+    ]
+  },
+
+  {
+    "match": "Inazuma Kids",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 1, "type": "custom" },
+      { "id": 2, "type": "custom" },
+      { "id": 3, "type": "custom" },
+      { "id": 4, "type": "custom" },
+      { "id": 5, "type": "custom" },
+      { "id": 6, "type": "custom" },
+      { "id": 7, "type": "custom" },
+      { "id": 8, "type": "custom" },
+      { "id": 36, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Secret Service",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 33, "type": "player" },
+      { "id": 34, "type": "player" },
+      { "id": 35, "type": "player" },
+      { "id": 36, "type": "player" },
+      { "id": 37, "type": "player" },
+      { "id": 38, "type": "player" },
+      { "id": 39, "type": "player" },
+      { "id": 40, "type": "player" }
+    ]
+  },
+  {
+    "match": "Alpin",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 1, "type": "manager" },
+      { "id": 2, "type": "manager" },
+      { "id": 3, "type": "manager" },
+      { "id": 4, "type": "manager" },
+      { "id": 5, "type": "manager" },
+      { "id": 6, "type": "manager" },
+      { "id": 7, "type": "manager" },
+      { "id": 8, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Gemini Storm",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 1, "type": "player" },
+      { "id": 2, "type": "player" },
+      { "id": 3, "type": "player" },
+      { "id": 4, "type": "player" },
+      { "id": 5, "type": "player" },
+      { "id": 6, "type": "player" },
+      { "id": 7, "type": "player" },
+      { "id": 8, "type": "player" }
+    ]
+  },
+  {
+    "match": "Sacred Cloister",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 19, "type": "custom" },
+      { "id": 20, "type": "custom" },
+      { "id": 21, "type": "custom" },
+      { "id": 22, "type": "custom" },
+      { "id": 23, "type": "custom" },
+      { "id": 24, "type": "custom" },
+      { "id": 25, "type": "custom" },
+      { "id": 35, "type": "custom" },
+      { "id": 37, "type": "custom" }
+    ]
+  },
+  {
+    "match": "New Royal Academy",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 9, "type": "player" },
+      { "id": 10, "type": "player" },
+      { "id": 11, "type": "player" },
+      { "id": 12, "type": "player" },
+      { "id": 13, "type": "player" },
+      { "id": 14, "type": "player" },
+      { "id": 15, "type": "player" },
+      { "id": 16, "type": "player" }
+    ]
+  },
+  {
+    "match": "Triple C",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 26, "type": "custom" },
+      { "id": 27, "type": "custom" },
+      { "id": 28, "type": "custom" },
+      { "id": 29, "type": "custom" },
+      { "id": 30, "type": "custom" },
+      { "id": 31, "type": "custom" },
+      { "id": 32, "type": "custom" },
+      { "id": 33, "type": "custom" },
+      { "id": 34, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Epsilon",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 21, "type": "manager" },
+      { "id": 22, "type": "manager" },
+      { "id": 23, "type": "manager" },
+      { "id": 24, "type": "manager" },
+      { "id": 25, "type": "manager" },
+      { "id": 26, "type": "manager" },
+      { "id": 27, "type": "manager" },
+      { "id": 28, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Fauxshore",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 21, "type": "player" },
+      { "id": 22, "type": "player" },
+      { "id": 23, "type": "player" },
+      { "id": 24, "type": "player" },
+      { "id": 25, "type": "player" },
+      { "id": 26, "type": "player" },
+      { "id": 27, "type": "player" },
+      { "id": 28, "type": "player" }
+    ]
+  },
+  {
+    "match": "Mary Times",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 17, "type": "manager" },
+      { "id": 18, "type": "manager" },
+      { "id": 19, "type": "manager" },
+      { "id": 20, "type": "manager" },
+      { "id": 29, "type": "manager" },
+      { "id": 30, "type": "manager" },
+      { "id": 31, "type": "manager" },
+      { "id": 32, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Epsilon Plus",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 17, "type": "player" },
+      { "id": 18, "type": "player" },
+      { "id": 19, "type": "player" },
+      { "id": 20, "type": "player" },
+      { "id": 29, "type": "player" },
+      { "id": 30, "type": "player" },
+      { "id": 31, "type": "player" },
+      { "id": 32, "type": "player" }
+    ]
+  },
+  {
+    "match": "Prominence",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 9, "type": "custom" },
+      { "id": 10, "type": "custom" },
+      { "id": 11, "type": "custom" },
+      { "id": 12, "type": "custom" },
+      { "id": 13, "type": "custom" },
+      { "id": 14, "type": "custom" },
+      { "id": 15, "type": "custom" },
+      { "id": 16, "type": "custom" },
+      { "id": 17, "type": "custom" },
+      { "id": 18, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Diamond Dust",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 33, "type": "manager" },
+      { "id": 34, "type": "manager" },
+      { "id": 35, "type": "manager" },
+      { "id": 36, "type": "manager" },
+      { "id": 37, "type": "manager" },
+      { "id": 38, "type": "manager" },
+      { "id": 39, "type": "manager" },
+      { "id": 40, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Raimon",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 33, "type": "player" },
+      { "id": 34, "type": "player" },
+      { "id": 35, "type": "player" },
+      { "id": 36, "type": "player" },
+      { "id": 37, "type": "player" },
+      { "id": 38, "type": "player" },
+      { "id": 39, "type": "player" },
+      { "id": 40, "type": "player" }
+    ]
+  },
+  {
+    "match": "Chaos",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 19, "type": "custom" },
+      { "id": 20, "type": "custom" },
+      { "id": 21, "type": "custom" },
+      { "id": 22, "type": "custom" },
+      { "id": 23, "type": "custom" },
+      { "id": 24, "type": "custom" },
+      { "id": 25, "type": "custom" },
+      { "id": 35, "type": "custom" },
+      { "id": 37, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Genesis",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 1, "type": "manager" },
+      { "id": 2, "type": "manager" },
+      { "id": 3, "type": "manager" },
+      { "id": 4, "type": "manager" },
+      { "id": 5, "type": "manager" },
+      { "id": 6, "type": "manager" },
+      { "id": 7, "type": "manager" },
+      { "id": 8, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Dark Emperors",
+    "game": "Inazuma 2",
+    "drops": [
+      { "id": 1, "type": "player" },
+      { "id": 2, "type": "player" },
+      { "id": 3, "type": "player" },
+      { "id": 4, "type": "player" },
+      { "id": 5, "type": "player" },
+      { "id": 6, "type": "player" },
+      { "id": 7, "type": "player" },
+      { "id": 8, "type": "player" }
+    ]
+  },
+  {
+    "match": "Selection Team B",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 26, "type": "custom" },
+      { "id": 27, "type": "custom" },
+      { "id": 28, "type": "custom" },
+      { "id": 29, "type": "custom" },
+      { "id": 30, "type": "custom" },
+      { "id": 31, "type": "custom" },
+      { "id": 32, "type": "custom" },
+      { "id": 33, "type": "custom" },
+      { "id": 34, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Big Waves",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 9, "type": "manager" },
+      { "id": 10, "type": "manager" },
+      { "id": 11, "type": "manager" },
+      { "id": 12, "type": "manager" },
+      { "id": 13, "type": "manager" },
+      { "id": 14, "type": "manager" },
+      { "id": 15, "type": "manager" },
+      { "id": 16, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Desert Lions",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 9, "type": "coordinator" },
+      { "id": 10, "type": "coordinator" },
+      { "id": 11, "type": "coordinator" },
+      { "id": 12, "type": "coordinator" },
+      { "id": 13, "type": "coordinator" },
+      { "id": 14, "type": "coordinator" },
+      { "id": 15, "type": "coordinator" },
+      { "id": 16, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Neo Japan",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 1, "type": "custom" },
+      { "id": 2, "type": "custom" },
+      { "id": 3, "type": "custom" },
+      { "id": 4, "type": "custom" },
+      { "id": 5, "type": "custom" },
+      { "id": 6, "type": "custom" },
+      { "id": 7, "type": "custom" },
+      { "id": 8, "type": "custom" },
+      { "id": 36, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Fire Dragons",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 21, "type": "manager" },
+      { "id": 22, "type": "manager" },
+      { "id": 23, "type": "manager" },
+      { "id": 24, "type": "manager" },
+      { "id": 25, "type": "manager" },
+      { "id": 26, "type": "manager" },
+      { "id": 27, "type": "manager" },
+      { "id": 28, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Knights of Queen",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 21, "type": "coordinator" },
+      { "id": 22, "type": "coordinator" },
+      { "id": 23, "type": "coordinator" },
+      { "id": 24, "type": "coordinator" },
+      { "id": 25, "type": "coordinator" },
+      { "id": 26, "type": "coordinator" },
+      { "id": 27, "type": "coordinator" },
+      { "id": 28, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Team D",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 9, "type": "custom" },
+      { "id": 10, "type": "custom" },
+      { "id": 11, "type": "custom" },
+      { "id": 12, "type": "custom" },
+      { "id": 13, "type": "custom" },
+      { "id": 14, "type": "custom" },
+      { "id": 15, "type": "custom" },
+      { "id": 16, "type": "custom" },
+      { "id": 17, "type": "custom" },
+      { "id": 18, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Emperors",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 17, "type": "manager" },
+      { "id": 18, "type": "manager" },
+      { "id": 19, "type": "manager" },
+      { "id": 20, "type": "manager" },
+      { "id": 29, "type": "manager" },
+      { "id": 30, "type": "manager" },
+      { "id": 31, "type": "manager" },
+      { "id": 32, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Unicorns",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 17, "type": "coordinator" },
+      { "id": 18, "type": "coordinator" },
+      { "id": 19, "type": "coordinator" },
+      { "id": 20, "type": "coordinator" },
+      { "id": 29, "type": "coordinator" },
+      { "id": 30, "type": "coordinator" },
+      { "id": 31, "type": "coordinator" },
+      { "id": 32, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Red Toreros",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 19, "type": "custom" },
+      { "id": 20, "type": "custom" },
+      { "id": 21, "type": "custom" },
+      { "id": 22, "type": "custom" },
+      { "id": 23, "type": "custom" },
+      { "id": 24, "type": "custom" },
+      { "id": 25, "type": "custom" },
+      { "id": 35, "type": "custom" },
+      { "id": 37, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Orpheus",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 33, "type": "manager" },
+      { "id": 34, "type": "manager" },
+      { "id": 35, "type": "manager" },
+      { "id": 36, "type": "manager" },
+      { "id": 37, "type": "manager" },
+      { "id": 38, "type": "manager" },
+      { "id": 39, "type": "manager" },
+      { "id": 40, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Heaven's Messengers",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 33, "type": "coordinator" },
+      { "id": 34, "type": "coordinator" },
+      { "id": 35, "type": "coordinator" },
+      { "id": 36, "type": "coordinator" },
+      { "id": 37, "type": "coordinator" },
+      { "id": 38, "type": "coordinator" },
+      { "id": 39, "type": "coordinator" },
+      { "id": 40, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Demon Army Z",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 26, "type": "custom" },
+      { "id": 27, "type": "custom" },
+      { "id": 28, "type": "custom" },
+      { "id": 29, "type": "custom" },
+      { "id": 30, "type": "custom" },
+      { "id": 31, "type": "custom" },
+      { "id": 32, "type": "custom" },
+      { "id": 33, "type": "custom" },
+      { "id": 34, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Dark Angels",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 1, "type": "manager" },
+      { "id": 2, "type": "manager" },
+      { "id": 3, "type": "manager" },
+      { "id": 4, "type": "manager" },
+      { "id": 5, "type": "manager" },
+      { "id": 6, "type": "manager" },
+      { "id": 7, "type": "manager" },
+      { "id": 8, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Kingdom",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 1, "type": "coordinator" },
+      { "id": 2, "type": "coordinator" },
+      { "id": 3, "type": "coordinator" },
+      { "id": 4, "type": "coordinator" },
+      { "id": 5, "type": "coordinator" },
+      { "id": 6, "type": "coordinator" },
+      { "id": 7, "type": "coordinator" },
+      { "id": 8, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Zoolan Team",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 1, "type": "custom" },
+      { "id": 2, "type": "custom" },
+      { "id": 3, "type": "custom" },
+      { "id": 4, "type": "custom" },
+      { "id": 5, "type": "custom" },
+      { "id": 6, "type": "custom" },
+      { "id": 7, "type": "custom" },
+      { "id": 8, "type": "custom" },
+      { "id": 36, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Little Giants",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 9, "type": "manager" },
+      { "id": 10, "type": "manager" },
+      { "id": 11, "type": "manager" },
+      { "id": 12, "type": "manager" },
+      { "id": 13, "type": "manager" },
+      { "id": 14, "type": "manager" },
+      { "id": 15, "type": "manager" },
+      { "id": 16, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Raimon Team B",
+    "game": "Inazuma 3",
+    "drops": [
+      { "id": 9, "type": "coordinator" },
+      { "id": 10, "type": "coordinator" },
+      { "id": 11, "type": "coordinator" },
+      { "id": 12, "type": "coordinator" },
+      { "id": 13, "type": "coordinator" },
+      { "id": 14, "type": "coordinator" },
+      { "id": 15, "type": "coordinator" },
+      { "id": 16, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Black Knights",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 21, "type": "manager" },
+      { "id": 22, "type": "manager" },
+      { "id": 23, "type": "manager" },
+      { "id": 24, "type": "manager" },
+      { "id": 25, "type": "manager" },
+      { "id": 26, "type": "manager" },
+      { "id": 27, "type": "manager" },
+      { "id": 28, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Inazuma KFT",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 21, "type": "coordinator" },
+      { "id": 22, "type": "coordinator" },
+      { "id": 23, "type": "coordinator" },
+      { "id": 24, "type": "coordinator" },
+      { "id": 25, "type": "coordinator" },
+      { "id": 26, "type": "coordinator" },
+      { "id": 27, "type": "coordinator" },
+      { "id": 28, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Prodigies",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 19, "type": "custom" },
+      { "id": 20, "type": "custom" },
+      { "id": 21, "type": "custom" },
+      { "id": 22, "type": "custom" },
+      { "id": 23, "type": "custom" },
+      { "id": 24, "type": "custom" },
+      { "id": 25, "type": "custom" },
+      { "id": 35, "type": "custom" },
+      { "id": 37, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Milky Way",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 17, "type": "manager" },
+      { "id": 18, "type": "manager" },
+      { "id": 19, "type": "manager" },
+      { "id": 20, "type": "manager" },
+      { "id": 29, "type": "manager" },
+      { "id": 30, "type": "manager" },
+      { "id": 31, "type": "manager" },
+      { "id": 32, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Almighty Faith",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 17, "type": "coordinator" },
+      { "id": 18, "type": "coordinator" },
+      { "id": 19, "type": "coordinator" },
+      { "id": 20, "type": "coordinator" },
+      { "id": 29, "type": "coordinator" },
+      { "id": 30, "type": "coordinator" },
+      { "id": 31, "type": "coordinator" },
+      { "id": 32, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Royal Academy",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 26, "type": "custom" },
+      { "id": 27, "type": "custom" },
+      { "id": 28, "type": "custom" },
+      { "id": 29, "type": "custom" },
+      { "id": 30, "type": "custom" },
+      { "id": 31, "type": "custom" },
+      { "id": 32, "type": "custom" },
+      { "id": 33, "type": "custom" },
+      { "id": 34, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Pirates' Bay",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 33, "type": "manager" },
+      { "id": 34, "type": "manager" },
+      { "id": 35, "type": "manager" },
+      { "id": 36, "type": "manager" },
+      { "id": 37, "type": "manager" },
+      { "id": 38, "type": "manager" },
+      { "id": 39, "type": "manager" },
+      { "id": 40, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Golden Age",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 33, "type": "coordinator" },
+      { "id": 34, "type": "coordinator" },
+      { "id": 35, "type": "coordinator" },
+      { "id": 36, "type": "coordinator" },
+      { "id": 37, "type": "coordinator" },
+      { "id": 38, "type": "coordinator" },
+      { "id": 39, "type": "coordinator" },
+      { "id": 40, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Moon Seas",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 1, "type": "custom" },
+      { "id": 2, "type": "custom" },
+      { "id": 3, "type": "custom" },
+      { "id": 4, "type": "custom" },
+      { "id": 5, "type": "custom" },
+      { "id": 6, "type": "custom" },
+      { "id": 7, "type": "custom" },
+      { "id": 8, "type": "custom" },
+      { "id": 36, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Alpine",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 1, "type": "manager" },
+      { "id": 2, "type": "manager" },
+      { "id": 3, "type": "manager" },
+      { "id": 4, "type": "manager" },
+      { "id": 5, "type": "manager" },
+      { "id": 6, "type": "manager" },
+      { "id": 7, "type": "manager" },
+      { "id": 8, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Kirkwood",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 1, "type": "coordinator" },
+      { "id": 2, "type": "coordinator" },
+      { "id": 3, "type": "coordinator" },
+      { "id": 4, "type": "coordinator" },
+      { "id": 5, "type": "coordinator" },
+      { "id": 6, "type": "coordinator" },
+      { "id": 7, "type": "coordinator" },
+      { "id": 8, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Eternal Light",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 9, "type": "custom" },
+      { "id": 10, "type": "custom" },
+      { "id": 11, "type": "custom" },
+      { "id": 12, "type": "custom" },
+      { "id": 13, "type": "custom" },
+      { "id": 14, "type": "custom" },
+      { "id": 15, "type": "custom" },
+      { "id": 16, "type": "custom" },
+      { "id": 17, "type": "custom" },
+      { "id": 18, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Ancient Shadow",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 9, "type": "manager" },
+      { "id": 10, "type": "manager" },
+      { "id": 11, "type": "manager" },
+      { "id": 12, "type": "manager" },
+      { "id": 13, "type": "manager" },
+      { "id": 14, "type": "manager" },
+      { "id": 15, "type": "manager" },
+      { "id": 16, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Zero",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 9, "type": "coordinator" },
+      { "id": 10, "type": "coordinator" },
+      { "id": 11, "type": "coordinator" },
+      { "id": 12, "type": "coordinator" },
+      { "id": 13, "type": "coordinator" },
+      { "id": 14, "type": "coordinator" },
+      { "id": 15, "type": "coordinator" },
+      { "id": 16, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Mirages",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 19, "type": "custom" },
+      { "id": 20, "type": "custom" },
+      { "id": 21, "type": "custom" },
+      { "id": 22, "type": "custom" },
+      { "id": 23, "type": "custom" },
+      { "id": 24, "type": "custom" },
+      { "id": 25, "type": "custom" },
+      { "id": 35, "type": "custom" },
+      { "id": 37, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Revolutionaries",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 21, "type": "manager" },
+      { "id": 22, "type": "manager" },
+      { "id": 23, "type": "manager" },
+      { "id": 24, "type": "manager" },
+      { "id": 25, "type": "manager" },
+      { "id": 26, "type": "manager" },
+      { "id": 27, "type": "manager" },
+      { "id": 28, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Universal",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 21, "type": "coordinator" },
+      { "id": 22, "type": "coordinator" },
+      { "id": 23, "type": "coordinator" },
+      { "id": 24, "type": "coordinator" },
+      { "id": 25, "type": "coordinator" },
+      { "id": 26, "type": "coordinator" },
+      { "id": 27, "type": "coordinator" },
+      { "id": 28, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Mount Olympus",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 26, "type": "custom" },
+      { "id": 27, "type": "custom" },
+      { "id": 28, "type": "custom" },
+      { "id": 29, "type": "custom" },
+      { "id": 30, "type": "custom" },
+      { "id": 31, "type": "custom" },
+      { "id": 32, "type": "custom" },
+      { "id": 33, "type": "custom" },
+      { "id": 34, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Dragon Alliance",
+    "game": "Inazuma GO",
+    "drops": [
+      { "id": 17, "type": "manager" },
+      { "id": 18, "type": "manager" },
+      { "id": 19, "type": "manager" },
+      { "id": 20, "type": "manager" },
+      { "id": 29, "type": "manager" },
+      { "id": 30, "type": "manager" },
+      { "id": 31, "type": "manager" },
+      { "id": 32, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Protocol Omega",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 33, "type": "manager" },
+      { "id": 34, "type": "manager" },
+      { "id": 35, "type": "manager" },
+      { "id": 36, "type": "manager" },
+      { "id": 37, "type": "manager" },
+      { "id": 38, "type": "manager" },
+      { "id": 39, "type": "manager" },
+      { "id": 40, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Japan Union",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 33, "type": "coordinator" },
+      { "id": 34, "type": "coordinator" },
+      { "id": 35, "type": "coordinator" },
+      { "id": 36, "type": "coordinator" },
+      { "id": 37, "type": "coordinator" },
+      { "id": 38, "type": "coordinator" },
+      { "id": 39, "type": "coordinator" },
+      { "id": 40, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Protocol Omega 2.0",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 9, "type": "custom" },
+      { "id": 10, "type": "custom" },
+      { "id": 11, "type": "custom" },
+      { "id": 12, "type": "custom" },
+      { "id": 13, "type": "custom" },
+      { "id": 14, "type": "custom" },
+      { "id": 15, "type": "custom" },
+      { "id": 16, "type": "custom" },
+      { "id": 17, "type": "custom" },
+      { "id": 18, "type": "custom" }
+    ]
+  },
+  {
+    "match": "White Deer Band",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 1, "type": "manager" },
+      { "id": 2, "type": "manager" },
+      { "id": 3, "type": "manager" },
+      { "id": 4, "type": "manager" },
+      { "id": 5, "type": "manager" },
+      { "id": 6, "type": "manager" },
+      { "id": 7, "type": "manager" },
+      { "id": 8, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Imagawa's Wrath",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 1, "type": "coordinator" },
+      { "id": 2, "type": "coordinator" },
+      { "id": 3, "type": "coordinator" },
+      { "id": 4, "type": "coordinator" },
+      { "id": 5, "type": "coordinator" },
+      { "id": 6, "type": "coordinator" },
+      { "id": 7, "type": "coordinator" },
+      { "id": 8, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Protocol Omega 3.0",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 19, "type": "custom" },
+      { "id": 20, "type": "custom" },
+      { "id": 21, "type": "custom" },
+      { "id": 22, "type": "custom" },
+      { "id": 23, "type": "custom" },
+      { "id": 24, "type": "custom" },
+      { "id": 25, "type": "custom" },
+      { "id": 35, "type": "custom" },
+      { "id": 37, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Terracotta Soldiers",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 9, "type": "manager" },
+      { "id": 10, "type": "manager" },
+      { "id": 11, "type": "manager" },
+      { "id": 12, "type": "manager" },
+      { "id": 13, "type": "manager" },
+      { "id": 14, "type": "manager" },
+      { "id": 15, "type": "manager" },
+      { "id": 16, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Zanark Domination",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 9, "type": "coordinator" },
+      { "id": 10, "type": "coordinator" },
+      { "id": 11, "type": "coordinator" },
+      { "id": 12, "type": "coordinator" },
+      { "id": 13, "type": "coordinator" },
+      { "id": 14, "type": "coordinator" },
+      { "id": 15, "type": "coordinator" },
+      { "id": 16, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Zanark Domination (Custom)",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 26, "type": "custom" },
+      { "id": 27, "type": "custom" },
+      { "id": 28, "type": "custom" },
+      { "id": 29, "type": "custom" },
+      { "id": 30, "type": "custom" },
+      { "id": 31, "type": "custom" },
+      { "id": 32, "type": "custom" },
+      { "id": 33, "type": "custom" },
+      { "id": 34, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Team Excellence (1)",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 21, "type": "manager" },
+      { "id": 22, "type": "manager" },
+      { "id": 23, "type": "manager" },
+      { "id": 24, "type": "manager" },
+      { "id": 25, "type": "manager" },
+      { "id": 26, "type": "manager" },
+      { "id": 27, "type": "manager" },
+      { "id": 28, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Round Table Knights",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 1, "type": "custom" },
+      { "id": 2, "type": "custom" },
+      { "id": 3, "type": "custom" },
+      { "id": 4, "type": "custom" },
+      { "id": 5, "type": "custom" },
+      { "id": 6, "type": "custom" },
+      { "id": 7, "type": "custom" },
+      { "id": 8, "type": "custom" },
+      { "id": 36, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Team Excellence (2)",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 17, "type": "manager" },
+      { "id": 18, "type": "manager" },
+      { "id": 19, "type": "manager" },
+      { "id": 20, "type": "manager" },
+      { "id": 29, "type": "manager" },
+      { "id": 30, "type": "manager" },
+      { "id": 31, "type": "manager" },
+      { "id": 32, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Zan",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 17, "type": "coordinator" },
+      { "id": 18, "type": "coordinator" },
+      { "id": 19, "type": "coordinator" },
+      { "id": 20, "type": "coordinator" },
+      { "id": 29, "type": "coordinator" },
+      { "id": 30, "type": "coordinator" },
+      { "id": 31, "type": "coordinator" },
+      { "id": 32, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Gihl",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 9, "type": "custom" },
+      { "id": 10, "type": "custom" },
+      { "id": 11, "type": "custom" },
+      { "id": 12, "type": "custom" },
+      { "id": 13, "type": "custom" },
+      { "id": 14, "type": "custom" },
+      { "id": 15, "type": "custom" },
+      { "id": 16, "type": "custom" },
+      { "id": 17, "type": "custom" },
+      { "id": 18, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Gahl",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 33, "type": "manager" },
+      { "id": 34, "type": "manager" },
+      { "id": 35, "type": "manager" },
+      { "id": 36, "type": "manager" },
+      { "id": 37, "type": "manager" },
+      { "id": 38, "type": "manager" },
+      { "id": 39, "type": "manager" },
+      { "id": 40, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Ragna",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 33, "type": "coordinator" },
+      { "id": 34, "type": "coordinator" },
+      { "id": 35, "type": "coordinator" },
+      { "id": 36, "type": "coordinator" },
+      { "id": 37, "type": "coordinator" },
+      { "id": 38, "type": "coordinator" },
+      { "id": 39, "type": "coordinator" },
+      { "id": 40, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Strangers of Zanark",
+    "game": "Inazuma GO 2",
+    "drops": [
+      { "id": 9, "type": "custom" },
+      { "id": 10, "type": "custom" },
+      { "id": 11, "type": "custom" },
+      { "id": 12, "type": "custom" },
+      { "id": 13, "type": "custom" },
+      { "id": 14, "type": "custom" },
+      { "id": 15, "type": "custom" },
+      { "id": 16, "type": "custom" },
+      { "id": 17, "type": "custom" },
+      { "id": 18, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Nagumohara Merchants",
+    "game": "Victory Road",
+    "drops": [
+      { "id": 21, "type": "manager" },
+      { "id": 22, "type": "manager" },
+      { "id": 23, "type": "manager" },
+      { "id": 24, "type": "manager" },
+      { "id": 25, "type": "manager" },
+      { "id": 26, "type": "manager" },
+      { "id": 27, "type": "manager" },
+      { "id": 28, "type": "manager" }
+    ]
+  },
+  {
+    "match": "FC Seagulls",
+    "game": "Victory Road",
+    "drops": [
+      { "id": 1, "type": "coordinator" },
+      { "id": 2, "type": "coordinator" },
+      { "id": 3, "type": "coordinator" },
+      { "id": 4, "type": "coordinator" },
+      { "id": 5, "type": "coordinator" },
+      { "id": 6, "type": "coordinator" },
+      { "id": 7, "type": "coordinator" },
+      { "id": 8, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Twinford",
+    "game": "Victory Road",
+    "drops": [
+      { "id": 1, "type": "custom" },
+      { "id": 2, "type": "custom" },
+      { "id": 3, "type": "custom" },
+      { "id": 4, "type": "custom" },
+      { "id": 5, "type": "custom" },
+      { "id": 6, "type": "custom" },
+      { "id": 7, "type": "custom" },
+      { "id": 8, "type": "custom" },
+      { "id": 36, "type": "custom" }
+    ]
+  },
+  {
+    "match": "West Manor",
+    "game": "Victory Road",
+    "drops": [
+      { "id": 17, "type": "manager" },
+      { "id": 18, "type": "manager" },
+      { "id": 19, "type": "manager" },
+      { "id": 20, "type": "manager" },
+      { "id": 29, "type": "manager" },
+      { "id": 30, "type": "manager" },
+      { "id": 31, "type": "manager" },
+      { "id": 32, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Orchid",
+    "game": "Victory Road",
+    "drops": [
+      { "id": 1, "type": "manager" },
+      { "id": 2, "type": "manager" },
+      { "id": 3, "type": "manager" },
+      { "id": 4, "type": "manager" },
+      { "id": 5, "type": "manager" },
+      { "id": 6, "type": "manager" },
+      { "id": 7, "type": "manager" },
+      { "id": 8, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Northbright",
+    "game": "Victory Road",
+    "drops": [
+      { "id": 9, "type": "custom" },
+      { "id": 10, "type": "custom" },
+      { "id": 11, "type": "custom" },
+      { "id": 12, "type": "custom" },
+      { "id": 13, "type": "custom" },
+      { "id": 14, "type": "custom" },
+      { "id": 15, "type": "custom" },
+      { "id": 16, "type": "custom" },
+      { "id": 17, "type": "custom" },
+      { "id": 18, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Crosswind-Fauxshore",
+    "game": "Victory Road",
+    "drops": [
+      { "id": 21, "type": "coordinator" },
+      { "id": 22, "type": "coordinator" },
+      { "id": 23, "type": "coordinator" },
+      { "id": 24, "type": "coordinator" },
+      { "id": 25, "type": "coordinator" },
+      { "id": 26, "type": "coordinator" },
+      { "id": 27, "type": "coordinator" },
+      { "id": 28, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Eastwind",
+    "game": "Victory Road",
+    "drops": [
+      { "id": 9, "type": "coordinator" },
+      { "id": 10, "type": "coordinator" },
+      { "id": 11, "type": "coordinator" },
+      { "id": 12, "type": "coordinator" },
+      { "id": 13, "type": "coordinator" },
+      { "id": 14, "type": "coordinator" },
+      { "id": 15, "type": "coordinator" },
+      { "id": 16, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Dark Alley Shooters",
+    "game": "Victory Road",
+    "drops": [
+      { "id": 9, "type": "manager" },
+      { "id": 10, "type": "manager" },
+      { "id": 11, "type": "manager" },
+      { "id": 12, "type": "manager" },
+      { "id": 13, "type": "manager" },
+      { "id": 14, "type": "manager" },
+      { "id": 15, "type": "manager" },
+      { "id": 16, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Stormridge",
+    "game": "Victory Road",
+    "drops": [
+      { "id": 17, "type": "coordinator" },
+      { "id": 18, "type": "coordinator" },
+      { "id": 19, "type": "coordinator" },
+      { "id": 20, "type": "coordinator" },
+      { "id": 29, "type": "coordinator" },
+      { "id": 30, "type": "coordinator" },
+      { "id": 31, "type": "coordinator" },
+      { "id": 32, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "AI Academy",
+    "game": "Victory Road",
+    "drops": [
+      { "id": 19, "type": "custom" },
+      { "id": 20, "type": "custom" },
+      { "id": 21, "type": "custom" },
+      { "id": 22, "type": "custom" },
+      { "id": 23, "type": "custom" },
+      { "id": 24, "type": "custom" },
+      { "id": 25, "type": "custom" },
+      { "id": 35, "type": "custom" },
+      { "id": 37, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Visionary Nobles",
+    "game": "Victory Road",
+    "drops": [
+      { "id": 33, "type": "coordinator" },
+      { "id": 34, "type": "coordinator" },
+      { "id": 35, "type": "coordinator" },
+      { "id": 36, "type": "coordinator" },
+      { "id": 37, "type": "coordinator" },
+      { "id": 38, "type": "coordinator" },
+      { "id": 39, "type": "coordinator" },
+      { "id": 40, "type": "coordinator" }
+    ]
+  },
+  {
+    "match": "Lawcrest",
+    "game": "Victory Road",
+    "drops": [
+      { "id": 33, "type": "manager" },
+      { "id": 34, "type": "manager" },
+      { "id": 35, "type": "manager" },
+      { "id": 36, "type": "manager" },
+      { "id": 37, "type": "manager" },
+      { "id": 38, "type": "manager" },
+      { "id": 39, "type": "manager" },
+      { "id": 40, "type": "manager" }
+    ]
+  },
+  {
+    "match": "Royal Academy",
+    "game": "Victory Road",
+    "drops": [
+      { "id": 26, "type": "custom" },
+      { "id": 27, "type": "custom" },
+      { "id": 28, "type": "custom" },
+      { "id": 29, "type": "custom" },
+      { "id": 30, "type": "custom" },
+      { "id": 31, "type": "custom" },
+      { "id": 32, "type": "custom" },
+      { "id": 33, "type": "custom" },
+      { "id": 34, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Alpin",
+    "game": "Victory Road",
+    "drops": [
+      { "id": 1, "type": "custom" },
+      { "id": 2, "type": "custom" },
+      { "id": 3, "type": "custom" },
+      { "id": 4, "type": "custom" },
+      { "id": 5, "type": "custom" },
+      { "id": 6, "type": "custom" },
+      { "id": 7, "type": "custom" },
+      { "id": 8, "type": "custom" },
+      { "id": 36, "type": "custom" }
+    ]
+  },
+  {
+    "match": "Raimon",
+    "game": "Victory Road",
+    "drops": [
+      { "id": 1, "type": "manager" },
+      { "id": 2, "type": "manager" },
+      { "id": 3, "type": "manager" },
+      { "id": 4, "type": "manager" },
+      { "id": 5, "type": "manager" },
+      { "id": 6, "type": "manager" },
+      { "id": 7, "type": "manager" },
+      { "id": 8, "type": "manager" }
+    ]
+  }
+]

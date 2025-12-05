@@ -1,3 +1,9 @@
+# Version 1.5.0 - 2025-12-05
+- Added Match Drops Page.
+  - You can now filter passive drops by game, build type, passive ID, and drop type.
+- Updated Players Page to show each player's known affinity type.
+- Fixed some incorrect passive numbers and descriptions. This may cause some passives to display incorrectly for existing teams.
+
 # Version 1.4.1 - 2025-12-02
 - Improved Team Builder Layout for Mobile screens.
 - Fixed some contrast issues in Light Theme for select buttons.

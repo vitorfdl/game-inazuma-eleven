@@ -27,9 +27,11 @@ export type RawPlayerRecord = {
 	Role: string;
 	HowToObtainMarkdown?: string;
 	InazugleLink?: string;
+	Affinity?: string;
 };
 
 const PLAYER_IMAGE_PROXY_ENDPOINT = "https://images.weserv.nl/?url=";
+type PassiveBuildTypeKey = "roughplay" | "bond" | "justice" | "tension" | "counter" | "breach" | "unknown";
 
 export type PlayerRecord = {
 	id: number;
@@ -48,6 +50,7 @@ export type PlayerRecord = {
 	inazugleLink: string;
 	stats: BaseStats;
 	power: PowerStats;
+	affinity: PassiveBuildTypeKey;
 };
 
 type PlayerBaseStatKey = Exclude<keyof BaseStats, "total">;
@@ -84,6 +87,7 @@ export const playersDataset: PlayerRecord[] = rawPlayers.map((player) => {
 		ageGroup: sanitizeAttribute(player["Age group"]),
 		year: sanitizeAttribute(player.Year),
 		gender: sanitizeAttribute(player.Gender),
+		affinity: normalizeBuildType(player.Affinity),
 		howToObtainMarkdown: typeof player.HowToObtainMarkdown === "string" ? player.HowToObtainMarkdown.trim() : "",
 		inazugleLink: typeof player.InazugleLink === "string" ? player.InazugleLink.trim() : "",
 		stats,
@@ -138,6 +142,13 @@ export function getPlayersDataset(preference: PlayerNamePreference = "dub"): Pla
 
 export function getPlayersById(preference: PlayerNamePreference = "dub"): Map<number, PlayerRecord> {
 	return playersByIdByPreference[preference] ?? playersById;
+}
+
+function normalizeBuildType(value?: string | null): PassiveBuildTypeKey {
+	if (!value || typeof value !== "string" || value === "unknown") {
+		return "unknown";
+	}
+	return value.toLowerCase().trim() as PassiveBuildTypeKey;
 }
 
 export function mapToElementType(element: string): ElementType {

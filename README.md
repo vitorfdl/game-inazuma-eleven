@@ -70,6 +70,7 @@ Players are loaded from `src/assets/data/players.json` at build time and memoize
 - **Styling** – rely on existing shadcn components and Tailwind utilities. Favor small gaps/paddings (`gap-2`, `p-2`) per the project brief.
 - **Accessibility** – interactive pills, toggles, and buttons already ship with focus/aria styles. Mirror those patterns for new controls.
 - **Performance** – large tables use lazy rendering + `IntersectionObserver`. When adding new bulk lists, follow the same pattern.
+- **Data sync** – after refreshing `src/data-scrapper/dumps/player-affinity.json`, run `npx tsx src/data-scrapper/add-affinity-to-players.ts` to propagate the `Affinity` field into `src/assets/data/players.json`.
 
 ---
 

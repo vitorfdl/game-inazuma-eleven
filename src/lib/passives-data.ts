@@ -1,28 +1,32 @@
-import passivesJson from "@/assets/data/passives.json?raw";
+import coordinatorJson from "@/assets/data/passives/coordinator.json?raw";
+import customJson from "@/assets/data/passives/custom.json?raw";
+import managerJson from "@/assets/data/passives/manager.json?raw";
+import playersJson from "@/assets/data/passives/player.json?raw";
+
 import { sanitizeAttribute } from "@/lib/data-helpers";
 
 export type PassiveType = "player" | "manager" | "coordinator" | "custom";
 
 export type PassiveStat =
-	| "shotAT"          // Shot Attack
-	| "focus"           // Focus AT/DF combined value
-	| "scramble"        // Scramble AT/DF combined value
-	| "wallDF"          // Wall Defense
-	| "AT"              // Generic Attack modifier (all AT-related)
-	| "DF"              // Generic Defense modifier (all DF-related)
-	| "KP"              // Keeper Power (GK HP)
-	| "roughAttack"     // Rough Attack AT/DF (Power Charge / Block)
-	| "bondGain"        // Kizuna/Bond Power gained
-	| "bondLoss"        // Kizuna/Bond Power lost
-	| "tacticCooldown"  // Commander special tactics cooldown
-	| "breachRate"      // Breach trigger rate
+	| "shotAT" // Shot Attack
+	| "focus" // Focus AT/DF combined value
+	| "scramble" // Scramble AT/DF combined value
+	| "wallDF" // Wall Defense
+	| "AT" // Generic Attack modifier (all AT-related)
+	| "DF" // Generic Defense modifier (all DF-related)
+	| "KP" // Keeper Power (GK HP)
+	| "roughAttack" // Rough Attack AT/DF (Power Charge / Block)
+	| "bondGain" // Kizuna/Bond Power gained
+	| "bondLoss" // Kizuna/Bond Power lost
+	| "tacticCooldown" // Commander special tactics cooldown
+	| "breachRate" // Breach trigger rate
 	| "breachTensionRequirement" // Required Tension to trigger Breach
-	| "wallPierce"      // Wall penetration / wall pierce rate
-	| "directShotAT"    // Direct shot Attack (non-combo, non-counter, etc.)
-	| "foulRate"        // Foul rate
-	| "commonDropRate"  // Common item drop rate
-	| "rareDropRate"    // Rare item drop rate
-	| "all"            // Generic “all AT/DF” team buff
+	| "wallPierce" // Wall penetration / wall pierce rate
+	| "directShotAT" // Direct shot Attack (non-combo, non-counter, etc.)
+	| "foulRate" // Foul rate
+	| "commonDropRate" // Common item drop rate
+	| "rareDropRate" // Rare item drop rate
+	| "all" // Generic “all AT/DF” team buff
 	| string;
 
 export type PassiveEffect = {
@@ -45,8 +49,7 @@ export type PassiveEffect = {
 };
 
 export type PassiveCondition = {
-	type:
-		// Score / foul state
+	type: // Score / foul state
 		| "scoreNotLeading"
 		| "noFoulCommittedYet"
 
@@ -88,9 +91,9 @@ export type PassiveCondition = {
 		| "onOpponentFoul"
 
 		// Substitutions
-		| "afterSubstitution"
+		| "afterSubstitution";
 	value?: number | "string";
-}
+};
 
 type RawPassiveRecord = {
 	number: number;
@@ -113,7 +116,12 @@ export type PassiveRecord = {
 	effects: PassiveEffect[];
 };
 
-const rawRecords = JSON.parse(passivesJson) as RawPassiveRecord[];
+const playersRecords = JSON.parse(playersJson) as RawPassiveRecord[];
+const rawManagerRecords = JSON.parse(managerJson) as RawPassiveRecord[];
+const rawCoordinatorRecords = JSON.parse(coordinatorJson) as RawPassiveRecord[];
+const rawCustomRecords = JSON.parse(customJson) as RawPassiveRecord[];
+
+const rawRecords = [...playersRecords, ...rawManagerRecords, ...rawCoordinatorRecords, ...rawCustomRecords];
 
 const parsedPassives: PassiveRecord[] = rawRecords
 	.filter((passive) => passive.description !== null)
@@ -138,36 +146,23 @@ export const passivesDataset: PassiveRecord[] = parsedPassives.sort((a, b) => {
 	return a.description.localeCompare(b.description);
 });
 
-export const passivesById = new Map<string, PassiveRecord>(
-	passivesDataset.map((passive) => [passive.id, passive]),
-);
+export const passivesById = new Map<string, PassiveRecord>(passivesDataset.map((passive) => [passive.id, passive]));
 
 export const passivesByType: Record<PassiveType, PassiveRecord[]> = {
 	player: passivesDataset.filter((passive) => passive.type === "player"),
 	manager: passivesDataset.filter((passive) => passive.type === "manager"),
-	coordinator: passivesDataset.filter(
-		(passive) => passive.type === "coordinator",
-	),
+	coordinator: passivesDataset.filter((passive) => passive.type === "coordinator"),
 	custom: passivesDataset.filter((passive) => passive.type === "custom"),
 };
 
-export const playerGeneralPassives = passivesByType.player.filter(
-	(passive) => passive.buildType === null,
-);
+export const playerGeneralPassives = passivesByType.player.filter((passive) => passive.buildType === null);
 
-export const playerBuildPassives = passivesByType.player.filter(
-	(passive) => passive.buildType !== null,
-);
+export const playerBuildPassives = passivesByType.player.filter((passive) => passive.buildType !== null);
 
 export const customPassives = passivesByType.custom;
 
 function isPassiveType(value: string): value is PassiveType {
-	return (
-		value === "player" ||
-		value === "manager" ||
-		value === "coordinator" ||
-		value === "custom"
-	);
+	return value === "player" || value === "manager" || value === "coordinator" || value === "custom";
 }
 
 function normalizeValue(value: unknown): number | null {

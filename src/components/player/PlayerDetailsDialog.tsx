@@ -1,6 +1,7 @@
 import { ExternalLink, Info } from "lucide-react";
 import type { MouseEvent } from "react";
 import ReactMarkdown, { type Components } from "react-markdown";
+import { getPassiveBuildLabel, PassiveBadge } from "@/components/passives/PassiveBadge";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -43,6 +44,7 @@ export function PlayerDetailsDialog({ player, open, onOpenChange, statMetrics, p
 							<Badge variant="outline" className="px-2 py-0.5">
 								{player.role}
 							</Badge>
+							<PassiveBadge label={getPassiveBuildLabel(player.affinity)} buildType={player.affinity} />
 						</div>
 
 						<div className="text-center text-xs text-muted-foreground">Game: {player.game}</div>
