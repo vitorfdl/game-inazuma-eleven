@@ -50,9 +50,9 @@ const FORMATION_DATA: FormationDefinition[] = [
 		summary: "Crowded midfield for possession with lone striker.",
 		slots: [
 			slot("player-1", "FW", 3, 1), // fw-center
-			slot("player-2", "MF", 1, 2), // mf-left
-			slot("player-3", "MF", 3, 2, { top: -4 }), // mf-center
-			slot("player-4", "MF", 5, 2), // mf-right
+			slot("player-2", "MF", 1, 2, { top: 4 }), // mf-left
+			slot("player-3", "MF", 3, 2), // mf-center
+			slot("player-4", "MF", 5, 2, { top: 4 }), // mf-right
 			slot("player-5", "MF", 2, 3), // mf-half-left
 			slot("player-6", "MF", 4, 3), // mf-half-right
 			slot("player-7", "DF", 1, 3, { top: 7 }), // df-left
@@ -124,7 +124,7 @@ const FORMATION_DATA: FormationDefinition[] = [
 			slot("player-1", "FW", 1, 1, { top: 6 }), // fw-left
 			slot("player-2", "FW", 3, 1), // fw-center
 			slot("player-3", "FW", 5, 1, { top: 6 }), // fw-right
-			slot("player-4", "MF", 3, 2, { top: -5 }), // mf-advanced
+			slot("player-4", "MF", 3, 2), // mf-advanced
 			slot("player-5", "MF", 2, 3), // mf-left
 			slot("player-6", "MF", 4, 3), // mf-right
 			slot("player-7", "DF", 1, 4), // df-wide-left
